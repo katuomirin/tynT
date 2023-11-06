@@ -200,7 +200,7 @@ nav .inner ul li a:hover {
 </head>
 <body>
 <div class="Header">
-<a href="home.php" target="_blank">
+<a href="home.php" target="_self">
   <img src="./image/nin.jpg" alt="ホーム" width="75"  border="0">
 </a>
     <!-- 検索ボックスを追加 -->
@@ -211,7 +211,7 @@ nav .inner ul li a:hover {
 </form>
 
     <!-- ログイン画像に枠線を追加 -->
-<a href="login.php" target="_self">
+<a href="login/login.php" target="_self">
   <img src="./image/login.png" alt="ログイン" style="height: 70px; width:75px;" border="0">
 </a>
 
