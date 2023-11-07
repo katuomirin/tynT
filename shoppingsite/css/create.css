@@ -1,0 +1,37 @@
+
+.flow-chart {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.flow-chart ul {
+    list-style: none;
+    padding: 0;
+}
+
+.flow-chart ul li {
+    display: inline-block;
+    margin: 0 10px;
+    position: relative;
+}
+
+.flow-chart ul li:before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: #007bff;
+    border-radius: 50%;
+    position: absolute;
+    left: -12px;
+    top: 3px;
+}
+
+.flow-chart ul li:first-child:before {
+    background: transparent;
+}
+
+.flow-chart ul li a {
+    text-decoration: none;
+    color: #333;
+}
