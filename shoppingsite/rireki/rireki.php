@@ -1,4 +1,4 @@
-<?php require '../headerhome.php'; ?>
+<?php require '../header.php'; ?>
 
 
 

@@ -1,3 +1,3 @@
 <?php require 'header.php'; ?>
-<?php require 'rireki.php';?>
+<?php require 'cart.php';?>
 <?php require 'footer.php'; ?>
