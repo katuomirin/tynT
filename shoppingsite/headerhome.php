@@ -196,6 +196,39 @@ nav .inner ul li a:hover {
   z-index: 2;
   cursor: pointer;
 }
+/* CSS for the dropdown menu */
+.dropdown {
+  position: relative;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ffffff;
+  border: 1px solid #333;
+  z-index: 1;
+}
+
+.dropdown-menu li {
+  border: none;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-menu a:hover {
+  background: #e4e4e4;
+}
 
 </style>
 </head>
@@ -237,9 +270,18 @@ nav .inner ul li a:hover {
     <div class="inner">
       <ul>
         <li><a></a></li>
-        <li><a href="#">ホーム</a></li>
-        <li><a href="#">商品検索</a></li>
-        <li><a href="#">オリジナルTシャツ</a></li>
+        <li><a href="home.php">ホーム</a></li>
+        <li class="dropdown">
+          <a href="#">カテゴリ</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Tシャツ</a></li>
+            <li><a href="#">ポロシャツ</a></li>
+            <li><a href="#">スウェット</a></li>
+            <li><a href="#">パーカー</a></li>
+            <li><a href="#">タンクトップ</a></li>
+          </ul>
+        </li>
+        <li><a href="create.php">オリジナルTシャツ</a></li>
         <li><a href="#">お問い合わせ</a></li>
         <li><a href="#">ほーむ</a></li>
         <li><a href="#"></a></li>
