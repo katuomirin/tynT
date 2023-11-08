@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>CSS入門-ヘッダーとフッターの固定表示</title>
+<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/header.css">
 <link rel="stylesheet" href="css/search.css">
 <link rel="stylesheet" href="css/hum.css">
@@ -211,18 +212,18 @@ nav .inner ul li a:hover {
 </form>
 
     <!-- ログイン画像に枠線を追加 -->
-<a href="login.php" target="_blank">
-  <img src="./image/login.png" alt="ログイン" style="height: 70px; width:75px;" border="0">
+<a href="login.php" target="_self">
+  <img src="image/login.png" alt="ログイン" style="height: 70px; width:75px;" border="0">
 </a>
 
 <!-- お気に入り画像に枠線を追加 -->
-<a href="favo.php" target="_blank">
-  <img src="./image/favo.png" alt="お気に入り" style="height: 70px;width:75px;"border="0" >
+<a href="favorite.php" target="_self">
+  <img src="image/favo.png" alt="お気に入り" style="height: 70px;width:75px;"border="0" >
 </a>
 
 <!-- カート画像に枠線を追加 -->
-<a href="cart.php" target="_blank">
-  <img src="./image/cart.png" alt="カート" style="height: 70px;width:75px;" border="0" >
+<a href="cart.php" target="_self">
+  <img src="image/cart.png" alt="カート" style="height: 70px;width:75px;" border="0" >
 </a>
 
 </div>
