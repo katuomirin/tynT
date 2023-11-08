@@ -212,17 +212,17 @@ nav .inner ul li a:hover {
 </form>
 
     <!-- ログイン画像に枠線を追加 -->
-<a href="login/login.php" target="_self">
+<a href="login.php" target="_self">
   <img src="image/login.png" alt="ログイン" style="height: 70px; width:75px;" border="0">
 </a>
 
 <!-- お気に入り画像に枠線を追加 -->
-<a href="favorite/favorite.php" target="_self">
+<a href="favorite.php" target="_self">
   <img src="image/favo.png" alt="お気に入り" style="height: 70px;width:75px;"border="0" >
 </a>
 
 <!-- カート画像に枠線を追加 -->
-<a href="cart/cart.php" target="_self">
+<a href="cart.php" target="_self">
   <img src="image/cart.png" alt="カート" style="height: 70px;width:75px;" border="0" >
 </a>
 
