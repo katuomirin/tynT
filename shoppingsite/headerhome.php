@@ -200,7 +200,7 @@ nav .inner ul li a:hover {
 </head>
 <body>
 <div class="Header">
-<a href="home.php" target="_blank">
+<a href="home.php" target="_self">
   <img src="./image/nin.jpg" alt="ホーム" width="50" height="50" border="0">
 </a>
     <!-- 検索ボックスを追加 -->

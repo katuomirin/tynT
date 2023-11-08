@@ -211,7 +211,7 @@ nav .inner ul li a:hover {
 </form>
 
     <!-- ログイン画像に枠線を追加 -->
-<a href="login/login.php" target="_self">
+<a href="login.php" target="_self">
   <img src="./image/login.png" alt="ログイン" style="height: 70px; width:75px;" border="0">
 </a>
 
