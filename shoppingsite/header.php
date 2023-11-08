@@ -7,9 +7,9 @@
 <link rel="stylesheet" href="css/search.css">
 <link rel="stylesheet" href="css/hum.css">
 <link rel="stylesheet" href="css/news.css">
+<link rel="stylesheet" href="css/create.css">
 <style>
 /* 既存のスタイルは省略 */
-
 /* 以下は現在のスタイルに追加 */
 body {
   font-weight: 400;
@@ -216,12 +216,12 @@ nav .inner ul li a:hover {
 </a>
 
 <!-- お気に入り画像に枠線を追加 -->
-<a href="favorite/favorite.php" target="_self">
+<a href="favorite.php" target="_self">
   <img src="./image/favo.png" alt="お気に入り" style="height: 70px;width:75px;"border="0" >
 </a>
 
 <!-- カート画像に枠線を追加 -->
-<a href="cart/cart.php" target="_self">
+<a href="cart.php" target="_self">
   <img src="./image/cart.png" alt="カート" style="height: 70px;width:75px;" border="0" >
 </a>
 
