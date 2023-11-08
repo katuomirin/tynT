@@ -2,6 +2,10 @@
 
 .heading-027 {
     display: flex;
+<<<<<<< HEAD
+    justify-content: center;
+=======
+>>>>>>> 35cc4b45b06058447d0e503523f8d39918f0464b
     align-items: center;
     gap: 0 7px;
     color: #333333;
@@ -29,6 +33,11 @@
 .textbox-001 {
     width: 65%;
     padding: 8px 10px;
+<<<<<<< HEAD
+    justify-content: center;
+    align-items: center;
+=======
+>>>>>>> 35cc4b45b06058447d0e503523f8d39918f0464b
     border: 1px solid #969da3;
     border-radius: 3px;
     font-size: 1em;
