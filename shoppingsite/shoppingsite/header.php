@@ -7,9 +7,9 @@
 <link rel="stylesheet" href="css/search.css">
 <link rel="stylesheet" href="css/hum.css">
 <link rel="stylesheet" href="css/news.css">
+<link rel="stylesheet" href="css/create.css">
 <style>
 /* 既存のスタイルは省略 */
-
 /* 以下は現在のスタイルに追加 */
 body {
   font-weight: 400;

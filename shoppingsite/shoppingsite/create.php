@@ -1,20 +1,7 @@
-<?php require '../header.php'; ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Tシャツ作成手順</title>
-    <link rel="stylesheet" href="../css/create.css">
-</head>
-<body>
-    <header>
+<?php require 'header.php'; ?>
+
         <h1>オリジナルTシャツ作成手順</h1>
-        <nav>
-            <ul>
-                <li><a href="create_design.php">デザインを作成</a></li>
-                <li><a href="view_cart.php">カートを見る</a></li>
-            </ul>
-        </nav>
-    </header>
+        
     <main>
     <div class="flow_design09">
     <ul class="flow09">
@@ -73,9 +60,7 @@
     </ul>
   </div>
     </main>
-    <footer>
-        &copy; <?php echo date("Y"); ?> オリジナルTシャツ作成サイト
-    </footer>
+   
 </body>
 </html>
-<?php require '../footer.php'; ?>
+<?php require 'footer.php'; ?>
