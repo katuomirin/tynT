@@ -9,7 +9,8 @@
     display: flex;
     justify-content: flex-end; /* アイコンを右に寄せる */
     align-items: center; /* アイコンを垂直方向に中央揃え */
-    padding: 10px;
+
+    z-index: 1;
   }
   
   .Header a {
