@@ -1,0 +1,183 @@
+.Header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px; /* ヘッダーの高さを調整 */
+    background-color: #31a9ee;
+    color: #ffffff; /* フォントの色を白に設定 */
+    display: flex;
+    justify-content: flex-end; /* アイコンを右に寄せる */
+    align-items: center; /* アイコンを垂直方向に中央揃え */
+
+    z-index: 1;
+  }
+  
+  .Header a {
+    display: inline-block;
+    margin-right: 20px; /* アイコン間の間隔を調整 */
+  }
+  
+  .Header img {
+    vertical-align: middle; /* アイコンを垂直方向に中央揃え */
+  }
+  
+  .Contents {
+    width: 100%;
+    overflow: auto;
+    padding-top: 100px; /* ヘッダーの高さ分の上の余白を設定 */
+  }
+  
+  /* ヘッダー内のリンクのスタイルを設定 */
+  .Header a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+  }
+  
+  /* マウスホバー時のスタイル */
+  .Header a:hover {
+    color: #31a9ee; /* ホバー時の色をヘッダーの背景色に合わせる */
+    background-color: #ffffff; /* ホバー時の背景色を白にする */
+    border-radius: 5px; /* ホバー時に角を丸くする */
+    padding: 5px 10px; /* ホバー時の余白を設定 */
+  }
+  .SearchBox button {
+    background-color: #31a9ee; /* ボタンの背景色を指定 */
+    border: none;
+    border-radius: 5px;
+    color: #ffffff; /* ボタンのテキスト色を指定 */
+    padding: 5px 10px; /* ボタンの内側余白を指定 */
+    margin-left: 10px; /* ボタンの左側の余白を設定 */
+    cursor: pointer; /* カーソルをポインターに変更 */
+    display: flex;
+    align-items: center; /* 中央揃え */
+  }
+  
+  .SearchBox button img {
+    margin: 0; /* 余白をリセット */
+  }
+  /* 画面サイズが1279px以下の時はPC用メニューは非表示 */
+@media screen and (max-width: 1279px) {
+  .pc-menu {
+    display: none;
+  }
+}
+/* 画面サイズが1280px以上の時はスマホ用メニューは非表示 */
+@media screen and (min-width: 1280px) {
+  .sp-menu {
+    display: none;
+  }
+}
+
+/* 以下は前回までの内容 */
+header {
+  display: flex;
+  background: #eeeeee;
+  height: 60px;
+}
+.main-menu {
+  margin: 0 auto;
+  display: flex;
+  width: 1280px;
+}
+.logo {
+  text-align: center;
+  padding: 18px;
+  font-size: 24px;
+  width: 200px;
+  background: #dddddd;
+}
+.pc-menu {
+  width: 100%;
+}
+.pc-menu > ul {
+  display: flex;
+  list-style: none;
+}
+.pc-menu > ul > li {
+  text-align: center;
+  font-size: 16px;
+  width: 25%;
+}
+.pc-menu > ul > li > a {
+  display: block;
+  text-decoration: none;
+  color: #000000;
+  line-height: 60px;
+}
+.pc-menu > ul > li > a:hover {
+  background: #cccccc;
+}
+.sp-menu__box {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  height: 60px;
+  width: 60px;
+  justify-content: center;
+  align-items: center;
+  z-index: 90;
+  background: #3584bb;
+}
+.sp-menu__box span,
+.sp-menu__box span:before,
+.sp-menu__box span:after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 25px;
+  border-radius: 3px;
+  background: #ffffff;
+  position: absolute;
+}
+.sp-menu__box span:before {
+  bottom: 8px;
+}
+.sp-menu__box span:after {
+  top: 8px;
+}
+#sp-menu__check {
+  display: none;
+}
+#sp-menu__check:checked ~ .sp-menu__box span {
+  background: rgba(255, 255, 255, 0);
+}
+#sp-menu__check:checked ~ .sp-menu__box span::before {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+#sp-menu__check:checked ~ .sp-menu__box span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+#sp-menu__check:checked ~ .sp-menu__content {
+  left: 0;
+}
+.sp-menu__content {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 100%;
+  z-index: 80;
+  background-color: #3584bb;
+  transition: all 0.5s;
+}
+.sp-menu__list {
+  padding: 70px 10px 0;
+}
+.sp-menu__item {
+  border-bottom: solid 1px #ffffff;
+  list-style: none;
+}
+.sp-menu__link {
+  display: block;
+  width: 100%;
+  font-size: 15px;
+  box-sizing: border-box;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 9px 15px 10px 0;
+}
