@@ -1,0 +1,21 @@
+
+body {
+    font-family: Arial, sans-serif; /* フォントの指定：最初にArialが利用され、利用できない場合はサンセリフフォントが利用される */
+    position: absolute; /* 要素の位置を絶対的に指定 */    min-height: 100vh; /* 最小の高さを画面の高さ（ビューポートの高さ）に設定 */
+  }
+.shohin-item {
+    float: left; /* 左側に配置 */
+    width: 50%; /* 左半分の幅 */
+  }
+  
+  .shohin-gaiyo {
+    float: right; /* 右側に配置 */
+    width: 50%; /* 右半分の幅 */
+  }
+  .footer {
+    position: absolute; /* 要素の位置を絶対的に指定 */
+    bottom: 0; /* 要素を下端に配置 */
+    width: 100%; /* 要素の幅を100%に指定 */
+    height: 50px; /* 要素の高さを50pxに指定 */
+    background-color: #f9f9f9; /* 背景色を薄灰色に設定 */
+  }
