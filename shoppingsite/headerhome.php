@@ -272,7 +272,7 @@ nav .inner ul li a:hover {
         <li><a></a></li>
         <li><a href="home.php">ホーム</a></li>
         <li class="dropdown">
-          <a href="#">カテゴリ</a>
+          <a href="shohins.php">カテゴリ</a>
           <ul class="dropdown-menu">
             <li><a href="#">Tシャツ</a></li>
             <li><a href="#">ポロシャツ</a></li>
