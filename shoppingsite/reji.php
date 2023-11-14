@@ -1,4 +1,4 @@
-<?php require 'headerhome.php'; ?>
+<?php require 'header.php'; ?>
 <style>
 
 .text {
@@ -190,56 +190,56 @@
 <center>
 <body>
     <form action="reji2.php" method="post">
+        <div class="input-area">
          <h3>名前(漢字)<h3>
          <input type="text" class="text" name="name" placeholder="名前"/>
          <h3>名前(カナ)<h3>
          <input type="text" class="text" name="kana" placeholder="ナマエ"/>
-
+        </div>
+        <div class="input-area">
          <h3>お届け先住所<h3>
          <input type="text" class="text" name="yuubin" placeholder="郵便番号"/>
          <input type="button" value="住所検索"><br>
          <input type="text" class="text" name="zyuusho1" placeholder="住所1"/><br>
          <input type="text" class="text" name="zyuusho2" placeholder="住所2"/><br>
          <input type="text" class="text" name="manshon" placeholder="マンション名"/>
+        </div>
 
+        <div class="input-area">
          <h3>電話番号(ハイフンなし)<h3>
          <input type="text" class="text"  name="call" placeholder="11122223333"/>
-
+        </div>
+        <div class="input-area">
          <h3>メールアドレス<h3>
          <input type="text" class="text" name="mail"/>
+        </div>
 
+        <div class="input-area">
          <h3>オリジナルTシャツのデザインの送り方<h3>
          <label class="okuri">
-            <select>
+            <select name="okuri">
             <option value="郵送">郵送</option>
             <option value="メール">メール</option>
             <option value="LINE">LINE</option>
             </select>
           </label>
-
-         <h3>支払い方法<h3>
+        </div>
+        <div class="input-area">
+        <h3>支払い方法<h3>
         <label class="harai">
-            <select>
+            <select name="harai">
             <option value="振り込み">振り込み</option>
             <option value="クレジット">クレジット</option>
             </select>
         </label>
-    
-        <h3>会員登録するかどうか</h3>
-        <fieldset class="touroku">
-        <label>
-            <input type="radio" name="touroku" checked/>
-                会員登録する
-        </label>
-        <label>
-            <input type="radio" name="toroku"/>
-                会員登録しない
-            </label>
-        <label>
-        </fieldset>
+        </div>
 
-
-         <button class="kaku">確定</button>
+        <div class="input-area">
+            <h3>会員登録するかどうか</h3>
+                <label><input type="radio" name="touroku" value="会員登録する"/> 会員登録する</label>
+                <label><input type="radio" name="touroku" value="会員登録しない" />会員登録しない</label>
+        </div>
+        <p><button class="kaku">確認</button></p>
         </from>
     </body>
 </center>
