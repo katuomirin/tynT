@@ -7,7 +7,8 @@ if(isset($_SESSION['user'])){
     $sql=$pdo->prepare(
         'delete from favorite where user_id=? and product_id=?'
     );
-    $sql->execute([$_SESSION['user']['id'],$_GET['id']]);
+    $sql->execute([$_SESSION['user
+    ']['id'],$_GET['id']]);
     echo 'お気に入りから商品を削除しました。';
     echo '<hr>';
 }

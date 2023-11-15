@@ -1,4 +1,23 @@
 <?php require 'header.php'; ?>
+
+<?php
+        if($_SERVER["REQUEST_METHOD"] != "POST"){
+            header("Location: reji.php");
+            exit();
+        }
+
+        $name = $_POST['name'];
+        $kana = $_POST['kana'];
+        $yuubin = $_POST['yuubin'];
+        $zyuusho1 = $_POST['zyuusho1'];
+        $zyuusho2 = $_POST['zyuusho2'];
+        $manshon = $_POST['manshon'];
+        $call = $_POST['call'];
+        $mail = $_POST['mail'];
+        $okuri = $_POST['okuri'];
+        $harai = $_POST['harai'];
+        $touroku = $_POST['touroku'];
+?>
 <style>
 
 .text {
@@ -187,60 +206,61 @@
     display: none;
 }
 </style>
+
 <center>
-<body>
-    <form action="reji2.php" method="post">
-        <div class="input-area">
-         <h3>名前(漢字)<h3>
-         <input type="text" class="text" name="name" placeholder="名前"/>
-         <h3>名前(カナ)<h3>
-         <input type="text" class="text" name="kana" placeholder="ナマエ"/>
-        </div>
-        <div class="input-area">
-         <h3>お届け先住所<h3>
-         <input type="text" class="text" name="yuubin" placeholder="郵便番号"/>
-         <input type="button" value="住所検索"><br>
-         <input type="text" class="text" name="zyuusho1" placeholder="住所1"/><br>
-         <input type="text" class="text" name="zyuusho2" placeholder="住所2"/><br>
-         <input type="text" class="text" name="manshon" placeholder="マンション名"/>
-        </div>
+    <body>
+        <form action="reji_end1.php" method="post">
+            
+            <div class="input-area">
+            <h3>名前(漢字)</h3>
+            <?php echo htmlspecialchars($name,ENT_QUOTES,'UTF-8');?>
+            <h3>名前(カナ)</h3>
+            <?php echo htmlspecialchars($kana,ENT_QUOTES,'UTF-8');?>
+            <input type="button" onclick="history.back()" value="変更" class="btn-border">
+            </div>
+            
+            <div class="input-area">
+                <h3>お届け先住所</h3>
+                <?php echo htmlspecialchars($yuubin,ENT_QUOTES,'UTF-8');?><br>
+                <?php echo htmlspecialchars($zyuusho1,ENT_QUOTES,'UTF-8');?><br>
+                <?php echo htmlspecialchars($zyuusho2,ENT_QUOTES,'UTF-8');?>
+                <?php echo htmlspecialchars($manshon,ENT_QUOTES,'UTF-8');?>
+                <input type="button" onclick="history.back()" value="変更" class="btn-border">
+            </div>
 
-        <div class="input-area">
-         <h3>電話番号(ハイフンなし)<h3>
-         <input type="text" class="text"  name="call" placeholder="11122223333"/>
-        </div>
-        <div class="input-area">
-         <h3>メールアドレス<h3>
-         <input type="text" class="text" name="mail"/>
-        </div>
+            <div class="input-area">
+                <h3>電話番号(ハイフンなし)</h3>
+                <?php echo htmlspecialchars($call,ENT_QUOTES,'UTF-8');?>
+                <input type="button" onclick="history.back()" value="変更" class="btn-border">
+            </div>
 
-        <div class="input-area">
-         <h3>オリジナルTシャツのデザインの送り方<h3>
-         <label class="okuri">
-            <select name="okuri">
-            <option value="郵送">郵送</option>
-            <option value="メール">メール</option>
-            <option value="LINE">LINE</option>
-            </select>
-          </label>
-        </div>
-        <div class="input-area">
-        <h3>支払い方法<h3>
-        <label class="harai">
-            <select name="harai">
-            <option value="振り込み">振り込み</option>
-            <option value="クレジット">クレジット</option>
-            </select>
-        </label>
-        </div>
+            <div class="input-area">
+                <h3>メールアドレス</h3>
+                <?php echo htmlspecialchars($mail,ENT_QUOTES,'UTF-8');?>
+                <input type="button" onclick="history.back()" value="変更" class="btn-border">
+            </div>
 
-        <div class="input-area">
-            <h3>会員登録するかどうか</h3>
-                <label><input type="radio" name="touroku" value="会員登録する"/> 会員登録する</label>
-                <label><input type="radio" name="touroku" value="会員登録しない" />会員登録しない</label>
-        </div>
-        <p><button class="kaku">確認</button></p>
-        </from>
+            <div class="input-area">
+                <h3>オリジナルTシャツのデザインの送り方</h3>
+                <?php echo $okuri;?>
+                <input type="button" onclick="history.back()" value="変更" class="btn-border">
+            </div>
+
+            <div class="input-area">
+                <h3>支払い方法</h3>
+                <?php echo $harai;?>
+                <input type="button" onclick="history.back()" value="変更" class="btn-border">
+            </div>
+
+            <div class="input-area">
+                <h3>会員登録するかどうか</h3>
+                <?php echo $touroku;?>
+            </div>
+
+            <div class="input-area">
+                <p><input type="button" onclick="history.back()" value="戻る" class="btn-border"></p>
+                <p><button class="kaku">商品購入を確定する</button></p>
+            </div>
+        </form>
     </body>
 </center>
-<?php require 'footer.php'; ?>

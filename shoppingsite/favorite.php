@@ -3,7 +3,6 @@
 if (isset($_SESSION['user'])) {
     echo '<table>';
     echo '<tr><th>商品番号</th><th>商品名</th><th>価格</th><th></th></tr>';
-    $pdo=new PDO('mysql:host=mysql215.phy.lolipop.lan;dbname=LAA1517463-shop;charset=utf8','LAA1517463','Pass0922');
 $sql=$pdo->prepare('select * from favorite,product where user_id=? and product_id=id');
 $sql->execute([$_SESSION['user']['id']]);
 foreach($sql as $row){
