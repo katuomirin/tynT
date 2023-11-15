@@ -33,7 +33,7 @@
         <dl>
           <dt>デザイン送付</dt>
           <dd>プリントしたいデザインを当社へご送付ください。デザインの作成にはデザインシートがございますのでそちらをお使いください。別紙でも対応いたしておりますのでその際は必要事項（担当名、団体名、連絡先）の記入をお願いいたします。送付方法は用紙を直接郵送いただくか公式LINEがございますので、そちらまでデザインデータ（PDFファイルでお願いいたします）をお送りください。送付方法は商品購入の際にお選びください。</dd>
-          <dd>公式LINE<a href="#">  <img src="image/line.png" style="height: 30px;width:35px;" ></a>　　デザインシートはこちら<a href="#">デザインシート</a></dd>
+          <dd>公式LINE<a href="#">  <img src="image/line.png" style="height: 30px;width:35px;" ></a>　　デザインシートはこちら<a href="image/designimg" download="file.pdf"><img src="image/design.png" style="height: 30px;width:35px;" ></a></dd>
         </dl>
       </li>
       <li>
