@@ -214,6 +214,7 @@
             <div class="input-area">
             <h3>名前(漢字)</h3>
             <?php echo htmlspecialchars($name,ENT_QUOTES,'UTF-8');?>
+            <input type="button" onclick="history.back()" value="変更" class="btn-border">
             <h3>名前(カナ)</h3>
             <?php echo htmlspecialchars($kana,ENT_QUOTES,'UTF-8');?>
             <input type="button" onclick="history.back()" value="変更" class="btn-border">
