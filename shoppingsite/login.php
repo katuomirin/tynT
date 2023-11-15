@@ -10,11 +10,11 @@
 <form action="login-output.php" method="post">
     <label>
     <span class="textbox-001-label">メールアドレス</span>
-    <input type="text" class="textbox-001" placeholder="メールアドレス"/>
+    <input type="text" class="textbox-001" name="login" placeholder="メールアドレス" />
     </label>
     <label>
     <span class="textbox-001-label">パスワード　　</span>
-    <input type="password" class="textbox-001" placeholder="パスワード"/>
+    <input type="password" class="textbox-001" name="password" placeholder="パスワード"/>
     </label>
     <p><button class="button-003">ログイン</button></p>
     </form>
@@ -22,13 +22,5 @@
     <form action="join.php" method="post">
     <p><button type="submit" class="button-003">新規登録</button></p>
     </form>
-
-    <?php
-
-    $pdo=new PDO($connect, USER, PASS);?>
-    </form>
 </body>
 </html>
-<?php
- $pdo = null;   //DB切断
- ?>
