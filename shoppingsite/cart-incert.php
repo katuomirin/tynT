@@ -2,14 +2,14 @@
 <?php require 'header.php'; ?>
 <?php
 $id=$_POST['id'];
-if (!isset($_SESSION['????'])) {
-    $_SESSION['????']=[];
+if (!isset($_SESSION['user'])) {
+    $_SESSION['user']=[];
 }
 $count=0;
-if (isset($_SESSION['?????'][$id])){
-    $count=$_SESSION['?????'][$id]['count'];
+if (isset($_SESSION['user'][$id])){
+    $count=$_SESSION['user'][$id]['count'];
 }
-$_SESSION['??????'][$id]=[
+$_SESSION['user'][$id]=[
     'name' => $_POST['name'],
     'price' => $_POST['price'],
     'count' => $count+$_POST['count']
