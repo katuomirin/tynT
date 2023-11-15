@@ -186,38 +186,75 @@
 .touroku input {
     display: none;
 }
+/* -------戻るボタン--------*/
+.modo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 250px;
+    margin: 0 auto;
+    padding: .9em 2em;
+    border: none;
+    border-radius: 25px;
+    background-color: #2589d0;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1em;
+}
+
+.modo::before {
+    position: absolute;
+    right: calc(2em + 2.5px);
+    transform: translateX(50%);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #fff;
+    content: '';
+}
+
+.modo::after {
+    transform: rotate(45deg);
+    width: 5px;
+    height: 5px;
+    margin-left: 10px;
+    border-top: 3px solid #2589d0;
+    border-right: 3px solid #2589d0;
+    content: '';
+}
+
 </style>
 <center>
 <body>
     <form action="reji2.php" method="post">
         <div class="input-area">
          <h3>名前(漢字)<h3>
-         <input type="text" class="text" name="name" placeholder="名前"/>
+         <input type="text" class="text" name="name" placeholder="名前" required/>
          <h3>名前(カナ)<h3>
-         <input type="text" class="text" name="kana" placeholder="ナマエ"/>
+         <input type="text" class="text" name="kana" placeholder="ナマエ" required/>
         </div>
         <div class="input-area">
          <h3>お届け先住所<h3>
-         <input type="text" class="text" name="yuubin" placeholder="郵便番号"/>
-         <input type="button" value="住所検索"><br>
-         <input type="text" class="text" name="zyuusho1" placeholder="住所1"/><br>
-         <input type="text" class="text" name="zyuusho2" placeholder="住所2"/><br>
+         <input type="text" class="text" name="yuubin" placeholder="郵便番号" required/><br>
+         <input type="text" class="text" name="zyuusho1" placeholder="住所1" required/><br>
+         <input type="text" class="text" name="zyuusho2" placeholder="住所2" required/><br>
          <input type="text" class="text" name="manshon" placeholder="マンション名"/>
         </div>
 
         <div class="input-area">
          <h3>電話番号(ハイフンなし)<h3>
-         <input type="text" class="text"  name="call" placeholder="11122223333"/>
+         <input type="text" class="text"  name="call" placeholder="11122223333" required/>
         </div>
         <div class="input-area">
          <h3>メールアドレス<h3>
-         <input type="text" class="text" name="mail"/>
+         <input type="text" class="text" name="mail" required/>
         </div>
 
         <div class="input-area">
          <h3>オリジナルTシャツのデザインの送り方<h3>
          <label class="okuri">
-            <select name="okuri">
+            <select name="okuri" required>
             <option value="郵送">郵送</option>
             <option value="メール">メール</option>
             <option value="LINE">LINE</option>
@@ -227,7 +264,7 @@
         <div class="input-area">
         <h3>支払い方法<h3>
         <label class="harai">
-            <select name="harai">
+            <select name="harai" required>
             <option value="振り込み">振り込み</option>
             <option value="クレジット">クレジット</option>
             </select>
@@ -236,11 +273,22 @@
 
         <div class="input-area">
             <h3>会員登録するかどうか</h3>
-                <label><input type="radio" name="touroku" value="会員登録する"/> 会員登録する</label>
+                <label><input type="radio" name="touroku" value="会員登録する" checked/> 会員登録する</label>
                 <label><input type="radio" name="touroku" value="会員登録しない" />会員登録しない</label>
+        </div>
+
+        <div class="input-area">
+            <h3>合計金額</h3>
         </div>
         <p><button class="kaku">確認</button></p>
         </from>
+        </center>
     </body>
-</center>
+    <body>
+    <form action="cart.php" method="post">
+            <p><button class="modo">カートへ戻る</button></p>
+    </from>
+    </body>
+
+
 <?php require 'footer.php'; ?>
