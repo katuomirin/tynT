@@ -119,73 +119,27 @@
     outline: 1px solid #2589d0;
 }
 /* -----------------確定-------------------- */
-.kaku{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 250px;
-            margin:0 auto;
-            padding: .9em 2em;
-            border: 1px solid #2589d0;
-            border-radius: 25px;
-            background-color: #fff;
-            color: #2589d0;
-            font-size: 1em;
-        }
-/* -----------------会員登録するかどうか-------------------- */
-.touroku {
+.kaku {
     display: flex;
-    flex-wrap: wrap;
-    gap: .3em 2em;
-    border: none;
-}
-
-.touroku label {
-    display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 0 .5em;
-    position: relative;
-    cursor: pointer;
+    width: 250px;
+    margin: 0 auto;
+    padding: .9em 2em;
+    border: 1px solid #2589d0;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #2589d0;
+    font-size: 1em;
 }
 
-.touroku label::before,
-.touroku label:has(:checked)::after {
-    border-radius: 50%;
-    content: '';
-}
-
-.touroku label::before {
-    width: 18px;
-    height: 18px;
-    background-color: #e6edf3;
-}
-
-.touroku label:has(:checked)::after {
-    position: absolute;
-    top: 50%;
-    left: 9px;
-    transform: translate(-50%, -50%);
-    width: 10px;
-    height: 10px;
+.kaku:hover {
+    border: none;
     background-color: #2589d0;
-    animation: anim-radio-001 .3s linear;
+    color: #fff;
+    font-weight: 600;
 }
 
-@keyframes anim-radio-001 {
-    0% {
-        box-shadow: 0 0 0 1px transparent;
-    }
-    50% {
-        box-shadow: 0 0 0 10px #2589d033;
-    }
-    100% {
-        box-shadow: 0 0 0 10px transparent;
-    }
-}
-
-.touroku input {
-    display: none;
-}
 /* -------戻るボタン--------*/
 .modo {
     display: flex;
@@ -230,25 +184,25 @@
     <form action="reji2.php" method="post">
         <div class="input-area">
          <h3>名前(漢字)<h3>
-         <input type="text" class="text" name="name" placeholder="名前" required/>
+         <input type="text" class="text" name="name" placeholder="例）山田　花子" required/>
          <h3>名前(カナ)<h3>
-         <input type="text" class="text" name="kana" placeholder="ナマエ" required/>
+         <input type="text" class="text" name="kana" placeholder="例）ヤマダ　ハナコ" required/>
         </div>
         <div class="input-area">
          <h3>お届け先住所<h3>
          <input type="text" class="text" name="yuubin" placeholder="郵便番号" required/><br>
          <input type="text" class="text" name="zyuusho1" placeholder="住所1" required/><br>
          <input type="text" class="text" name="zyuusho2" placeholder="住所2" required/><br>
-         <input type="text" class="text" name="manshon" placeholder="マンション名"/>
+         <input type="text" class="text" name="manshon" placeholder="例）マンション　101"/>
         </div>
 
         <div class="input-area">
          <h3>電話番号(ハイフンなし)<h3>
-         <input type="text" class="text"  name="call" placeholder="11122223333" required/>
+         <input type="text" class="text"  name="call" placeholder="例）11122223333" required/>
         </div>
         <div class="input-area">
          <h3>メールアドレス<h3>
-         <input type="text" class="text" name="mail" required/>
+         <input type="text" class="text" name="mail" placeholder="例）111111@gmail.com" required/>
         </div>
 
         <div class="input-area">
@@ -271,11 +225,6 @@
         </label>
         </div>
 
-        <div class="input-area">
-            <h3>会員登録するかどうか</h3>
-                <label><input type="radio" name="touroku" value="会員登録する" checked/> 会員登録する</label>
-                <label><input type="radio" name="touroku" value="会員登録しない" />会員登録しない</label>
-        </div>
 
         <div class="input-area">
             <h3>合計金額</h3>
@@ -283,12 +232,8 @@
         <p><button class="kaku">確認</button></p>
         </from>
         </center>
-    </body>
-    <body>
-    <form action="cart.php" method="post">
-            <p><button class="modo">カートへ戻る</button></p>
-    </from>
-    </body>
 
-
+    </body>
+    <p><input type="button" onclick="history.back()" value="戻る" class="modo"></p>
 <?php require 'footer.php'; ?>
+
