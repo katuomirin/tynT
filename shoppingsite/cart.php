@@ -1,6 +1,57 @@
+<?php session_start(); ?>
 <?php require 'header.php'; ?>
+<style>
+    div{
+        text-align:right;
+    }
+
+    .susumu {
+    display: flex;
+    justify-content: center;
+    align-items: right;
+    width: 200px;
+    margin:0 auto;
+    padding: .9em 2em;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px rgb(0 0 0 / 25%), 0 2px 3px -2px rgb(0 0 0 / 15%);
+    background-color: #eae206;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1em;
+}
+
+.susumu:hover {
+    background-color: #dad200;
+}
+
+</style>
+
+<?php
+if (isset($_SESSION['user'])) {
+    echo '<table>';
+    echo '<tr><th>商品番号</th><th>商品名</th><th>価格</th><th></th></tr>';
+$sql=$pdo->prepare('select * from favorite,product where user_id=? and product_id=id');
+$sql->execute([$_SESSION['user']['id']]);
+foreach($sql as $row){
+    $id=$row['id'];
+    echo '<tr>';
+    echo '<td>',$id,'</td>';
+    echo '<td><a href="detail.php?id=',$id,'">',$row['name'],'</a></td>';
+    echo '<td>',$row['price'],'</td>';
+    echo '<td><a href="cart-delete.php?id=',$id,'">削除</a></td>';
+    echo '</tr>';
+}
+    echo '<tr><td>合計</td><td></td><td></td><td></td><td>', $total, '</td><td></td></tr>';
+    echo '</table>';
+} else {
+    echo 'カートに追加されていません。';
+}
+?>
 
 
 
-
+<form action="reji.php">
+    <button class="susumu">レジに進む</button>
+</form>
 <?php require 'footer.php'; ?>
