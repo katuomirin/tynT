@@ -16,10 +16,10 @@
         $mail = $_POST['mail'];
         $okuri = $_POST['okuri'];
         $harai = $_POST['harai'];
-        $touroku = $_POST['touroku'];
 ?>
 <style>
-
+    
+/* -------------------------------------------------------------------- */
 .text {
     width: auto;
     padding: 8px 10px;
@@ -138,73 +138,64 @@
     outline: 1px solid #2589d0;
 }
 /* -----------------確定-------------------- */
-.kaku{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 250px;
-            margin:0 auto;
-            padding: .9em 2em;
-            border: 1px solid #2589d0;
-            border-radius: 25px;
-            background-color: #fff;
-            color: #2589d0;
-            font-size: 1em;
-        }
-/* -----------------会員登録するかどうか-------------------- */
-.touroku {
+.kaku {
     display: flex;
-    flex-wrap: wrap;
-    gap: .3em 2em;
-    border: none;
-}
-
-.touroku label {
-    display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 0 .5em;
-    position: relative;
-    cursor: pointer;
+    width: 250px;
+    margin: 0 auto;
+    padding: .9em 2em;
+    border: 1px solid #2589d0;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #2589d0;
+    font-size: 1em;
 }
 
-.touroku label::before,
-.touroku label:has(:checked)::after {
+.kaku:hover {
+    border: none;
+    background-color: #2589d0;
+    color: #fff;
+    font-weight: 600;
+}
+/* =======*/
+.modo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 250px;
+    margin: 0 auto;
+    padding: .9em 2em;
+    border: none;
+    border-radius: 25px;
+    background-color: #2589d0;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1em;
+}
+
+.modo::before {
+    position: absolute;
+    right: calc(2em + 2.5px);
+    transform: translateX(50%);
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
+    background-color: #fff;
     content: '';
 }
 
-.touroku label::before {
-    width: 18px;
-    height: 18px;
-    background-color: #e6edf3;
+.modo::after {
+    transform: rotate(45deg);
+    width: 5px;
+    height: 5px;
+    margin-left: 10px;
+    border-top: 3px solid #2589d0;
+    border-right: 3px solid #2589d0;
+    content: '';
 }
 
-.touroku label:has(:checked)::after {
-    position: absolute;
-    top: 50%;
-    left: 9px;
-    transform: translate(-50%, -50%);
-    width: 10px;
-    height: 10px;
-    background-color: #2589d0;
-    animation: anim-radio-001 .3s linear;
-}
-
-@keyframes anim-radio-001 {
-    0% {
-        box-shadow: 0 0 0 1px transparent;
-    }
-    50% {
-        box-shadow: 0 0 0 10px #2589d033;
-    }
-    100% {
-        box-shadow: 0 0 0 10px transparent;
-    }
-}
-
-.touroku input {
-    display: none;
-}
 </style>
 
 <center>
@@ -254,14 +245,16 @@
             </div>
 
             <div class="input-area">
-                <h3>会員登録するかどうか</h3>
-                <?php echo $touroku;?>
+                <h3>合計金額</h3>
             </div>
+            
 
             <div class="input-area">
-                <p><input type="button" onclick="history.back()" value="戻る" class="btn-border"></p>
                 <p><button class="kaku">商品購入を確定する</button></p>
+                <p><input type="button" onclick="history.back()" value="戻る" class="modo"></p>
             </div>
         </form>
     </body>
 </center>
+
+<?php require 'footer.php'; ?>
