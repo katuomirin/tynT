@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 <?php require 'header.php'; ?>
-<?php require 'menu.php'; ?>
+
 <?php
 require 'db-connect.php';
 if(isset($_SESSION['user'])){
