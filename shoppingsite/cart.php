@@ -1,5 +1,6 @@
 <?php session_start(); ?>
 <?php require 'header.php'; ?>
+<?php require 'db-connect.php';?>
 <style>
     div{
         text-align:right;
@@ -25,13 +26,34 @@
     background-color: #dad200;
 }
 
+.modo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    margin: 0 auto;
+    padding: .9em 2em;
+    border: 1px solid #2589d0;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #2589d0;
+    font-size: 1em;
+}
+
+.modo:hover {
+    border: none;
+    background-color: #2589d0;
+    color: #fff;
+    font-weight: 600;
+}
+
 </style>
 
 <?php
 if (isset($_SESSION['user'])) {
     echo '<table>';
     echo '<tr><th>商品番号</th><th>商品名</th><th>価格</th><th></th></tr>';
-$sql=$pdo->prepare('select * from favorite,product where user_id=? and product_id=id');
+$sql=$pdo->prepare('select * from cart,product where user_id=? and product_id=id');
 $sql->execute([$_SESSION['user']['id']]);
 foreach($sql as $row){
     $id=$row['id'];
@@ -50,8 +72,10 @@ foreach($sql as $row){
 ?>
 
 
-
-<form action="reji.php">
-    <button class="susumu">レジに進む</button>
+    <form action="reji.php">
+        <button class="susumu">レジに進む</button>
+    </form>
+<form action="home.php">
+    <button class="modo">ホームへ戻る</button>
 </form>
-<?php require 'footer.php'; ?>
+    <?php require 'footer.php'; ?>
