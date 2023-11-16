@@ -199,7 +199,7 @@
                 <h3>お届け先住所</h3>
                 <?php echo htmlspecialchars($yuubin,ENT_QUOTES,'UTF-8');?><br>
                 <?php echo htmlspecialchars($zyuusho1,ENT_QUOTES,'UTF-8');?><br>
-                <?php echo htmlspecialchars($zyuusho2,ENT_QUOTES,'UTF-8');?>
+                <?php echo htmlspecialchars($zyuusho2,ENT_QUOTES,'UTF-8');?><br>
                 <?php echo htmlspecialchars($manshon,ENT_QUOTES,'UTF-8');?>
                 <input type="button" onclick="history.back()" value="変更" class="btn-border">
             </div>
