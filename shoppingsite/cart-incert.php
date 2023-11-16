@@ -1,21 +1,15 @@
 <?php session_start(); ?>
 <?php require 'header.php'; ?>
+<?php require 'db-connect.php';?>
 <?php
-$id=$_POST['id'];
-if (!isset($_SESSION['user'])) {
-    $_SESSION['user']=[];
-}
-$count=0;
-if (isset($_SESSION['user'][$id])){
-    $count=$_SESSION['user'][$id]['count'];
-}
-$_SESSION['user'][$id]=[
-    'name' => $_POST['name'],
-    'price' => $_POST['price'],
-    'count' => $count+$_POST['count']
-];
+if(isset($_SESSION['user'])){
+    $sql=$pdo->prepare('insert into cart values(?,?)');
+    $sql->execute([$_SESSION['user']['id'],$_GET['id']]);
 echo '<p>カートに商品を追加しました。</p>';
 echo '<hr>';
 require 'cart.php';
+}else{
+    echo 'カートに商品を追加するには、ログインしてください。';
+}
 ?>
 <?php require 'footer.php'; ?>
