@@ -59,7 +59,7 @@ foreach($sql as $row){
     $id=$row['id'];
     echo '<tr>';
     echo '<td>',$id,'</td>';
-    echo '<td><a href="detail.php?id=',$id,'">',$row['name'],'</a></td>';
+    echo '<td><a href="shohin-list.php?id=',$id,'">',$row['name'],'</a></td>';
     echo '<td>',$row['price'],'</td>';
     echo '<td><a href="cart-delete.php?id=',$id,'">削除</a></td>';
     echo '</tr>';
