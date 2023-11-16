@@ -143,39 +143,23 @@
 /* -------戻るボタン--------*/
 .modo {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    position: relative;
     width: 250px;
     margin: 0 auto;
     padding: .9em 2em;
-    border: none;
-    border-radius: 25px;
-    background-color: #2589d0;
-    color: #fff;
-    font-weight: 600;
+    border: 1px solid #2589d0;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #2589d0;
     font-size: 1em;
 }
 
-.modo::before {
-    position: absolute;
-    right: calc(2em + 2.5px);
-    transform: translateX(50%);
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    background-color: #fff;
-    content: '';
-}
-
-.modo::after {
-    transform: rotate(45deg);
-    width: 5px;
-    height: 5px;
-    margin-left: 10px;
-    border-top: 3px solid #2589d0;
-    border-right: 3px solid #2589d0;
-    content: '';
+.modo:hover {
+    border: none;
+    background-color: #2589d0;
+    color: #fff;
+    font-weight: 600;
 }
 
 </style>
