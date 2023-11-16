@@ -52,7 +52,7 @@
 <?php
 if (isset($_SESSION['user'])) {
     echo '<table>';
-    echo '<tr><th>商品番号</th><th>商品名</th><th>価格</th><th></th></tr>';
+    echo '<tr><th>商品番号</th><th>商品名</th><th>価格</th><th>個数</th></tr>';
 $sql=$pdo->prepare('select * from cart,product where user_id=? and product_id=id');
 $sql->execute([$_SESSION['user']['id']]);
 foreach($sql as $row){
