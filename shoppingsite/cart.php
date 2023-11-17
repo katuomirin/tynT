@@ -53,13 +53,12 @@
 if (isset($_SESSION['user'])) {
     echo '<table>';
     echo '<tr><th>商品番号</th><th>商品名</th><th>価格</th><th>個数</th></tr>';
-$sql->execute([$_SESSION['user']['id']]);
-foreach($sql as $row){
-    $id=$row['id'];
+$total=0;
+foreach($_SESSION['user'] as $id=>$user){
     echo '<tr>';
     echo '<td>',$id,'</td>';
-    echo '<td><a href="shohin-list.php?id=',$id,'">',$row['name'],'</a></td>';
-    echo '<td>',$row['price'],'</td>';
+    echo '<td>',$name,'</td>';
+    echo '<td>',$price,'</td>';
     echo '<td><a href="cart-delete.php?id=',$id,'">削除</a></td>';
     echo '</tr>';
 }
