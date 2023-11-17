@@ -184,8 +184,7 @@
 
 <center>
     <body>
-        <form action="reji_end1.php" method="post">
-            
+        <form action="reji_end.php" method="post">
             <div class="input-area">
             <h3>名前(漢字)</h3>
             <?php echo htmlspecialchars($name,ENT_QUOTES,'UTF-8');?>
