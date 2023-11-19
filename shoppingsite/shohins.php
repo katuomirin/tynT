@@ -1,6 +1,7 @@
 
 <?php require 'header.php'; ?>
 <?php require 'db-connect.php'; ?>
+<link rel="stylesheet" href="./css/shohins.css">
 <body>
     <!--<nav>
         <ol class="navigation">
@@ -9,7 +10,6 @@
         </ol>
     </nav>-->
     <?php
-    echo '<table>';
     $pdo=new PDO($connect,USER,PASS);
     if(isset($_POST['keyword'])){
         $sql=$pdo->prepare('select * from product where name like ?');
@@ -17,17 +17,19 @@
     }else{
         $sql=$pdo->query('select * from product');
     }
-    foreach($sql as $row){
-        $id=$row['id'];
+    foreach ($sql as $row) {
+        $id = $row['id'];
+        echo '<table>';
         echo '<tr>';
-        echo '<td>',$row['image'],'</td>';
-        echo '<a href="shohin-list.php?id=', $id, '">', $row['name'], '</a>';   
-        echo '<td>',$row['price'],'</td>';   
+        echo '<td><img alt="image" style="hight: 200px; src="image/',$row['image'],'.png"></p></td>';
+        echo '<td>';
+        echo '<a href="shohin-list.php?id=', $id, '">', $row['name'], '</a>';
         echo '</td>';
-        echo '<td>',$row['price'],'</td>';
+        echo '<td>', $row['price'], '</td>';
+        echo '<td>', $row['ex'], '</td>';
         echo '</tr>';
+        echo '</table>';
     }
-    echo '</table>';
     ?>
 </body>
     <div class="footer">

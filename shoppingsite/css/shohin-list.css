@@ -10,6 +10,12 @@ body {
   box-sizing: border-box; /* パディングとボーダーを要素の合計幅に含める */
 }
 
+.shohin-shosai{
+  float: right; /* 右側に配置 */
+  width: 50%; /* 右半分の幅 */
+  box-sizing: border-box; /* パディングとボーダーを要素の合計幅に含める */
+}
+
 .shohin-gaiyo {
   float: right; /* 右側に配置 */
   width: 50%; /* 右半分の幅 */
