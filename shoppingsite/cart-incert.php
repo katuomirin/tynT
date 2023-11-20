@@ -1,12 +1,20 @@
 <?php session_start(); ?>
 <?php require 'header.php'; ?>
 <?php
-if(isset($_SESSION['user'])){
+$id=$_POST['id'];
+if (!isset($_SESSION['product'])) {
+    $_SESSION['product']=[];
+}
+$count=0;
+if (isset($_SESSION['product'][$id])){
+    $count=$_SESSION['product'][$id]['count'];
+}
+$_SESSION['product'][$id]=[
+    'name' => $_POST['name'],
+    'price' => $_POST['price'],
+];
 echo '<p>カートに商品を追加しました。</p>';
 echo '<hr>';
 require 'cart.php';
-}else{
-    echo 'カートに商品を追加するには、ログインしてください。';
-}
 ?>
 <?php require 'footer.php'; ?>
