@@ -1,5 +1,10 @@
 <?php require 'header.php'; ?>
 <style>
+body {
+  width: 100%;
+  position: absolute;
+  overflow-x: hidden; /* 横スクロールを防ぐ */
+}
 
 .text {
     width: auto;
@@ -163,7 +168,7 @@
 }
 
 </style>
-<center>
+
 <body>
     <form action="reji2.php" method="post">
         <div class="input-area">
@@ -203,8 +208,10 @@
         <h3>支払い方法<h3>
         <label class="harai">
             <select name="harai" required>
-            <option value="振り込み">振り込み</option>
+            <option value="銀行振込">銀行振込</option>
+            <option value="コンビニ">コンビニ</option>
             <option value="クレジット">クレジット</option>
+            <option value="着払い">着払い</option>
             </select>
         </label>
         </div>
