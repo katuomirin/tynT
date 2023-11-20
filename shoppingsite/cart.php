@@ -1,5 +1,4 @@
 
-
 <style>
     div{
         text-align:right;
@@ -49,15 +48,15 @@
 </style>
 
 <?php
-if (isset($_SESSION['user'])) {
+if (isset($_SESSION['product'])) {
     echo '<table>';
     echo '<tr><th>商品番号</th><th>商品名</th><th>価格</th><th></th></tr>';
 $total=0;
-foreach($_SESSION['user'] as $id=>$user){
+foreach($_SESSION['product'] as $id=>$product){
     echo '<tr>';
     echo '<td>',$id,'</td>';
-    echo '<td>',$user['name'], '</td>';
-    echo '<td>', $user['price'], '</td>';
+    echo '<td>',$product['name'], '</td>';
+    echo '<td>', $product['price'], '</td>';
     echo '<td><a href="cart-delete.php?id=',$id,'">削除</a></td>';
     echo '</tr>';
 }
