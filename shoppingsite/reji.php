@@ -1,9 +1,9 @@
 <?php require 'header.php'; ?>
 <style>
-body {
-  width: 100%;
-  position: absolute;
-  overflow-x: hidden; /* 横スクロールを防ぐ */
+.input-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .text {
