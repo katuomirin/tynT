@@ -1,5 +1,10 @@
 <?php require 'header.php'; ?>
 <style>
+body {
+  width: 100%;
+  position: absolute;
+  overflow-x: hidden; /* 横スクロールを防ぐ */
+}
 
 .text {
     width: auto;
@@ -163,7 +168,7 @@
 }
 
 </style>
-<center>
+
 <body>
     <form action="reji2.php" method="post">
         <div class="input-area">
