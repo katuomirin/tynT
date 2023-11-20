@@ -1,4 +1,3 @@
-
 <style>
     div{
         text-align:right;
@@ -57,10 +56,11 @@ foreach($_SESSION['product'] as $id=>$product){
     echo '<td>',$id,'</td>';
     echo '<td>',$product['name'], '</td>';
     echo '<td>', $product['price'], '</td>';
+    $total += $product['price'];
     echo '<td><a href="cart-delete.php?id=',$id,'">削除</a></td>';
     echo '</tr>';
 }
-    echo '<tr><td>合計</td><td></td><td></td><td>', $total, '</td><td></td></tr>';
+    echo '<tr><td>合計</td><td></td><td>', $total, '</td><td></td></tr>';
     echo '</table>';
 } else {
     echo 'カートに追加されていません。';
