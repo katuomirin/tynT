@@ -21,9 +21,9 @@
         $id = $row['id'];
         echo '<table>';
         echo '<tr>';
-        echo '<td><img alt="image" style="hight: 200px; src="image/',$row['image'],'.png"></p></td>';
+        echo '<td align="center">', '<img alt="image" style="width: 40px; height: 40px;" src="image/',$row['image'], '.png">', '</td>';
         echo '<td>';
-        echo '<a href="shohin-list.php?id=', $id, '">', $row['name'], '</a>';
+        echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a>';
         echo '</td>';
         echo '<td>', $row['price'], '</td>';
         echo '<td>', $row['ex'], '</td>';
