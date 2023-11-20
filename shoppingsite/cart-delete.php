@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 <?php require 'header.php'; ?>
 <?php
-unset($_SESSION['user'][$_GET['id']]);
+unset($_SESSION['product'][$_GET['id']]);
 echo 'カートから商品を削除しました。';
 echo '<hr>';
 require 'cart.php';
