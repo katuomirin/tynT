@@ -1,22 +1,28 @@
 <?php session_start(); ?>
 <?php require 'header.php'; ?>
-
 <?php
 require 'db-connect.php';
 
 if (isset($_SESSION['user'])) {
-    $sql = $pdo->prepare('INSERT INTO favorite (user_id, product_id) VALUES (?, ?)');
-    $sql->execute([$_SESSION['user']['id'], $_GET['id']]);
+    $user_id = $_SESSION['user']['id'];
+    $product_id = $_GET['id'];
 
-    if ($sql->execute()) {
-        header('Location: favorite.php');
-        exit();
+    // Check if the record already exists
+    $checkSql = $pdo->prepare('SELECT * FROM favorite WHERE user_id = ? AND product_id = ?');
+    $checkSql->execute([$user_id, $product_id]);
+
+    if ($checkSql->rowCount() > 0) {
+        // Product is already a favorite
+        echo 'この商品はすでにお気に入りに登録されています。';
     } else {
-        echo 'Error adding to favorites';
+        // Insert the new favorite
+        $insertSql = $pdo->prepare('INSERT INTO favorite (user_id, product_id) VALUES (?, ?)');
+        $insertSql->execute([$user_id, $product_id]);
+        echo 'お気に入りに商品を追加しました。';
     }
 } else {
     echo 'お気に入りに商品を追加するには、ログインしてください。';
 }
 
+require 'footer.php';
 ?>
-<?php require 'footer.php'; ?>
