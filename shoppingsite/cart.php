@@ -1,5 +1,4 @@
-<?php session_start(); ?>
-<?php require 'header.php'; ?>
+
 
 <style>
     div{
@@ -52,17 +51,17 @@
 <?php
 if (isset($_SESSION['user'])) {
     echo '<table>';
-    echo '<tr><th>商品番号</th><th>商品名</th><th>価格</th><th>個数</th></tr>';
+    echo '<tr><th>商品番号</th><th>商品名</th><th>価格</th><th></th></tr>';
 $total=0;
 foreach($_SESSION['user'] as $id=>$user){
     echo '<tr>';
     echo '<td>',$id,'</td>';
-    echo '<td>',$name,'</td>';
-    echo '<td>',$price,'</td>';
+    echo '<td>',$user['name'], '</td>';
+    echo '<td>', $user['price'], '</td>';
     echo '<td><a href="cart-delete.php?id=',$id,'">削除</a></td>';
     echo '</tr>';
 }
-    echo '<tr><td>合計</td><td></td><td></td><td></td><td>', $total, '</td><td></td></tr>';
+    echo '<tr><td>合計</td><td></td><td></td><td>', $total, '</td><td></td></tr>';
     echo '</table>';
 } else {
     echo 'カートに追加されていません。';
@@ -76,4 +75,3 @@ foreach($_SESSION['user'] as $id=>$user){
 <form action="home.php">
     <button class="modo">ホームへ戻る</button>
 </form>
-    <?php require 'footer.php'; ?>
