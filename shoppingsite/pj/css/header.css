@@ -1,0 +1,21 @@
+.Header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px; /* ヘッダーの高さを調整 */
+    background-color: #EEF9FF;
+    color: #ffffff; /* フォントの色を白に設定 */
+    display: flex;
+    align-items: center; /* アイコンを垂直方向に中央揃え */
+    padding: 10px;
+  }
+  
+  .Header a {
+    display: inline-block;
+    margin-right: 20px; /* アイコン間の間隔を調整 */
+  }
+  
+  .Header img {
+    vertical-align: middle; /* アイコンを垂直方向に中央揃え */
+  }
