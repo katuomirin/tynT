@@ -3,6 +3,13 @@
         text-align:right;
     }
 
+    .input-button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
     .susumu {
     display: flex;
     justify-content: center;
@@ -56,7 +63,7 @@ foreach($_SESSION['product'] as $id=>$product){
     echo '<td>',$id,'</td>';
     echo '<td>',$product['name'], '</td>';
     echo '<td>', $product['price'], '</td>';
-    $total += $product['price'];
+    $total += $product['price'] ;
     echo '<td><a href="cart-delete.php?id=',$id,'">削除</a></td>';
     echo '</tr>';
 }
@@ -67,10 +74,13 @@ foreach($_SESSION['product'] as $id=>$product){
 }
 ?>
 
+    <div class="input-button">
+        <form action="home.php">
+            <button class="modo">ホームへ戻る</button>
+        </form>
 
-    <form action="reji.php">
-        <button class="susumu">レジに進む</button>
-    </form>
-<form action="home.php">
-    <button class="modo">ホームへ戻る</button>
-</form>
+        <form action="reji.php">
+            <button class="susumu">レジに進む</button>
+        </form>
+    </div>
+<?php require 'footer.php'; ?>
