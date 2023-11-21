@@ -18,7 +18,20 @@
         $harai = $_POST['harai'];
 ?>
 <style>
-    
+    .input-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.input-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
 /* -------------------------------------------------------------------- */
 .text {
     width: auto;
@@ -182,7 +195,6 @@
 
 </style>
 
-<center>
     <body>
         <form action="reji_end.php" method="post">
             <div class="input-area">
@@ -232,12 +244,11 @@
             </div>
             
 
-            <div class="input-area">
-                <p><button class="kaku">商品購入を確定する</button></p>
+            <div class="input-button">
                 <p><input type="button" onclick="history.back()" value="戻る" class="modo"></p>
+                <p><button class="kaku">商品購入を確定する</button></p>
             </div>
         </form>
     </body>
-</center>
 
 <?php require 'footer.php'; ?>
