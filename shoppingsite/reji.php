@@ -4,7 +4,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
 }
+
+.input-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+
 
 .text {
     width: auto;
@@ -209,9 +219,7 @@
         <label class="harai">
             <select name="harai" required>
             <option value="銀行振込">銀行振込</option>
-            <option value="コンビニ">コンビニ</option>
             <option value="クレジット">クレジット</option>
-            <option value="着払い">着払い</option>
             </select>
         </label>
         </div>
@@ -220,11 +228,11 @@
         <div class="input-area">
             <h3>合計金額</h3>
         </div>
+        <div class="input-button">
+        <p><input type="button" onclick="history.back()" value="戻る" class="modo"></p>
         <p><button class="kaku">確認</button></p>
-        </from>
-        </center>
-
+        </div>
+    </from>
     </body>
-    <p><input type="button" onclick="history.back()" value="戻る" class="modo"></p>
 <?php require 'footer.php'; ?>
 
