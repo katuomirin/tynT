@@ -1,41 +1,29 @@
 <?php session_start(); ?>
 <?php require 'db-connect.php'; ?>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>会員登録完了ページ</title>
-</head>
-<body>
-
+<?php require 'header.php'; ?>
 <?php
 $pdo=new PDO($connect, USER, PASS);
 $hashedPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
-if (isset($_SESSION['customer'])){
-    $id=$_SESSION['customer']['id'];
-    $sql=$pdo->prepare('select * from customer where id!=? and login=?');
-    $sql->execute([$id, $_POST['login']]);
+if (isset($_SESSION['user'])){
+    $id=$_SESSION['user']['id'];
+    $sql=$pdo->prepare('select * from user where id!=? and email=?');
+    $sql->execute([$id, $_POST['email']]);
 }else{
-    $sql=$pdo->prepare('select * from customer where login=?');
-    $sql->execute([$_POST['login']]);
+    $sql=$pdo->prepare('select * from user where email=?');
+    $sql->execute([$_POST['email']]);
 }
 if(empty($sql->fetchAll())){
-    if(isset($_SESSION['customer'])){
-        $sql=$pdo->prepare('update customer set name=?, address=?, '.
-                           'login=?, password=? where id=?');
-        $sql->execute([
-            $_POST['name'], $_POST['address'],
-            $_POST['login'],$hashedPassword,$id]);
-        $_SESSION['customer']=[
-            'id'=>$id, 'name'=>$_POST['name'],
-            'address'=>$_POST['address'], 'login'=>$_POST['login'],
-            'password'=>$hashedPassword];
-        echo 'お客様情報を更新しました。';
+    if(isset($_SESSION['user'])){
     }else{
-        $sql=$pdo->prepare('insert into customer values(null,?,?,?,?)');
+        $sql=$pdo->prepare('insert into user values(null,?,?,?,?,?,?,?,?,?,?,?)');
+        $pass=password_hash($_POST['password'],PASSWORD_DEFAULT);
         $sql->execute([
-            $_POST['name'],$_POST['address'],
-            $_POST['login'],$hashedPassword]);
+            $_POST['kana'], $_POST['kanji'],
+            $_POST['email'], $pass,
+            $_POST['birthday'],$_POST['gender'],
+            $_POST['post_code'], $_POST['prefectures'],
+            $_POST['address1'], $_POST['address2'],
+            $_POST['manshon']]);
         echo 'お客様情報を登録しました。';
     }
 }else{
