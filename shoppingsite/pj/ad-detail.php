@@ -34,9 +34,9 @@
         echo '<p>商品名：' . $row['name'] . '</p>';
         echo '<p>商品名：' . $row['ex'] . '</p>';
         echo '<p>価格：' . $row['price'] . '</p>';
-        echo '<p>価格：' . $row['size'] . '</p>';
-        echo '<p>価格：' . $row['color'] . '</p>';
-        echo '<p>価格：' . $row['sozai'] . '</p>';
+        echo '<p>サイズ：' . $row['size'] . '</p>';
+        echo '<p>色：' . $row['color'] . '</p>';
+        echo '<p>素材：' . $row['sozai'] . '</p>';
         
         echo '<input type="hidden" name="id" value="'.$row['id'].'">';
         echo '<input type="hidden" name="name" value="'.$row['name'].'">';
