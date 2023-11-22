@@ -261,9 +261,6 @@ nav .inner ul li a:hover {
 
 </div>
 
-<main>
-  <!-- ここにコンテンツを追加 -->
-</main>
 
 <div id="navArea">
   <nav>
