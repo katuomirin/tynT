@@ -1,5 +1,7 @@
 
 .shohin{
-    display: flex;
-    flex-flow: column;
+    width: 100%;
+    border-collapse: collapse;
+    border-top: 1px solid #333;
+    border-right: 1px solid #333;
 }
