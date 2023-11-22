@@ -26,7 +26,6 @@
         echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a>';
         echo '</td>';
         echo '<td>', $row['price'], '</td>';
-        echo '<td>', $row['ex'], '</td>';
         echo '</tr>';
         echo '</table>';
     }
