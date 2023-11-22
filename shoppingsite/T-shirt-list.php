@@ -13,7 +13,9 @@
     $T="Tシャツ";
     $pdo=new PDO($connect,USER,PASS);
     
-        $sql=$pdo->prepare('select * from product where category='.$T);
+    $sql = $pdo->prepare('select * from product where category = :category');
+    $sql->bindParam(':category', $T, PDO::PARAM_STR);
+    $sql->execute();
     
         foreach ($sql as $row) {
             $id = $row['id'];
