@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/search.css">
 <link rel="stylesheet" href="css/hum.css">
 <link rel="stylesheet" href="css/news.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <style>
 /* 既存のスタイルは省略 */
 
@@ -59,7 +60,7 @@ body {
 }
 
 .SearchBox button {
-  background-color: #00008b; /* ボタンの背景色を指定 */
+  background-color: #31a9ee; /* ボタンの背景色を指定 */
   border: none;
   border-radius: 5px;
   color: #ffffff; /* ボタンのテキスト色を指定 */
@@ -89,7 +90,7 @@ nav {
   background-color: #ffffff;
   width: 220px;
   top: 0;
-  left: 0; /* 左上に配置する */
+  left: -300px; /* 左上に配置する */
   bottom: 0;
   transition: all 0.5s;
   z-index: 3;
@@ -229,8 +230,38 @@ nav .inner ul li a:hover {
 .dropdown-menu a:hover {
   background: #e4e4e4;
 }
-
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .image-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .image-grid div {
+            flex-basis: 200px;
+            text-align: center;
+        }
+        .image-grid img {
+            width: 100%;
+            height: auto;
+        }
+        .center {
+            display: flex;
+            justify-content: center;
+        }
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+<script type="text/javascript">
+        $(document).ready(function(){
+            $('.slider').bxSlider({
+                auto: true,
+                pause: 5000,
+            });
+        });
+</script>
 </head>
 <body>
 <div class="Header">
@@ -239,8 +270,8 @@ nav .inner ul li a:hover {
 </a>
     <!-- 検索ボックスを追加 -->
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <form method="get" action="products.php" class="search_container">
-    <input type="text" size="25" placeholder="キーワード検索">
+    <form method="post" action="T.php" class="search_container">
+    <input type="text" size="25" placeholder="キーワード検索" name="keyword">
     <input type="submit" value="&#xf002">
 </form>
 
@@ -250,17 +281,20 @@ nav .inner ul li a:hover {
 </a>
 
 <!-- お気に入り画像に枠線を追加 -->
-<a href="favorite.php" target="_self">
+<a href="favorite-show.php" target="_self">
   <img src="image/favo.png" alt="お気に入り" style="height: 70px;width:75px;"border="0" >
 </a>
 
 <!-- カート画像に枠線を追加 -->
-<a href="cart.php" target="_self">
+<a href="cart-show.php" target="_self">
   <img src="image/cart.png" alt="カート" style="height: 70px;width:75px;" border="0" >
 </a>
 
 </div>
 
+<main>
+  <!-- ここにコンテンツを追加 -->
+</main>
 
 <div id="navArea">
   <nav>
@@ -269,17 +303,16 @@ nav .inner ul li a:hover {
         <li><a></a></li>
         <li><a href="home.php">ホーム</a></li>
         <li class="dropdown">
-          <a href="shohins.php">カテゴリ</a>
+          <a href="#">カテゴリ</a>
           <ul class="dropdown-menu">
-            <li><a href="#">Tシャツ</a></li>
-            <li><a href="#">ポロシャツ</a></li>
-            <li><a href="#">スウェット</a></li>
-            <li><a href="#">パーカー</a></li>
-            <li><a href="#">タンクトップ</a></li>
+          <li><a href="T=shirt-list.php">Tシャツ</a></li>
+            <li><a href="Polo-shirt-list.php">ポロシャツ</a></li>
+            <li><a href="Sweat-list.php">スウェット</a></li>
+            <li><a href="Parker-list.php">パーカー</a></li>
           </ul>
         </li>
         <li><a href="create.php">オリジナルTシャツ</a></li>
-        <li><a href="contact.php">お問い合わせ</a></li>
+        <li><a href="#">お問い合わせ</a></li>
         <li><a href="#">ほーむ</a></li>
         <li><a href="#"></a></li>
       </ul>
