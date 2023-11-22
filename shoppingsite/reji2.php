@@ -25,13 +25,9 @@
 }
 
 .input-area{
-    padding: 0.5em 1em;
-    margin: 0;
-    border: double 5px #4ec4d3;
-}
-.input-area{
-    margin: 0;
-    padding: 0;
+    border-top: 3px solid #EE8884;
+    border-bottom: 3px solid #EE8884;
+    padding: 16px;
 }
 
 .input-button{
@@ -211,7 +207,9 @@
             <h3>名前(漢字)</h3>
             <?php echo htmlspecialchars($name,ENT_QUOTES,'UTF-8');?>
             <input type="button" onclick="history.back()" value="変更" class="btn-border">
-            <h3>名前(カナ)</h3>
+            </div>
+            <div class="input-area">
+            <h3>名前(フリガナ)</h3>
             <?php echo htmlspecialchars($kana,ENT_QUOTES,'UTF-8');?>
             <input type="button" onclick="history.back()" value="変更" class="btn-border">
             </div>
@@ -226,7 +224,7 @@
             </div>
 
             <div class="input-area">
-                <h3>電話番号(ハイフンなし)</h3>
+                <h3>電話番号</h3>
                 <?php echo htmlspecialchars($call,ENT_QUOTES,'UTF-8');?>
                 <input type="button" onclick="history.back()" value="変更" class="btn-border">
             </div>
