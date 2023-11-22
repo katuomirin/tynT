@@ -1,4 +1,7 @@
 
-.table{
-    writing-mode: vertical-lr;
+.shohin{
+    display: flex;
+}
+.flex div{
+    border: 1px solid #333;
 }
