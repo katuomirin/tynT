@@ -12,3 +12,8 @@
     width: 100%;
     margin-top: 10px;
 }
+
+.shohin{
+    display: flex;
+    flex-flow: column;
+}
