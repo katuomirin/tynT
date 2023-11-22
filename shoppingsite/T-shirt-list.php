@@ -10,25 +10,17 @@
         </ol>
     </nav>-->
     <?php
-    $T="シャツ";
+    $T="Tシャツ";
     $pdo=new PDO($connect,USER,PASS);
     
-        $sql=$pdo->prepare('select * from product where name like ?');
-        $sql->execute(['%'.$T.'%']);
+        $sql=$pdo->prepare('select * from product where category='.$T);
     
-    foreach ($sql as $row) {
-        $id = $row['id'];
-        echo '<table>';
-        echo '<tr>';
-        echo '<td align="center">', '<img alt="image" style="width: 40px; height: 40px;" src="image/',$row['image'], '.png">', '</td>';
-        echo '<td>';
-        echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a>';
-        echo '</td>';
-        echo '<td>', $row['price'], '</td>';
-        echo '<td>', $row['ex'], '</td>';
-        echo '</tr>';
-        echo '</table>';
-    }
+        foreach ($sql as $row) {
+            $id = $row['id'];
+            echo '<img alt="image" style="width: 40px; height: 40px;" src="image/',$row['image'], '.png"><br>';
+            echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a><br>';
+            echo '<td>', $row['price'], '</td><br>';
+        }
     ?>
 </body>
     <div class="footer">

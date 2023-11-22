@@ -16,6 +16,7 @@
             $sql=$pdo->prepare('select * from product where name like ?');
             $sql->execute(['%'.$_POST['keyword'].'%']);
         }else{
+            echo '一致する商品がありません';
             $sql=$pdo->query('select * from product');
         }
         foreach ($sql as $row) {
