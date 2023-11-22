@@ -1,5 +1,5 @@
 
 .shohin{
-    display: flex;
-    flex-flow: column;
+    -ms-writing-mode : tb-lr;
+    writing-mode : vertical-lr;
 }
