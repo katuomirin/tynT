@@ -1,11 +1,6 @@
 <?php require 'header.php'; ?>
 <style>
-.input-area{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-}
+
 
 .input-button{
     display: flex;
@@ -14,6 +9,11 @@
     margin: 0 auto;
 }
 
+.zenbu {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
 
 
 .text {
@@ -180,6 +180,7 @@
 </style>
 
 <body>
+<label class="zenbu">
     <form action="reji2.php" method="post">
         <div class="input-area">
          <h3>名前(漢字)<h3>
@@ -203,8 +204,8 @@
          <h3>メールアドレス<h3>
          <input type="text" class="text" name="mail" placeholder="例）111111@gmail.com" required/>
         </div>
-
         <div class="input-area">
+</label>
          <h3>オリジナルTシャツのデザインの送り方<h3>
          <label class="okuri">
             <select name="okuri" required>
@@ -228,6 +229,7 @@
         <div class="input-area">
             <h3>合計金額</h3>
         </div>
+
         <div class="input-button">
         <p><input type="button" onclick="history.back()" value="戻る" class="modo"></p>
         <p><button class="kaku">確認</button></p>

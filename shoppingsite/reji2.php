@@ -18,11 +18,20 @@
         $harai = $_POST['harai'];
 ?>
 <style>
-    .input-area{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
+.zenbu {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.input-area{
+    padding: 0.5em 1em;
+    margin: 0;
+    border: double 5px #4ec4d3;
+}
+.input-area{
+    margin: 0;
+    padding: 0;
 }
 
 .input-button{
@@ -196,6 +205,7 @@
 </style>
 
     <body>
+    <label class="zenbu">
         <form action="reji_end.php" method="post">
             <div class="input-area">
             <h3>名前(漢字)</h3>
@@ -242,7 +252,7 @@
             <div class="input-area">
                 <h3>合計金額</h3>
             </div>
-            
+            </label>
 
             <div class="input-button">
                 <p><input type="button" onclick="history.back()" value="戻る" class="modo"></p>
