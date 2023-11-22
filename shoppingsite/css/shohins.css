@@ -1,17 +1,3 @@
-.product-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.product-image img {
-    height: 200px;
-}
-
-.product-table {
-    width: 100%;
-    margin-top: 10px;
-}
 
 .shohin{
     display: flex;
