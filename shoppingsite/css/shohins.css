@@ -1,11 +1,11 @@
-.image{
-    height: 10em;
+.img{
+    height: 20em;
 }
 
 .shohin{
     display: flex;
 }
-.flex div{
+.shohin div{
     border: 1px solid #333;
 }
 /*パンくずリスト*/
