@@ -13,23 +13,23 @@
     .susumu {
     display: flex;
     justify-content: center;
-    align-items: right;
-    width: 200px;
-    margin:0 auto;
+    align-items: center;
+    width: 250px;
+    margin: 0 auto;
     padding: .9em 2em;
-    border: none;
+    border: 1px solid #2589d0;
     border-radius: 5px;
-    box-shadow: 0 2px 3px rgb(0 0 0 / 25%), 0 2px 3px -2px rgb(0 0 0 / 15%);
-    background-color: #eae206;
-    color: #fff;
-    font-weight: 600;
+    background-color: #fff;
+    color: #ffff00;
     font-size: 1em;
 }
 
 .susumu:hover {
-    background-color: #dad200;
+    border: none;
+    background-color: #ffff00;
+    color: #000;
+    font-weight: 600;
 }
-
 .modo {
     display: flex;
     justify-content: center;
@@ -67,6 +67,7 @@ foreach($_SESSION['product'] as $id=>$product){
     echo '<td><a href="cart-delete.php?id=',$id,'">削除</a></td>';
     echo '</tr>';
 }
+    
     echo '<tr><td>合計</td><td></td><td>', $total, '円</td><td></td></tr>';
     echo '</table>';
 } else {
