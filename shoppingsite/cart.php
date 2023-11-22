@@ -67,7 +67,7 @@ foreach($_SESSION['product'] as $id=>$product){
     echo '<td><a href="cart-delete.php?id=',$id,'">削除</a></td>';
     echo '</tr>';
 }
-    echo '<tr><td>合計</td><td></td><td>', $total, '</td><td></td></tr>';
+    echo '<tr><td>合計</td><td></td><td>', $total, '円</td><td></td></tr>';
     echo '</table>';
 } else {
     echo 'カートに追加されていません。';
@@ -83,4 +83,3 @@ foreach($_SESSION['product'] as $id=>$product){
             <button class="susumu">レジに進む</button>
         </form>
     </div>
-<?php require 'footer.php'; ?>
