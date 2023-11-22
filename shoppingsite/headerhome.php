@@ -258,7 +258,7 @@ nav .inner ul li a:hover {
         $(document).ready(function(){
             $('.slider').bxSlider({
                 auto: true,
-                pause: 5000,
+                pause: 8000,
             });
         });
 </script>

@@ -22,10 +22,10 @@
 <h1>ピックアップ商品</h1>
 
 <div class="slider">
-<img src="image/tyun.png" width="500" height="300" alt="">
-<img src="image/ttt.png" width="500" height="300" alt="">
-<img src="image/tyun.png" width="500" height="300" alt="">
-<img src="image/ttt.png" width="500" height="300" alt="">
+<img src="image/tyun.png" width="500" height="500" alt="">
+<img src="image/ttt.png" width="500" height="500" alt="">
+<img src="image/tyun.png" width="500" height="500" alt="">
+<img src="image/ttt.png" width="500" height="500" alt="">
 </div>
 
 
