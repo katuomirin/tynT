@@ -1,16 +1,23 @@
 body {
-  width: 100%;
+  width: 99%;
   position: absolute;
+  margin-left: auto;
+  margin-right: auto;
   overflow-x: hidden; /* 横スクロールを防ぐ */
+  text-align: left;
 }
 
 .shohin-item {
+  padding: 110px;
   float: left; /* 左側に配置 */
   width: 50%; /* 左半分の幅 */
   box-sizing: border-box; /* パディングとボーダーを要素の合計幅に含める */
 }
 
 .shohin-shosai{
+  text-align: left;
+  background-color: rgb(214, 215, 217);
+  position: relative;
   float: right; /* 右側に配置 */
   width: 50%; /* 右半分の幅 */
   box-sizing: border-box; /* パディングとボーダーを要素の合計幅に含める */
@@ -28,4 +35,87 @@ body {
   width: 100%; /* 要素の幅を100%に指定 */
   height: 50px; /* 要素の高さを50pxに指定 */
   box-sizing: border-box; /* パディングとボーダーを要素の合計幅に含める */
+}
+/*フォント*/
+.font1{
+  padding-top: 2em;
+  font-size: 3em;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  line-height: 0.5;
+}
+.font2{
+  font-size: 2em;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: red;
+  line-height: 0.2px;
+}
+.font3{
+  font-size: 1.1em;
+  padding-top: 1em;
+  line-height: 1px;
+}
+.font4{
+  line-height: 1px;
+  color: red;
+}
+.position{
+  line-height: 3px;
+}
+
+.saize, .print{
+  font-family:Comic Sans MS;
+  line-height: 0.1px;
+  font-size: 1.5em;
+  position: relative;
+  display: inline-block;
+  padding: 0 20px;
+}
+.saize:before, .saize:after,
+.print:before, .print:after{
+  content:'';
+  position: absolute;
+  top:50%;
+  display: inline-block;
+  width: 15px;
+  height:1.5px;
+  background-color: #666;
+}
+.saize:before, .print:before{
+  left: 0;
+}
+.saize:after, .print:after{
+  right: 0;
+}
+
+.shosai{
+  line-height: 0.02px;
+}
+
+.hasso, .soryo, .siharai{
+  line-height: 0.2px;
+  font-size: 1.2em;
+}
+/*テーブル*/
+table{
+  table-layout: fixed;  /* table要素に指定することで、幅を固定 */
+  width: 45%;
+}
+table , td, th {
+	border: 1px solid #595959;
+	border-collapse: collapse;
+  writing-mode: horizontal-tb;
+}
+td, th {
+	padding: 3px;
+	width: 30px;
+	height: 25px;
+}
+th {
+	background: #f0e6cc;
+}
+.even {
+	background: #fbf8f0;
+}
+.odd {
+	background: #fefcf9;
 }
