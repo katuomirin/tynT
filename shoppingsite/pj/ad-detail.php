@@ -37,6 +37,7 @@
         echo '<p>サイズ：' . $row['size'] . '</p>';
         echo '<p>色：' . $row['color'] . '</p>';
         echo '<p>素材：' . $row['sozai'] . '</p>';
+        echo '<p>在庫：' . $row['zaiko'] . '</p>';
         
         echo '<input type="hidden" name="id" value="'.$row['id'].'">';
         echo '<input type="hidden" name="name" value="'.$row['name'].'">';
