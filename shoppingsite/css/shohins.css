@@ -1,5 +1,4 @@
 
-.shohin{
-    display: flex;
-    flex-flow: column;
+.table{
+    writing-mode: vertical-lr;
 }
