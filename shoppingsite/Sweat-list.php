@@ -1,4 +1,3 @@
-
 <?php require 'header.php'; ?>
 <?php require 'db-connect.php'; ?>
 <link rel="stylesheet" href="./css/shohins.css">

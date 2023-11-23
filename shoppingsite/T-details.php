@@ -1,5 +1,6 @@
 <?php require 'header.php'; ?>
 <?php require 'db-connect.php'; ?>
+
 <link rel="stylesheet" href="./css/shohin-list.css">
 <script src="./script/T-detail.js"></script>
 <body>
