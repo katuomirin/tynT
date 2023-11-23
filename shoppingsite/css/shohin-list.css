@@ -5,6 +5,10 @@ body {
   margin-right: auto;
   overflow-x: hidden; /* 横スクロールを防ぐ */
   text-align: left;
+  margin: 0;
+}
+.total{
+  margin: 0;
 }
 
 /*パンくずリスト*/
@@ -14,6 +18,7 @@ body {
   list-style: none;
   padding: 0;
   font-size: .9em;
+  padding-top: 0%;
 }
 
 .breadcrumb-001 li {
@@ -51,15 +56,15 @@ body {
   padding: 110px;
   float: left; /* 左側に配置 */
   width: 50%; /* 左半分の幅 */
+  padding-top: 0%;
   box-sizing: border-box; /* パディングとボーダーを要素の合計幅に含める */
 }
 
 .shohin-shosai{
-  text-align: left;
-  background-color: rgb(214, 215, 217);
-  position: relative;
+  text-align: right;
   float: right; /* 右側に配置 */
-  width: 50%; /* 右半分の幅 */
+  width: 80%; /* 右半分の幅 */
+  padding-top: 0%;
   box-sizing: border-box; /* パディングとボーダーを要素の合計幅に含める */
 }
 
