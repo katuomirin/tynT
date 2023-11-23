@@ -4,9 +4,8 @@
 <link rel="stylesheet" href="./css/shohins.css">
 <body>
     <ol class="breadcrumb-001">
-        <li><a href="#">ホーム</a></li>
-        <li><a href="#">カテゴリー</a></li>
-        <li><a href="#">タイトル</a></li>
+        <li><a href="./home.php">ホーム</a></li>
+        <li><a href="./T-shirt-list.php">Ｔシャツ</a></li>
     </ol>
     <?php
     $T="Tシャツ";

@@ -3,6 +3,10 @@
 <link rel="stylesheet" href="./css/shohin-list.css">
 <script src="./script/T-detail.js"></script>
 <body>
+    <ol class="breadcrumb-001">
+        <li><a href="./home.php">ホーム</a></li>
+        <li><a href="#" onclick="history.back()">カテゴリー</a></li>
+    </ol>
     <?php
     $pdo = new PDO($connect, USER, PASS);
         $sql = $pdo->prepare('select * from product where id=?');
