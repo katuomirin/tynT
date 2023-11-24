@@ -20,7 +20,7 @@
     border: 1px solid #2589d0;
     border-radius: 5px;
     background-color: #fff;
-    color: #ffff00;
+    color: #000;
     font-size: 1em;
 }
 
@@ -51,10 +51,12 @@
     font-weight: 600;
 }
 
+
+
 </style>
 
 <?php
-if (isset($_SESSION['product'])) {
+if (!empty($_SESSION['product'])) {
     echo '<table>';
     echo '<tr><th>商品番号</th><th>商品名</th><th>価格</th><th></th></tr>';
 $total=0;
@@ -81,6 +83,10 @@ foreach($_SESSION['product'] as $id=>$product){
         </form>
 
         <form action="reji.php">
-            <button class="susumu">レジに進む</button>
+        <?php
+        if(!empty($_SESSION['product'])) {
+            echo '<button class="susumu">レジに進む</button>';
+        }
+        ?>
         </form>
     </div>

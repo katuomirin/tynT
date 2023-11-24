@@ -268,10 +268,17 @@ nav .inner ul li a:hover {
 </form>
 
     <!-- ログイン画像に枠線を追加 -->
-<a href="login.php" target="_self">
-  <img src="image/login.png" alt="ログイン" style="height: 70px; width:75px;" border="0">
-</a>
-
+    <?php
+    if (isset($_SESSION['user'])) {
+        echo '<a href="login.php" target="_self">';
+        echo '<img src="image/login.png" alt="ログイン" style="height: 70px; width:75px;" border="0">';
+        echo '</a>';
+    } else {
+        echo '<a href="mypage.php" target="_self">';
+        echo '<img src="image/mypage.png" alt="マイページ" style="height: 70px; width:75px;" border="0">';
+        echo '</a>';
+    }
+?>
 <!-- お気に入り画像に枠線を追加 -->
 <a href="favorite-show.php" target="_self">
   <img src="image/favo.png" alt="お気に入り" style="height: 70px;width:75px;"border="0" >
