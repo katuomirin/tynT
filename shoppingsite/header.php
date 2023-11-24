@@ -3,13 +3,16 @@
 <head>
 <meta charset="utf-8">
 <title>CSS入門-ヘッダーとフッターの固定表示</title>
+<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/header.css">
 <link rel="stylesheet" href="css/search.css">
 <link rel="stylesheet" href="css/hum.css">
 <link rel="stylesheet" href="css/news.css">
 <link rel="stylesheet" href="css/create.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <style>
 /* 既存のスタイルは省略 */
+
 /* 以下は現在のスタイルに追加 */
 body {
   font-weight: 400;
@@ -58,7 +61,7 @@ body {
 }
 
 .SearchBox button {
-  background-color: #00008b; /* ボタンの背景色を指定 */
+  background-color: #31a9ee; /* ボタンの背景色を指定 */
   border: none;
   border-radius: 5px;
   color: #ffffff; /* ボタンのテキスト色を指定 */
@@ -88,7 +91,7 @@ nav {
   background-color: #ffffff;
   width: 220px;
   top: 0;
-  left: 0; /* 左上に配置する */
+  left: -300px; /* 左上に配置する */
   bottom: 0;
   transition: all 0.5s;
   z-index: 3;
@@ -195,34 +198,88 @@ nav .inner ul li a:hover {
   z-index: 2;
   cursor: pointer;
 }
+/* CSS for the dropdown menu */
+.dropdown {
+  position: relative;
+}
 
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ffffff;
+  border: 1px solid #333;
+  z-index: 1;
+}
+
+.dropdown-menu li {
+  border: none;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-menu a:hover {
+  background: #e4e4e4;
+}
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .image-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .image-grid div {
+            flex-basis: 200px;
+            text-align: center;
+        }
+        .image-grid img {
+            width: 100%;
+            height: auto;
+        }
+        .center {
+            display: flex;
+            justify-content: center;
+        }
 </style>
+
+
 </head>
 <body>
 <div class="Header">
 <a href="home.php" target="_self">
-  <img src="./image/nin.jpg" alt="ホーム" width="75"  border="0">
+  <img src="./image/nin.jpg" alt="ホーム" width="50" height="50" border="0">
 </a>
     <!-- 検索ボックスを追加 -->
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <form method="get" action="products.php" class="search_container">
-    <input type="text" size="25" placeholder="キーワード検索">
+    <form method="post" action="T.php" class="search_container">
+    <input type="text" size="25" placeholder="キーワード検索" name="keyword">
     <input type="submit" value="&#xf002">
 </form>
 
     <!-- ログイン画像に枠線を追加 -->
 <a href="login.php" target="_self">
-  <img src="./image/login.png" alt="ログイン" style="height: 70px; width:75px;" border="0">
+  <img src="image/login.png" alt="ログイン" style="height: 70px; width:75px;" border="0">
 </a>
 
 <!-- お気に入り画像に枠線を追加 -->
 <a href="favorite-show.php" target="_self">
-  <img src="./image/favo.png" alt="お気に入り" style="height: 70px;width:75px;"border="0" >
+  <img src="image/favo.png" alt="お気に入り" style="height: 70px;width:75px;"border="0" >
 </a>
 
 <!-- カート画像に枠線を追加 -->
-<a href="cart.php" target="_self">
-  <img src="./image/cart.png" alt="カート" style="height: 70px;width:75px;" border="0" >
+<a href="cart-show.php" target="_self">
+  <img src="image/cart.png" alt="カート" style="height: 70px;width:75px;" border="0" >
 </a>
 
 </div>
@@ -236,11 +293,19 @@ nav .inner ul li a:hover {
     <div class="inner">
       <ul>
         <li><a></a></li>
-        <li><a href="#">ホーム</a></li>
-        <li><a href="#">Tシャツ/カットソー</a></li>
-        <li><a href="#">ポロシャツ</a></li>
-        <li><a href="#">スウェット/トレーナー</a></li>
-        <li><a href="#">パーカー</a></li>
+        <li><a href="home.php">ホーム</a></li>
+        <li class="dropdown">
+          <a href="#">カテゴリ</a>
+          <ul class="dropdown-menu">
+            <li><a href="T=shirt-list.php">Tシャツ</a></li>
+            <li><a href="Polo-shirt-list.php">ポロシャツ</a></li>
+            <li><a href="Sweat-list.php">スウェット</a></li>
+            <li><a href="Parker-list.php">パーカー</a></li>
+          </ul>
+        </li>
+        <li><a href="create.php">オリジナルTシャツ</a></li>
+        <li><a href="#">お問い合わせ</a></li>
+        <li><a href="#">ほーむ</a></li>
         <li><a href="#"></a></li>
       </ul>
     </div>
@@ -253,4 +318,5 @@ nav .inner ul li a:hover {
   </div>
   <div id="mask"></div>
 </div>
+
 <script src="script.js"></script>

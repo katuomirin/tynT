@@ -3,12 +3,6 @@
 <?php require 'db-connect.php'; ?>
 <link rel="stylesheet" href="./css/shohins.css">
 <body>
-    <!--<nav>
-        <ol class="navigation">
-            <li><a href="./home.php">Home</a></li>
-            <li><a href="./home.php">Home</a></li>
-        </ol>
-    </nav>-->
     <div class="shohin">
         <?php
         $pdo=new PDO($connect,USER,PASS);

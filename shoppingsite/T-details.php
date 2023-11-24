@@ -1,14 +1,20 @@
 <?php require 'header.php'; ?>
 <?php require 'db-connect.php'; ?>
+
 <link rel="stylesheet" href="./css/shohin-list.css">
 <script src="./script/T-detail.js"></script>
 <body>
+    <ol class="breadcrumb-001">
+        <li><a href="./home.php">ホーム</a></li>
+        <li><a href="#" onclick="history.back()">カテゴリー</a></li>
+    </ol>
     <?php
     $pdo = new PDO($connect, USER, PASS);
         $sql = $pdo->prepare('select * from product where id=?');
     $sql->execute([$_GET['id']]);
     $S=0; $M=0; $L=0; $XL=0; $XXL=0;
 
+    echo '<div class="total">';
     foreach ($sql as $row){
         echo '<p class="shohin-item"><img alt="image" style="width: 300px; margin:0; 
               display:block;" src="image/', $row['image'], '.png"></p>';//商品写真
@@ -70,6 +76,7 @@
         echo '</form>';
         echo '</p>';
     }
+    echo '</div>';
     ?>
     <div class="shohin-gaiyo">
         <p><a href="create.php">作成手順</a>について</p>
