@@ -304,7 +304,7 @@ nav .inner ul li a:hover {
         <li class="dropdown">
           <a href="#">カテゴリ</a>
           <ul class="dropdown-menu">
-            <li><a href="T=shirt-list.php">Tシャツ</a></li>
+            <li><a href="T-shirt-list.php">Tシャツ</a></li>
             <li><a href="Polo-shirt-list.php">ポロシャツ</a></li>
             <li><a href="Sweat-list.php">スウェット</a></li>
             <li><a href="Parker-list.php">パーカー</a></li>
