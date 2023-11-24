@@ -27,7 +27,7 @@
 
         echo '<p class="font3">加工位置を選択してください</p>';
         echo '<p class="font4">※加工費は一律５００円です。</p>';
-        echo '<form method="post" action="cart-incert.php" class="position">
+        echo '<form method="post" action="cart-incert.php" class="check">
                 <label>','<input type="checkbox" name="options[]" value="左胸（10×10㎝）">左胸（10×10㎝）</label><br>
                 <label><input type="checkbox" name="options[]" value="右胸(10×10cm）"> 右胸(10×10cm）</label><br>
                 <label><input type="checkbox" name="options[]" value="胸中央(35.5×40cm）"> 胸中央(35.5×40cm）</label><br>
@@ -43,7 +43,7 @@
                         </tr>
                         <tr>
                             <th>Ｓ</th>
-                            <td><input type="number" name="quantityS" id="quantityInputS" value="0" min="0" max="100" step="1" oninput="calculateSubtotal(\'subtotalS\', \'quantityInputS\', \'priceS\')"></td>
+                            <td><input type="number" name="quantityS" id="quantityInputS" value="0" min="0" max="100" step="1" oninput="calculateSubtotal(subtotalS, quantityInputS, priceS); calculateTotalQuantity();"></td>
                             <td id="subtotalS">0</td>
                         </tr>
                         <tr>
@@ -66,6 +66,25 @@
                             <td><input type="number" name="quantityXXL" id="quantityInputXXL" value="0" min="0" max="100" step="1" oninput="calculateSubtotal(\'subtotalXXL\', \'quantityInputXXL\', \'priceXXL\')"></td>
                             <td id="subtotalXXL">0</td>
                         </tr>
+                        <tr>
+                            <th>合計</th>
+                            <td id="totalQuantity"></td>
+                            <script>
+                                function calculateTotalQuantity() {
+                                    var quantityS = parseInt(document.getElementById(quantityInputS).value) || 0;
+                                    var quantityM = parseInt(document.getElementById(quantityInputM).value) || 0;
+                                    var quantityL = parseInt(document.getElementById(quantityInputL).value) || 0;
+                                    var quantityXL = parseInt(document.getElementById(quantityInputXL).value) || 0;
+                                    var quantityXXL = parseInt(document.getElementById(quantityInputXXL).value) || 0;
+
+                                    var totalQuantity = quantityS + quantityM + quantityL + quantityXL + quantityXXL;
+
+                                    document.getElementById(totalQuantity).innerText = totalQuantity;
+                                }
+                                calculateTotalQuantity();
+                            </script>
+
+                            <td></td>
                     </tbody>
                 </table>';
         //カートに追加

@@ -55,7 +55,7 @@ body {
 .shohin-item {
   padding: 100px;
   margin-block-start: 0;
-  margin-block-end: 60em;
+  margin-block-end:200px;
   float: left; /* 左側に配置 */
   width: 50%; /* 左半分の幅 */
   padding-top: 0%;
@@ -159,7 +159,7 @@ td, th {
 	height: 25px;
 }
 th {
-	background: #f0e6cc;
+	background: rgb(209, 224, 247);
 }
 .even {
 	background: #fbf8f0;
