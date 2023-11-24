@@ -53,10 +53,13 @@ body {
 }
 
 .shohin-item {
-  padding: 110px;
+  padding: 100px;
+  margin-block-start: 0;
+  margin-block-end: 60em;
   float: left; /* 左側に配置 */
   width: 50%; /* 左半分の幅 */
   padding-top: 0%;
+
   box-sizing: border-box; /* パディングとボーダーを要素の合計幅に含める */
 }
 
