@@ -3,23 +3,27 @@
 
 <link rel="stylesheet" href="./css/shohin-list.css">
 <script src="./script/T-detail.js"></script>
+
 <body>
     <ol class="breadcrumb-001">
         <li><a href="./home.php">ホーム</a></li>
         <li><a href="#" onclick="history.back()">カテゴリー</a></li>
     </ol>
+
     <?php
     $pdo = new PDO($connect, USER, PASS);
-        $sql = $pdo->prepare('select * from product where id=?');
+    $sql = $pdo->prepare('select * from product where id=?');
     $sql->execute([$_GET['id']]);
-    $S=0; $M=0; $L=0; $XL=0; $XXL=0;
 
     echo '<div class="total">';
-    foreach ($sql as $row){
-        echo '<p class="shohin-item"><img alt="image" style="width: 300px; margin:0; 
-              display:block;" src="image/', $row['image'], '.png"></p>';//商品写真
+    echo '<script>';
+    echo 'var rowPrice = ', $row['price'], ';'; // $row['price']をJavaScriptの変数に設定
+    echo '</script>';
+
+    foreach ($sql as $row) {
+        echo '<p class="shohin-item"><img alt="image" style="width: 300px; margin:0; display:block;" src="image/', $row['image'], '.png"></p>'; // 商品写真
         echo '<p class="shohin-shosai">';
-        echo '<p class="font1">', $row['name'],'</p>';
+        echo '<p class="font1">', $row['name'], '</p>';
         echo '<p class="font2">￥', $row['price'], '</p>';
         echo '<p>', $row['ex'], '<br>';
         echo '素材:', $row['sozai'], '<br>';
@@ -27,76 +31,80 @@
 
         echo '<p class="font3">加工位置を選択してください</p>';
         echo '<p class="font4">※加工費は一律５００円です。</p>';
-        echo '<form method="post" action="cart-incert.php" class="check">
-                <label>','<input type="checkbox" name="options[]" value="左胸（10×10㎝）">左胸（10×10㎝）</label><br>
-                <label><input type="checkbox" name="options[]" value="右胸(10×10cm）"> 右胸(10×10cm）</label><br>
-                <label><input type="checkbox" name="options[]" value="胸中央(35.5×40cm）"> 胸中央(35.5×40cm）</label><br>
-                <label><input type="checkbox" name="options[]" value="背中中央（35.5×40cm）"> 背中中央（35.5×40cm）</label><br>
-            </form>';
-        echo '<form action="cart-incert.php" method="post">';  
-        echo   '<table>
-                    <tbody>
-                        <tr>
-                            <th>サイズ</th>
-                            <th>数量</th>
-                            <th>小計</th>
-                        </tr>
-                        <tr>
-                            <th>Ｓ</th>
-                            <td><input type="number" name="quantityS" id="quantityInputS" value="0" min="0" max="100" step="1" oninput="calculateSubtotal(subtotalS, quantityInputS, priceS); calculateTotalQuantity();"></td>
-                            <td id="subtotalS">0</td>
-                        </tr>
-                        <tr>
-                            <th>Ｍ</th>
-                            <td><input type="number" name="quantityM" id="quantityInputM" value="0" min="0" max="100" step="1" oninput="calculateSubtotal(\'subtotalM\', \'quantityInputM\', \'priceM\')"></td>
-                            <td id="subtotalM">0</td>
-                        </tr>
-                        <tr>
-                            <th>Ｌ</th>
-                            <td><input type="number" name="quantityL" id="quantityInputL" value="0" min="0" max="100" step="1" oninput="calculateSubtotal(\'subtotalL\', \'quantityInputL\', \'priceL\')"></td>
-                            <td id="subtotalL">0</td>
-                        </tr>
-                        <tr>
-                            <th>ＸＬ</th>
-                            <td><input type="number" name="quantityXL" id="quantityInputXL" value="0" min="0" max="100" step="1" oninput="calculateSubtotal(\'subtotalXL\', \'quantityInputXL\', \'priceXL\')"></td>
-                            <td id="subtotalXL">0</td>
-                        </tr>
-                        <tr>
-                            <th>ＸＸＬ</th>
-                            <td><input type="number" name="quantityXXL" id="quantityInputXXL" value="0" min="0" max="100" step="1" oninput="calculateSubtotal(\'subtotalXXL\', \'quantityInputXXL\', \'priceXXL\')"></td>
-                            <td id="subtotalXXL">0</td>
-                        </tr>
-                        <tr>
-                            <th>合計</th>
-                            <td id="totalQuantity"></td>
-                            <script>
-                                function calculateTotalQuantity() {
-                                    var quantityS = parseInt(document.getElementById(quantityInputS).value) || 0;
-                                    var quantityM = parseInt(document.getElementById(quantityInputM).value) || 0;
-                                    var quantityL = parseInt(document.getElementById(quantityInputL).value) || 0;
-                                    var quantityXL = parseInt(document.getElementById(quantityInputXL).value) || 0;
-                                    var quantityXXL = parseInt(document.getElementById(quantityInputXXL).value) || 0;
+        echo '<form method="post" action="cart-incert.php" class="check">';
+        echo '<label>
+                <input type="checkbox" name="options[]" value="左胸（10×10㎝）" data-quantity="0">左胸（10×10㎝）
+            </label><br>';
+        echo '<label>
+                <input type="checkbox" name="options[]" value="右胸(10×10cm）" data-quantity="0">右胸(10×10cm）
+            </label><br>';
+        echo '<label>
+                <input type="checkbox" name="options[]" value="胸中央(35.5×40cm）" data-quantity="0">胸中央(35.5×40cm）
+            </label><br>';
+        echo '<label>
+                <input type="checkbox" name="options[]" value="背中中央（35.5×40cm）" data-quantity="0">背中中央（35.5×40cm）
+            </label><br>';
+        echo '</form>';
 
-                                    var totalQuantity = quantityS + quantityM + quantityL + quantityXL + quantityXXL;
+        echo '<form action="cart-incert.php" method="post">';
+        echo '<input type="hidden" name="totalSubtotal" id="hiddenTotalSubtotal" value="0">'; // 小計の合計を保存する隠しフィールド
 
-                                    document.getElementById(totalQuantity).innerText = totalQuantity;
-                                }
-                                calculateTotalQuantity();
-                            </script>
+        echo '<table>
+                <tbody>
+                    <tr>
+                        <th>サイズ</th>
+                        <th>数量</th>
+                        <th>小計</th>
+                    </tr>';
 
-                            <td></td>
-                    </tbody>
-                </table>';
-        //カートに追加
-        echo '<input type="hidden" name="id" value="', $row['id'], '">';        
-        echo '<input type="hidden" name="name" value="', $row['name'], '">';    
+        $sizes = array('S', 'M', 'L', 'XL', 'XXL');
+        foreach ($sizes as $size) {
+            echo '<tr>';
+            echo '<th>', $size, '</th>';
+            echo '<td><input type="number" name="quantity', $size, '" id="quantityInput', $size, '" value="0" min="0" max="100" step="1" oninput="calculateSubtotal(\'subtotal', $size, '\', \'quantityInput', $size, '\', ', $row['price'], '); calculateTotalQuantity();"></td>';
+            echo '<td id="subtotal', $size, '">0</td>';
+            echo '</tr>';
+        }
+
+        echo '<tr>
+                <th>合計</th>
+                <td id="totalQuantity"></td>
+                <td id="totalSubtotal"></td>
+            </tr>
+        </tbody>
+    </table>';
+
+        // カートに追加
+        echo '<input type="hidden" name="id" value="', $row['id'], '">';
+        echo '<input type="hidden" name="name" value="', $row['name'], '">';
         echo '<input type="hidden" name="price" value="', $row['price'], '">';
-        echo '<p><input type="submit" value="カートに追加"></p>';               //ボタン
+        echo '<input type="hidden" name="subtotal" id="subtotalInput" value="0">'; // 各商品の小計を保存する隠しフィールド
+        echo '<p><input type="submit" value="カートに追加" onclick="setHiddenFields();"></p>'; // カートに追加ボタン
+
+        // お気に入りに追加
+        echo '<p><input type="submit" value="お気に入りに追加" formaction="favorite-incert.php"></p>'; // お気に入りに追加ボタン
+
         echo '</form>';
         echo '</p>';
     }
+
+    // $rowの値をJavaScriptに渡す
+    echo '<script>';
+    echo 'var rowPrice = ', $row['price'], ';';
+    echo 'function setHiddenFields() {
+                var totalSubtotal = 0;
+                var sizes = ["S", "M", "L", "XL", "XXL"];
+                for (var i = 0; i < sizes.length; i++) {
+                    totalSubtotal += parseFloat(document.getElementById("subtotal" + sizes[i]).textContent);
+                }
+                document.getElementById("hiddenTotalSubtotal").value = totalSubtotal.toFixed(2);
+                document.getElementById("subtotalInput").value = totalSubtotal.toFixed(2);
+            }';
+    echo '</script>';
+
     echo '</div>';
     ?>
+
     <div class="shohin-gaiyo">
         <p><a href="create.php">作成手順</a>について</p>
         <p class="saize">SIZE</p>
@@ -121,6 +129,7 @@
         </p>
     </div>
 </body>
+
 <div class="footer">
     <?php require 'footer.php'; ?>
 </div>
