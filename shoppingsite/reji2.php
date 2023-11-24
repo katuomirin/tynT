@@ -25,8 +25,8 @@
 }
 
 .input-area{
-    border-top: 3px solid #EE8884;
-    border-bottom: 3px solid #EE8884;
+    border-top: 3px solid #0000ff;
+    border-bottom: 3px solid #0000ff;
     padding: 16px;
 }
 
