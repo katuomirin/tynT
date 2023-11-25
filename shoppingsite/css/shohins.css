@@ -2,8 +2,19 @@
     height: 20em;
 }
 
-.shohin{
+.item{
     display: flex;
+}
+.shohins{
+    line-height: 1.2;
+    margin-right: 10px;
+}
+.price{
+    margin: 0;
+}
+
+.shohin{
+    float: right;
 }
 .shohin div{
     border: 1px solid #333;
