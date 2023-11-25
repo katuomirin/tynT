@@ -68,9 +68,6 @@ foreach($_SESSION['product'] as $id=>$product){
     $total += $product['price'] ;
     echo '<td><a href="cart-delete.php?id=',$id,'">削除</a></td>';
     echo '</tr>';
-    echo '<form method="post" action="mypage.php">';//マイページでつかうよ
-        $cart_id = $id; $cart_name = $product['name']; $cart_price = $product['price'];
-        echo '</form>';
 }
     
     echo '<tr><td>合計</td><td></td><td>', $total, '円</td><td></td></tr>';
