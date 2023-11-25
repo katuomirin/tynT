@@ -26,7 +26,7 @@
                       </div>';
                 echo '<p class="price">', $row['price'], '</p></div>';
             }
-        echo '</div>'
+        echo '</div>';
         ?>
 </body>
     <div class="footer">

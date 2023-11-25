@@ -14,12 +14,15 @@
     $sql->bindParam(':category', $T, PDO::PARAM_STR);
     $sql->execute();
     
+    echo '<div class="item">';
         foreach ($sql as $row) {
             $id = $row['id'];
+            echo '<div class="shohins">';
             echo '<img alt="image" style="width: 40px; height: 40px;" src="image/',$row['image'], '.png"><br>';
             echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a><br>';
-            echo '<td>', $row['price'], '</td><br>';
+            echo '<p class="price">', $row['price'], '</p></div>';
         }
+    echo '</div>';
     ?>
 </body>
     <div class="footer">
