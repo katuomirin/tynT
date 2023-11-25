@@ -19,7 +19,7 @@ if (isset($_SESSION['user'])) {
         echo '<td><a href="favorite-delete.php?id=', $id, '">削除</a></td>';
         echo '</tr>';
     }
-
+    
     echo '</table>';
 } else {
     echo 'お気に入りを表示するにはログインしてください。';

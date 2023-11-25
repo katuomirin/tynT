@@ -20,14 +20,14 @@
     border: 1px solid #2589d0;
     border-radius: 5px;
     background-color: #fff;
-    color: #000;
+    color: #2589d0;
     font-size: 1em;
 }
 
 .susumu:hover {
     border: none;
-    background-color: #ffff00;
-    color: #000;
+    background-color: #2589d0;
+    color: #fff;
     font-weight: 600;
 }
 .modo {
