@@ -9,7 +9,7 @@ $sql=$pdo->prepare('select * from user where email=?');
 $sql->execute([$_POST['email']]);
 foreach ($sql as $row) {
     if(!empty($_POST['password'])&&password_verify($_POST['password'],$row['password'])){
-        echo '<form method="post" action="mypage.php">';
+        echo '<form method="post" action="mypage.php">';//マイページでつかうよ
         $_SESSION['user']=[
             'id'=>$row['id'], 'kana'=>$row['kana'],
             'kanji'=>$row['kanji'], 'email'=>$row['email'],

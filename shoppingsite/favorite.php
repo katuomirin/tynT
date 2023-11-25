@@ -18,8 +18,11 @@ if (isset($_SESSION['user'])) {
         echo '<td><img src="path_to_your_images_directory/', htmlspecialchars($row['image']), '" alt="Product Image" style="width: 100px; height: 100px;"></td>';
         echo '<td><a href="favorite-delete.php?id=', $id, '">削除</a></td>';
         echo '</tr>';
+        echo '<form method="post" action="mypage.php">';//マイページでつかうよ
+        $fav_id = $id; $fav_name = $row['name']; $fav_price = $row['price'];
+        echo '</form>';
     }
-    
+
     echo '</table>';
 } else {
     echo 'お気に入りを表示するにはログインしてください。';
