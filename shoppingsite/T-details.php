@@ -33,16 +33,16 @@
         echo '<p class="font4">※加工費は一律５００円です。</p>';
         echo '<form method="post" action="cart-incert.php" class="check">';
         echo '<label>
-                <input type="checkbox" name="options[]" value="左胸（10×10㎝）" data-quantity="0">左胸（10×10㎝）
+                <input type="checkbox" name="options[]" value="left-chest" data-quantity="0">左胸（10×10㎝）
             </label><br>';
         echo '<label>
-                <input type="checkbox" name="options[]" value="右胸(10×10cm）" data-quantity="0">右胸(10×10cm）
+                <input type="checkbox" name="options[]" value="right-chest" data-quantity="0">右胸(10×10cm）
             </label><br>';
         echo '<label>
-                <input type="checkbox" name="options[]" value="胸中央(35.5×40cm）" data-quantity="0">胸中央(35.5×40cm）
+                <input type="checkbox" name="options[]" value="center-chest" data-quantity="0">胸中央(35.5×40cm）
             </label><br>';
         echo '<label>
-                <input type="checkbox" name="options[]" value="背中中央（35.5×40cm）" data-quantity="0">背中中央（35.5×40cm）
+                <input type="checkbox" name="options[]" value="center-back" data-quantity="0">背中中央（35.5×40cm）
             </label><br>';
         echo '</form>';
 
