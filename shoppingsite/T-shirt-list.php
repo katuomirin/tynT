@@ -21,6 +21,17 @@
                 echo '<div class="shohins">';
                 echo '<a href="T-details.php?id=', $id, '"><img class="img" alt="image" src="image/',$row['image'], '.png"><a><br>';
                 echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a>';
+                if(isset($_SESSION['user'])){
+                    $ssql = $pdo->prepare('SELECT * FROM favorite INNER JOIN product ON favorite.product_id = product.id WHERE user_id = ?');
+                    $ssql->execute([$_SESSION['user']['id']]);
+                    $favorite_data = $ssql->fetchAll(PDO::FETCH_ASSOC);
+                    if(!empty($favorite_data)){
+                        //お気に入りに商品が入っている場合
+                        echo '<input type="checkbox" name="remove_favorite_products[]" value="<?= $product[id] ?>">';
+                    }else{
+                        //お気に入りに商品が入っていない場合
+                    }
+                }
                 echo '<p class="price">', $row['price'], '</p></div>';
             }
         echo '</div>';
