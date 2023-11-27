@@ -6,10 +6,22 @@
             exit();
         }
 ?>
+<style>
+    .zenbu {
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+    }
+</style>
+
+
 <body>
+    <div class="zenbu">
     <?php
     unset($_SESSION['product']);
-            echo '<h2>商品の購入が完了しました</h2>';
+            echo '<h2>商品の購入が完了しました</h2><br />';
             echo '<h2><a href="home.php">購入</a>を続ける</h2>';
     ?>
+    </div>
+    
 </body>
