@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="./css/mypage.css">
 <body>
     <?php
+    echo '<form action="mypage-change.php" method="post">';
     $pdo = new PDO($connect, USER, PASS);
     if(isset($_SESSION['user'])){
         $user = $_SESSION['user'];
@@ -26,6 +27,8 @@
         echo '<p>ログイン情報が見つかりません。<br>もう一度ログインしてください</p>';
         echo '<a href="login.php">ログイン</a>';
     }
+    echo '<button class="button-003">変更</button>';
+    echo '</form>';
 ?>
 </body>
 <?php require 'footer.php'; ?>
