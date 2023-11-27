@@ -14,7 +14,7 @@
         <?php
         $pdo=new PDO($connect, USER, PASS);
         $sql=$pdo->prepare('select * from product where id=?');
-        $sql->execute([$_POST['id']]);
+        $sql->execute([$_GET['id']]);
         foreach ($sql as $row){
             echo '<form action="pro-edit-output.php" method="post" enctype="multipart/form-data">';
 echo '<table>';
