@@ -58,11 +58,10 @@
 <?php
 if (!empty($_SESSION['product'])) {
     echo '<table>';
-    echo '<tr><th>商品番号</th><th>商品名</th><th>価格</th><th></th></tr>';
+    echo '<tr><th>商品名</th><th>価格</th><th></th></tr>';
 $total=0;
 foreach($_SESSION['product'] as $id=>$product){
     echo '<tr>';
-    echo '<td>',$id,'</td>';
     echo '<td>',$product['name'], '</td>';
     echo '<td>', $product['price'], '</td>';
     $total += $product['price'] ;
@@ -70,7 +69,7 @@ foreach($_SESSION['product'] as $id=>$product){
     echo '</tr>';
 }
     
-    echo '<tr><td>合計</td><td></td><td>', $total, '円</td><td></td></tr>';
+    echo '<tr><td>合計</td><td>', $total, '円</td><td></td></tr>';
     echo '</table>';
 } else {
     echo 'カートに追加されていません。';
