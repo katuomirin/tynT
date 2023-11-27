@@ -41,3 +41,4 @@ function calculateTotalSubtotal() {
 
     document.getElementById('totalSubtotal').innerText = totalSubtotal;
 }
+
