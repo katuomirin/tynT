@@ -41,4 +41,7 @@ function calculateTotalSubtotal() {
 
     document.getElementById('totalSubtotal').innerText = totalSubtotal;
 }
-
+//お気に入り
+$('.checkbox').click(function(){
+    $(this).toggleClass('is-checked');
+  });
