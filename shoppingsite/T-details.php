@@ -24,6 +24,10 @@
         echo '<p class="shohin-item"><img alt="image" style="width: 300px; margin:0; display:block;" src="image/', $row['image'], '.png"></p>'; // 商品写真
         echo '<p class="shohin-shosai">';
         echo '<p class="font1">', $row['name'], '</p>';
+        echo '<div class="choice-list">
+                <nobr class="checkbox heart"></nobr>
+              </div><br>';
+        echo '<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>';
         echo '<p class="font2">￥', $row['price'], '</p>';
         echo '<p>', $row['ex'], '<br>';
         echo '素材:', $row['sozai'], '<br>';
