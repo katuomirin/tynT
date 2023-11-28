@@ -7,7 +7,6 @@
         <li><a href="./home.php">ホーム</a></li>
         <li><a href="./T-shirt-list.php">Ｔシャツ</a></li>
     </ol>
-    <div class="shohins">
         <?php
         $user = $_SESSION['user'];
         $userid=$user['id'];
@@ -22,11 +21,10 @@
             foreach ($sql as $row) {
                 $id = $row['id'];
                 echo '<div class="shohins">';
-                echo '<a href="T-details.php?id=', $id, '"><img class="img" alt="image" src="image/',$row['image'], '.png"><a><br>';
-                echo '<nobr><a href="T-details.php?id=', $id, '">', $row['name'], '</a></nobr>';
+                echo '<a href="T-details.php?id=', $id, '"><img class="img" alt="image" src="image/',$row['image'], '.png"></a>';
                 echo '<div class="choice-list">
-                        <nobr class="checkbox heart"></nobr>
-                      </div><br>';
+                        <div class="checkbox heart"></div>
+                      </div>';
                 echo '<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>';
                 echo   '<script>
                             $(".checkbox").click(function() {
@@ -37,11 +35,9 @@
                                 if ($(this).hasClass("is-checked")) {
                                     console.log("クリック後の処理");
                                     var productId = ' . $id . '; // 商品IDを取得
-                                    var userId = ' . $userid . '; // ユーザーIDを取得
-                                    // ここで productId と userId を使用する
                                     $.ajax({
                                         type: "POST",
-                                        url: "favorite.php",
+                                        url: "favorite-incert.php",
                                         data: {id: productId},
                                         success: function(response) {
                                             // レスポンスを処理する（必要に応じて）
@@ -54,6 +50,7 @@
                                 }
                             });
                         </script>';
+                echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a>';
                 echo '<p class="price">', $row['price'], '</p></div>';
             }
         echo '</div>';

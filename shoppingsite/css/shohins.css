@@ -1,25 +1,26 @@
-.img{
+.img{/*商品写真*/
     height: 10em;
+    display: inline-block;
+
 }
 
-.item{
+.item{/*商品全体*/
     display: flex;
 }
-.shohins{
+.shohins{/*一商品*/
     line-height: 1.2;
     margin-right: 20px;
     margin-left: 20px;
+    width: 10em;
 }
-.price{
+.style{/*ハートアイコンと商品名*/
+  margin: 0 auto;
+  text-align: left;
+}
+.price{/*価格*/
     margin: 0;
 }
 
-.shohin{
-    float: right;
-}
-.shohin div{
-    border: 1px solid #333;
-}
 /*パンくずリスト*/
 .breadcrumb-001 {
     display: flex;
@@ -62,12 +63,12 @@
 /*お気に入り*/
 .choice-list {
   margin: 0 auto;
-  width: 100px; /* 調整可能なサイズ */
   display: block;
   padding: 0;
 }
 
 .checkbox {
+  text-align: left;
   float: left;
   width: 30px;
   height: 30px;
