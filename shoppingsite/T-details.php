@@ -25,11 +25,35 @@
         echo '<p class="shohin-item"><img alt="image" style="width: 300px; margin:0; display:block;" src="image/', $row['image'], '.png"></p>'; 
         echo '<p class="shohin-shosai">';
         echo '<p class="font1">', $row['name'], '</p>';
-        echo '<div class="choice-list">
-                <nobr class="checkbox heart"></nobr>
-              </div><br>';
+        echo '<div class="style"><div class="choice-list">
+                <div class="checkbox heart"></div>
+              </div>';
         echo '<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>';
-        echo '<p class="font2">￥', $row['price'], '</p>';
+        echo   '<script>
+                    $(".checkbox").click(function() {
+                        if (!$(this).hasClass("is-checked")) {
+                            console.log("クリック前の処理");
+                        }
+                        $(this).toggleClass("is-checked");
+                        if ($(this).hasClass("is-checked")) {
+                            console.log("クリック後の処理");
+                            var productId = ' . $row['id'] . '; // 商品IDを取得
+                            $.ajax({
+                                type: "POST",
+                                url: "favorite-incert.php",
+                                data: {id: productId},
+                                success: function(response) {
+                                    // レスポンスを処理する（必要に応じて）
+                                    console.log(response);
+                                },
+                                error: function(error) {
+                                    console.error(error);
+                                }
+                            });
+                        }
+                    });
+                </script>';
+        echo '<p class="font2"><nobr>￥', $row['price'], '</nobr></p></div>';
         echo '<p>', $row['ex'], '<br>';
         echo '素材:', $row['sozai'], '<br>';
         echo 'カラー:', $row['color'], '</p>';

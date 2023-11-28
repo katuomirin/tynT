@@ -157,12 +157,17 @@ body {
 }
 /*フォント*/
 .font1{
-  padding-top: 2em;
   font-size: 3em;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   line-height: 0.5;
+  margin: 0 auto;
+}
+.style{/*ハートアイコン*/
+  margin-top: 20px;
+  display: flex;
 }
 .font2{
+  margin: 25px;
   font-size: 2em;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   color: red;
@@ -237,4 +242,77 @@ th {
 }
 .odd {
 	background: #fefcf9;
+}
+
+/*お気に入り*/
+.choice-list {
+  margin: 0;
+  display: block;
+  padding: 0;
+  width: 50px;
+}
+
+.checkbox {
+  text-align: left;
+  float: left;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  border-radius: 100px;
+  display: block;
+  background-color:rgb(247, 229, 239);
+  margin: 0;
+  -moz-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
+  -o-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
+  -webkit-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
+  transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
+}
+
+.checkbox:hover {
+  background-color:rgb(247, 229, 239);
+}
+
+.checkbox:hover:after {
+  color: red;/*チェック前マウス*/
+}
+
+.checkbox:after {
+  line-height: 55px;
+  font-family: "FontAwesome";
+  display: block;
+  content: "\f004"; /* ハートアイコン */
+  color: rgba(255, 255, 255, 0.5);/*チェック前ハートの中*/
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  -moz-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  font-size: 20px;
+  -moz-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
+  -o-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
+  -webkit-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
+  transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
+}
+
+.checkbox.is-checked:after {
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  font-size: 30px;
+  color: red;
+}
+
+.checkbox.is-checked:hover:after {
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }

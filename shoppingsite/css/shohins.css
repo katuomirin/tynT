@@ -13,10 +13,7 @@
     margin-left: 20px;
     width: 10em;
 }
-.style{/*ハートアイコンと商品名*/
-  margin: 0 auto;
-  text-align: left;
-}
+
 .price{/*価格*/
     margin: 0;
 }
@@ -77,7 +74,7 @@
   -webkit-border-radius: 100px;
   border-radius: 100px;
   display: block;
-  background-color:rgb(248, 193, 223);
+  background-color:rgb(247, 229, 239);
   margin: 0;
   -moz-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
   -o-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
@@ -86,7 +83,7 @@
 }
 
 .checkbox:hover {
-  background-color:rgb(248, 193, 223);
+  background-color:rgb(247, 229, 239);
 }
 
 .checkbox:hover:after {
