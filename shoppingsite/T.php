@@ -3,8 +3,14 @@
 <?php require 'db-connect.php'; ?>
 <link rel="stylesheet" href="./css/shohins.css">
 <body>
-    <div class="shohin">
+    <ol class="breadcrumb-001">
+        <li><a href="./home.php">ホーム</a></li>
+        <li><a href="./T-shirt-list.php">Ｔシャツ</a></li>
+    </ol>
+    <div class="shohins">
         <?php
+        $user = $_SESSION['user'];
+        $userid=$user['id'];
         $pdo=new PDO($connect,USER,PASS);
         if(isset($_POST['keyword'])){
             $sql=$pdo->prepare('select * from product where name like ?');
@@ -15,9 +21,40 @@
         }
         foreach ($sql as $row) {
             $id = $row['id'];
-            echo '<img alt="image" style="width: 40px; height: 40px;" src="image/',$row['image'], '.png"><br>';
-            echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a><br>';
-            echo '<td>', $row['price'], '</td><br>';
+            echo '<div class="shohins">';
+            echo '<a href="T-details.php?id=', $id, '"><img class="img" alt="image" src="image/',$row['image'], '.png"><a><br>';
+            echo '<nobr><a href="T-details.php?id=', $id, '">', $row['name'], '</a></nobr>';
+            echo '<div class="choice-list">
+                    <nobr class="checkbox heart"></nobr>
+                  </div><br>';
+            echo '<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>';
+            echo   '<script>
+                        $(".checkbox").click(function() {
+                            if (!$(this).hasClass("is-checked")) {
+                                console.log("クリック前の処理");
+                            }
+                            $(this).toggleClass("is-checked");
+                            if ($(this).hasClass("is-checked")) {
+                                console.log("クリック後の処理");
+                                var productId = ' . $id . '; // 商品IDを取得
+                                var userId = ' . $userid . '; // ユーザーIDを取得
+                                // ここで productId と userId を使用する
+                                $.ajax({
+                                    type: "POST",
+                                    url: "favorite.php",
+                                    data: {id: productId},
+                                    success: function(response) {
+                                        // レスポンスを処理する（必要に応じて）
+                                        console.log(response);
+                                    },
+                                    error: function(error) {
+                                        console.error(error);
+                                    }
+                                });
+                            }
+                        });
+                    </script>';
+            echo '<p class="price">', $row['price'], '</p></div>';
         }
         ?>
     </div>
