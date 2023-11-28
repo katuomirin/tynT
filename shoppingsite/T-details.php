@@ -2,6 +2,7 @@
 <?php require 'db-connect.php'; ?>
 
 <link rel="stylesheet" href="./css/shohin-list.css">
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="./script/T-detail.js"></script>
 
 <body>
@@ -21,7 +22,7 @@
     echo '</script>';
 
     foreach ($sql as $row) {
-        echo '<p class="shohin-item"><img alt="image" style="width: 300px; margin:0; display:block;" src="image/', $row['image'], '.png"></p>'; // 商品写真
+        echo '<p class="shohin-item"><img alt="image" style="width: 300px; margin:0; display:block;" src="image/', $row['image'], '.png"></p>'; 
         echo '<p class="shohin-shosai">';
         echo '<p class="font1">', $row['name'], '</p>';
         echo '<div class="choice-list">
@@ -51,7 +52,7 @@
         echo '</form>';
 
         echo '<form action="cart-incert.php" method="post">';
-        echo '<input type="hidden" name="totalSubtotal" id="hiddenTotalSubtotal" value="0">'; // 小計の合計を保存する隠しフィールド
+        echo '<input type="hidden" name="totalSubtotal" id="hiddenTotalSubtotal" value="0">'; // 小計の合計を保存するフィールド
 
         echo '<table>
                 <tbody>
@@ -82,9 +83,14 @@
         echo '<input type="hidden" name="id" value="', $row['id'], '">';
         echo '<input type="hidden" name="name" value="', $row['name'], '">';
         echo '<input type="hidden" name="price" value="', $row['price'], '">';
-        echo '<input type="hidden" name="subtotal" id="subtotalInput" value="0">'; // 各商品の小計を保存する隠しフィールド
+        echo '<input type="hidden" name="subtotal" id="subtotalInput" value="0">'; // 各商品の小計を保存するフィールド
         echo '<p class="cart-botton"><input type="submit" value="カートに追加" onclick="setHiddenFields();"></p>'; // カートに追加ボタン
 
+        // お気に入りに追加
+        echo '<p class="cart-botton"><input type="submit" value="お気に入りに追加" formaction="favorite-incert.php"></p>'; // お気に入りに追加ボタン
+
+        // 加工費を表示
+        echo '<p>加工費: <span id="processingFee">0</span>円</p>';
         echo '</form>';
         echo '</p>';
     }
@@ -100,7 +106,26 @@
                 }
                 document.getElementById("hiddenTotalSubtotal").value = totalSubtotal.toFixed(2);
                 document.getElementById("subtotalInput").value = totalSubtotal.toFixed(2);
+                
+                // 計算した加工費を表示
+                var processingFee = getProcessingFee();
+                document.getElementById("processingFee").textContent = processingFee;
+            }
+
+            function getProcessingFee() {
+                var checkboxes = document.querySelectorAll(\'input[name="options[]"]:checked\');
+                var processingFee = checkboxes.length * 500;
+                return processingFee;
             }';
+    echo '</script>';
+
+    // お気に入りのチェックボックスに対する jQuery コード
+    echo '<script>';
+    echo '$(document).ready(function() {
+                $(".checkbox").click(function() {
+                    $(this).toggleClass("is-checked");
+                });
+            });';
     echo '</script>';
 
     echo '</div>';

@@ -7,7 +7,7 @@ if (!isset($_SESSION['product'])) {
 }
 $count=0;
 if (isset($_SESSION['product'][$id])){
-    $count=$_SESSION['product'][$id]['count'];
+    $count=$_SESSION['product'][$id];
 }
 $_SESSION['product'][$id]=[
     'name' => $_POST['name'],
