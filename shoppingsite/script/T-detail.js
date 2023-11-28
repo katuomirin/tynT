@@ -30,7 +30,7 @@ function calculateTotalSubtotal() {
     var subtotalXXL = parseInt(document.getElementById('subtotalXXL').textContent) || 0;
 
     var totalSubtotal = subtotalS + subtotalM + subtotalL + subtotalXL + subtotalXXL;
-    
+    alert("aa");
     // 加工位置のチェックボックスを取得
     var checkboxes = document.querySelectorAll('form.check input[type="checkbox"]');
     checkboxes.forEach(function (checkbox) {
@@ -38,10 +38,24 @@ function calculateTotalSubtotal() {
             totalSubtotal += 500 * parseInt(checkbox.getAttribute('data-quantity')) || 0;
         }
     });
+    var work = document.getElementsByName(option);
+    var tmp=0;
+    alert("a");
+    for(var i=0; i<work.size(); i++){
+        alert("b");
+        if (work[i].checked) {
+            tmp += 500 ;
+            alert(work[i].value);
+        }
+    }
+    document.getElementById('processingFee').innerText = tmp;
 
     document.getElementById('totalSubtotal').innerText = totalSubtotal;
 }
-//お気に入り
-$('.checkbox').click(function(){
-    $(this).toggleClass('is-checked');
-  });
+
+// お気に入りのチェックボックスに対する jQuery コード
+$(document).ready(function() {
+    $(".checkbox").click(function() {
+        $(this).toggleClass("is-checked");
+    });
+});
