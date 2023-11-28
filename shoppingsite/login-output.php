@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 <?php require 'db-connect.php'; ?>
 <!DOCTYPE html>
-<?php require 'header-user.php'; ?>
+<?php require 'header.php'; ?>
 <?php
 unset($_SESSION['user']);
 $pdo=new PDO($connect, USER, PASS);
