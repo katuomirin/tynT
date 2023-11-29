@@ -112,15 +112,15 @@
         echo '<p class="cart-botton"><input type="submit" value="カートに追加" onclick="setHiddenFields();"></p>'; // カートに追加ボタン
 
         // お気に入りに追加
-<<<<<<< HEAD
+
         echo '<p class="cart-botton"><input type="submit" value="お気に入りに追加" formaction="favorite-insert.php"></p>'; // お気に入りに追加ボタン
 
-=======
+
         echo '<p class="cart-botton"><input type="submit" value="お気に入りに追加" formaction="favorite-incert.php"></p>'; // お気に入りに追加ボタン
 
         // 加工費を表示
         echo '<p>加工費: <span id="processingFee">0</span>円</p>';
->>>>>>> 629974acdbf33825b4df32e7fbef00d76d4e5143
+
         echo '</form>';
         echo '</p>';
     }
