@@ -1,0 +1,31 @@
+.cart, .favorite {
+    font-weight:bold;
+    padding: 0.1em 0.3em;
+    position: relative;
+    display: inline-block;
+    transition: .3s;
+    }
+    .cart::after, .cart::before 
+    .favorite::after, .favorite::before{
+        position: absolute;
+        content: '';
+        width: 0;
+        height: 1px;/*線の太さ*/
+        background-color: #337ab7;/*線の色*/
+        transition: .3s;
+    }
+    .cart::before, .favorite::before{
+    top: 0;
+    left: 0;
+    }
+    .cart::after, .favorite::after{
+    bottom: 0;
+    right: 0;
+    }
+    .cart:hover::after, .cart:hover::before 
+    .favorite:hover::after, .favorite:hover::before {
+    width: 100%;
+    }
+    .cart:hover, .favorite:hover{
+    color:#337ab7;/*ホバー時の文字色*/
+    }
