@@ -58,12 +58,14 @@
 <?php
 if (!empty($_SESSION['product'])) {
     echo '<table>';
-    echo '<tr><th>商品名</th><th>価格</th><th></th></tr>';
+    echo '<tr><th>商品名</th><th>価格</th><th>数量</th><th>小計</th></tr>';
 $total=0;
 foreach($_SESSION['product'] as $id=>$product){
     echo '<tr>';
     echo '<td>',$product['name'], '</td>';
     echo '<td>', $product['price'], '</td>';
+    echo '<td>', $product['totalQuantity'], '</td>';
+    echo '<td id="subtotal', $size, '">0</td>';
     $total += $product['price'] ;
     echo '<td><a href="cart-delete.php?id=',$id,'">削除</a></td>';
     echo '</tr>';
