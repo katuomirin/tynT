@@ -13,8 +13,11 @@
     margin-left: 20px;
     width: 10em;
 }
-
+.name{
+    line-height: 2;
+}
 .price{/*価格*/
+    line-height: 2;
     margin: 0;
 }
 
