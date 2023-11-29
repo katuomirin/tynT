@@ -17,9 +17,8 @@
     $sql->execute([$_GET['id']]);
 
     echo '<div class="total">';
-    echo '<script>';
-    echo 'var rowPrice = ', $row['price'], ';'; // $row['price']をJavaScriptの変数に設定
-    echo '</script>';
+    echo '<script src="./script/T-detail.js"></script>'; // JavaScriptファイルを正しくロード
+
 
     foreach ($sql as $row) {
         echo '<p class="shohin-item"><img alt="image" style="width: 300px; margin:0; display:block;" src="image/', $row['image'], '.png"></p>'; 
@@ -107,20 +106,19 @@
         echo '<input type="hidden" name="id" value="', $row['id'], '">';
         echo '<input type="hidden" name="name" value="', $row['name'], '">';
         echo '<input type="hidden" name="price" value="', $row['price'], '">';
-        echo '<input type="hidden" name="subtotalOutput" id="subtotalOutput" value="0">'; // 各商品の小計を保存するフィールド
+        echo '<input type="hidden" name="subtotal" id="subtotalInput" value="0">'; // 各商品の小計を保存するフィールド
         echo '<input type="hidden" name="quantityOutput" id="quantityOutput" value="0">'; // 各商品の数量を保存するフィールド
         echo '<p class="cart-botton"><input type="submit" value="カートに追加" onclick="setHiddenFields();"></p>'; // カートに追加ボタン
 
         // お気に入りに追加
-<<<<<<< HEAD
+
         echo '<p class="cart-botton"><input type="submit" value="お気に入りに追加" formaction="favorite-insert.php"></p>'; // お気に入りに追加ボタン
 
-=======
+
         echo '<p class="cart-botton"><input type="submit" value="お気に入りに追加" formaction="favorite-incert.php"></p>'; // お気に入りに追加ボタン
 
         // 加工費を表示
         echo '<p>加工費: <span id="processingFee">0</span>円</p>';
->>>>>>> 629974acdbf33825b4df32e7fbef00d76d4e5143
         echo '</form>';
         echo '</p>';
     }
