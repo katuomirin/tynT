@@ -12,14 +12,14 @@ if (isset($_SESSION['product'][$id])){
 $_SESSION['product'][$id]=[
     'name' => $_POST['name'],
     'price' => $_POST['price'],
-    'totalQuantity' => $totalQuantity+$_POST['totalQuantity']
+    'totalQuantity' => $_POST['totalQuantity']
 ];
 echo '<form method="post" action="mypage.php">';//マイページでつかうよ
     $_SESSION['cart_data'][$id] = [
         'id' => $id,
         'name' => $_POST['name'],
         'price' => $_POST['price'],
-        'totalQuantity' => $totalQuantity+$_POST['totalQuantity']
+        'totalQuantity' => $_POST['totalQuantity']
     ];
 echo '</form>';
 echo '<p>カートに商品を追加しました。</p>';
