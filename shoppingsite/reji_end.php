@@ -23,6 +23,7 @@
     <?php
     unset($_SESSION['product']);
             echo '<h2>商品の購入が完了しました</h2>';
+            echo '<p><h2><a href="home.php">購入</a>を続ける</h2></p>';
     ?>   
     </div>   
 </body>
