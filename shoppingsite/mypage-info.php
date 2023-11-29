@@ -27,7 +27,7 @@
         echo '<p>カナ:', $kana, '</p>';
         echo '<p>漢字:', $kanji, '</p>'; 
         echo '<p>メール:', $email, '</p>';
-        echo '<p>パスワード:', $password, '</p>';
+        echo '<p>パスワード:**********', '</p>';
         echo '<p>生年月日:', $birthday, '</p>';
         echo '<p>性別:', $gender, '</p>';
         echo '<p>郵便番号:', $post_code, '</p>';
