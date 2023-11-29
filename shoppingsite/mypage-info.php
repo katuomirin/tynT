@@ -40,6 +40,9 @@
         echo '<p>ログイン情報が見つかりません。<br>もう一度ログインしてください</p>';
         echo '<a href="login.php">ログイン</a>';
     }
+    echo '<form action="mypage-change.php" method="post">';
+    echo '<button>変更</button>';
+    echo '</form>';
 ?>
 </body>
 <?php require 'footer.php'; ?>
