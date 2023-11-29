@@ -8,8 +8,6 @@
         <li><a href="./T-shirt-list.php">Ｔシャツ</a></li>
     </ol>
         <?php
-        $user = $_SESSION['user'];
-        $userid=$user['id'];
         $T="Tシャツ";
         $pdo=new PDO($connect,USER,PASS);
         
