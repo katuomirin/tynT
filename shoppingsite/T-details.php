@@ -17,10 +17,8 @@
     $sql->execute([$_GET['id']]);
 
     echo '<div class="total">';
-    echo '<script>';
-    echo 'var rowPrice = ' . json_encode($row['price']) . ';'; // $row['price']をJavaScriptの変数に設定
-    echo '</script>';
-    
+    echo '<script src="./script/T-detail.js"></script>'; // JavaScriptファイルを正しくロード
+
 
     foreach ($sql as $row) {
         echo '<p class="shohin-item"><img alt="image" style="width: 300px; margin:0; display:block;" src="image/', $row['image'], '.png"></p>'; 

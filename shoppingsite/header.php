@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<title>CSS入門-ヘッダーとフッターの固定表示</title>
+<title>ちゅんTオリジナルTシャツ作成サイト</title>
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/header.css">
 <link rel="stylesheet" href="css/search.css">
