@@ -38,9 +38,6 @@
     } else {
         echo '<p>ユーザー情報が見つかりません。</p>';
     }
-    echo '<form action="mypage-change.php" method="post">';
-    echo '<button>変更</button>';
-    echo '</form>';
 ?>
 </body>
 <?php require 'footer.php'; ?>
