@@ -19,7 +19,7 @@
         $address1 = $_SESSION['user']['address1'];
         $address2 = $_SESSION['user']['address2'];
         $manshon = $_SESSION['user']['manshon'];
-
+ 
     echo '<form action="mypage-change-output.php" method="post">';
     echo '<table>';
     echo '<tr><td>お名前(フリガナ)</td>';
@@ -35,24 +35,33 @@
     echo '<td><input type="password" name="password" value="', $password , '">';
     echo '</td></tr>';
     echo '<tr><td>生年月日</td>';
-    echo '<td><input type="password" name="password" value="', $birthday , '">';
-    echo '</td></tr>';
-    echo '<tr><td>性別</td>';
-    echo '<td><input type="password" name="password" value="', $gender , '">';
+    echo '<td><input type="text" name="birthday" value="', $birthday , '">';
     echo '</td></tr>';
     echo '<tr><td>郵便番号</td>';
-    echo '<td><input type="password" name="password" value="', $post_code , '">';
+    echo '<td><input type="text" name="post_code" value="', $post_code , '">';
     echo '</td></tr>';
     echo '<tr><td>住所(市町村区)</td>';
-    echo '<td><input type="password" name="password" value="', $address1 , '">';
+    echo '<td><input type="text" name="address1" value="', $address1 , '">';
     echo '</td></tr>';
     echo '<tr><td>住所(〜丁目)</td>';
-    echo '<td><input type="password" name="password" value="', $address2 , '">';
+    echo '<td><input type="text" name="address2" value="', $address2 , '">';
     echo '</td></tr>';
     echo '<tr><td>住所(マンション名)</td>';
-    echo '<td><input type="password" name="password" value="', $manshon , '">';
+    echo '<td><input type="text" name="manshon" value="', $manshon , '">';
     echo '</td></tr>';
     echo '</table>';
+    echo '<label>';
+    echo '<input type="radio" name="gender" value="男"/>';
+    echo '男性';
+    echo '</label><br>';
+    echo '<label>';
+    echo '<input type="radio" name="gender" value="女"/>';
+    echo '女性';
+    echo '</label><br>';
+    echo '<label>';
+    echo '<input type="radio" name="gender" value="その他"/>';
+    echo 'その他';
+    echo '</label>';
     echo '<input type="submit" value="確定">';
     echo '</form>';
     }
