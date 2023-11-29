@@ -55,6 +55,7 @@
     echo '</table>';
     echo '<input type="submit" value="確定">';
     echo '</form>';
+    }
 ?>
-
+ 
 <?php require 'footer.php'; ?>
