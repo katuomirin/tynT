@@ -19,7 +19,7 @@
         $address1 = $_SESSION['user']['address1'];
         $address2 = $_SESSION['user']['address2'];
         $manshon = $_SESSION['user']['manshon'];
- 
+
     echo '<form action="mypage-change-output.php" method="post">';
     echo '<table>';
     echo '<tr><td>お名前(フリガナ)</td>';

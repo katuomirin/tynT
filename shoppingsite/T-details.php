@@ -18,8 +18,9 @@
 
     echo '<div class="total">';
     echo '<script>';
-    echo 'var rowPrice = ', $row['price'], ';'; // $row['price']をJavaScriptの変数に設定
+    echo 'var rowPrice = ' . json_encode($row['price']) . ';'; // $row['price']をJavaScriptの変数に設定
     echo '</script>';
+    
 
     foreach ($sql as $row) {
         echo '<p class="shohin-item"><img alt="image" style="width: 300px; margin:0; display:block;" src="image/', $row['image'], '.png"></p>'; 
@@ -107,8 +108,7 @@
         echo '<input type="hidden" name="id" value="', $row['id'], '">';
         echo '<input type="hidden" name="name" value="', $row['name'], '">';
         echo '<input type="hidden" name="price" value="', $row['price'], '">';
-        echo '<input type="hidden" name="subtotalOutput" id="subtotalOutput" value="0">'; // 各商品の小計を保存するフィールド
-        echo '<input type="hidden" name="quantityOutput" id="quantityOutput" value="0">'; // 各商品の数量を保存するフィールド
+        echo '<input type="hidden" name="subtotal" id="subtotalInput" value="0">'; // 各商品の小計を保存するフィールド
         echo '<p class="cart-botton"><input type="submit" value="カートに追加" onclick="setHiddenFields();"></p>'; // カートに追加ボタン
 
         // お気に入りに追加
@@ -120,7 +120,6 @@
 
         // 加工費を表示
         echo '<p>加工費: <span id="processingFee">0</span>円</p>';
-
         echo '</form>';
         echo '</p>';
     }
