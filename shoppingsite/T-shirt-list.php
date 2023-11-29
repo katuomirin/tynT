@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php require 'header.php'; ?>
 <?php require 'db-connect.php'; ?>
 <link rel="stylesheet" href="./css/shohins.css">
@@ -6,7 +7,6 @@
         <li><a href="./home.php">ホーム</a></li>
         <li><a href="./T-shirt-list.php">Ｔシャツ</a></li>
     </ol>
-    <div class="shohins">
         <?php
         $T="Tシャツ";
         $pdo=new PDO($connect,USER,PASS);
@@ -19,19 +19,36 @@
             foreach ($sql as $row) {
                 $id = $row['id'];
                 echo '<div class="shohins">';
-                echo '<a href="T-details.php?id=', $id, '"><img class="img" alt="image" src="image/',$row['image'], '.png"><a><br>';
+                echo '<a href="T-details.php?id=', $id, '"><img class="img" alt="image" src="image/',$row['image'], '.png"></a>';
+                echo '<div class="choice-list">
+                        <div class="checkbox heart"></div>
+                      </div>';
+                echo '<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>';
+                echo   '<script>
+                            $(".checkbox").click(function() {
+                                if (!$(this).hasClass("is-checked")) {
+                                    console.log("クリック前の処理");
+                                }
+                                $(this).toggleClass("is-checked");
+                                if ($(this).hasClass("is-checked")) {
+                                    console.log("クリック後の処理");
+                                    var productId = ' . $id . '; // 商品IDを取得
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "favorite-incert.php",
+                                        data: {id: productId},
+                                        success: function(response) {
+                                            // レスポンスを処理する（必要に応じて）
+                                            console.log(response);
+                                        },
+                                        error: function(error) {
+                                            console.error(error);
+                                        }
+                                    });
+                                }
+                            });
+                        </script>';
                 echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a>';
-                if(isset($_SESSION['user'])){
-                    $ssql = $pdo->prepare('SELECT * FROM favorite INNER JOIN product ON favorite.product_id = product.id WHERE user_id = ?');
-                    $ssql->execute([$_SESSION['user']['id']]);
-                    $favorite_data = $ssql->fetchAll(PDO::FETCH_ASSOC);
-                    if(!empty($favorite_data)){
-                        //お気に入りに商品が入っている場合
-                        echo '<input type="checkbox" name="remove_favorite_products[]" value="<?= $product[id] ?>">';
-                    }else{
-                        //お気に入りに商品が入っていない場合
-                    }
-                }
                 echo '<p class="price">', $row['price'], '</p></div>';
             }
         echo '</div>';
