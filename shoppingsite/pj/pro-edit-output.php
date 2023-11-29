@@ -7,9 +7,12 @@
     <link rel="stylesheet" href="css/detail.css">
 </head>
 <body>
+<?php require 'header.php';?>
+    <?php require 'db-connect.php';?>
+    <div class="container">
     <?php
 $pdo=new PDO($connect, USER, PASS);
-    $sql=$pdo->prepare('update product set name=?, ex=?, price=?, size=?, color=?, sozai=?, image=? where id=?');
+    $sql=$pdo->prepare('update Shohin set name=?, ex=?, price=?, size=?, color=?, category=?, sozai=?, zaiko=?, image=? where id=?');
     if (empty($_POST['name'])) {
         echo '商品名を入力してください。';
     } else
@@ -25,13 +28,29 @@ $pdo=new PDO($connect, USER, PASS);
     if (empty($_POST['color'])) {
         echo '商品色を入力してください。';
     } else
+    if (empty($_POST['category'])) {
+        echo 'カテゴリーを入力してください。';
+    } else
     if (empty($_POST['sozai'])) {
         echo '商品素材を入力してください。';
     } else
     if (!preg_match('/[0-9]+/', $_POST['zaiko'])) {
         echo '商品在庫を整数で入力してください。';
     } else
-    if($sql->execute([htmlspecialchars($_POST['name']),$_POST['ex'], $_POST['price'],$_POST['size'],$_POST['color'],$_POST['sozai'],$_POST['image'], $_POST['id']])){
+    if(is_uploaded_file($_FILES['file']['tmp_name'])){
+        if(!file_exists('image')){
+            mkdir('image');
+        }
+        $image='image/'.basename($_FILES['file']['name']);
+        if(move_uploaded_file($_FILES['file']['tmp_name'],$image)){
+            echo '<p><img src="',$image,'" alt="image"></p>';
+        }else{
+            echo 'アップロードに失敗しました。';
+        }
+    }else{
+        echo 'ファイルを選択してください。';
+    }
+    if($sql->execute([htmlspecialchars($_POST['name']),$_POST['ex'], $_POST['price'],$_POST['size'],$_POST['color'],$_POST['category'],$_POST['sozai'],$_POST['zaiko'],$image, $_POST['id']])){
         echo '<font color="red">更新に成功しました。</font>';
     }else{
         echo '<font color="red">更新に失敗しました。</font>';
@@ -40,18 +59,10 @@ $pdo=new PDO($connect, USER, PASS);
 ?>
         <hr>
 <?php
-foreach ($pdo->query('select * from product') as $row) {
-        echo '<p>商品番号：' . $row['id'] . '</p>';
-        echo '<p>商品名：' . $row['name'] . '</p>';
-        echo '<p>商品名：' . $row['ex'] . '</p>';
-        echo '<p>価格：' . $row['price'] . '</p>';
-        echo '<p>サイズ：' . $row['size'] . '</p>';
-        echo '<p>色：' . $row['color'] . '</p>';
-        echo '<p>素材：' . $row['sozai'] . '</p>';
-        echo '<p>在庫：' . $row['zaiko'] . '</p>';
-        echo '<img src="' . $row['image'] . '" alt="Product Image" width="200" height="150">';
-    echo "\n";
-}
+
+        echo '<p><a href="ad-product.php"><img src="./image/undo.png" alt="Detail" width="30" height="30"></a></p>';
+   
 ?>
+</div>
 </body>
 </html>

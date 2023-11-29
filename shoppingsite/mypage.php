@@ -23,6 +23,10 @@
         }
         echo "</div>";
         echo '<p>お気に入り</p>';
+
+
+        echo '<a href="mypage-info.php" class="mypage-info-button">マイページ情報</a>';
+        echo '<a href="logout.php" >ログアウト</a>';
     }else{
         echo '<p>ログイン情報が見つかりません。<br>もう一度ログインしてください</p>';
         echo '<a href="login.php">ログイン</a>';
