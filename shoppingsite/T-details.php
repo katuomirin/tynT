@@ -17,10 +17,8 @@
     $sql->execute([$_GET['id']]);
 
     echo '<div class="total">';
-    echo '<script>';
-    echo 'var rowPrice = ' . json_encode($row['price']) . ';'; // $row['price']をJavaScriptの変数に設定
-    echo '</script>';
-    
+    echo '<script src="./script/T-detail.js"></script>'; // JavaScriptファイルを正しくロード
+
 
     foreach ($sql as $row) {
         echo '<p class="shohin-item"><img alt="image" style="width: 300px; margin:0; display:block;" src="image/', $row['image'], '.png"></p>'; 
@@ -112,21 +110,14 @@
         echo '<p class="cart-botton"><input type="submit" value="カートに追加" onclick="setHiddenFields();"></p>'; // カートに追加ボタン
 
         // お気に入りに追加
-<<<<<<< HEAD
-=======
 
         echo '<p class="cart-botton"><input type="submit" value="お気に入りに追加" formaction="favorite-insert.php"></p>'; // お気に入りに追加ボタン
 
 
->>>>>>> f4eb2f527d592c2ac2f7b90f7c41bb1edd4d217b
         echo '<p class="cart-botton"><input type="submit" value="お気に入りに追加" formaction="favorite-incert.php"></p>'; // お気に入りに追加ボタン
 
         // 加工費を表示
         echo '<p>加工費: <span id="processingFee">0</span>円</p>';
-<<<<<<< HEAD
-=======
-
->>>>>>> f4eb2f527d592c2ac2f7b90f7c41bb1edd4d217b
         echo '</form>';
         echo '</p>';
     }
