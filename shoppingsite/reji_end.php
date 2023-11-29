@@ -8,9 +8,13 @@
 ?>
 <style>
     .zenbu {
+
+        justify-content: center; 
+        align-items: center; 
+
         margin: auto;
         width: 100%; 
-    }
+}
 </style>
 
 
@@ -20,7 +24,6 @@
     unset($_SESSION['product']);
             echo '<h2>商品の購入が完了しました</h2>';
             echo '<p><h2><a href="home.php">購入</a>を続ける</h2></p>';
-            echo '<p><a href="create.php">オリジナルTシャツデザインの送付方法</a></p>';
     ?>   
     </div>   
 </body>

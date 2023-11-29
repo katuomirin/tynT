@@ -38,10 +38,10 @@ function calculateTotalSubtotal() {
             totalSubtotal += 500 * parseInt(checkbox.getAttribute('data-quantity')) || 0;
         }
     });
-    var work = document.getElementsByName(option);
+    var work = document.getElementsByName("options");
     var tmp=0;
     alert("a");
-    for(var i=0; i<work.size(); i++){
+    for(var i=0; i<work.length; i++){
         alert("b");
         if (work[i].checked) {
             tmp += 500 ;
