@@ -1,6 +1,5 @@
 <?php session_start(); ?>
 <?php require 'db-connect.php'; ?>
-<!DOCTYPE html>
 <?php require 'header.php'; ?>
 <?php
 unset($_SESSION['user']);
@@ -15,7 +14,8 @@ foreach ($sql as $row) {
             'kanji'=>$row['kanji'], 'email'=>$row['email'],
             'password'=>$row['password'], 'birthday'=>$row['birthday'],
             'gender'=>$row['gender'], 'post_code'=>$row['post_code'],
-            'prefectures'=>$row['prefectures'], 'address1'=>$row['address1'],'address2'=>$row['address2'],
+            'prefectures'=>$row['prefectures'], 'address1'=>$row['address1'],
+            'address2'=>$row['address2'],
             'manshon'=>$row['manshon']];
         echo '</form>';
     }}
