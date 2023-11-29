@@ -118,7 +118,7 @@
 
         echo '<p class="cart-botton"><input type="submit" value="お気に入りに追加" formaction="favorite-incert.php"></p>'; // お気に入りに追加ボタン
 
-        // 加工費を表示
+        // 加 工費を表示
         echo '<p>加工費: <span id="processingFee">0</span>円</p>';
 
         echo '</form>';
