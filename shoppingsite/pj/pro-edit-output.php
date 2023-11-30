@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="css/detail.css">
 </head>
 <body>
-<?php require 'header.php';?>
+    <?php require 'header.php';?>
     <?php require 'db-connect.php';?>
     <div class="container">
     <?php
 $pdo=new PDO($connect, USER, PASS);
-    $sql=$pdo->prepare('update Shohin set name=?, ex=?, price=?, size=?, color=?, category=?, sozai=?, zaiko=?, image=? where id=?');
+    $sql=$pdo->prepare('update product set name=?, ex=?, price=?, size=?, color=?, category=?, sozai=?, zaiko=?, image=? where id=?');
     if (empty($_POST['name'])) {
         echo '商品名を入力してください。';
     } else
@@ -64,5 +64,6 @@ $pdo=new PDO($connect, USER, PASS);
    
 ?>
 </div>
+<?php require 'footer.php';?>
 </body>
 </html>
