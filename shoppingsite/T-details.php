@@ -156,8 +156,6 @@ echo '</div>';
         echo '<input type="hidden" name="subtotal" id="subtotalInput" value="0">'; // 各商品の小計を保存するフィールド
         echo '<form action="cart.php" method="get">';
         echo '<input type="hidden" name="quantityOutput" id="quantityOutput" value="0">'; // 各商品の数量を保存するフィールド
-        echo '</form>';
-        //　　↑GETで入力されるようにする
         echo '<p class="cart-botton"><input type="submit" value="カートに追加" onclick="setHiddenFields();"></p>'; // カートに追加ボタン
 
         // お気に入りに追加
