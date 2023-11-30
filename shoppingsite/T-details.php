@@ -120,7 +120,7 @@ echo '</div>';
                 <input type="checkbox" name="options[]" value="center-back" data-quantity="0">背中中央（35.5×40cm）
             </label><br>';
         echo '</form>';
-
+        echo '<p>加工費: <span id="processingFee">0</span>円</p>';
         echo '<form action="cart-incert.php" method="post">';
         echo '<input type="hidden" name="totalSubtotal" id="hiddenTotalSubtotal" value="0">'; // 小計の合計を保存するフィールド
         echo '</form>';
@@ -160,12 +160,7 @@ echo '</div>';
         // お気に入りに追加
 
         echo '<p class="cart-botton"><input type="submit" value="お気に入りに追加" formaction="favorite-insert.php"></p>'; // お気に入りに追加ボタン
-
-
-        echo '<p class="cart-botton"><input type="submit" value="お気に入りに追加" formaction="favorite-incert.php"></p>'; // お気に入りに追加ボタン
-
-        // 加工費を表示
-        echo '<p>加工費: <span id="processingFee">0</span>円</p>';
+        
         echo '</form>';
         echo '</p>';
         echo '</div>';
