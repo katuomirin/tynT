@@ -17,6 +17,7 @@
                     </div>';
                 echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a>';
                 echo '<p class="price">', $row['price'], '</p></div>';
+                
             }
             echo   '<script>
                     $(function() {
@@ -49,6 +50,6 @@
                         });
                     });
                 </script>';
-            echo '</div>';
+                
     }
             ?>
