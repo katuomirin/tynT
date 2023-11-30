@@ -121,6 +121,7 @@ echo '</div>';
 
         echo '<form action="cart-incert.php" method="post">';
         echo '<input type="hidden" name="totalSubtotal" id="hiddenTotalSubtotal" value="0">'; // 小計の合計を保存するフィールド
+        echo '</form>';
 
         echo '<table>
                 <tbody>
@@ -129,7 +130,6 @@ echo '</div>';
                         <th>数量</th>
                         <th>小計</th>
                     </tr>';
-
         $sizes = array('S', 'M', 'L', 'XL', 'XXL');
         foreach ($sizes as $size) {
             echo '<tr>';
@@ -152,7 +152,9 @@ echo '</div>';
         echo '<input type="hidden" name="name" value="', $row['name'], '">';
         echo '<input type="hidden" name="price" value="', $row['price'], '">';
         echo '<input type="hidden" name="subtotal" id="subtotalInput" value="0">'; // 各商品の小計を保存するフィールド
+        echo '<form action="cart.php" method="get">';
         echo '<input type="hidden" name="quantityOutput" id="quantityOutput" value="0">'; // 各商品の数量を保存するフィールド
+        echo '</form>';
         //　　↑GETで入力されるようにする
         echo '<p class="cart-botton"><input type="submit" value="カートに追加" onclick="setHiddenFields();"></p>'; // カートに追加ボタン
 
