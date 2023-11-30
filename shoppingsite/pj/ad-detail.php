@@ -21,8 +21,8 @@
         
         // Add edit and delete buttons
         echo '<div class="edit-delete-buttons">';
-        echo '<a href="pro-edit.php?id=' . $row['id'].'"><img src="./image/edit.png" alt="Edit" width="15" height="15"></a>';
-        echo '<a href="pro-delete.php?id='.$row['id'].'" onclick="return confirm(\'この商品を削除しますか？\')"><img src="./image/trash-bin.png" alt="Delete" width="15" height="15"></a>';
+        echo '<a href="pro-edit.php?id=' . $row['id'].'"><img src="./image/edit.png" alt="Edit" width="25" height="25"></a>';
+        echo '<a href="pro-delete.php?id='.$row['id'].'" onclick="return confirm(\'この商品を削除しますか？\')"><img src="./image/trash-bin.png" alt="Delete" width="25" height="25"></a>';
         echo '</div>';
         
         echo '<div class="image-and-content">';
@@ -30,14 +30,17 @@
         echo '<img src="' . $row['image'] . '" alt="Product Image" width="200" height="150">';
         echo '</div>'; // Closing the .image div
         echo '<div class="content">';
-        echo '<p>商品番号：' . $row['id'] . '</p>';
-        echo '<p>商品名：' . $row['name'] . '</p>';
-        echo '<p>商品名：' . $row['ex'] . '</p>';
-        echo '<p>価格：' . $row['price'] . '</p>';
-        echo '<p>サイズ：' . $row['size'] . '</p>';
-        echo '<p>色：' . $row['color'] . '</p>';
-        echo '<p>素材：' . $row['sozai'] . '</p>';
-        echo '<p>在庫：' . $row['zaiko'] . '</p>';
+        echo '<table>';
+        echo '<tr><td>商品番号：</td><td>' . $row['id'] . '</td></tr>';
+        echo '<tr><td>商品名：</td><td>' . $row['name'] . '</td></tr>';
+        echo '<tr><td>商品名：</td><td>' . $row['ex'] . '</td></tr>';
+        echo '<tr><td>価格：</td><td>' . $row['price'] . '</td></tr>';
+        echo '<tr><td>サイズ：</td><td>' . $row['size'] . '</td></tr>';
+        echo '<tr><td>色：</td><td>' . $row['color'] . '</td></tr>';
+        echo '<tr><td>カテゴリー：</td><td>' . $row['category'] . '</td></tr>';
+        echo '<tr><td>素材：</td><td>' . $row['sozai'] . '</td></tr>';
+        echo '<tr><td>在庫：</td><td>' . $row['zaiko'] . '</td></tr>';
+        echo '</table>';
         
         echo '<input type="hidden" name="id" value="'.$row['id'].'">';
         echo '<input type="hidden" name="name" value="'.$row['name'].'">';

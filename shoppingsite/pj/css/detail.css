@@ -1,5 +1,5 @@
 .container {
-    margin-top: 100px;
+    margin-top: 110px;
 }
 
 .product-container {
@@ -29,5 +29,11 @@
     display: block;
     margin-right: 50px; /* Space between image and content */
     align-items: top;
+}
+
+.back-button {
+    /* Style for back button if needed, such as margin-top for spacing */
+    margin-top: 20px; /* Adjust the value as needed */
+    align-self: center; /* This will center the button if it's not full width */
 }
 
