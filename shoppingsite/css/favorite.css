@@ -1,0 +1,22 @@
+.img{/*商品写真*/
+    height: 10em;
+    display: inline-block;
+
+}
+
+.item{/*商品全体*/
+    display: flex;
+}
+.shohins{/*一商品*/
+    line-height: 1.2;
+    margin-right: 20px;
+    margin-left: 20px;
+    width: 10em;
+}
+.name{
+    line-height: 2;
+}
+.price{/*価格*/
+    line-height: 2;
+    margin: 0;
+}
