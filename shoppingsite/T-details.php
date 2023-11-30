@@ -26,8 +26,10 @@ window.addEventListener('DOMContentLoaded',function(){
         float: right; /* 右寄せ */
     }
     .T-shirt-create {
-        width: 50%; /* 画面の半分の幅に制限 */
+        width: 100%; /* 画面の半分の幅に制限 */
         float: right; /* 右寄せ */
+        clear: both; /* クリアフィックスを追加 */
+        margin-top: 10px; /* お気に入り追加ボタンの下に少しスペースを追加 */
     }
     
 </style>
