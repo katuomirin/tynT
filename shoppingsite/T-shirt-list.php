@@ -21,41 +21,70 @@
                 $id = $row['id'];
                 echo '<div class="shohins">';
                 echo '<a href="T-details.php?id=', $id, '"><img class="img" alt="image" src="image/',$row['image'], '.png"></a>';
-                echo '<div class="choice-list">
-                        <div class="checkbox heart" onclick="favorite(',$id,')"></div>
+                echo '<div class="choice-list" data-postid="', $id, '">
+                        <div class="checkbox heart"></div>
                     </div>';
-                echo '<a href="T-details.php?id=', $id, '" class="name">', $row['name'], '</a>';
+                echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a>';
                 echo '<p class="price">', $row['price'], '</p></div>';
             }
             echo   '<script>
-                function favorite(id){
-                    $(function() {
-                        if (!$(this).hasClass("is-checked")) {
-                            console.log("クリック前の処理");
-                        }
-                        $(this).toggleClass("is-checked");
-                        if ($(this).hasClass("is-checked")) {
-                            console.log("クリック後の処理");
-                            var productId =  id; // 商品IDを取得
-                            $.ajax({
-                                type: "POST",
-                                url: "favorite-incert.php",
-                                data: {id: productId},
-                                success: function(response) {
-                                    // レスポンスを処理する（必要に応じて）
-                                    console.log(response);
-                                },
-                                error: function(error) {
-                                    console.error(error);
-                                }
-                            });
-                        }
+            $(function() {
+                // ページが読み込まれた際にお気に入りの商品IDを取得
+                $.ajax({
+                    type: "POST",
+                    url: "favorite-incert.php",
+                    success: function(response) {
+                        var favoriteIds = JSON.parse(response);
+            
+                        // 各お気に入りボタンに対して処理を行う
+                        $(".checkbox").each(function() {
+                            var productId = $(this).parents(".choice-list").data("postid");
+            
+                            // お気に入りの商品IDが存在する場合はハートアイコンをチェック済みにする
+                            if (favoriteIds.includes(productId)) {
+                                $(this).addClass("is-checked");
+                            }
+                        });
+                    },
+                    error: function(error) {
+                        console.error(error);
+                    }
+                });
+            
+                // お気に入りボタンがクリックされた際の処理
+                $(".checkbox").on("click", function(e) {
+                    var productId = $(this).parents(".choice-list").data("postid");
+                    console.log("クリック前の処理");
+                    console.log("ID=" + productId);
+            
+                    if (!$(this).hasClass("is-checked")) {
+                        console.log("クリック前の処理");
+                    }
+            
+                    $(this).toggleClass("is-checked");
+                            if ($(this).hasClass("is-checked")) {
+                                console.log("クリック後の処理");
+                                $.ajax({
+                                    type: "POST",
+                                    url: "favorite-incert.php",
+                                    data: {id: productId},
+                                    success: function(response) {
+                                        // レスポンスを処理する（必要に応じて）
+                                        console.log(response);
+                                    },
+                                    error: function(error) {
+                                        console.error(error);
+                                    }
+                                });
+                            }
+                        });
                     });
-                }
                 </script>';
             echo '</div>';
         ?>
-</body>
-    <div class="footer">
+</div>
+
+        <div class="footer">
         <?php require 'footer.php'; ?>
-    </div>
+    </div> 
+    </body>
