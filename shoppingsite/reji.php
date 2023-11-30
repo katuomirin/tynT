@@ -1,4 +1,5 @@
 <?php require 'header.php'; ?>
+<?php require 'db-connect.php'; ?>
 <style>
 
 
@@ -228,6 +229,7 @@
 
         <div class="input-area">
             <h3>合計金額</h3>
+            
         </div>
 
         <div class="input-button">
