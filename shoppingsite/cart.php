@@ -67,10 +67,9 @@ foreach($_SESSION['product'] as $id=>$product){
 
     echo '<td>', $product['price'], '</td>';
 
-    $subtotal=$product['quantityOutput']*$product['price'];
-    echo '<td>', $subtotal, '</td>';
+    echo '<td>', $product['totalSubtotal'], '</td>';
 
-    $total += $subtotal ;
+    $total += $product['totalSubtotal'] ;
     echo '<td><a href="cart-delete.php?id=',$id,'">削除</a></td>';
     echo '</tr>';
 }
