@@ -251,6 +251,29 @@ nav .inner ul li a:hover {
             display: flex;
             justify-content: center;
         }
+        .gallery img{
+ width: 100%;
+}
+.gallery-img{
+ margin: auto;
+ max-width: 600px;
+}
+.gallery-list{
+ padding: 0;
+ list-style: none;
+ display: flex;
+ justify-content: center;
+}
+.js-image{
+ cursor: pointer;
+ border: none;
+ background: none;
+ transition: .4s;
+}
+.js-image:hover{
+ opacity: 0.4;
+}
+
 </style>
 
 

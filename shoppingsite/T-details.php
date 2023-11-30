@@ -4,7 +4,33 @@
 <link rel="stylesheet" href="./css/shohin-list.css">
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="./script/T-detail.js"></script>
-
+<script>
+window.addEventListener('DOMContentLoaded',function(){
+        let imageBtn = document.getElementsByClassName('js-image');
+        let imageMain = document.getElementById('js-image-target');
+        for(let i = 0; i < imageBtn.length; i++){
+            imageBtn[i].addEventListener('click',function(){
+            let imageStack = this.firstElementChild.getAttribute('src');
+            imageMain.setAttribute('src',imageStack)
+        },false);
+        }
+});
+</script>
+<style>
+    .gallery {
+        width: 50%; /* 画面の半分の幅に制限 */
+        float: left; /* 左寄せ */
+    }
+    .T-shirt-option {
+        width: 50%; /* 画面の半分の幅に制限 */
+        float: right; /* 右寄せ */
+    }
+    .T-shirt-create {
+        width: 50%; /* 画面の半分の幅に制限 */
+        float: right; /* 右寄せ */
+    }
+    
+</style>
 <body>
     <ol class="breadcrumb-001">
         <li><a href="./home.php">ホーム</a></li>
@@ -19,9 +45,28 @@
     echo '<div class="total">';
     echo '<script src="./script/T-detail.js"></script>'; // JavaScriptファイルを正しくロード
 
-
     foreach ($sql as $row) {
-        echo '<p class="shohin-item"><img alt="image" style="width: 300px; margin:0; display:block;" src="image/', $row['image'], '.png"></p>'; 
+//echo '<p class="shohin-item"><img alt="image" style="width: 300px; margin:0; display:block;" src="image/', $row['image'], '.png"></p>'; 
+echo '<div class="gallery">';
+echo '    <div class="gallery-img">';
+echo '        <img src="./image/basic.png" style="width: 300px; alt="" id="js-image-target">';
+echo '    </div>';
+echo '    <ul class="gallery-list">';
+echo '        <li class="gallery-list-item">';
+echo '            <button class="js-image"><img src="./image/basic.png" style="width: 100px; alt=""></button>';
+echo '        </li>';
+echo '        <li class="gallery-list-item">';
+echo '            <button class="js-image"><img src="./image/red-T-shirt.png" style="width: 100px; alt=""></button>';
+echo '        </li>';
+echo '        <li class="gallery-list-item">';
+echo '            <button class="js-image"><img src="./image/green-T-shirt.png" style="width: 100px; alt=""></button>';
+echo '        </li>';
+echo '        <li class="gallery-list-item">';
+echo '            <button class="js-image"><img src="./image/orange-T-shirt.png" style="width: 100px; alt=""></button>';
+echo '        </li>';
+echo '    </ul>';
+echo '</div>';
+        
         echo '<p class="shohin-shosai">';
         echo '<p class="font1">', $row['name'], '</p>';
         echo '<div class="style"><div class="choice-list">
@@ -56,7 +101,7 @@
         echo '<p>', $row['ex'], '<br>';
         echo '素材:', $row['sozai'], '<br>';
         echo 'カラー:', $row['color'], '</p>';
-
+        echo '<div class="T-shirt-option">';
         echo '<p class="font3">加工位置を選択してください</p>';
         echo '<p class="font4">※加工費は一律５００円です。</p>';
         echo '<form method="post" action="cart-incert.php" class="check">';
@@ -122,6 +167,7 @@
         echo '<p>加工費: <span id="processingFee">0</span>円</p>';
         echo '</form>';
         echo '</p>';
+        echo '</div>';
     }
 
     // $rowの値をJavaScriptに渡す
@@ -159,7 +205,7 @@
 
     echo '</div>';
     ?>
-
+    <div class="T-shirt-create">
     <div class="shohin-gaiyo">
         <p><a href="create.php">作成手順</a>について</p>
         <p class="saize">SIZE</p>
@@ -182,6 +228,7 @@
             <p>見積書</p>
             お見積書の対応はできません。ご注文を進めていただくと、カート内画面に、ご注文金額の記載がありますので、ご注文画面でご確認ください。<br>
         </p>
+    </div>
     </div>
 </body>
 
