@@ -3,8 +3,8 @@
 <?php require 'db-connect.php'; ?>
 
 <?php
-if (isset($_GET['id'])) {
-    $product_id = $_GET['id'];
+if (isset($_POST['id'])) {
+    $product_id = $_POST['id'];
 
     if (isset($_SESSION['user'])) {
         $user_id = $_SESSION['user']['id'];

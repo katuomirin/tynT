@@ -1,30 +1,22 @@
 <?php require 'header.php'; ?>
 <?php require 'db-connect.php';?>
+<link rel="stylesheet" href="./css/favorite.css">
 <?php
     echo '<h1>お気に入り商品一覧</h1>';
     if(isset($_SESSION['user'])){
     $sql = $pdo->prepare('SELECT * FROM favorite INNER JOIN product ON favorite.product_id = product.id WHERE user_id = ?');
     $sql->execute([$_SESSION['user']['id']]);
-    foreach ($sql as $row) {
-        $id = $row['id'];
-        echo '<div class="product">';
-        echo '<img src="image/',$row['id'],'png" alt="商品1の画像">';
-        echo '<div class="product-info">';  
-        echo '<h2><a href="T.php?id=', $id, '">', htmlspecialchars($row['name']), '</a></h2>';    
-        echo '<td>', htmlspecialchars($row['price']), '</td>';
-        echo '<td>', htmlspecialchars($row['ex']), '</td>';
-        echo '<input type="hidden" name="id" value="',$row['id'],'">';
-        echo '<input type="hidden" name="name" value="',$row['name'],'">';
-        echo '<input type="hidden" name="price" value="',$row['price'],'">';
-        echo '<p><input type="submit" value="カートに追加"></p>';
-        echo '</form>';
-        echo '<a href="favorite-delete.php?id=', $id, '">削除</a>';
-        echo '</div>';
-        echo '</div>';
-    }
-    }else{
-        echo 'お気に入りを表示するにはログインしてください。';
-    }
+    echo '<div class="item">';
+        foreach ($sql as $row) {
+            $id = $row['id'];
+            echo '<div class="shohins">';
+            echo '<a href="T-details.php?id=', $id, '"><img class="img" alt="image" src="image/',$row['image'], '.png"></a><br>';
+            echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a>';
+            echo '<p class="price">', $row['price'], '</p></div>';
+        }
+        }else{
+            echo 'お気に入りを表示するにはログインしてください。';
+        }
 /*body {
             font-family: Arial, sans-serif;
             margin: 20px;
