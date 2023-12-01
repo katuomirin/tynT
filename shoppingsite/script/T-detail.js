@@ -1,4 +1,3 @@
-// お気に入りのチェックボックスに対する jQuery コード
 $(document).ready(function () {
     $(".checkbox").click(function () {
         $(this).toggleClass("is-checked");
@@ -32,6 +31,7 @@ function calculateTotalQuantity() {
 
 function calculateTotalSubtotal() {
     var totalSubtotal = 0;
+    var processingFee = 0;
 
     // 各サイズの小計を取得
     var sizes = ['S', 'M', 'L', 'XL', 'XXL'];
@@ -43,7 +43,7 @@ function calculateTotalSubtotal() {
     var checkboxes = document.querySelectorAll('form.check input[type="checkbox"]');
     checkboxes.forEach(function (checkbox) {
         if (checkbox.checked) {
-            totalSubtotal += 500 * parseInt(checkbox.getAttribute('data-quantity')) || 0;
+            processingFee += 500 * parseInt(checkbox.getAttribute('data-quantity')) || 0;
         }
     });
 
@@ -51,13 +51,10 @@ function calculateTotalSubtotal() {
     var options = document.getElementsByName("options");
     options.forEach(function (option) {
         if (option.checked) {
-            totalSubtotal += 500;
-            alert(option.value);
+            processingFee += 500;
         }
     });
 
-    document.getElementById('processingFee').innerText = totalSubtotal;
-
-    document.getElementById('totalSubtotal').innerText = totalSubtotal;
+    document.getElementById('processingFee').innerText = processingFee;
+    document.getElementById('totalSubtotal').innerText = totalSubtotal + processingFee;
 }
-
