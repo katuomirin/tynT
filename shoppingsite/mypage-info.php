@@ -4,6 +4,8 @@
 <link rel="stylesheet" href="./css/mypage-info.css">
 <body>
 <?php
+    echo '<h2 class="heading-002">会員情報</h2>';
+    echo '<h4 class="heading-041">基本情報</h4>';
     $kana = $kanji = $email = $password = $birthday = $gender = $post_code
     = $prefectures = $address1 = $address2 = $manshon = '';
     $pdo = new PDO($connect, USER, PASS);
@@ -41,7 +43,7 @@
         echo '<a href="login.php">ログイン</a>';
     }
     echo '<form action="mypage-change.php" method="post">';
-    echo '<button>変更</button>';
+    echo '<button class="button-002">変更</button>';
     echo '</form>';
 ?>
 </body>
