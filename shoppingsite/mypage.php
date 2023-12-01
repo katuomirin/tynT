@@ -24,7 +24,16 @@
         echo "</div>";
         echo '<p class="favorite">お気に入り</p>';
         echo '<div class="favorites">';
-        
+        if(isset($_SESSION['favorite_data']) && !empty($_SESSION['favorite_data'])){
+            foreach($_SESSION['favorite_data'] as $favorite){
+                echo '<div>';
+                echo '<img class="img" alt="image" src="image/',$favorite['id'], '.png"><br>';
+                echo '<a href="T-details.php?id=', $favorite['id'], '">', htmlspecialchars($favorite['name'] ?? 'No Name'), '</a>';
+                echo '<p>', $favorite['price'], '</p>';
+            }
+        }else{
+            echo 'お気に入りに商品が入っていません。';
+        }
         echo "</div>";
 
         echo '<a href="mypage-info.php" class="mypage-info-button">マイページ情報</a>';

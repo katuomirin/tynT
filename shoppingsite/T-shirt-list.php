@@ -28,45 +28,23 @@
                 echo '<p class="price">', $row['price'], '</p></div>';
             }
             echo   '<script>
-            $(function() {
-                // ページが読み込まれた際にお気に入りの商品IDを取得
-                $.ajax({
-                    type: "POST",
-                    url: "favorite-incert.php",
-                    success: function(response) {
-                        var favoriteIds = JSON.parse(response);
-            
-                        // 各お気に入りボタンに対して処理を行う
-                        $(".checkbox").each(function() {
-                            var productId = $(this).parents(".choice-list").data("postid");
-            
-                            // お気に入りの商品IDが存在する場合はハートアイコンをチェック済みにする
-                            if (favoriteIds.includes(productId)) {
-                                $(this).addClass("is-checked");
+                    $(function() {
+                        var $favorite = $(\'.checkbox\'), //お気に入りボタンセレクタ
+                        productId;
+                        $favorite.on(\'click\',function(e){
+                            //カスタム属性（postid）に格納された投稿ID取得
+                            productId = $(this).parents(\'.choice-list\').data(\'postid\'); 
+                            console.log("クリック前の処理");
+                            console.log("ID=" + productId);
+                            if (!$(this).hasClass("is-checked")) {
+                                console.log("クリック前の処理");
                             }
-                        });
-                    },
-                    error: function(error) {
-                        console.error(error);
-                    }
-                });
-            
-                // お気に入りボタンがクリックされた際の処理
-                $(".checkbox").on("click", function(e) {
-                    var productId = $(this).parents(".choice-list").data("postid");
-                    console.log("クリック前の処理");
-                    console.log("ID=" + productId);
-            
-                    if (!$(this).hasClass("is-checked")) {
-                        console.log("クリック前の処理");
-                    }
-            
-                    $(this).toggleClass("is-checked");
+                            $(this).toggleClass("is-checked");
                             if ($(this).hasClass("is-checked")) {
                                 console.log("クリック後の処理");
                                 $.ajax({
                                     type: "POST",
-                                    url: "favorite-incert.php",
+                                    url: "favorite-insert.php",
                                     data: {id: productId},
                                     success: function(response) {
                                         // レスポンスを処理する（必要に応じて）

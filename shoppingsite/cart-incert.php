@@ -19,8 +19,7 @@ echo '<form method="post" action="mypage.php">';//マイページでつかうよ
     $_SESSION['cart_data'][$id] = [
         'id' => $id,
         'name' => $_POST['name'],
-        'price' => $_POST['price'],
-        'quantity' => $_POST['quantity']
+        'price' => $_POST['price']
     ];
 echo '</form>';
 echo '<p>カートに商品を追加しました。</p>';
