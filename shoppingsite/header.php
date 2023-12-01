@@ -304,7 +304,7 @@ nav .inner ul li a:hover {
     }
 ?>
 <!-- お気に入り画像に枠線を追加 -->
-<a href="favorite-show.php" target="_self">
+<a href="favorite.php" target="_self">
   <img src="image/favo.png" alt="お気に入り" style="height: 70px;width:75px;"border="0" >
 </a>
 
