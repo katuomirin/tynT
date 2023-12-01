@@ -1,7 +1,9 @@
+<?php session_start(); ?>
 <?php require 'header.php'; ?>
 <?php require 'db-connect.php';?>
 <link rel="stylesheet" href="./css/favorite.css">
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<body>
 <?php
     echo '<h1>お気に入り商品一覧</h1>';
     if(isset($_SESSION['user'])){
@@ -50,6 +52,10 @@
                         });
                     });
                 </script>';
-                
+        echo '</div>';
     }
-            ?>
+    ?>
+    </body>
+    <div class="footer">
+    <?php require 'footer.php'; ?>
+</div>
