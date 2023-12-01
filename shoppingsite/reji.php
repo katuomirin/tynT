@@ -1,22 +1,6 @@
 <?php session_start(); ?>
 <?php require 'header.php'; ?>
-<?php require 'db-connect.php'; ?>
 <style>
-
-
-.input-button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-}
-
-.zenbu {
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-}
-
 
 .text {
     width: auto;
@@ -180,64 +164,74 @@
 }
 
 </style>
-
+<center>
 <body>
-<label class="zenbu">
-    <form action="reji2.php" method="post">
-        <div class="input-area">
-         <h3>名前(漢字)<h3>
-         <input type="text" class="text" name="name" placeholder="例）田中　太郎" required/>
-         <h3>名前(フリガナ)<h3>
-         <input type="text" class="text" name="kana" placeholder="例）タナカ　タロウ" required/>
-        </div>
-        <div class="input-area">
-         <h3>お届け先住所<h3>
-         <input type="text" class="text" name="yuubin" placeholder="郵便番号" required/><br>
-         <input type="text" class="text" name="zyuusho1" placeholder="都道府県　市町村" required/><br>
-         <input type="text" class="text" name="zyuusho2" placeholder="◯丁目◯番" required/><br>
-         <input type="text" class="text" name="manshon" placeholder="マンション名　◯◯◯号"/>
-        </div>
+    <?php
+$kana=$kanji=$email=$post_code=$prefectures=$address1=$address2=$manshon='';
+if(isset($_SESSION['user'])){
+    $kana=$_SESSION['user']['kana'];
+    $kanji=$_SESSION['user']['kanji'];
+    $email=$_SESSION['user']['email'];
+    $post_code=$_SESSION['user']['post_code'];
+    $prefectures=$_SESSION['user']['prefectures'];
+    $address1=$_SESSION['user']['address1'];
+    $address2=$_SESSION['user']['address2'];
+    $manshon=$_SESSION['user']['manshon'];
+}
+echo '</td></tr>';
+    echo '<form action="reji2.php" method="post">';
+    echo '<div class="input-area">';
+    echo '<h3>名前(漢字)<h3>';
+    echo '<input type="text" class="text" name="kanji" value="', $kanji, '" placeholder="例）山田　花子" required/>';
+    echo '     <h3>名前(カナ)<h3>';
+    echo '     <input type="text" class="text" name="kana" value="', $kana, '" placeholder="例）ヤマダ　ハナコ" required/>';
+    echo '    </div>';
+    echo '    <div class="input-area">';
+    echo '     <h3>お届け先住所<h3>';
+    echo '     <input type="text" class="text" name="yuubin" placeholder="郵便番号" value="', $post_code, '" required/><br>';
+    echo '     <input type="text" class="text" name="zyuusho1" placeholder="住所1" value="', $address1, '" required/><br>';
+    echo '     <input type="text" class="text" name="zyuusho2" placeholder="住所2" value="', $address2, '" required/><br>';
+    echo '     <input type="text" class="text" name="manshon" value="', $manshon, '" placeholder="例）マンション　101"/>';
+    echo '    </div>';
 
-        <div class="input-area">
-         <h3>電話番号<h3>
-         <input type="text" class="text"  name="call" placeholder="例）111-2222-3333" required/>
-        </div>
-        <div class="input-area">
-         <h3>メールアドレス<h3>
-         <input type="text" class="text" name="mail" placeholder="例）111111@tyunT.com" required/>
-        </div>
-        <div class="input-area">
-</label>
-         <h3>オリジナルTシャツのデザインの送り方<h3>
-         <label class="okuri">
-            <select name="okuri" required>
-            <option value="郵送">郵送</option>
-            <option value="メール">メール</option>
-            <option value="LINE">LINE</option>
-            </select>
-          </label>
-        </div>
-        <div class="input-area">
-        <h3>支払い方法<h3>
-        <label class="harai">
-            <select name="harai" required>
-            <option value="銀行振込">銀行振込</option>
-            <option value="クレジット">クレジット</option>
-            </select>
-        </label>
-        </div>
+    echo '    <div class="input-area">';
+    echo '     <h3>電話番号(ハイフンなし)<h3>';
+    echo '     <input type="text" class="text"  name="call" placeholder="例）11122223333" required/>';
+    echo '    </div>';
+    echo '    <div class="input-area">';
+    echo '     <h3>メールアドレス<h3>';
+    echo '     <input type="text" class="text" name="mail" placeholder="例）111111@gmail.com" required/>';
+    echo '    </div>';
+
+    echo '    <div class="input-area">';
+    echo '     <h3>オリジナルTシャツのデザインの送り方<h3>';
+    echo '     <label class="okuri">';
+    echo '        <select name="okuri" required>';
+    echo '        <option value="郵送">郵送</option>';
+    echo '        <option value="メール">メール</option>';
+    echo '        <option value="LINE">LINE</option>';
+    echo '        </select>';
+    echo '      </label>';
+    echo '    </div>';
+    echo '    <div class="input-area">';
+    echo '    <h3>支払い方法<h3>';
+    echo '    <label class="harai">';
+    echo '        <select name="harai" required>';
+    echo '        <option value="振り込み">振り込み</option>';
+    echo '        <option value="クレジット">クレジット</option>';
+    echo '        </select>';
+    echo '    </label>';
+    echo '    </div>';
 
 
-        <div class="input-area">
-            <h3>合計金額</h3>
-            
-        </div>
-
-        <div class="input-button">
-        <p><input type="button" onclick="history.back()" value="戻る" class="modo"></p>
-        <p><button class="kaku">確認</button></p>
-        </div>
-    </from>
+    echo '    <div class="input-area">';
+    echo '        <h3>合計金額</h3>';
+    echo '    </div>';
+    echo '    <p><button class="kaku">確認</button></p>';
+    echo '    </from>';
+    echo '    </center>';
+?>
     </body>
+    <p><input type="button" onclick="history.back()" value="戻る" class="modo"></p>
 <?php require 'footer.php'; ?>
 
