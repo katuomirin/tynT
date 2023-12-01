@@ -159,7 +159,6 @@ echo '</div>';
 
         // お気に入りに追加
 
-        echo '<p class="cart-botton"><input type="submit" value="お気に入りに追加" formaction="favorite-insert.php"></p>'; // お気に入りに追加ボタン
         
         echo '</form>';
         echo '</p>';

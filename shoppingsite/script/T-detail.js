@@ -1,3 +1,11 @@
+// お気に入りのチェックボックスに対する jQuery コード
+$(document).ready(function () {
+    $(".checkbox").click(function () {
+        $(this).toggleClass("is-checked");
+        calculateTotalSubtotal(); // チェックボックスがクリックされたら即座に加工費を再計算
+    });
+});
+
 function calculateSubtotal(subtotalId, quantityInputId, price) {
     var quantity = parseInt(document.getElementById(quantityInputId).value) || 0;
     var subtotal = quantity * price;
@@ -53,9 +61,3 @@ function calculateTotalSubtotal() {
     document.getElementById('totalSubtotal').innerText = totalSubtotal;
 }
 
-// お気に入りのチェックボックスに対する jQuery コード
-$(document).ready(function () {
-    $(".checkbox").click(function () {
-        $(this).toggleClass("is-checked");
-    });
-});
