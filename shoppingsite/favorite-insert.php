@@ -29,5 +29,5 @@ if (isset($_POST['id'])) {
     echo '商品IDが指定されていません。';
 }
 
-require 'footer.php';
+
 ?>
