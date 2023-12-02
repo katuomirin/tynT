@@ -1,8 +1,11 @@
 $(document).ready(function () {
     $(".checkbox").click(function () {
         $(this).toggleClass("is-checked");
-        calculateTotalSubtotal(); // チェックボックスがクリックされたら即座に加工費を再計算
+        calculateProcessingFee(); // チェックボックスがクリックされたら即座に加工費を再計算
+        calculateTotalSubtotal(); // 小計の合計も再計算
     });
+
+    // 他のイベントや初期化などをここに追加できます
 });
 
 function calculateSubtotal(subtotalId, quantityInputId, price) {
@@ -12,8 +15,8 @@ function calculateSubtotal(subtotalId, quantityInputId, price) {
     // 数量が数字であることを確認
     if (!isNaN(quantity) && !isNaN(price)) {
         document.getElementById(subtotalId).textContent = subtotal;
-        calculateTotalQuantity();  // 総数量も再計算
-        calculateTotalSubtotal();  // 小計の合計も再計算
+        calculateTotalQuantity(); // 総数量も再計算
+        calculateTotalSubtotal(); // 小計の合計も再計算
     }
 }
 
@@ -30,14 +33,18 @@ function calculateTotalQuantity() {
 }
 
 function calculateTotalSubtotal() {
-    var totalSubtotal = 0;
-    var processingFee = 0;
-
-    // 各サイズの小計を取得
     var sizes = ['S', 'M', 'L', 'XL', 'XXL'];
+    var totalSubtotal = 0;
+
     sizes.forEach(function (size) {
         totalSubtotal += parseInt(document.getElementById('subtotal' + size).textContent) || 0;
     });
+
+    document.getElementById('totalSubtotal').innerText = totalSubtotal + calculateProcessingFee();
+}
+
+function calculateProcessingFee() {
+    var processingFee = 0;
 
     // 加工位置のチェックボックスを取得
     var checkboxes = document.querySelectorAll('form.check input[type="checkbox"]');
@@ -48,7 +55,7 @@ function calculateTotalSubtotal() {
     });
 
     // optionsの取得
-    var options = document.getElementsByName("options");
+    var options = document.getElementsByName("options[]");
     options.forEach(function (option) {
         if (option.checked) {
             processingFee += 500;
@@ -56,5 +63,6 @@ function calculateTotalSubtotal() {
     });
 
     document.getElementById('processingFee').innerText = processingFee;
-    document.getElementById('totalSubtotal').innerText = totalSubtotal + processingFee;
+
+    return processingFee;
 }
