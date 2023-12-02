@@ -7,13 +7,13 @@ if (!isset($_SESSION['product'])) {
     $_SESSION['product']=[];
 }
 if (isset($_SESSION['product'][$id])){
-    $quantityOutput=$_SESSION['product'][$id]['quantity'];
+    $quantity =$_SESSION['product'][$id]['quantity'];
 }
 $_SESSION['product'][$id]=[
     'name' => $_POST['name'],
     'price' => $_POST['price'],
     'quantity' => $_POST['quantity'],
-    'totalSubtotal' => $_POST['totalSubtotal']
+    'subtotal' => $_POST['subtotal']
 ];
 echo '<form method="post" action="mypage.php">';//マイページでつかうよ
     $_SESSION['cart_data'][$id] = [
