@@ -3,19 +3,19 @@
 <div class="image-grid">
     <div>
         <a href="T-shirt-list.php"> <img src="./image/white.png" alt="Tシャツ" style="height: 300px; width: 300px;" ></a>
-        <p>Tシャツ</p>
+        <h2>Tシャツ</h2>
     </div>
     <div>
     <a href="Polo-shirt-list.php"><img src="./image/poro.png" alt="ポロシャツ" style="height: 300px; width: 300px;"></a>
-        <p>ポロシャツ</p>
+        <h2>ポロシャツ</h2>
     </div>
     <div>
     <a href="Sweat-list.php"><img src="./image/swe.png" alt="スウェット" style="height: 300px;width: 300px;"></a>
-        <p>スウェット</p>
+        <h2>スウェット</h2>
     </div>
     <div>
-    <a href="Parker-list.php"><img src="./image/zipparker-white.png" alt="パーカー" style="height: 300px; width: 300px;"></a>
-        <p>パーカー</p>
+    <a href="Parker-list.php"><img src="./image/parker-white.png" alt="パーカー" style="height: 300px; width: 300px;"></a>
+        <h2>パーカー</h2>
     </div>
     
 </div>
