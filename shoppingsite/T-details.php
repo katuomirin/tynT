@@ -105,7 +105,7 @@ echo '</div>';
         echo 'カラー:', $row['color'], '</p>';
         echo '<div class="T-shirt-option">';
         echo '<p class="font3">加工位置を選択してください</p>';
-        echo '<p class="font4">※加工費は一律５００円です。</p>';
+        echo '<p class="font4">※加工費は一律５００円です。また、１枚ずつ掛かりますのでご了承ください</p>';
         echo '<form method="post" action="cart-incert.php" class="check">';
         echo '<label>
                 <input type="checkbox" name="options[]" value="left-chest" data-quantity="0">左胸（10×10㎝）
@@ -121,6 +121,7 @@ echo '</div>';
             </label><br>';
         echo '</form>';
         echo '<p>加工費: <span id="processingFee">0</span>円</p>';
+        echo '<p id="totalNote" style="color: red; font-weight: bold; display: none;">※合計には加工費も含まれています</p>';
         echo '<form action="cart-incert.php" method="post">';
         echo '<input type="hidden" name="totalSubtotal" id="hiddenTotalSubtotal" value="0">'; // 小計の合計を保存するフィールド
         echo '</form>';
