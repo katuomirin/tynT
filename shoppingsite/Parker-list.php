@@ -13,12 +13,12 @@
     $pdo=new PDO($connect,USER,PASS);
     
     $sql = $pdo->prepare('select * from product where category = :category');
-    $sql->bindParam(':category', $T, PDO::PARAM_STR);
-    $sql->execute();
-    $user_id = $_SESSION['user']['id'];
-    $checkSql = $pdo->prepare('SELECT * FROM favorite WHERE user_id = ? AND product_id = ?');
-    
-    echo '<div class="item">';
+        $sql->bindParam(':category', $T, PDO::PARAM_STR);
+        $sql->execute();
+        $user_id = $_SESSION['user']['id'];
+        $checkSql = $pdo->prepare('SELECT * FROM favorite WHERE user_id = ? AND product_id = ?');
+        
+        echo '<div class="item">';
             foreach ($sql as $row) {
                 $id = $row['id'];
                 echo '<div class="shohins">';
@@ -32,7 +32,6 @@
                     echo '<div class="choice-list" data-postid="', $id, '">
                             <div class="checkbox heart"></div>
                           </div>';
-                    echo 'あ';
                 }
                 echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a>';
                 echo '<p class="price">', $row['price'], '</p></div>';
@@ -48,6 +47,18 @@
                             console.log("ID=" + productId);
                             if (!$(this).hasClass("is-checked1")) {
                                 console.log("クリック前の処理");
+                                $.ajax({
+                                    type: "POST",
+                                    url: "favorite-insert.php",
+                                    data: {id: productId},
+                                    success: function(response) {
+                                        // レスポンスを処理する（必要に応じて）
+                                        console.log(response);
+                                    },
+                                    error: function(error) {
+                                        console.error(error);
+                                    }
+                                });
                             }
                             $(this).toggleClass("is-checked1");
                             if ($(this).hasClass("is-checked1")) {
@@ -79,6 +90,18 @@
                             console.log("ID=" + productId);
                             if (!$(this).hasClass("is-checked")) {
                                 console.log("クリック前の処理");
+                                $.ajax({
+                                    type: "POST",
+                                    url: "favorite-delete.php",
+                                    data: {id: productId},
+                                    success: function(response) {
+                                        // レスポンスを処理する（必要に応じて）
+                                        console.log(response);
+                                    },
+                                    error: function(error) {
+                                        console.error(error);
+                                    }
+                                });
                             }
                             $(this).toggleClass("is-checked");
                             if ($(this).hasClass("is-checked")) {
