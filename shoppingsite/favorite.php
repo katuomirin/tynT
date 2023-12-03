@@ -56,6 +56,4 @@
     }
     ?>
     </body>
-    <div class="footer">
-    <?php require 'footer.php'; ?>
-</div>
+<?php require 'footer.php'; ?>
