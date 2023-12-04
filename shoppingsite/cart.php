@@ -59,7 +59,7 @@
 
 if (!empty($_SESSION['product'])) {
     echo '<table>';
-    echo '<tr><th>商品名</th><th>数量</th><th>価格</th><th>小計</th></tr>';
+    echo '<tr><th>商品名</th><th>数量</th><th>加工費</th><th>小計</th></tr>';
 $total=0;
 foreach($_SESSION['product'] as $id=>$product){
     echo '<tr>';
@@ -67,7 +67,7 @@ foreach($_SESSION['product'] as $id=>$product){
 
     echo '<td>', $product['quantity'], '</td>';
 
-    echo '<td>', $product['price'],'円</td>';
+    echo '<td>', $product['processingFee'],'円</td>';
 
     echo '<td>', $product['subtotal'], '</td>';
 
