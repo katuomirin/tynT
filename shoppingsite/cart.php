@@ -67,7 +67,7 @@ foreach($_SESSION['product'] as $id=>$product){
 
     echo '<td>', $product['quantity'], '</td>';
 
-    echo '<td>', $product['price'], '</td>';
+    echo '<td>', $product['price'],'円</td>';
 
     echo '<td>', $product['subtotal'], '</td>';
 
