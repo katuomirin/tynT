@@ -42,6 +42,7 @@ window.addEventListener('DOMContentLoaded',function(){
     <?php
     $pdo = new PDO($connect, USER, PASS);
     $sql = $pdo->prepare('select * from product where id=?');
+    $product_id=$_GET['id'];
     $sql->execute([$_GET['id']]);
 
     echo '<div class="total">';
@@ -252,6 +253,41 @@ window.addEventListener('DOMContentLoaded',function(){
             echo '        </li>';
             echo '        <li class="gallery-list-item">';
             echo '            <button class="js-image"><img src="./image/zipparker-white.png" style="width: 100px; alt=""></button>';
+            echo '        </li>';
+            echo '    </ul>';
+            echo '</div>';
+        }else if($product_id==9){
+            //ロングTシャツ
+            echo '<div class="gallery">';
+            echo '    <div class="gallery-img">';
+            echo '        <img src="./image/long-T.png" style="width: 300px; alt="" id="js-image-target">';
+            echo '    </div>';
+            echo '    <ul class="gallery-list">';
+            echo '        <li class="gallery-list-item">';
+            echo '            <button class="js-image"><img src="./image/swe.png" style="width: 100px; alt=""></button>';
+            echo '        </li>';
+            echo '        <li class="gallery-list-item">';
+            echo '            <button class="js-image"><img src="./image/sweat-black.png" style="width: 100px; alt=""></button>';
+            echo '        </li>';
+            echo '        <li class="gallery-list-item">';
+            echo '            <button class="js-image"><img src="./image/sweat-navy.png" style="width: 100px; alt=""></button>';
+            echo '        </li>';
+            echo '        <li class="gallery-list-item">';
+            echo '            <button class="js-image"><img src="./image/sweat-blue.png" style="width: 100px; alt=""></button>';
+            echo '        </li>';
+            echo '    </ul>';
+            echo '    <ul class="gallery-list">';
+            echo '        <li class="gallery-list-item">';
+            echo '            <button class="js-image"><img src="./image/sweat-green.png" style="width: 100px; alt=""></button>';
+            echo '        </li>';
+            echo '        <li class="gallery-list-item">';
+            echo '            <button class="js-image"><img src="./image/sweat-yellow.png" style="width: 100px; alt=""></button>';
+            echo '        </li>';
+            echo '        <li class="gallery-list-item">';
+            echo '            <button class="js-image"><img src="./image/sweat-red.png" style="width: 100px; alt=""></button>';
+            echo '        </li>';
+            echo '        <li class="gallery-list-item">';
+            echo '            <button class="js-image"><img src="./image/sweat-brown.png" style="width: 100px; alt=""></button>';
             echo '        </li>';
             echo '    </ul>';
             echo '</div>';
