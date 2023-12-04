@@ -4,8 +4,8 @@ $(document).ready(function () {
         calculateProcessingFee(); // チェックボックスがクリックされたら即座に加工費を再計算
         calculateTotalSubtotal(); // 小計の合計も再計算
     });
-
 });
+
 
 function calculateSubtotal(subtotalId, quantityInputId, price) {
     var quantity = parseInt(document.getElementById(quantityInputId).value) || 0;
@@ -31,6 +31,18 @@ function calculateTotalQuantity() {
     document.getElementById('totalQuantity').innerText = totalQuantity;
 }
 
+function getTotalQuantity() { // getTotalQuantity 関数を追加
+    var sizes = ['S', 'M', 'L', 'XL', 'XXL'];
+    var totalQuantity = 0;
+
+    sizes.forEach(function (size) {
+        var quantity = parseInt(document.getElementById('quantityInput' + size).value) || 0;
+        totalQuantity += quantity;
+    });
+
+    return totalQuantity;
+}
+
 function calculateTotalSubtotal() {
     var sizes = ['S', 'M', 'L', 'XL', 'XXL'];
     var totalSubtotal = 0;
@@ -39,7 +51,7 @@ function calculateTotalSubtotal() {
         totalSubtotal += parseInt(document.getElementById('subtotal' + size).textContent) || 0;
     });
 
-    document.getElementById('totalSubtotal').innerText = totalSubtotal + calculateProcessingFee();
+    document.getElementById('totalSubtotal').innerText = totalSubtotal + calculateProcessingFee() * getTotalQuantity();
 }
 
 function calculateProcessingFee() {
@@ -65,4 +77,3 @@ function calculateProcessingFee() {
 
     return processingFee;
 }
-
