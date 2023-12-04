@@ -3,7 +3,10 @@
 <?php require 'db-connect.php'; ?>
 <link rel="stylesheet" href="./css/mypage-change.css">
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 4b125996f5ba6541d8d999347e4bbd283c9ff003
 <style>
     .heading-041 {
     display: flex;
@@ -116,7 +119,10 @@
     background-color: #1579c0;
 }
 </style>
+<<<<<<< HEAD
 >>>>>>> fcfe319cc8d7b028dcabb01cf8e298b3d6d26caf
+=======
+>>>>>>> 4b125996f5ba6541d8d999347e4bbd283c9ff003
 <body>
 <?php
     echo '<h2 class="heading-041">基本情報</h2>';
@@ -136,6 +142,7 @@
         $address2 = $_SESSION['user']['address2'];
         $manshon = $_SESSION['user']['manshon'];
  
+<<<<<<< HEAD
 <<<<<<< HEAD
     echo '<form action="mypage-change-output.php" method="post">';
     echo '<table>';
@@ -192,6 +199,8 @@
     echo '</fieldset>'
     echo '</form>';
 =======
+=======
+>>>>>>> 4b125996f5ba6541d8d999347e4bbd283c9ff003
         echo '<form action="mypage-change-output.php" method="post">';
         echo '<table>';
         echo '<label>';
@@ -246,7 +255,10 @@
         echo '</label>';
         echo '</fieldset>';
         echo '</form>';
+<<<<<<< HEAD
 >>>>>>> fcfe319cc8d7b028dcabb01cf8e298b3d6d26caf
+=======
+>>>>>>> 4b125996f5ba6541d8d999347e4bbd283c9ff003
     }
     echo '<form action="mypage-change-output.php" method="post">';
     echo '<button class="button-002">確定</button>';
@@ -255,9 +267,12 @@
  
 <?php require 'footer.php'; ?>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     echo '<tr><td>お名前(フリガナ)</td>';
     echo '<td><input type="text" name="name" value="', $kana , '">';
     echo '</td></tr>';
 =======
 >>>>>>> fcfe319cc8d7b028dcabb01cf8e298b3d6d26caf
+=======
+>>>>>>> 4b125996f5ba6541d8d999347e4bbd283c9ff003
