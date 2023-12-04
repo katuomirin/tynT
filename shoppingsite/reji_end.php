@@ -8,22 +8,20 @@
 ?>
 <style>
     .zenbu {
-
+        display: flex; 
         justify-content: center; 
         align-items: center; 
-
-        margin: auto;
-        width: 100%; 
-}
+    }
 </style>
 
 
 <body>
-    <div class="zenbu">
+    <label class="zenbu">
     <?php
     unset($_SESSION['product']);
-            echo '<h2>商品の購入が完了しました</h2>';
-            echo '<p><h2><a href="home.php">購入</a>を続ける</h2></p>';
+    echo '<p><h2>商品の購入が完了しました</h2></p>';
+    echo '<br><p><h2>購入ありがとうございました。</h2></p>';
+    echo '<br><p><h2><a href="home.php">購入</a>を続ける</h2></p>';    
     ?>   
-    </div>   
+    </label> 
 </body>
