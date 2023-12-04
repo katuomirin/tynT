@@ -1,9 +1,10 @@
 <?php session_start(); ?>
 <?php require 'header.php'; ?>
 <?php require 'db-connect.php'; ?>
-<link rel="stylesheet" href="./css/mypage-info.css">
+<link rel="stylesheet" href="./css/mypage-change.css">
 <body>
 <?php
+    echo '<h2 class="heading-041">基本情報</h2>';
     $kana = $kanji = $email = $password = $birthday = $gender = $post_code
     = $prefectures = $address1 = $address2 = $manshon = '';
     $pdo = new PDO($connect, USER, PASS);
@@ -22,49 +23,66 @@
  
     echo '<form action="mypage-change-output.php" method="post">';
     echo '<table>';
-    echo '<tr><td>お名前(フリガナ)</td>';
-    echo '<td><input type="text" name="name" value="', $kana , '">';
-    echo '</td></tr>';
-    echo '<tr><td>お名前(漢字)</td>';
-    echo '<td><input type="text" name="address" value="', $kanji , '">';
-    echo '</td></tr>';
-    echo '<tr><td>メールアドレス</td>';
-    echo '<td><input type="text" name="login" value="', $email , '">';
-    echo '</td></tr>';
-    echo '<tr><td>パスワード</td>';
-    echo '<td><input type="password" name="password" value="', $password , '">';
-    echo '</td></tr>';
-    echo '<tr><td>生年月日</td>';
-    echo '<td><input type="text" name="birthday" value="', $birthday , '">';
-    echo '</td></tr>';
-    echo '<tr><td>郵便番号</td>';
-    echo '<td><input type="text" name="post_code" value="', $post_code , '">';
-    echo '</td></tr>';
-    echo '<tr><td>住所(市町村区)</td>';
-    echo '<td><input type="text" name="address1" value="', $address1 , '">';
-    echo '</td></tr>';
-    echo '<tr><td>住所(〜丁目)</td>';
-    echo '<td><input type="text" name="address2" value="', $address2 , '">';
-    echo '</td></tr>';
-    echo '<tr><td>住所(マンション名)</td>';
-    echo '<td><input type="text" name="manshon" value="', $manshon , '">';
-    echo '</td></tr>';
+    echo '<label>';
+    echo '<span class="textbox-001-label">お名前(フリガナ)</span>'
+    echo '<input type="text"  name="kana" class="textbox-001" placeholder=""/ value="', $kana , '">'
+    echo '</label>';
+    echo '<label>';
+    echo '<span class="textbox-001-label">お名前(漢字)</span>'
+    echo '<input type="text"  name="kanji" class="textbox-001" placeholder=""/ value="', $kanji , '">'
+    echo '</label>';
+    echo '<label>';
+    echo '<span class="textbox-001-label">メールアドレス</span>'
+    echo '<input type="text"  name="email" class="textbox-001" placeholder=""/ value="', $email , '">'
+    echo '</label>';
+    echo '<label>';
+    echo '<span class="textbox-001-label">パスワード</span>'
+    echo '<input type="text"  name="password" class="textbox-001" placeholder=""/ value="', $password , '">'
+    echo '</label>';
+    echo '<label>';
+    echo '<span class="textbox-001-label">生年月日</span>'
+    echo '<input type="text"  name="birthday" class="textbox-001" placeholder=""/ value="', $birthday , '">'
+    echo '</label>';
+    echo '<label>';
+    echo '<span class="textbox-001-label">郵便番号</span>'
+    echo '<input type="text"  name="post_code" class="textbox-001" placeholder=""/ value="', $post_code , '">'
+    echo '</label>';
+    echo '<label>';
+    echo '<span class="textbox-001-label">住所(市町村区)</span>'
+    echo '<input type="text"  name="address1" class="textbox-001" placeholder=""/ value="', $address1 , '">'
+    echo '</label>';
+    echo '<label>';
+    echo '<span class="textbox-001-label">住所(~丁目)</span>'
+    echo '<input type="text"  name="address2" class="textbox-001" placeholder=""/ value="', $address2 , '">'
+    echo '</label>';
+    echo '<label>';
+    echo '<span class="textbox-001-label">住所(マンション)</span>'
+    echo '<input type="text"  name="manshon" class="textbox-001" placeholder=""/ value="', $manshon , '">'
+    echo '</label>';
     echo '</table>';
+    echo '<fieldset class="radio-001">'
     echo '<label>';
     echo '<input type="radio" name="gender" value="男"/>';
     echo '男性';
-    echo '</label><br>';
+    echo '</label>';
     echo '<label>';
     echo '<input type="radio" name="gender" value="女"/>';
     echo '女性';
-    echo '</label><br>';
+    echo '</label>';
     echo '<label>';
     echo '<input type="radio" name="gender" value="その他"/>';
     echo 'その他';
     echo '</label>';
-    echo '<input type="submit" value="確定">';
+    echo '</fieldset>'
     echo '</form>';
     }
+    echo '<form action="mypage-change-output.php" method="post">';
+    echo '<button class="button-002">確定</button>';
+    echo '</form>';
 ?>
  
 <?php require 'footer.php'; ?>
+
+    echo '<tr><td>お名前(フリガナ)</td>';
+    echo '<td><input type="text" name="name" value="', $kana , '">';
+    echo '</td></tr>';
