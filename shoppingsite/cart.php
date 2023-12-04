@@ -64,8 +64,12 @@ $total=0;
 foreach($_SESSION['product'] as $id=>$product){
     echo '<tr>';
     echo '<td>',$product['name'], '</td>';
+<<<<<<< HEAD
+    echo '<td>', $product['totalQuantity'], '</td>';
+=======
 
     echo '<td>', $product['quantity'], '</td>';
+>>>>>>> 4b125996f5ba6541d8d999347e4bbd283c9ff003
 
     echo '<td>', $product['price'],'円</td>';
 
@@ -96,3 +100,4 @@ foreach($_SESSION['product'] as $id=>$product){
         ?>
         </form>
     </div>
+
