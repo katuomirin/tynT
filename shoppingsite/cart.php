@@ -64,7 +64,8 @@ $total=0;
 foreach($_SESSION['product'] as $id=>$product){
     echo '<tr>';
     echo '<td>',$product['name'], '</td>';
-    echo '<td>', $product['totalQuantity'], '</td>';
+
+    echo '<td>', $product['quantity'], '</td>';
 
     echo '<td>', $product['price'], '</td>';
 
@@ -95,4 +96,3 @@ foreach($_SESSION['product'] as $id=>$product){
         ?>
         </form>
     </div>
-
