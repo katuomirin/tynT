@@ -3,17 +3,17 @@
 
 <?php
 $id=$_POST['id'];
-if (!isset($_SESSION['product'])) {
-    $_SESSION['product']=[];
-}
 if (isset($_SESSION['product'][$id])){
     $quantity =$_SESSION['product'][$id]['quantity'];
 }
+
+
 $_SESSION['product'][$id]=[
     'name' => $_POST['name'],
-    'price' => $_POST['price'],
+    'processingFee' => $_POST['processingFee'],
     'quantity' => $_POST['quantity'],
-    'subtotal' => $_POST['subtotal']
+    'subtotal' => $_POST['subtotal'],
+
 ];
 echo '<form method="post" action="mypage.php">';//マイページでつかうよ
     $_SESSION['cart_data'][$id] = [
