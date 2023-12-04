@@ -6,6 +6,7 @@
 
 .item{/*商品全体*/
     display: flex;
+    flex-wrap: wrap;
 }
 .shohins{/*一商品*/
     line-height: 1.2;
@@ -19,11 +20,6 @@
 .price{/*価格*/
     line-height: 2;
     margin: 0;
-}
-.footer{
-  text-align: left;
-  position: relative;
-  bottom: 0;
 }
 
 /* お気に入り */
