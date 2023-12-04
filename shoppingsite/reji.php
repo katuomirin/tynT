@@ -1,6 +1,11 @@
 <?php session_start(); ?>
 <?php require 'header.php'; ?>
 <style>
+    .zenbu {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
 
 .text {
     width: auto;
@@ -164,8 +169,8 @@
 }
 
 </style>
-<center>
 <body>
+    <label class="zenbu">
     <?php
 $kana=$kanji=$email=$post_code=$prefectures=$address1=$address2=$manshon='';
 if(isset($_SESSION['user'])){
@@ -229,8 +234,8 @@ echo '</td></tr>';
     echo '    </div>';
     echo '    <p><button class="kaku">確認</button></p>';
     echo '    </from>';
-    echo '    </center>';
 ?>
+</label>
     </body>
     <p><input type="button" onclick="history.back()" value="戻る" class="modo"></p>
 <?php require 'footer.php'; ?>
