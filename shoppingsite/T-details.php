@@ -332,16 +332,16 @@ window.addEventListener('DOMContentLoaded',function(){
         echo '<p class="font4">※加工費は一律５００円です。また、１枚ずつ掛かりますのでご了承ください</p>';
         echo '<form method="post" action="cart-incert.php" class="check">';
         echo '<label>
-                <input type="checkbox" name="options[]" value="left-chest" data-quantity="0">左胸（10×10㎝）
+                <input type="checkbox" name="options[]" value="left-chest" data-quantity="0" onclick="calculateProcessingFee()">左胸（10×10㎝）
             </label><br>';
         echo '<label>
-                <input type="checkbox" name="options[]" value="right-chest" data-quantity="0">右胸(10×10cm）
+                <input type="checkbox" name="options[]" value="right-chest" data-quantity="0" onclick="calculateProcessingFee()">右胸(10×10cm）
             </label><br>';
         echo '<label>
-                <input type="checkbox" name="options[]" value="center-chest" data-quantity="0">胸中央(35.5×40cm）
+                <input type="checkbox" name="options[]" value="center-chest" data-quantity="0" onclick="calculateProcessingFee()">胸中央(35.5×40cm）
             </label><br>';
         echo '<label>
-                <input type="checkbox" name="options[]" value="center-back" data-quantity="0">背中中央（35.5×40cm）
+                <input type="checkbox" name="options[]" value="center-back" data-quantity="0" onclick="calculateProcessingFee()">背中中央（35.5×40cm）
             </label><br>';
         echo '</form>';
         echo '<p>加工費: <span id="processingFee">0</span>円</p>';
