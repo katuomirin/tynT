@@ -51,23 +51,62 @@
 </table>
 </section>
 <h2>よくあるお問い合わせ</h2>
-
+<h3>配送について</h3>
 <details class="accordion-005">
     <summary>商品は注文後何日で届きますか？</summary>
     <p>通常１週間程度のお届でございます。注文内容やデザイン、時期により変動しますのでご了承ください</p>
 </details>
 <details class="accordion-005">
+    <summary>郵送先は自宅ですか？</summary>
+    <p>ご注文の際に記載いただいた住所に送りさせていただきます。</p>
+</details>
+<details class="accordion-005">
+    <summary>注文確定後のお届け先の変更は可能ですか？</summary>
+    <p>ご注文後のお届け先の変更はできません。</p>
+</details>
+<details class="accordion-005">
+    <summary>送料はかかりますか？</summary>
+    <p>全国一律で500円をいただきます。</p>
+</details>
+<h3>注文について</h3>
+<details class="accordion-005">
+    <summary>どうやって注文したらいいですか？</summary>
+    <p><a href="create.php">オリジナルTシャツ</a>をご覧ください</p>
+</details>
+<details class="accordion-005">
+<summary>注文は何枚からできますか？</summary>
+    <p>１枚より可能です</p>
+</details>
+<h3>注文内容変更・キャンセル</h3>
+<details class="accordion-005">
+    <summary>注文確定後のキャンセルや変更はできますか？</summary>
+    <p>ご注文確定後のキャンセルはお受けできません。</p>
+</details>
+<details class="accordion-005">
+<summary>返品交換について</summary>
+    <p>受注生産となりますので、商品に不具合がある場合を除き、返品・交換はお受けできません。
+商品に不具合がある場合は、再プリントの上、交換いたします。</p>
+</details>
+<h3>支払いについて</h3>
+<details class="accordion-005">
     <summary>お支払方法は？</summary>
     <p>各種クレジットカード、銀行振り込みにて対応しております。</p>
 </details>
+<details class="accordion-005">
+    <summary>見積書はもらえますか？</summary>
+    <p>見積書の対応はできません。</br>
+    　　ご注文内容を確認いただきますと金額が記載されていますのでそちらでご確認ください。</p>
+</details>
+<h3>デザインプリントについて</h3>
 <details class="accordion-005">
     <summary>デザインはどうやって送ればいいですか？</summary>
     <p>直接郵送頂くか、公式LINEがございますのでそちらでデータをお送りください。</p>
 </details>
 <details class="accordion-005">
-    <summary>郵送先は自宅ですか？</summary>
-    <p>ご注文の際に記載いただいた住所に送りさせていただきます。</p>
+    <summary>プリント位置は自由に選べますか？</summary>
+    <p>左胸・右胸・前面・背面からお選びいただけます。</p>
 </details>
+
 </main>
 
 </div>
