@@ -382,6 +382,7 @@ window.addEventListener('DOMContentLoaded',function(){
         echo '<input type="hidden" name="subtotal" id="subtotalInput" value="0">'; // 各商品の小計を保存するフィールド
         echo '<input type="hidden" name="quantity" id="quantityOutput" value="0">'; // 各商品の数量を保存するフィールド
         echo '<p class="cart-botton"><input type="submit" value="カートに追加" onclick="addToCart();"></p>'; // カートに追加ボタン
+        echo '</form>';
 
         // お気に入りに追加
 
