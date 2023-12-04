@@ -6,13 +6,13 @@
 <body>
     <ol class="breadcrumb-001">
         <li><a href="./home.php">ホーム</a></li>
-        <li><a href="Polo-shirt-list.php">ポロシャツ</a></li>
+        <li><a href="./T-shirt-list.php">Ｔシャツ</a></li>
     </ol>
-    <?php
-    $T="ポロシャツ";
-    $pdo=new PDO($connect,USER,PASS);
-    
-    $sql = $pdo->prepare('select * from product where category = :category');
+        <?php
+        $T="ポロシャツ";
+        $pdo=new PDO($connect,USER,PASS);
+        
+        $sql = $pdo->prepare('select * from product where category = :category');
         $sql->bindParam(':category', $T, PDO::PARAM_STR);
         $sql->execute();
         $user_id = $_SESSION['user']['id'];

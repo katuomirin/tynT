@@ -4,15 +4,15 @@
 <link rel="stylesheet" href="./css/shohins.css">
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <body>
-    <ol class="breadcrumb-001"> 
+    <ol class="breadcrumb-001">
         <li><a href="./home.php">ホーム</a></li>
-        <li><a href="./Sweat-list.php">スウェット</a></li>
+        <li><a href="./T-shirt-list.php">Ｔシャツ</a></li>
     </ol>
-    <?php
-    $T="スウェット";
-    $pdo=new PDO($connect,USER,PASS);
-    
-    $sql = $pdo->prepare('select * from product where category = :category');
+        <?php
+        $T="スウェット";
+        $pdo=new PDO($connect,USER,PASS);
+        
+        $sql = $pdo->prepare('select * from product where category = :category');
         $sql->bindParam(':category', $T, PDO::PARAM_STR);
         $sql->execute();
         $user_id = $_SESSION['user']['id'];
