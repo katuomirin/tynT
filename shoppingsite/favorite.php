@@ -19,7 +19,14 @@
                     </div>';
                 echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a>';
                 echo '<p class="price">', $row['price'], '</p></div>';
-                
+                echo '<form method="post" action="mypage.php">';//マイページでつかうよ
+                        $_SESSION['favorite_data'][$id] = [
+                            'id' => $id,
+                            'image' => $row['image'],
+                            'name' => $row['name'],
+                            'price' => $row['price']
+                        ];
+                echo '</form>';
             }
             echo   '<script>
                     $(function() {
@@ -32,6 +39,18 @@
                             console.log("ID=" + productId);
                             if (!$(this).hasClass("is-checked")) {
                                 console.log("クリック前の処理");
+                                $.ajax({
+                                    type: "POST",
+                                    url: "favorite-insert.php",
+                                    data: {id: productId},
+                                    success: function(response) {
+                                        // レスポンスを処理する（必要に応じて）
+                                        console.log(response);
+                                    },
+                                    error: function(error) {
+                                        console.error(error);
+                                    }
+                                });
                             }
                             $(this).toggleClass("is-checked");
                             if ($(this).hasClass("is-checked")) {
