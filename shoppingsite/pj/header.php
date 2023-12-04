@@ -48,10 +48,7 @@
       <p>ホーム</p>
     </a>
 
-    <a href="logout.php" target="_self">
-      <img src="./image/logout.png" alt="ログアウト" style="height:50px; width:50px;">
-      <p>ログアウト</p>
-    </a>
+    
 </div>
 
 <script src="script.js"></script>
