@@ -5,7 +5,6 @@ $(document).ready(function () {
         calculateTotalSubtotal(); // 小計の合計も再計算
     });
 
-    // 他のイベントや初期化などをここに追加できます
 });
 
 function calculateSubtotal(subtotalId, quantityInputId, price) {
@@ -50,7 +49,7 @@ function calculateProcessingFee() {
     var checkboxes = document.querySelectorAll('form.check input[type="checkbox"]');
     checkboxes.forEach(function (checkbox) {
         if (checkbox.checked) {
-            processingFee += 500 * parseInt(checkbox.getAttribute('data-quantity')) || 0;
+            processingFee += 500 * (parseInt(checkbox.getAttribute('data-quantity')) || 0);
         }
     });
 
@@ -66,3 +65,4 @@ function calculateProcessingFee() {
 
     return processingFee;
 }
+
