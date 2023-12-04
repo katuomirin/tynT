@@ -11,8 +11,10 @@
         
     if(isset($_SESSION['user'])){
         $user = $_SESSION['user'];
-        echo '<h1>Hi,',$user['kanji'],'</h1>';
-        echo '<p class="cart">カート</p>';
+        echo '<h1 class="username">Hi,',$user['kanji'],'</h1><hr>';
+        echo '<div class="cart">
+                <p><nobr>カート</nobr></p>
+                <a href="cart-show.php" class="view">View more＞</a></div>';
         echo '<div class="carts">';
         if(isset($_SESSION['cart_data']) && !empty($_SESSION['cart_data'])){
             foreach($_SESSION['cart_data'] as $cart){
@@ -36,7 +38,9 @@
             echo 'カートに商品が入っていません。';
         }
         echo "</div>";
-        echo '<p class="favorite">お気に入り</p>';
+        echo '<div class="favorite">
+                <nobr><p>お気に入り</p></nobr>
+                <a href="favorite-show.php" class="view1">View more＞</a></div>';
         echo '<div class="favorites">';
         if(isset($_SESSION['favorite_data']) && !empty($_SESSION['favorite_data'])){
             foreach($_SESSION['favorite_data'] as $favorite){
@@ -147,8 +151,10 @@
                 </script>';
         echo "</div>";
 
-        echo '<a href="mypage-info.php" class="mypage-info-button">マイページ情報</a>';
-        echo '<p><a href="logout.php" >ログアウト</a></p>';
+        echo '<a href="mypage-info.php" class="user-info">登録情報
+                <span class="rink">＞</span></a>';
+        echo '<a href="logout.php" class="logout">ログアウト
+                <span class="rink2">＞</span></a>';
     }else{
         echo '<p>ログイン情報が見つかりません。<br>もう一度ログインしてください</p>';
         echo '<a href="login.php">ログイン</a>';
