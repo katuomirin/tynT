@@ -17,7 +17,7 @@
 <div id="contents">
 <main>
 <section>
-<caption>お問い合わせ先</caption>
+<h1>お問い合わせ先</h1>
 <h2>アクセス</h2>
 
 <div class="iframe-box">
@@ -59,6 +59,14 @@
 <details class="accordion-005">
     <summary>お支払方法は？</summary>
     <p>各種クレジットカード、銀行振り込みにて対応しております。</p>
+</details>
+<details class="accordion-005">
+    <summary>デザインはどうやって送ればいいですか？</summary>
+    <p>直接郵送頂くか、公式LINEがございますのでそちらでデータをお送りください。</p>
+</details>
+<details class="accordion-005">
+    <summary>郵送先は自宅ですか？</summary>
+    <p>ご注文の際に記載いただいた住所に送りさせていただきます。</p>
 </details>
 </main>
 
