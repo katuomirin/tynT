@@ -48,11 +48,13 @@
     </div>
     <div class="image-grid-row">
         <div>
+        <a href="uncomplete.php" target="_self">
             <img src="./image/clipboard.png" alt="注文">
+        </a>    
             <p>注文</p>
         </div>
         <div>
-        <a href="ad-review.php" target="_self">
+        <a href="uncomplete.php" target="_self">
             <img src="./image/5-stars.png" alt="レビュー">
         </a>
             <p>レビュー</p>
