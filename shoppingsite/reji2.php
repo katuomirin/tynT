@@ -6,7 +6,7 @@
             exit();
         }
 
-        $name = $_POST['name'];
+        $kanji = $_POST['kanji'];
         $kana = $_POST['kana'];
         $yuubin = $_POST['yuubin'];
         $zyuusho1 = $_POST['zyuusho1'];
@@ -205,7 +205,7 @@
         <form action="reji_end.php" method="post">
             <div class="input-area">
             <h3>名前(漢字)</h3>
-            <?php echo htmlspecialchars($name,ENT_QUOTES,'UTF-8');?>
+            <?php echo htmlspecialchars($kanji,ENT_QUOTES,'UTF-8');?>
             <input type="button" onclick="history.back()" value="変更" class="btn-border">
             </div>
             <div class="input-area">
