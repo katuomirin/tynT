@@ -6,8 +6,20 @@
 <body>
     <ol class="breadcrumb-001">
         <li><a href="./home.php">ホーム</a></li>
-        <li><a href="./T-shirt-list.php">Ｔシャツ</a></li>
     </ol>
+
+    <?php
+        $pdo=new PDO($connect,USER,PASS);
+        if(isset($_POST['keyword'])){
+            $sql=$pdo->prepare('select * from product where name like ?');
+            $sql->execute(['%'.$_POST['keyword'].'%']);
+        }else{
+            echo 'お探しの商品は見つかりませんでした。';
+            $sql=$pdo->query('select * from product');
+        }
+        $user_id = $_SESSION['user']['id'];
+        $checkSql = $pdo->prepare('SELECT * FROM favorite WHERE user_id = ? AND product_id = ?');
+
     echo '<div class="item">';
             foreach ($sql as $row) {
                 $id = $row['id'];
@@ -22,7 +34,6 @@
                     echo '<div class="choice-list" data-postid="', $id, '">
                             <div class="checkbox heart"></div>
                           </div>';
-                    echo 'あ';
                 }
                 echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a>';
                 echo '<p class="price">', $row['price'], '</p></div>';
@@ -38,6 +49,18 @@
                             console.log("ID=" + productId);
                             if (!$(this).hasClass("is-checked1")) {
                                 console.log("クリック前の処理");
+                                $.ajax({
+                                    type: "POST",
+                                    url: "favorite-insert.php",
+                                    data: {id: productId},
+                                    success: function(response) {
+                                        // レスポンスを処理する（必要に応じて）
+                                        console.log(response);
+                                    },
+                                    error: function(error) {
+                                        console.error(error);
+                                    }
+                                });
                             }
                             $(this).toggleClass("is-checked1");
                             if ($(this).hasClass("is-checked1")) {
@@ -60,15 +83,27 @@
                 </script>';
             echo   '<script>
                     $(function() {
-                        var $favorite = $(\'.checkbox\'), //お気に入りボタンセレクタ
-                        productId;
-                        $favorite.on(\'click\',function(e){
+                        var $favorite2 = $(\'.checkbox\'), //お気に入りボタンセレクタ
+                        productId2;
+                        $favorite2.on(\'click\',function(e){
                             //カスタム属性（postid）に格納された投稿ID取得
-                            productId = $(this).parents(\'.choice-list\').data(\'postid\'); 
+                            productId2 = $(this).parents(\'.choice-list\').data(\'postid\'); 
                             console.log("クリック前の処理");
-                            console.log("ID=" + productId);
+                            console.log("ID=" + productId2);
                             if (!$(this).hasClass("is-checked")) {
                                 console.log("クリック前の処理");
+                                $.ajax({
+                                    type: "POST",
+                                    url: "favorite-delete.php",
+                                    data: {id: productId2},
+                                    success: function(response) {
+                                        // レスポンスを処理する（必要に応じて）
+                                        console.log(response);
+                                    },
+                                    error: function(error) {
+                                        console.error(error);
+                                    }
+                                });
                             }
                             $(this).toggleClass("is-checked");
                             if ($(this).hasClass("is-checked")) {
@@ -76,7 +111,7 @@
                                 $.ajax({
                                     type: "POST",
                                     url: "favorite-insert.php",
-                                    data: {id: productId},
+                                    data: {id: productId2},
                                     success: function(response) {
                                         // レスポンスを処理する（必要に応じて）
                                         console.log(response);

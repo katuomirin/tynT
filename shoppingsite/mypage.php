@@ -2,6 +2,7 @@
 <?php require 'header.php'; ?>
 <?php require 'db-connect.php'; ?>
 <link rel="stylesheet" href="./css/mypage.css">
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <body>
     <?php
     echo '<form action="mypage-change.php" method="post">';
@@ -27,8 +28,8 @@
                             <div class="checkbox heart"></div>
                           </div>';
                 } else {
-                    echo '<div class="cart-list1" data-postid1="', $c_id, '">
-                            <div class="checkbox1 heart"></div>
+                    echo '<div class="cart-list2" data-postid2="', $c_id, '">
+                            <div class="checkbox2 heart"></div>
                           </div>';
                 }
                 echo '<a href="T-details.php?id=', $c_id, '">', $cart['name'], '</a>';
@@ -79,14 +80,14 @@
                 </script>';
             echo   '<script>
                     $(function() {
-                        var $cart2 = $(\'.checkbox1\'), //お気に入りボタンセレクタ
+                        var $cart2 = $(\'.checkbox2\'), //お気に入りボタンセレクタ
                         cartId2;
-                        $favorite.on(\'click\',function(e){
+                        $cart2.on(\'click\',function(e){
                             //カスタム属性（postid）に格納された投稿ID取得
-                            cartId2 = $(this).parents(\'.cart-list1\').data(\'postid1\'); 
+                            cartId2 = $(this).parents(\'.cart-list2\').data(\'postid2\'); 
                             console.log("クリック前の処理");
                             console.log("ID=" + cartId2);
-                            if (!$(this).hasClass("cart2-checked")) {
+                            if (!$(this).hasClass("cart-checked2")) {
                                 console.log("クリック前の処理");
                                 $.ajax({
                                     type: "POST",
@@ -101,8 +102,8 @@
                                     }
                                 });
                             }
-                            $(this).toggleClass("cart2-checked");
-                            if ($(this).hasClass("cart2-checked")) {
+                            $(this).toggleClass("cart-checked2");
+                            if ($(this).hasClass("cart-checked2")) {
                                 console.log("クリック後の処理");
                                 $.ajax({
                                     type: "POST",
@@ -146,12 +147,11 @@
                 echo '<a href="T-details.php?id=', $f_id, '">', $favorite['name'], '</a>';
                 echo '<p class="price">', $favorite['price'], '</p></div>';
             }
-            //お気に入りに商品が入っている場合
             echo   '<script>
                     $(function() {
-                        var $favorite = $(\'.checkbox3\'), //お気に入りボタンセレクタ
+                        var $favo = $(\'.checkbox3\'), //お気に入りボタンセレクタ
                         favoId;
-                        $favorite.on(\'click\',function(e){
+                        $favo.on(\'click\',function(e){
                             //カスタム属性（postid）に格納された投稿ID取得
                             favoId = $(this).parents(\'.favo-list\').data(\'postid3\'); 
                             console.log("クリック前の処理");
@@ -190,50 +190,49 @@
                         });
                     });
                 </script>';
-            //入っていない場合
-            echo   '<script>
-                    $(function() {
-                        var $favorite2 = $(\'.checkbox4\'), //お気に入りボタンセレクタ
-                        favoId2;
-                        $favorite2.on(\'click\',function(e){
-                            //カスタム属性（postid）に格納された投稿ID取得
-                            favoId2 = $(this).parents(\'.favo-list2\').data(\'postid4\'); 
+                echo   '<script>
+                $(function() {
+                    var $favo2 = $(\'.checkbox4\'), //お気に入りボタンセレクタ
+                    favoId2;
+                    $favo2.on(\'click\',function(e){
+                        //カスタム属性（postid）に格納された投稿ID取得
+                        favoId2 = $(this).parents(\'.favo-list2\').data(\'postid4\'); 
+                        console.log("クリック前の処理");
+                        console.log("ID=" + favoId2);
+                        if (!$(this).hasClass("favo-checked2")) {
                             console.log("クリック前の処理");
-                            console.log("ID=" + favoId2);
-                            if (!$(this).hasClass("favo-checked2")) {
-                                console.log("クリック前の処理");
-                                $.ajax({
-                                    type: "POST",
-                                    url: "favorite-delete.php",
-                                    data: {id: favoId2},
-                                    success: function(response) {
-                                        // レスポンスを処理する（必要に応じて）
-                                        console.log(response);
-                                    },
-                                    error: function(error) {
-                                        console.error(error);
-                                    }
-                                });
-                            }
-                            $(this).toggleClass("favo-checked2");
-                            if ($(this).hasClass("favo-checked2")) {
-                                console.log("クリック後の処理");
-                                $.ajax({
-                                    type: "POST",
-                                    url: "favorite-insert.php",
-                                    data: {id: favoId2},
-                                    success: function(response) {
-                                        // レスポンスを処理する（必要に応じて）
-                                        console.log(response);
-                                    },
-                                    error: function(error) {
-                                        console.error(error);
-                                    }
-                                });
-                            }
-                        });
+                            $.ajax({
+                                type: "POST",
+                                url: "favorite-insert.php",
+                                data: {id: favoId2},
+                                success: function(response) {
+                                    // レスポンスを処理する（必要に応じて）
+                                    console.log(response);
+                                },
+                                error: function(error) {
+                                    console.error(error);
+                                }
+                            });
+                        }
+                        $(this).toggleClass("favo-checked2");
+                        if ($(this).hasClass("favo-checked2")) {
+                            console.log("クリック後の処理");
+                            $.ajax({
+                                type: "POST",
+                                url: "favorite-delete.php",
+                                data: {id: favoId2},
+                                success: function(response) {
+                                    // レスポンスを処理する（必要に応じて）
+                                    console.log(response);
+                                },
+                                error: function(error) {
+                                    console.error(error);
+                                }
+                            });
+                        }
                     });
-                </script>';
+                });
+            </script>';
         }else{
             echo 'お気に入りに商品が入っていません。';
         }

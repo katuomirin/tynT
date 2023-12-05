@@ -81,19 +81,19 @@
                 </script>';
             echo   '<script>
                     $(function() {
-                        var $favorite = $(\'.checkbox\'), //お気に入りボタンセレクタ
-                        productId;
-                        $favorite.on(\'click\',function(e){
+                        var $favorite2 = $(\'.checkbox\'), //お気に入りボタンセレクタ
+                        productId2;
+                        $favorite2.on(\'click\',function(e){
                             //カスタム属性（postid）に格納された投稿ID取得
-                            productId = $(this).parents(\'.choice-list\').data(\'postid\'); 
+                            productId2 = $(this).parents(\'.choice-list\').data(\'postid\'); 
                             console.log("クリック前の処理");
-                            console.log("ID=" + productId);
+                            console.log("ID=" + productId2);
                             if (!$(this).hasClass("is-checked")) {
                                 console.log("クリック前の処理");
                                 $.ajax({
                                     type: "POST",
                                     url: "favorite-delete.php",
-                                    data: {id: productId},
+                                    data: {id: productId2},
                                     success: function(response) {
                                         // レスポンスを処理する（必要に応じて）
                                         console.log(response);
@@ -109,7 +109,7 @@
                                 $.ajax({
                                     type: "POST",
                                     url: "favorite-insert.php",
-                                    data: {id: productId},
+                                    data: {id: productId2},
                                     success: function(response) {
                                         // レスポンスを処理する（必要に応じて）
                                         console.log(response);

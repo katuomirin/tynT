@@ -20,6 +20,7 @@ $_SESSION['product'][$id]=[
 echo '<form method="post" action="mypage.php">';//マイページでつかうよ
     $_SESSION['cart_data'][$id] = [
         'id' => $id,
+        'image' => $_POST['image'],
         'name' => $_POST['name'],
         'price' => $_POST['price']
     ];

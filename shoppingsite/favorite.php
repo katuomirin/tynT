@@ -7,28 +7,28 @@
 <?php
     echo '<h1>お気に入り商品一覧</h1>';
     if(isset($_SESSION['user'])){
-    $sql = $pdo->prepare('SELECT * FROM favorite INNER JOIN product ON favorite.product_id = product.id WHERE user_id = ?');
-    $sql->execute([$_SESSION['user']['id']]);
-    echo '<div class="item">';
-            foreach ($sql as $row) {
-                $id = $row['id'];
-                echo '<div class="shohins">';
-                echo '<a href="T-details.php?id=', $id, '"><img class="img" alt="image" src="image/',$row['image'], '.png"></a>';
-                echo '<div class="choice-list" data-postid="', $id, '">
-                        <div class="checkbox heart"></div>
-                    </div>';
-                echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a>';
-                echo '<p class="price">', $row['price'], '</p></div>';
-                echo '<form method="post" action="mypage.php">';//マイページでつかうよ
-                        $_SESSION['favorite_data'][$id] = [
-                            'id' => $id,
-                            'image' => $row['image'],
-                            'name' => $row['name'],
-                            'price' => $row['price']
-                        ];
-                echo '</form>';
-            }
-            echo   '<script>
+        $sql = $pdo->prepare('SELECT * FROM favorite INNER JOIN product ON favorite.product_id = product.id WHERE user_id = ?');
+        $sql->execute([$_SESSION['user']['id']]);
+        echo '<div class="item">';
+        foreach ($sql as $row) {
+            $id = $row['id'];
+            echo '<div class="shohins">';
+            echo '<a href="T-details.php?id=', $id, '"><img class="img" alt="image" src="image/',$row['image'], '.png"></a>';
+            echo '<div class="choice-list" data-postid="', $id, '">
+                    <div class="checkbox heart"></div>
+                </div>';
+            echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a>';
+            echo '<p class="price">', $row['price'], '</p></div>';
+            
+            // ここでお気に入り商品情報をセッションに保存
+            $_SESSION['favorite_data'][$id] = [
+                'id' => $id,
+                'image' => $row['image'],
+                'name' => $row['name'],
+                'price' => $row['price']
+            ];
+        }
+        echo   '<script>
                     $(function() {
                         var $favorite = $(\'.checkbox\'), //お気に入りボタンセレクタ
                         productId;
@@ -72,9 +72,9 @@
                     });
                 </script>';
         echo '</div>';
-    }else{
+    } else {
         echo '<p><a href="login.php">ログイン</a>してだっちゃ！</p>';
     }
-    ?>
-    </body>
+?>
+</body>
 <?php require 'footer.php'; ?>
