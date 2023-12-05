@@ -18,10 +18,10 @@
 <body>
     <label class="zenbu">
     <?php
-    unset($_SESSION['product']);
-    echo '<p><h2>商品の購入が完了しました</h2></p>';
-    echo '<br><p><h2>購入ありがとうございました。</h2></p>';
-    echo '<br><p><h2><a href="home.php">購入</a>を続ける</h2></p>';    
-    ?>   
+    unset($_SESSION['product']);   
+    ?>
+    <h2>商品の購入が完了しました</h2>
+    <p><h2>購入ありがとうございました。</h2></p>
+    <h2><a href="home.php">購入</a>を続ける</h2> 
     </label> 
 </body>
