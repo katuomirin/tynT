@@ -60,7 +60,7 @@ body {
 }
 
 .SearchBox button {
-  background-color: #31a9ee; /* ボタンの背景色を指定 */
+  background-color: #dbedff; /* ボタンの背景色を指定 */
   border: none;
   border-radius: 5px;
   color: #ffffff; /* ボタンのテキスト色を指定 */
