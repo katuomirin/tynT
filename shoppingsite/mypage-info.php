@@ -36,15 +36,13 @@
         
         // Add a form to handle changes
         echo '<form action="mypage-change.php" method="post">';
-        echo '<button type="submit">変更</button>';
+        echo '<button class="button-002">変更</button>';
         echo '</form>';
     } else {
         echo '<p>ログイン情報が見つかりません。<br>もう一度ログインしてください</p>';
         echo '<a href="login.php">ログイン</a>';
     }
-    echo '<form action="mypage-change.php" method="post">';
-    echo '<button class="button-002">変更</button>';
-    echo '</form>';
+
 ?>
 </body>
 <?php require 'footer.php'; ?>
