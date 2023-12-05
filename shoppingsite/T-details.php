@@ -1,8 +1,9 @@
+<?php session_start(); ?>
 <?php require 'header.php'; ?>
 <?php require 'db-connect.php'; ?>
 
 <link rel="stylesheet" href="./css/shohin-list.css">
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 <script src="./script/T-detail.js"></script>
 <script>
 window.addEventListener('DOMContentLoaded',function(){
@@ -44,6 +45,8 @@ window.addEventListener('DOMContentLoaded',function(){
     $sql = $pdo->prepare('select * from product where id=?');
     $product_id=$_GET['id'];
     $sql->execute([$_GET['id']]);
+    $user_id = $_SESSION['user']['id'];
+    $checkSql = $pdo->prepare('SELECT * FROM favorite WHERE user_id = ? AND product_id = ?');
 
     echo '<div class="total">';
     echo '<script src="./script/T-detail.js"></script>'; // JavaScriptファイルを正しくロード
@@ -295,35 +298,106 @@ window.addEventListener('DOMContentLoaded',function(){
         
         echo '<p class="shohin-shosai">';
         echo '<p class="font1">', $row['name'], '</p>';
-        echo '<div class="style"><div class="choice-list">
-                <div class="checkbox heart"></div>
-              </div>';
+        echo '<div class="heart">';
+        $checkSql->execute([$user_id, $product_id]);
+            if ($checkSql->rowCount() > 0) {
+                echo '<div class="choice-list1" data-postid1="', $product_id, '">
+                        <div class="checkbox1 heart"></div>
+                      </div>';
+            } else {
+                echo '<div class="choice-list" data-postid="', $product_id, '">
+                        <div class="checkbox heart"></div>
+                      </div>';
+            }
+        
+        echo '<p class="font2"><nobr>￥', $row['price'], '</nobr></p></div>';
         echo '<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>';
         echo   '<script>
-                    $(".checkbox").click(function() {
-                        if (!$(this).hasClass("is-checked")) {
+                    $(function() {
+                        var $favorite = $(\'.checkbox1\'), //お気に入りボタンセレクタ
+                        productId;
+                        $favorite.on(\'click\',function(e){
+                            //カスタム属性（postid）に格納された投稿ID取得
+                            productId = $(this).parents(\'.choice-list1\').data(\'postid1\'); 
                             console.log("クリック前の処理");
-                        }
-                        $(this).toggleClass("is-checked");
-                        if ($(this).hasClass("is-checked")) {
-                            console.log("クリック後の処理");
-                            var productId = ' . $row['id'] . '; // 商品IDを取得
-                            $.ajax({
-                                type: "POST",
-                                url: "favorite-incert.php",
-                                data: {id: productId},
-                                success: function(response) {
-                                    // レスポンスを処理する（必要に応じて）
-                                    console.log(response);
-                                },
-                                error: function(error) {
-                                    console.error(error);
-                                }
-                            });
-                        }
+                            console.log("ID=" + productId);
+                            if (!$(this).hasClass("is-checked1")) {
+                                console.log("クリック前の処理");
+                                $.ajax({
+                                    type: "POST",
+                                    url: "favorite-insert.php",
+                                    data: {id: productId},
+                                    success: function(response) {
+                                        // レスポンスを処理する（必要に応じて）
+                                        console.log(response);
+                                    },
+                                    error: function(error) {
+                                        console.error(error);
+                                    }
+                                });
+                            }
+                            $(this).toggleClass("is-checked1");
+                            if ($(this).hasClass("is-checked1")) {
+                                console.log("クリック後の処理");
+                                $.ajax({
+                                    type: "POST",
+                                    url: "favorite-delete.php",
+                                    data: {id: productId},
+                                    success: function(response) {
+                                        // レスポンスを処理する（必要に応じて）
+                                        console.log(response);
+                                    },
+                                    error: function(error) {
+                                        console.error(error);
+                                    }
+                                });
+                            }
+                        });
                     });
                 </script>';
-        echo '<p class="font2"><nobr>￥', $row['price'], '</nobr></p></div>';
+            echo   '<script>
+                    $(function() {
+                        var $favorite2 = $(\'.checkbox\'), //お気に入りボタンセレクタ
+                        productId2;
+                        $favorite2.on(\'click\',function(e){
+                            //カスタム属性（postid）に格納された投稿ID取得
+                            productId2 = $(this).parents(\'.choice-list\').data(\'postid\'); 
+                            console.log("クリック前の処理");
+                            console.log("ID=" + productId2);
+                            if (!$(this).hasClass("is-checked")) {
+                                console.log("クリック前の処理");
+                                $.ajax({
+                                    type: "POST",
+                                    url: "favorite-delete.php",
+                                    data: {id: productId2},
+                                    success: function(response) {
+                                        // レスポンスを処理する（必要に応じて）
+                                        console.log(response);
+                                    },
+                                    error: function(error) {
+                                        console.error(error);
+                                    }
+                                });
+                            }
+                            $(this).toggleClass("is-checked");
+                            if ($(this).hasClass("is-checked")) {
+                                console.log("クリック後の処理");
+                                $.ajax({
+                                    type: "POST",
+                                    url: "favorite-insert.php",
+                                    data: {id: productId2},
+                                    success: function(response) {
+                                        // レスポンスを処理する（必要に応じて）
+                                        console.log(response);
+                                    },
+                                    error: function(error) {
+                                        console.error(error);
+                                    }
+                                });
+                            }
+                        });
+                    });
+                </script>';
         echo '<p>', $row['ex'], '<br>';
         echo '素材:', $row['sozai'], '<br>';
         echo 'カラー:', $row['color'], '</p>';
