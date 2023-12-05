@@ -65,13 +65,13 @@ foreach($_SESSION['product'] as $id=>$product){
     echo '<tr>';
     echo '<td>',$product['name'], '</td>';
 
-    echo '<td>', $product['quantity'], '</td>';
+    echo '<td>', $product['quantity'], '</td>';// 数量
 
-    echo '<td>', $product['processingFee'],'円</td>';
+    echo '<td>', $product['processingFee'],'円</td>';// 加工費
 
-    echo '<td>', $product['subtotal'], '</td>';
+    echo '<td>', $product['subtotal'], '</td>';// 小計
 
-    $total += $product['subtotal'] ;
+    $total += $product['subtotal'] ;// 合計の計算
     echo '<td><a href="cart-delete.php?id=',$id,'">削除</a></td>';
     echo '</tr>';
 }
