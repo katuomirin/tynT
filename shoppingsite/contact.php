@@ -32,7 +32,8 @@
 </tr>
 <tr>
 <th>電話番号</th>
-<td>0120-371-007<br>
+<td>
+<a href="tel:0120-371-007">0120-371-007</a><br>
 平日　午前10:30〜午後5:30</td>
 </tr>
 <tr>
@@ -40,12 +41,12 @@
 <td>博多駅から徒歩9分。<br></td>
 </tr>
 <tr>
-<th>見出し</th>
-<td>ここに説明を入れます。</td>
+<th>公式LINE</th>
+<td><a href="#">  <img src="image/line.png" style="height: 30px;width:35px;" ></a></td>
 </tr>
 <tr>
-<th>見出し</th>
-<td>ここに説明を入れます。</td>
+<th>代表</th>
+<td>PHAM QUANG TRUNG</td>
 </tr>
 
 </table>
@@ -54,7 +55,7 @@
 <h3>配送について</h3>
 <details class="accordion-005">
     <summary>商品は注文後何日で届きますか？</summary>
-    <p>通常１週間程度のお届でございます。注文内容やデザイン、時期により変動しますのでご了承ください</p>
+    <p>通常2週間程度のお届でございます。注文内容やデザイン、時期により変動しますのでご了承ください</p>
 </details>
 <details class="accordion-005">
     <summary>郵送先は自宅ですか？</summary>
@@ -95,7 +96,7 @@
 <details class="accordion-005">
     <summary>見積書はもらえますか？</summary>
     <p>見積書の対応はできません。</br>
-    　　ご注文内容を確認いただきますと金額が記載されていますのでそちらでご確認ください。</p>
+    ご注文内容を確認いただきますと金額が記載されていますのでそちらでご確認ください。</p>
 </details>
 <h3>デザインプリントについて</h3>
 <details class="accordion-005">
