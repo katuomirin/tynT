@@ -1,4 +1,11 @@
-/*テーブル１行目に入った見出し部分（※caption）*/
+
+.iframe-box {
+    width: 2%; /* Adjust the width according to your needs */
+    float: right;
+    margin-right: 37%;
+    margin-bottom: 40px;
+}
+
 .ta1 caption {
 	font-weight: bold;		/*太字に*/
 	padding: 1rem;			/*ボックス内の余白。基本的に数行下の「.ta1 th, .ta1 td」のpaddingと揃えておけばOKです。*/
@@ -11,7 +18,8 @@
 /*ta1テーブルブロック設定*/
 .ta1 {
 	border-top: 1px solid #5fa9dd;	/*テーブルの一番上の線。幅、線種、色*/
-	width: 100%;
+	width: 60%;
+    float: left;
 	margin: 0 auto 2em;		/*最後の「2em」がテーブルの下に空けるスペースです*/
 }
 
@@ -28,7 +36,7 @@
 
 /*th（左側）のみの設定*/
 .ta1 th {
-	width: 28%;			/*幅*/
+	width: 30%;			/*幅*/
 	text-align: left;	/*左よせにする*/
 	background: #ecf5fe;	/*背景色*/
 }
