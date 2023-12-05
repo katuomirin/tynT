@@ -378,6 +378,7 @@ window.addEventListener('DOMContentLoaded',function(){
         echo '<form action="cart-incert.php" method="post">';
         echo '<input type="hidden" name="id" value="', $row['id'], '">';
         echo '<input type="hidden" name="name" value="', $row['name'], '">';
+        echo '<input type="hidden" name="processingFee" id="processingFee" value="0">'; // 各商品の加工費を保存するフィールド
         echo '<input type="hidden" name="price" value="', $row['price'], '">';
         echo '<input type="hidden" name="subtotal" id="subtotalInput" value="0">'; // 各商品の小計を保存するフィールド
         echo '<input type="hidden" name="quantity" id="quantityOutput" value="0">'; // 各商品の数量を保存するフィールド
