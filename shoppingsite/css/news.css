@@ -3,7 +3,7 @@
     display: block;
     height: 50px;
     width: 100%;
-    background-color: rgb(196, 243, 255);
+    background-color: rgb(0, 91, 171);
     overflow: hidden;
     margin-top: -100px;
   }
@@ -11,7 +11,7 @@
   /* バナー内コンテンツ */
   .news-banner__content {
     display: inline-block;
-    color: #000000;
+    color: #ffffff;
     line-height: 5px;
     padding-left: 100%;
     white-space: nowrap;
