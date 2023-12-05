@@ -34,7 +34,8 @@ a{
 .user-info{
   border-bottom: 1px solid #a5a4a4b3;
 }
-.rink,.link2{
+.rink,.rink2{
+  padding-right: 30px;
   text-align: right;
   margin: 0;
 }
@@ -83,13 +84,13 @@ a{
 }
 
 /*お気に入り*/
-.choice-list {
+.cart-list1,.favo-list2 {
     margin: 0 auto;
     display: block;
     padding: 0;
   }
   
-  .checkbox {
+.checkbox1,.checkbox4 {
     text-align: left;
     float: left;
     width: 30px;
@@ -107,15 +108,18 @@ a{
     transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
   }
   
-  .checkbox:hover {
+.checkbox1:hover,
+.checkbox4:hover {
     background-color:rgb(247, 229, 239);
   }
   
-  .checkbox:hover:after {
+.checkbox1:hover:after,
+.checkbox4:hover:after {
     color: red;/*チェック前マウス*/
   }
   
-  .checkbox:after {
+.checkbox1:after,
+.checkbox4:after {
     line-height: 30px;
     font-family: "FontAwesome";
     display: block;
@@ -138,7 +142,8 @@ a{
     transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
   }
   
-  .checkbox.is-checked:after {
+  .checkbox1.cart2-checked:after,
+  .checkbox4.favo-checked2:after {
     -moz-transform: scale(1);
     -ms-transform: scale(1);
     -webkit-transform: scale(1);
@@ -147,20 +152,21 @@ a{
     color: red;
   }
   
-  .checkbox.is-checked:hover:after {
+  .checkbox1.cart2-checked:hover:after,
+  .checkbox4.favo-checked2:hover:after {
     -moz-transform: scale(1.1);
     -ms-transform: scale(1.1);
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
   }
   /* お気に入り(既) */
-  .choice-list1 {
+  .cart-list,.favo-list{
     margin: 0 auto;
     display: block;
     padding: 0;
   }
   
-  .checkbox1 {
+  .checkbox,.checkbox3{
     text-align: left;
     float: left;
     width: 30px;
@@ -178,15 +184,16 @@ a{
     transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
   }
   
-  .checkbox1:hover {
+  .checkbox:hover,.checkbox3:hover{
     background-color: rgb(247, 229, 239);
   }
   
-  .checkbox1:hover:after {
+  .checkbox:hover:after,
+  .checkbox3:hover:after{
     color: red; /* チェック前マウス */
   }
   
-  .checkbox1:after {
+  .checkbox:after,.checkbox3:after{
     line-height: 30px;
     font-family: "FontAwesome";
     display: block;
@@ -209,7 +216,8 @@ a{
     transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
   }
   
-  .checkbox1.is-checked1:after {
+  .checkbox.cart-checked:after,
+  .checkbox3.favo-checked:after {
     -moz-transform: scale(0.5);
     -ms-transform: scale(0.5);
     -webkit-transform: scale(0.5);
@@ -218,21 +226,10 @@ a{
     color: white;
   }
   
-  .checkbox1.is-checked1:hover:after {
+  .checkbox.cart-checked:hover:after,
+  .checkbox3.favo-checked:hover:after {
     -moz-transform: scale(0.45);
     -ms-transform: scale(0.45);
     -webkit-transform: scale(0.45);
     transform: scale(0.45);
-  }
-  
-  .viewmore,.view-more{
-    position: relative;
-    border: none;
-    width: fit-content;
-    align-items: center;
-    top: 50%;
-    }
-  .viewmore a::after,.view-more a::after {
-    content: ">";
-    margin-left: 20px;
   }
