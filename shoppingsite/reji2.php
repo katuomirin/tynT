@@ -131,9 +131,8 @@
                 <h3>合計金額</h3>
             </div>
             <p><button class="kaku">商品購入を確定する</button></p>
-            </label>
                 <p><input type="button" onclick="history.back()" value="戻る" class="modo"></p>
                 <?php require 'footer.php'; ?>
-        
             </form>
+        </label>
     </body>

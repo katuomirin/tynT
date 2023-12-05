@@ -1,6 +1,11 @@
+body {
+    text-align: center;
+}
+
 .heading-041 {
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: .5em .7em;
     background-color: #ebebeb;
     color: #333333;
@@ -18,6 +23,7 @@
 .textbox-001-label,
 .textbox-001 {
     color: #333;
+    margin: 0 auto;
 }
 
 .textbox-001-label {
@@ -27,12 +33,13 @@
 }
 
 .textbox-001 {
-    width: 150px;
+    width: 900px;
     padding: 8px 10px;
     border: 1px solid #969da3;
     border-radius: 3px;
     font-size: 1em;
     line-height: 1.5;
+    margin: 0 auto;
 }
 
 .textbox-001::placeholder {
@@ -44,6 +51,7 @@
     flex-wrap: wrap;
     gap: .3em 2em;
     border: none;
+    justify-content: center;
 }
 
 .radio-001 label {

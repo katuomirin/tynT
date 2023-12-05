@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 <?php require 'header.php'; ?>
 <?php require 'db-connect.php'; ?>
-<link rel="stylesheet" href="./css/mypage-info.css">
+<link rel="stylesheet" href="./css/mypage-change.css">
 <body>
 <?php
     echo '<h2 class="heading-041">基本情報</h2>';

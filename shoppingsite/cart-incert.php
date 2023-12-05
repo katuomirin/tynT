@@ -3,17 +3,19 @@
 
 <?php
 $id=$_POST['id'];
+if (!isset($_SESSION['product'])) {
+    $_SESSION['product']=[];
+}
+$quantity=0;
 if (isset($_SESSION['product'][$id])){
-    $quantity =$_SESSION['product'][$id]['quantity'];
+    $count=$_SESSION['product'][$id]['quantity'];
 }
 
-
 $_SESSION['product'][$id]=[
-    'name' => $_POST['name'],
-    'processingFee' => $_POST['processingFee'],
-    'quantity' => $_POST['quantity'],
-    'subtotal' => $_POST['subtotal'],
-
+    'name' => $_POST['name'], // 商品名
+    'processingFee' => $_POST['processingFee'],// 加工費
+    'quantity' => $quantity+$_POST['quantity'],// 数量
+    'subtotal' => $_POST['subtotal']// 小計
 ];
 echo '<form method="post" action="mypage.php">';//マイページでつかうよ
     $_SESSION['cart_data'][$id] = [
