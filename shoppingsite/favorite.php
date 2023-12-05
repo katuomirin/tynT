@@ -72,6 +72,8 @@
                     });
                 </script>';
         echo '</div>';
+    }else{
+        echo '<p><a href="login.php">ログイン</a>してだっちゃ！</p>';
     }
     ?>
     </body>
