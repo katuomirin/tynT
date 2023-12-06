@@ -490,6 +490,7 @@ window.addEventListener('DOMContentLoaded',function(){
                 return processingFee;
             }';
     echo '</script>';
+    
 
     // お気に入りのチェックボックスに対する jQuery コード
     echo '<script>';
