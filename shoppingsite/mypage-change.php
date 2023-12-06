@@ -12,7 +12,6 @@
         $kana = $_SESSION['user']['kana'];
         $kanji = $_SESSION['user']['kanji'];
         $email = $_SESSION['user']['email'];
-        $password = $_SESSION['user']['password'];
         $birthday = $_SESSION['user']['birthday'];
         $gender = $_SESSION['user']['gender'];
         $post_code = $_SESSION['user']['post_code'];

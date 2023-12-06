@@ -23,9 +23,9 @@
 
 <div class="slider">
 <img src="image/tyun.png" width="500" height="500" alt="">
-<img src="image/kikuya.png" width="500" height="500" alt="">
+<img src="image/kikuya.png" width="300" height="500" alt="">
 <img src="image/tyun.png" width="500" height="500" alt="">
-<img src="image/ttt.png" width="500" height="500" alt="">
+<img src="image/ninja.png" width="300" height="500" alt="">
 </div>
 
 

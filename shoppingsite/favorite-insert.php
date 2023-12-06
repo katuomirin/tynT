@@ -14,8 +14,12 @@ if (isset($_POST['id'])) {
         $checkSql->execute([$user_id, $product_id]);
 
         if ($checkSql->rowCount() > 0) {
-            // Product is already a favorite
-            echo 'この商品はすでにお気に入りに登録されています。';
+            $sql=$pdo->prepare(
+                'delete from favorite where user_id=? and product_id=?'
+            );
+            $sql->execute([$_SESSION['user']['id'], $_POST['id']]);
+            echo 'お気に入りから商品を削除しました。';
+            echo '<hr>';
         } else {
             // Insert the new favorite
             $insertSql = $pdo->prepare('INSERT INTO favorite (user_id, product_id) VALUES (?, ?)');

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php require 'header.php'; ?>
 
 <?php
@@ -24,16 +25,27 @@
     align-items: center; 
 }
 
-/* -------------------------------------------------------------------- */
+/* ---------------------テキストの表示---------------------------------- */
 .input-area{
-    padding: auto;
-    margin: auto;
+    text-align: center;
+    padding: 50px 0;
     color: #2c2c2f;
     background: #dcdcdc; /*背景色*/
 }
+
 .input-area p { 
-    margin: 0;
-    padding: 0;
+    border: 1px solid black;
+    display: inline-block;
+    padding-left: 10px;/* 内側の左 */
+    padding-right: 10px;/* 内側の右 */
+    padding-top: 10px;/* 内側の上 */
+    padding-bottom: 10px;/* 内側の下 */
+    letter-spacing: 0.5em;
+    text-indent: 0.5em;/*letter-spacingと同じサイズのemを書く */
+}
+/* -----------------変更ボタン-------------------- */
+.btn-border{
+    text-align: right;
 }
 /* -----------------確定-------------------- */
 .kaku {
@@ -56,7 +68,7 @@
     color: #fff;
     font-weight: 600;
 }
-/* =======*/
+/* ----------------戻るボタン---------------- */
 .modo {
     display: flex;
     justify-content: center;
@@ -79,56 +91,61 @@
 }
 
 </style>
-
     <body>
+        
     <label class="zenbu">
         <form action="reji_end.php" method="post">
+            <h2>名前(漢字)</h2>
             <div class="input-area">
-            <h3>名前(漢字)</h3>
-            <?php echo htmlspecialchars($kanji,ENT_QUOTES,'UTF-8');?>
-            <input type="button" onclick="history.back()" value="変更" class="btn-border">
+            <h2><?php echo htmlspecialchars($kanji,ENT_QUOTES,'UTF-8');?><h2>
             </div>
-            <div class="input-area">
-            <h3>名前(フリガナ)</h3>
-            <?php echo htmlspecialchars($kana,ENT_QUOTES,'UTF-8');?>
             <input type="button" onclick="history.back()" value="変更" class="btn-border">
-            </div>
+
             
+            <h2>名前(フリガナ)</h2>
             <div class="input-area">
-                <h3>お届け先住所</h3>
-                <?php echo htmlspecialchars($yuubin,ENT_QUOTES,'UTF-8');?><br>
+            <h2><?php echo htmlspecialchars($kana,ENT_QUOTES,'UTF-8');?></2>
+            </div>
+            <input type="button" onclick="history.back()" value="変更" class="btn-border">
+            
+            
+                <h2>お届け先住所</h2>
+                <div class="input-area">
+                <h2><?php echo htmlspecialchars($yuubin,ENT_QUOTES,'UTF-8');?><br>
                 <?php echo htmlspecialchars($zyuusho1,ENT_QUOTES,'UTF-8');?><br>
                 <?php echo htmlspecialchars($zyuusho2,ENT_QUOTES,'UTF-8');?><br>
-                <?php echo htmlspecialchars($manshon,ENT_QUOTES,'UTF-8');?>
-                <input type="button" onclick="history.back()" value="変更" class="btn-border">
+                <?php echo htmlspecialchars($manshon,ENT_QUOTES,'UTF-8');?></h2>
             </div>
+            <input type="button" onclick="history.back()" value="変更" class="btn-border">
 
+            
+                <h2>電話番号</h2>
             <div class="input-area">
-                <h3>電話番号</h3>
-                <?php echo htmlspecialchars($call,ENT_QUOTES,'UTF-8');?>
-                <input type="button" onclick="history.back()" value="変更" class="btn-border">
+                <h2><?php echo htmlspecialchars($call,ENT_QUOTES,'UTF-8');?></h2>
             </div>
+            <input type="button" onclick="history.back()" value="変更" class="btn-border">
 
+            
+                <h2>メールアドレス</h2>
             <div class="input-area">
-                <h3>メールアドレス</h3>
-                <?php echo htmlspecialchars($mail,ENT_QUOTES,'UTF-8');?>
-                <input type="button" onclick="history.back()" value="変更" class="btn-border">
+                <h2><?php echo htmlspecialchars($mail,ENT_QUOTES,'UTF-8');?></h2>
             </div>
+            <input type="button" onclick="history.back()" value="変更" class="btn-border">
 
+                <h2>オリジナルTシャツのデザインの送り方</h2>
             <div class="input-area">
-                <h3>オリジナルTシャツのデザインの送り方</h3>
-                <?php echo $okuri;?>
-                <input type="button" onclick="history.back()" value="変更" class="btn-border">
+                <h2><?php echo $okuri;?><h2>
             </div>
+            <input type="button" onclick="history.back()" value="変更" class="btn-border">
 
+                <h2>支払い方法</h2>
             <div class="input-area">
-                <h3>支払い方法</h3>
-                <?php echo $harai;?>
-                <input type="button" onclick="history.back()" value="変更" class="btn-border">
+                <h2><?php echo $harai;?></h2>
             </div>
+            <input type="button" onclick="history.back()" value="変更" class="btn-border">
 
+                <h2>合計金額</h2>
             <div class="input-area">
-                <h3>合計金額</h3>
             </div>
             <p><button class="kaku">商品購入を確定する</button></p>
                 <p><input type="button" onclick="history.back()" value="戻る" class="modo"></p>
@@ -136,3 +153,11 @@
             </form>
         </label>
     </body>
+<?php require ('db-connect.php');
+$sql = sprintf('INSERT INTO order set user_id="%s", day="%s", send-T-shirt ="%s" pay-way',
+mysqli_real_escape_string($db, $_POST['?????1']),
+mysqli_real_escape_string($db, $_POST['?????2']),
+mysqli_real_escape_string($db, $_POST['?????3']),
+);
+mysqli_query($db, $sql) or die (mysqli_error($db));
+?>
