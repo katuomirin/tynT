@@ -147,7 +147,7 @@
 
                 <h2>合計金額</h2>
             <div class="input-area">
-                <h2><?php echo $total,'円';?></h2>
+                <h2><?php echo number_format($total),'円';?></h2>
             </div>
             <p><button class="kaku">商品購入を確定する</button></p>
                 <p><input type="button" onclick="history.back()" value="戻る" class="modo"></p>
