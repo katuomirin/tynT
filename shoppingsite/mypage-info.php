@@ -25,7 +25,6 @@
         echo '<p>漢字:', $kanji, '</p>'; 
         echo '<p>メール:', $email, '</p>';
         echo '<p>生年月日:', $birthday, '</p>';
-        echo '<p>性別:', $gender, '</p>';
         echo '<p>郵便番号:', $post_code, '</p>';
         echo '<p>都道府県:', $prefectures, '</p>';
         echo '<p>', $address1, '</p>';
