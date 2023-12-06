@@ -9,6 +9,7 @@
     $pdo = new PDO($connect, USER, PASS);
     $user_id = $_SESSION['user']['id'];
     $checkSql = $pdo->prepare('SELECT * FROM favorite WHERE user_id = ? AND product_id = ?');
+    
         
     if(isset($_SESSION['user'])){
         $user = $_SESSION['user'];
@@ -129,82 +130,42 @@
                 <nobr><p>お気に入り</p></nobr>
                 <a href="favorite-show.php" class="view1">View more＞</a></div>';
         echo '<div class="favorites">';
-        if(isset($_SESSION['favorite_data']) && !empty($_SESSION['favorite_data'])){
-            foreach($_SESSION['favorite_data'] as $favorite){
-                $f_id = $favorite['id'];
-                echo '<div class="shohins">';
-                echo '<a href="T-details.php?id=', $f_id, '"><img class="img" alt="image" src="image/',$favorite['image'], '.png"></a>';
-                $checkSql->execute([$user_id, $f_id]);
-                if ($checkSql->rowCount() > 0) {
-                    echo '<div class="favo-list" data-postid3="', $f_id, '">
-                            <div class="checkbox3 heart"></div>
-                          </div>';
-                } else {
-                    echo '<div class="favo-list2" data-postid4="', $f_id, '">
-                            <div class="checkbox4 heart"></div>
-                          </div>';
-                }
-                echo '<a href="T-details.php?id=', $f_id, '">', $favorite['name'], '</a>';
-                echo '<p class="price">', $favorite['price'], '</p></div>';
-            }
-            echo   '<script>
+        $fav_sql = $pdo->prepare('SELECT * FROM favorite INNER JOIN product ON favorite.product_id = product.id WHERE user_id = ?');
+        $fav_sql->execute([$_SESSION['user']['id']]);
+        foreach ($fav_sql as $row) {
+            $id = $row['id'];
+            echo '<div class="shohins">';
+            echo '<a href="T-details.php?id=', $id, '"><img class="img" alt="image" src="image/',$row['image'], '.png"></a>';
+            echo '<div class="choice-list" data-postid="', $id, '">';
+                /*        <div class="checkbox heart"></div>
+                    </div>';*/
+                    echo '<div class="checkbox heart ';
+                    if( check_favolite_duplicate($user_id,$row['id']) ){
+                        echo 'is-checked';
+                    }
+                    echo '"></div>';
+            echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a>';
+            echo '<p class="price">', $row['price'], '</p></div></div>';
+        }
+        echo   '<script>
                     $(function() {
-                        var $favo = $(\'.checkbox3\'), //お気に入りボタンセレクタ
-                        favoId;
-                        $favo.on(\'click\',function(e){
+                        var $favorite = $(\'.checkbox\'), //お気に入りボタンセレクタ
+                        productId;
+                        $favorite.on(\'click\',function(e){
                             //カスタム属性（postid）に格納された投稿ID取得
-                            favoId = $(this).parents(\'.favo-list\').data(\'postid3\'); 
-                            console.log("クリック前の処理");
-                            console.log("ID=" + favoId);
-                            if (!$(this).hasClass("favo-checked")) {
+                            productId = $(this).parents(\'.choice-list\').data(\'postid\'); 
+                            console.log("ID=" + productId);
+                            if (!$(this).hasClass("is-checked")) {
                                 console.log("クリック前の処理");
-                                $.ajax({
-                                    type: "POST",
-                                    url: "favorite-insert.php",
-                                    data: {id: favoId},
-                                    success: function(response) {
-                                        // レスポンスを処理する（必要に応じて）
-                                        console.log(response);
-                                    },
-                                    error: function(error) {
-                                        console.error(error);
-                                    }
-                                });
                             }
-                            $(this).toggleClass("favo-checked");
-                            if ($(this).hasClass("favo-checked")) {
+                            $(this).toggleClass("is-checked");
+                            if ($(this).hasClass("is-checked")) {
                                 console.log("クリック後の処理");
-                                $.ajax({
-                                    type: "POST",
-                                    url: "favorite-delete.php",
-                                    data: {id: favoId},
-                                    success: function(response) {
-                                        // レスポンスを処理する（必要に応じて）
-                                        console.log(response);
-                                    },
-                                    error: function(error) {
-                                        console.error(error);
-                                    }
-                                });
                             }
-                        });
-                    });
-                </script>';
-                echo   '<script>
-                $(function() {
-                    var $favo2 = $(\'.checkbox4\'), //お気に入りボタンセレクタ
-                    favoId2;
-                    $favo2.on(\'click\',function(e){
-                        //カスタム属性（postid）に格納された投稿ID取得
-                        favoId2 = $(this).parents(\'.favo-list2\').data(\'postid4\'); 
-                        console.log("クリック前の処理");
-                        console.log("ID=" + favoId2);
-                        if (!$(this).hasClass("favo-checked2")) {
-                            console.log("クリック前の処理");
                             $.ajax({
                                 type: "POST",
                                 url: "favorite-insert.php",
-                                data: {id: favoId2},
+                                data: {id: productId},
                                 success: function(response) {
                                     // レスポンスを処理する（必要に応じて）
                                     console.log(response);
@@ -213,32 +174,10 @@
                                     console.error(error);
                                 }
                             });
-                        }
-                        $(this).toggleClass("favo-checked2");
-                        if ($(this).hasClass("favo-checked2")) {
-                            console.log("クリック後の処理");
-                            $.ajax({
-                                type: "POST",
-                                url: "favorite-delete.php",
-                                data: {id: favoId2},
-                                success: function(response) {
-                                    // レスポンスを処理する（必要に応じて）
-                                    console.log(response);
-                                },
-                                error: function(error) {
-                                    console.error(error);
-                                }
-                            });
-                        }
+                        });
                     });
-                });
-            </script>';
-        }else{
-            echo 'お気に入りに商品が入っていません。';
-        }
-        
-        echo "</div>";
-
+                </script>';
+            echo '</div>';
         echo '<a href="mypage-info.php" class="user-info">登録情報
                 <span class="rink">＞</span></a>';
         echo '<a href="logout.php" class="logout">ログアウト
@@ -251,3 +190,18 @@
 ?>
 </body>
 <?php require 'footer.php'; ?>
+
+<?php
+//ユーザーIDと商品IDを元にお気に入り値の重複チェックを行っています
+function check_favolite_duplicate($user_id,$product_id){
+    global $pdo;
+    $sql = "SELECT *
+            FROM favorite
+            WHERE user_id = :user_id AND product_id = :product_id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(array(':user_id' => $user_id ,
+                         ':product_id' => $product_id));
+    $favorite = $stmt->fetch();
+    return $favorite;
+}
+?>
