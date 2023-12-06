@@ -13,7 +13,6 @@
         $kanji = $_SESSION['user']['kanji'];
         $email = $_SESSION['user']['email'];
         $birthday = $_SESSION['user']['birthday'];
-        $gender = $_SESSION['user']['gender'];
         $post_code = $_SESSION['user']['post_code'];
         $prefectures = $_SESSION['user']['prefectures'];
         $address1 = $_SESSION['user']['address1'];
@@ -47,6 +46,10 @@
     echo '<input type="text"  name="post_code" class="textbox-001" placeholder=""/ value="', $post_code , '">';
     echo '</label>';
     echo '<label>';
+    echo '<span class="textbox-001-label">都道府県</span>';
+    echo '<input type="text"  name="prefectures" class="textbox-001" placeholder=""/ value="', $prefectures , '">';
+    echo '</label>';
+    echo '<label>';
     echo '<span class="textbox-001-label">住所(市町村区)</span>';
     echo '<input type="text"  name="address1" class="textbox-001" placeholder=""/ value="', $address1 , '">';
     echo '</label>';
@@ -59,25 +62,9 @@
     echo '<input type="text"  name="manshon" class="textbox-001" placeholder=""/ value="', $manshon , '">';
     echo '</label>';
     echo '</table>';
-    echo '<fieldset class="radio-001">';
-    echo '<label>';
-    echo '<input type="radio" name="gender" value="男"/>';
-    echo '男性';
-    echo '</label>';
-    echo '<label>';
-    echo '<input type="radio" name="gender" value="女"/>';
-    echo '女性';
-    echo '</label>';
-    echo '<label>';
-    echo '<input type="radio" name="gender" value="その他"/>';
-    echo 'その他';
-    echo '</label>';
-    echo '</fieldset>';
-    echo '</form>';
-    }
-    echo '<form action="mypage-change-output.php" method="post">';
     echo '<button class="button-002">確定</button>';
     echo '</form>';
+}
 ?>
  
 <?php require 'footer.php'; ?>
