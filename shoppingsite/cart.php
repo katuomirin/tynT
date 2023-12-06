@@ -56,7 +56,6 @@
 </style>
 
 <?php
-
 if (!empty($_SESSION['product'])) {
     echo '<table>';
     echo '<tr><th>商品名</th><th>数量</th><th>加工費</th><th>小計</th></tr>';
