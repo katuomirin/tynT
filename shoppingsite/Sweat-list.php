@@ -11,13 +11,11 @@
         <?php
         $T="スウェット";
         $pdo=new PDO($connect,USER,PASS);
-        
         $sql = $pdo->prepare('select * from product where category = :category');
         $sql->bindParam(':category', $T, PDO::PARAM_STR);
         $sql->execute();
-        $user_id = $_SESSION['user']['id'];
-        $checkSql = $pdo->prepare('SELECT * FROM favorite WHERE user_id = ? AND product_id = ?');
-        
+        if(isset($_SESSION['user']['id'])){
+            $user_id = $_SESSION['user']['id'];
         echo '<div class="item">';
             foreach ($sql as $row) {
                 $id = $row['id'];
@@ -34,6 +32,16 @@
                 echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a>';
                 echo '<p class="price">', $row['price'], '</p></div></div>';
             }
+        }else{
+            echo '<div class="item">';
+            foreach ($sql as $row) {
+                $id = $row['id'];
+                echo '<div class="shohins">';
+                echo '<a href="T-details.php?id=', $id, '"><img class="img" alt="image" src="image/',$row['image'], '.png"></a><br>';
+                echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a>';
+                echo '<p class="price">', $row['price'], '</p></div>';
+            }
+        }
             echo   '<script>
                     $(function() {
                         var $favorite = $(\'.checkbox\'), //お気に入りボタンセレクタ
@@ -86,4 +94,6 @@ function check_favolite_duplicate($user_id,$product_id){
     $favorite = $stmt->fetch();
     return $favorite;
 }
+
+
 ?>
