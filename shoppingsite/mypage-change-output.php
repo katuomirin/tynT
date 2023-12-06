@@ -34,11 +34,12 @@ if (isset($_SESSION['user'])){
 if(empty($sql->fetchAll())){
     if(isset($_SESSION['user'])){
         if(!empty($hashedPassword)){
-        $sql=$pdo->prepare('update user set name=?, address=?, '.
-                           'login=?, password=? where id=?');
+        $sql=$pdo->prepare('update user set kana=?, kanji=?, birthday=?, gender=?, post_code=?, prefectures=?, address1=?, address2=?, manshon=?,'.
+                           'email=?, password=? where id=?');
         $sql->execute([
-            $_POST['name'], $_POST['address'],
-            $_POST['login'],$hashedPassword,$id]);
+            $_POST['kana'], $_POST['kanji'],$_POST['email'],$_POST['password'],$_POST['birthday'],$_POST['gender'],
+            $_POST['post_code'],$_POST['prefectures'],$_POST['address1'],$_POST['address2'],$_POST['manshon'],
+            $hashedPassword,$id]);
         }else{
             $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
         }

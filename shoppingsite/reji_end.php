@@ -7,21 +7,19 @@
         }
 ?>
 <style>
-    .zenbu {
-        display: flex; 
-        justify-content: center; 
-        align-items: center; 
+    .output {
+    text-align: center;
     }
 </style>
 
 
 <body>
-    <label class="zenbu">
     <?php
     unset($_SESSION['product']);   
     ?>
-    <h2>商品の購入が完了しました</h2>
-    <p><h2>購入ありがとうございました。</h2></p>
-    <h2><a href="home.php">購入</a>を続ける</h2> 
-    </label> 
+    <div class="output">
+        <h2>商品の購入が完了しました<br></h2>
+        <h2>購入ありがとうございました。<br></h2>
+        <h2><a href="home.php">購入</a>を続ける</h2>
+    </div> 
 </body>
