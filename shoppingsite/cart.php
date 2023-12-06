@@ -93,8 +93,8 @@ foreach($_SESSION['product'] as $id=>$product){
         <?php
         if(!empty($_SESSION['product'])) {
             echo '<button class="susumu">レジに進む</button>';
+            $_SESSION['total'] = $total;
         }
-        $_SESSION['total'] = $total;
         ?>
         </form>
     </div>
