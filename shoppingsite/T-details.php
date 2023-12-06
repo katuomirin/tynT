@@ -467,32 +467,6 @@ window.addEventListener('DOMContentLoaded',function(){
         echo '</div>';
     }
 
-    // $rowの値をJavaScriptに渡す
-    /*
-    echo '<script>';
-    echo 'var rowPrice = ', $row['price'], ';';
-    echo 'function setHiddenFields() {
-                var totalSubtotal = 0;
-                var sizes = ["S", "M", "L", "XL", "XXL"];
-                for (var i = 0; i < sizes.length; i++) {
-                    totalSubtotal += parseFloat(document.getElementById("subtotal" + sizes[i]).textContent);
-                }
-                document.getElementById("hiddenTotalSubtotal").value = totalSubtotal.toFixed(2);
-                document.getElementById("subtotalInput").value = totalSubtotal.toFixed(2);
-                
-                // 計算した加工費を表示
-                var processingFee = getProcessingFee();
-                document.getElementById("processingFee").textContent = processingFee;
-            }
-
-            function getProcessingFee() {
-                var checkboxes = document.querySelectorAll(\'input[name="options[]"]:checked\');
-                var processingFee = checkboxes.length * 500;
-                return processingFee;
-            }';
-    echo '</script>';
-    */
-
     // お気に入りのチェックボックスに対する jQuery コード
     echo '<script>';
     echo '$(document).ready(function() {
