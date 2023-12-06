@@ -58,7 +58,5 @@ if(empty($sql->fetchAll())){
         echo 'お客様情報を更新しました。';
     }
 }
-
-var_dump[$_POST]
 ?>
 <?php require 'footer.php'; ?>
