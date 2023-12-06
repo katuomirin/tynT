@@ -29,6 +29,30 @@
         padding: 10px;
         margin-bottom: 20px;
     }
+    button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+button.home-btn {
+    background-color: #3498db;
+    color: #fff;
+}
+
+button.mypage-btn {
+    background-color: #2ecc71;
+    color: #fff;
+}
 </style>
 
 <?php require 'header.php'; ?>
@@ -55,7 +79,8 @@ if (isset($_SESSION['user'])) {
     echo '<div class="login-success">';
     echo '<p>ログインに成功しました。</p>';
     echo '<p>ようこそ、', $_SESSION['user']['kana'], '様。</p>';
-    
+    echo '<button class="home-btn" onclick="location.href=\'home.php\'">ホームへ</button>';
+    echo '<button class="mypage-btn" onclick="location.href=\'mypage.php\'">マイページへ</button>';
     echo '</div>';
 }else{
     echo '<div class="login-error">';
