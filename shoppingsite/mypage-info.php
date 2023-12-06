@@ -5,7 +5,7 @@
 <body>
 <?php
     echo '<h2 class="heading-002">会員情報</h2>';
-    echo '<h4 class="heading-041">基本情報</h4>';
+    echo '<h3 class="heading-041">基本情報</h3>';
     $kana = $kanji = $email = $password = $birthday = $gender = $post_code
     = $prefectures = $address1 = $address2 = $manshon = '';
     $pdo = new PDO($connect, USER, PASS);
@@ -13,7 +13,6 @@
         $kana = $_SESSION['user']['kana'];
         $kanji = $_SESSION['user']['kanji'];
         $email = $_SESSION['user']['email'];
-        $password = $_SESSION['user']['password'];
         $birthday = $_SESSION['user']['birthday'];
         $gender = $_SESSION['user']['gender'];
         $post_code = $_SESSION['user']['post_code'];
@@ -25,7 +24,6 @@
         echo '<p>カナ:', $kana, '</p>';
         echo '<p>漢字:', $kanji, '</p>'; 
         echo '<p>メール:', $email, '</p>';
-        echo '<p>パスワード:', $password, '</p>';
         echo '<p>生年月日:', $birthday, '</p>';
         echo '<p>性別:', $gender, '</p>';
         echo '<p>郵便番号:', $post_code, '</p>';
