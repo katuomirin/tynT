@@ -232,7 +232,7 @@ echo '</td></tr>';
 
     echo '    <div class="input-area">';
     echo '        <h3>合計金額</h3>';
-    echo  $total,'円';
+    echo  number_format($total),'円';
     echo '    </div>';
     echo '    <p><button class="kaku">確認</button></p>';
     echo '    </from>';
