@@ -183,6 +183,7 @@ if(isset($_SESSION['user'])){
     $address2=$_SESSION['user']['address2'];
     $manshon=$_SESSION['user']['manshon'];
 }
+$total = $_SESSION['total'];
 echo '</td></tr>';
     echo '<form action="reji2.php" method="post">';
     echo '<div class="input-area">';
@@ -231,6 +232,7 @@ echo '</td></tr>';
 
     echo '    <div class="input-area">';
     echo '        <h3>合計金額</h3>';
+    echo  $total,'円';
     echo '    </div>';
     echo '    <p><button class="kaku">確認</button></p>';
     echo '    </from>';
