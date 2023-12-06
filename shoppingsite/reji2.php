@@ -92,6 +92,7 @@
 
 </style>
     <body>
+    <?php $total = $_SESSION['total'];?>
         
     <label class="zenbu">
         <form action="reji_end.php" method="post">
@@ -146,6 +147,7 @@
 
                 <h2>合計金額</h2>
             <div class="input-area">
+                <h2><?php echo $total,'円';?></h2>
             </div>
             <p><button class="kaku">商品購入を確定する</button></p>
                 <p><input type="button" onclick="history.back()" value="戻る" class="modo"></p>
@@ -153,11 +155,3 @@
             </form>
         </label>
     </body>
-<?php require ('db-connect.php');
-$sql = sprintf('INSERT INTO order set user_id="%s", day="%s", send-T-shirt ="%s" pay-way',
-mysqli_real_escape_string($db, $_POST['?????1']),
-mysqli_real_escape_string($db, $_POST['?????2']),
-mysqli_real_escape_string($db, $_POST['?????3']),
-);
-mysqli_query($db, $sql) or die (mysqli_error($db));
-?>

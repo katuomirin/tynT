@@ -1,3 +1,4 @@
+
 <style>
     div{
         text-align:right;
@@ -88,11 +89,12 @@ foreach($_SESSION['product'] as $id=>$product){
             <button class="modo">ホームへ戻る</button>
         </form>
 
-        <form action="reji.php">
+        <form action="reji.php" method="post">
         <?php
         if(!empty($_SESSION['product'])) {
             echo '<button class="susumu">レジに進む</button>';
         }
+        $_SESSION['total'] = $total;
         ?>
         </form>
     </div>
