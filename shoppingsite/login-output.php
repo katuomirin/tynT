@@ -1,7 +1,38 @@
 <?php session_start(); ?>
 <?php require 'db-connect.php'; ?>
-<!DOCTYPE html>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-success {
+        color: #4CAF50;
+        border: 1px solid #4CAF50;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .login-error {
+        color: #D32F2F;
+        border: 1px solid #D32F2F;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+</style>
+
 <?php require 'header.php'; ?>
+<div class="container">
 <?php
 unset($_SESSION['user']);
 $pdo=new PDO($connect, USER, PASS);
@@ -21,14 +52,18 @@ foreach ($sql as $row) {
         echo '</form>';
     }}
 if (isset($_SESSION['user'])) {
-
-    echo 'ようこそ、', $_SESSION['user']['kana'], '様。';
-
+    echo '<div class="login-success">';
+    echo '<p>ログインに成功しました。</p>';
+    echo '<p>ようこそ、', $_SESSION['user']['kana'], '様。</p>';
+    
+    echo '</div>';
 }else{
-    echo 'ログイン名またはパスワードが違います。';
+    echo '<div class="login-error">';
+    echo '<p>ログイン名またはパスワードが違います。</p>';
+    echo '</div>';
 }
 ?>
-</body>
+</div>
 <?php require 'footer.php'; ?>
 </html>
 <?php
