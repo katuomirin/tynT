@@ -25,11 +25,13 @@
                     echo '<div class="shohins">';
                     echo '<a href="T-details.php?id=', $c_id, '"><img class="img" alt="image" src="image/',$cart['image'], '.png"></a>';
                     echo '<div class="choice-list" data-postid="', $c_id, '">';
-                        echo '<div class="checkbox heart ';
-                        if( check_favolite_duplicate($user_id,$c_id) ){
-                            echo 'is-checked';
-                        }
-                        echo '"></div></div></div>';
+                    echo '<div class="checkbox heart ';
+                    if( check_favolite_duplicate($user_id,$c_id) ){
+                        echo 'is-checked';
+                    }
+                    echo '"></div>';
+                    echo '<a href="T-details.php?id=', $c_id, '">', $cart['name'], '</a>';
+                    echo '<p class="price">', $cart['price'], '</p></div></div>';
                     }
                 }
         }else{
@@ -47,8 +49,6 @@
             echo '<div class="shohins">';
             echo '<a href="T-details.php?id=', $id, '"><img class="img" alt="image" src="image/',$row['image'], '.png"></a>';
             echo '<div class="choice-list" data-postid="', $id, '">';
-                /*        <div class="checkbox heart"></div>
-                    </div>';*/
                     echo '<div class="checkbox heart ';
                     if( check_favolite_duplicate($user_id,$row['id']) ){
                         echo 'is-checked';
