@@ -41,12 +41,12 @@ if (isset($_SESSION['user'])) {
     unset($_SESSION['user']);
     echo '<div class="container">';
     echo '<p class="message">ログアウトしました。</p>';
-    echo '<a href="index.php" class="link">ホームへ戻る</a>';
+    echo '<a href="home.php" class="link">ホームへ戻る</a>';
     echo '</div>';
 } else {
     echo '<div class="container">';
     echo '<p class="message">すでにログアウトしています。</p>';
-    echo '<a href="index.php" class="link">ホームへ戻る</a>';
+    echo '<a href="home.php" class="link">ホームへ戻る</a>';
     echo '</div>';
 }
 ?>
