@@ -172,8 +172,9 @@
 <body>
     <label class="zenbu">
     <?php
-$kana=$kanji=$email=$post_code=$prefectures=$address1=$address2=$manshon='';
+$id=$kana=$kanji=$email=$post_code=$prefectures=$address1=$address2=$manshon='';
 if(isset($_SESSION['user'])){
+    $id=$_SESSION['user']['id'];
     $kana=$_SESSION['user']['kana'];
     $kanji=$_SESSION['user']['kanji'];
     $email=$_SESSION['user']['email'];
@@ -186,6 +187,7 @@ if(isset($_SESSION['user'])){
 $total = $_SESSION['total'];
 echo '</td></tr>';
     echo '<form action="reji2.php" method="post">';
+    echo '<input type="hidden" name="id" value="', $row['id'], '">';
     echo '<div class="input-area">';
     echo '<h3>名前(漢字)<h3>';
     echo '<input type="text" class="text" name="kanji" value="', $kanji, '" placeholder="例）山田　花子" required/>';
