@@ -18,7 +18,24 @@
                 <p><nobr>カート</nobr></p>
                 <a href="cart-show.php" class="view">View more＞</a></div>';
         echo '<div class="carts">';
-        
+        if(isset($_SESSION['cart_data']) && !empty($_SESSION['cart_data'])){
+            if(isset($_SESSION['cart_data']) && !empty($_SESSION['cart_data'])){
+                foreach($_SESSION['cart_data'] as $cart){
+                    $c_id = $cart['id'];
+                    echo '<div class="shohins">';
+                    echo '<a href="T-details.php?id=', $c_id, '"><img class="img" alt="image" src="image/',$cart['image'], '.png"></a>';
+                    echo '<div class="choice-list" data-postid="', $c_id, '">';
+                        echo '<div class="checkbox heart ';
+                        if( check_favolite_duplicate($user_id,$c_id) ){
+                            echo 'is-checked';
+                        }
+                        echo '"></div></div></div>';
+                    }
+                }
+        }else{
+            echo 'カートに商品が入っていません。';
+        }
+        echo "</div>";
         echo '<div class="favorite">
                 <nobr><p>お気に入り</p></nobr>
                 <a href="favorite-show.php" class="view1">View more＞</a></div>';
