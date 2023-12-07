@@ -10,9 +10,9 @@
 
     <?php
     $pdo=new PDO($connect,USER,PASS);
-    $sql=$pdo->prepare('select * from product where name like ?');
-    $sql->execute(['%'.$_POST['keyword'].'%']);
     if(isset($_SESSION['user']['id'])){
+        $sql=$pdo->prepare('select * from product where name like ?');
+        $sql->execute(['%'.$_POST['keyword'].'%']);
         $user_id = $_SESSION['user']['id'];
         if ($sql->rowCount() > 0) {
             echo '<div class="item">';
@@ -32,49 +32,79 @@
         }else{
             echo '<p>お探しの商品は見つかりませんでした。</p>';
             $sql=$pdo->query('select * from product');
-        }
-        }else{
             echo '<div class="item">';
             foreach ($sql as $row) {
                 $id = $row['id'];
                 echo '<div class="shohins">';
-                echo '<a href="T-details.php?id=', $id, '"><img class="img" alt="image" src="image/',$row['image'], '.png"></a><br>';
+                echo '<a href="T-details.php?id=', $id, '"><img class="img" alt="image" src="image/',$row['image'], '.png"></a>';
+                echo '<div class="choice-list" data-postid="', $id, '">';
+                echo '<div class="checkbox heart ';
+                if( check_favolite_duplicate($user_id,$row['id']) ){
+                    echo 'is-checked';
+                }
+                echo '"></div>';
                 echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a>';
-                echo '<p class="price">', $row['price'], '</p></div>';
+                echo '<p class="price">', $row['price'], '</p></div></div>';
             }
         }
-        echo   '<script>
-                    $(function() {
-                        var $favorite = $(\'.checkbox\'), //お気に入りボタンセレクタ
-                        productId;
-                        $favorite.on(\'click\',function(e){
-                            //カスタム属性（postid）に格納された投稿ID取得
-                            productId = $(this).parents(\'.choice-list\').data(\'postid\'); 
-                            console.log("ID=" + productId);
-                            if (!$(this).hasClass("is-checked")) {
-                                console.log("クリック前の処理");
+    }else{
+        $sql=$pdo->prepare('select * from product where name like ?');
+        $sql->execute(['%'.$_POST['keyword'].'%']);
+        if ($sql->rowCount() > 0) {
+            echo '<div class="item">';
+            foreach ($sql as $row) {
+                $id = $row['id'];
+                echo '<div class="shohins">';
+                echo '<a href="T-details.php?id=', $id, '"><img class="img" alt="image" src="image/',$row['image'], '.png"></a>';
+                echo '<div class="choice-list" data-postid="', $id, '">';
+                echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a>';
+                echo '<p class="price">', $row['price'], '</p></div></div>';
+            }
+        }else{
+            echo '<p>お探しの商品は見つかりませんでした。</p>';
+            $sql=$pdo->query('select * from product');
+            echo '<div class="item">';
+            foreach ($sql as $row) {
+                $id = $row['id'];
+                echo '<div class="shohins">';
+                echo '<a href="T-details.php?id=', $id, '"><img class="img" alt="image" src="image/',$row['image'], '.png"></a>';
+                echo '<div class="choice-list" data-postid="', $id, '">';
+                echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a>';
+                echo '<p class="price">', $row['price'], '</p></div></div>';
+            }
+        }
+    }
+    echo   '<script>
+                $(function() {
+                    var $favorite = $(\'.checkbox\'), //お気に入りボタンセレクタ
+                    productId;
+                    $favorite.on(\'click\',function(e){
+                        //カスタム属性（postid）に格納された投稿ID取得
+                        productId = $(this).parents(\'.choice-list\').data(\'postid\'); 
+                        console.log("ID=" + productId);
+                        if (!$(this).hasClass("is-checked")) {
+                            console.log("クリック前の処理");
+                        }
+                        $(this).toggleClass("is-checked");
+                        if ($(this).hasClass("is-checked")) {
+                            console.log("クリック後の処理");
+                        }
+                        $.ajax({
+                            type: "POST",
+                            url: "favorite-insert.php",
+                            data: {id: productId},
+                            success: function(response) {
+                                // レスポンスを処理する（必要に応じて）
+                                console.log(response);
+                            },
+                            error: function(error) {
+                                console.error(error);
                             }
-                            $(this).toggleClass("is-checked");
-                            if ($(this).hasClass("is-checked")) {
-                                console.log("クリック後の処理");
-                            }
-                            $.ajax({
-                                type: "POST",
-                                url: "favorite-insert.php",
-                                data: {id: productId},
-                                success: function(response) {
-                                    // レスポンスを処理する（必要に応じて）
-                                    console.log(response);
-                                },
-                                error: function(error) {
-                                    console.error(error);
-                                }
-                            });
                         });
                     });
-                </script>';
-        echo '</div>';
-    
+                });
+            </script>';
+    echo '</div>';
     ?>
 </div>
 <div class="footer">
