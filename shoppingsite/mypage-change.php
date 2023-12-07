@@ -62,6 +62,7 @@
     echo '<input type="text"  name="manshon" class="textbox-001" placeholder=""/ value="', $manshon , '">';
     echo '</label>';
     echo '</table>';
+    echo '<br>';
     echo '<button class="button-002">確定</button>';
     echo '</form>';
 }
