@@ -59,7 +59,7 @@ if(empty($sql->fetchAll())){
             'address2'=>$_POST['address2'],
             'manshon'=>$_POST['manshon'],
             'password'=>$hashedPassword];
-        echo 'お客様情報を更新しました。';
+        echo '<p>お客様情報を更新しました。</p>';
     }
 }
 ?>
