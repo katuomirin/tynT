@@ -45,9 +45,10 @@ window.addEventListener('DOMContentLoaded',function(){
     $sql = $pdo->prepare('select * from product where id=?');
     $product_id=$_GET['id'];
     $sql->execute([$_GET['id']]);
+    if(isset($_SESSION['user'])){
     $user_id = $_SESSION['user']['id'];
     $checkSql = $pdo->prepare('SELECT * FROM favorite WHERE user_id = ? AND product_id = ?');
-
+    }
     echo '<div class="total">';
     echo '<script src="./script/T-detail.js"></script>'; // JavaScriptファイルを正しくロード
 
@@ -56,20 +57,20 @@ window.addEventListener('DOMContentLoaded',function(){
             //ライトTシャツ
             echo '<div class="gallery">';
             echo '    <div class="gallery-img">';
-            echo '        <img src="./image/1.png" style="width: 300px; alt="" id="js-image-target">';
+            echo '        <img src="./image/ninnin.png" style="width: 200px; alt="" id="js-image-target">';
             echo '    </div>';
             echo '    <ul class="gallery-list">';
             echo '        <li class="gallery-list-item">';
-            echo '            <button class="js-image"><img src="./image/1" style="width: 100px; alt=""></button>';
+            echo '            <button class="js-image"><img src="./image/ninnin.png" style="width: 80px; alt=""></button>';
             echo '        </li>';
             echo '        <li class="gallery-list-item">';
-            echo '            <button class="js-image"><img src="./image/1.png" style="width: 100px; alt=""></button>';
+            echo '            <button class="js-image"><img src="./image/ninnin.png" style="width: 80px; alt=""></button>';
             echo '        </li>';
             echo '        <li class="gallery-list-item">';
-            echo '            <button class="js-image"><img src="./image/1.png" style="width: 100px; alt=""></button>';
+            echo '            <button class="js-image"><img src="./image/ninnin.png" style="width: 80px; alt=""></button>';
             echo '        </li>';
             echo '        <li class="gallery-list-item">';
-            echo '            <button class="js-image"><img src="./image/1.png" style="width: 100px; alt=""></button>';
+            echo '            <button class="js-image"><img src="./image/ninnin.png" style="width: 80px; alt=""></button>';
             echo '        </li>';
             echo '    </ul>';
             echo '</div>';
@@ -298,6 +299,7 @@ window.addEventListener('DOMContentLoaded',function(){
         
         echo '<p class="shohin-shosai">';
         echo '<p class="font1">', $row['name'], '</p>';
+    if(isset($_SESSION['user'])){
         echo '<div class="heart">';
         $checkSql->execute([$user_id, $product_id]);
             if ($checkSql->rowCount() > 0) {
@@ -309,7 +311,7 @@ window.addEventListener('DOMContentLoaded',function(){
                         <div class="checkbox heart"></div>
                       </div>';
             }
-        
+    }
         echo '<p class="font2"><nobr>￥', $row['price'], '</nobr></p></div>';
         echo '<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>';
         echo   '<script>
