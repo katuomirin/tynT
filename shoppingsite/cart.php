@@ -92,7 +92,7 @@ if (!empty($_SESSION['product'])) {
 
     <form action="reji.php" method="post">
         <?php
-        if (!empty($_SESSION['product'])) {
+        if (!empty($_SESSION['product']) && $product['subtotal'] ) {
             echo '<button class="susumu">レジに進む</button>';
             $_SESSION['total'] = $total;
         }
