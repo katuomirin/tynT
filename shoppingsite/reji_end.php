@@ -1,5 +1,4 @@
 <?php session_start(); ?>
-<?php session_destroy(); ?>
 <?php require 'header.php'; ?>
 <?php if($_SERVER["REQUEST_METHOD"] != "POST"){
             header("Location: reji.php");
@@ -15,7 +14,7 @@
 
 <body>
     <?php
-    unset($_SESSION['product']);   
+    unset($_SESSION['product']);
     ?>
     <div class="output">
         <h2>商品の購入が完了しました<br></h2>
