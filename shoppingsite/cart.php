@@ -68,16 +68,16 @@ foreach($_SESSION['product'] as $id=>$product){
 
     echo '<td>', $product['quantity'], '</td>';// 数量
 
-    echo '<td>', $product['processingFee'],'円</td>';// 加工費
+    echo '<td>', number_format($product['processingFee']),'円</td>';// 加工費
 
-    echo '<td>', $product['subtotal'], '</td>';// 小計
+    echo '<td>', number_format($product['subtotal']), '円</td>';// 小計
 
     $total += $product['subtotal'] ;// 合計の計算
     echo '<td><a href="cart-delete.php?id=',$id,'">削除</a></td>';
     echo '</tr>';
 }
 
-    echo '<tr><td>合計</td><td></td><td></td><td>', $total, '円</td><td></td></tr>';
+    echo '<tr><td>合計</td><td></td><td></td><td>', number_format($total), '円</td><td></td></tr>';
     echo '</table>';
 } else {
     echo 'カートに追加されていません。';
