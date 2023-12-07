@@ -21,9 +21,10 @@
     }
 
     button {
-        display: inline-block;
+        display: block; /* 変更：ブロック要素に変更 */
+        width: 100%; /* 変更：横幅を100%に設定 */
+        margin: 10px 0; /* 変更：マージンを設定 */
         padding: 10px 20px;
-        margin: 10px;
         font-size: 16px;
         cursor: pointer;
         border: none;
@@ -45,6 +46,15 @@
         color: #fff;
     }
 
+    .image-container {
+        display: flex;
+        flex-direction: column; /* 変更：縦に並べるように設定 */
+        align-items: center;
+    }
+
+    .image-container img {
+        margin-bottom: 10px; /* 変更：画像とボタンの間に隙間を設定 */
+    }
     p {
         font-size: 18px;
         color: #0066cc;
@@ -114,11 +124,13 @@ if (empty($sql->fetchAll())) {
         echo '<div class="container">';
 echo '<p>お客様情報を更新しました。</p>';
 
-echo '<a href="home.php"><img src="image/home.png" alt=""></a>';
-echo '<button class="home-btn" onclick="location.href=\'home.php\'">ホームへ</button>';
-echo '<a href="mypage.php"><img src="image/my.png" alt=""></a>';
-echo '<button class="mypage-btn" onclick="location.href=\'mypage.php\'">マイページへ</button>';
-echo '</div>';
+echo '<div class="image-container">';
+        echo '<a href="home.php"><img src="image/home.png" alt=""></a>';
+        echo '<button class="home-btn" onclick="location.href=\'home.php\'">ホームへ</button>';
+        echo '<a href="mypage.php"><img src="image/my.png" alt=""></a>';
+        echo '<button class="mypage-btn" onclick="location.href=\'mypage.php\'">マイページへ</button>';
+        echo '</div>';
+        echo '</div>';
 
     }
 }

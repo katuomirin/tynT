@@ -77,7 +77,6 @@ if (!empty($_SESSION['product'])) {
         echo '<td><a href="cart-delete.php?id=', $id, '">削除</a></td>';
         echo '</tr>';
     }
-
     echo '<tr><td>合計</td><td></td><td></td><td>', number_format($total), '円</td><td></td></tr>';
     echo '</table>';
 } else {
