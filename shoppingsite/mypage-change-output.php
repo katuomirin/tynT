@@ -1,72 +1,139 @@
 <?php session_start(); ?>
-<?php require 'header.php'; ?>
 <?php require 'db-connect.php'; ?>
-<link rel="stylesheet" href="./css/mypage-change.css">
-<body>
-<?php
-    echo '<h2 class="heading-041">基本情報</h2>';
-    $kana = $kanji = $email = $password = $birthday = $gender = $post_code
-    = $prefectures = $address1 = $address2 = $manshon = '';
-    $pdo = new PDO($connect, USER, PASS);
-    if(isset($_SESSION['user'])){
-        $kana = $_SESSION['user']['kana'];
-        $kanji = $_SESSION['user']['kanji'];
-        $email = $_SESSION['user']['email'];
-        $birthday = $_SESSION['user']['birthday'];
-        $post_code = $_SESSION['user']['post_code'];
-        $prefectures = $_SESSION['user']['prefectures'];
-        $address1 = $_SESSION['user']['address1'];
-        $address2 = $_SESSION['user']['address2'];
-        $manshon = $_SESSION['user']['manshon'];
+<?php require 'header.php'; ?>
 
-    echo '<form action="mypage-change-output.php" method="post">';
-    echo '<table>';
-    echo '<label>';
-    echo '<span class="textbox-001-label">お名前(フリガナ)</span>';
-    echo '<input type="text"  name="kana" class="textbox-001" placeholder=""/ value="', $kana , '">';
-    echo '</label>';
-    echo '<label>';
-    echo '<span class="textbox-001-label">お名前(漢字)</span>';
-    echo '<input type="text"  name="kanji" class="textbox-001" placeholder=""/ value="', $kanji , '">';
-    echo '</label>';
-    echo '<label>';
-    echo '<span class="textbox-001-label">メールアドレス</span>';
-    echo '<input type="text"  name="email" class="textbox-001" placeholder=""/ value="', $email , '">';
-    echo '</label>';
-    echo '<label>';
-    echo '<span class="textbox-001-label">パスワード</span>';
-    echo '<input type="text"  name="password" class="textbox-001" placeholder=""/ value="', $password , '">';
-    echo '</label>';
-    echo '<label>';
-    echo '<span class="textbox-001-label">生年月日</span>';
-    echo '<input type="text"  name="birthday" class="textbox-001" placeholder=""/ value="', $birthday , '">';
-    echo '</label>';
-    echo '<label>';
-    echo '<span class="textbox-001-label">郵便番号</span>';
-    echo '<input type="text"  name="post_code" class="textbox-001" placeholder=""/ value="', $post_code , '">';
-    echo '</label>';
-    echo '<label>';
-    echo '<span class="textbox-001-label">都道府県</span>';
-    echo '<input type="text"  name="prefectures" class="textbox-001" placeholder=""/ value="', $prefectures , '">';
-    echo '</label>';
-    echo '<label>';
-    echo '<span class="textbox-001-label">住所(市町村区)</span>';
-    echo '<input type="text"  name="address1" class="textbox-001" placeholder=""/ value="', $address1 , '">';
-    echo '</label>';
-    echo '<label>';
-    echo '<span class="textbox-001-label">住所(~丁目)</span>';
-    echo '<input type="text"  name="address2" class="textbox-001" placeholder=""/ value="', $address2 , '">';
-    echo '</label>';
-    echo '<label>';
-    echo '<span class="textbox-001-label">住所(マンション)</span>';
-    echo '<input type="text"  name="manshon" class="textbox-001" placeholder=""/ value="', $manshon , '">';
-    echo '</label>';
-    echo '</table>';
-    echo '<br>';
-    echo '<button class="button-002">確定</button>';
-    echo '</form>';
+<link rel="stylesheet" href="./css/mypage-change-output.css">
+
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+        display: block; /* 変更：ブロック要素に変更 */
+        width: 100%; /* 変更：横幅を100%に設定 */
+        margin: 10px 0; /* 変更：マージンを設定 */
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+    }
+
+    button:hover {
+        background-color: #555;
+        color: #fff;
+    }
+
+    button.home-btn {
+        background-color: #3498db;
+        color: #fff;
+    }
+
+    button.mypage-btn {
+        background-color: #2ecc71;
+        color: #fff;
+    }
+
+    .image-container {
+        display: flex;
+        flex-direction: column; /* 変更：縦に並べるように設定 */
+        align-items: center;
+    }
+
+    .image-container img {
+        margin-bottom: 10px; /* 変更：画像とボタンの間に隙間を設定 */
+    }
+    p {
+        font-size: 18px;
+        color: #0066cc;
+    }
+</style>
+
+<?php
+$kana = $kanji = $email = $password = $birthday = $gender = $post_code
+    = $prefectures = $address1 = $address2 = $manshon = '';
+
+$kana = $_POST['kana'];
+$kanji = $_POST['kanji'];
+$email = $_POST['email'];
+$password = $_POST['password'];
+$birthday = $_POST['birthday'];
+$post_code = $_POST['post_code'];
+$prefectures = $_POST['prefectures'];
+$address1 = $_POST['address1'];
+$address2 = $_POST['address2'];
+$manshon = $_POST['manshon'];
+
+$pdo = new PDO($connect, USER, PASS);
+
+if (!empty($_POST['password'])) {
+    $hashedPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
+} else {
+    $hashedPassword = '';
+}
+
+if (isset($_SESSION['user'])) {
+    $id = $_SESSION['user']['id'];
+    $sql = $pdo->prepare('select * from user where id!=? and email=?');
+    $sql->execute([$id, $_POST['email']]);
+} else {
+    $sql = $pdo->prepare('select * from user where email=?');
+    $sql->execute([$_POST['email']]);
+}
+
+if (empty($sql->fetchAll())) {
+    if (isset($_SESSION['user'])) {
+        if (!empty($hashedPassword)) {
+            $sql = $pdo->prepare('update user set kana=?, kanji=?, email=?,birthday=?, post_code=?, prefectures=?, address1=?, address2=?, manshon=?, password=? where id=?');
+            $sql->execute([
+                $_POST['kana'], $_POST['kanji'], $_POST['email'], $_POST['birthday'],
+                $_POST['post_code'], $_POST['prefectures'], $_POST['address1'], $_POST['address2'], $_POST['manshon'],
+                $hashedPassword, $id
+            ]);
+        } else {
+            $sql = $pdo->prepare('update user set kana=?, kanji=?, email=?,birthday=?, post_code=?, prefectures=?, address1=?, address2=?, manshon=? where id=?');
+            $sql->execute([
+                $_POST['kana'], $_POST['kanji'], $_POST['email'], $_POST['birthday'],
+                $_POST['post_code'], $_POST['prefectures'], $_POST['address1'], $_POST['address2'], $_POST['manshon'], $id
+            ]);
+        }
+
+        $_SESSION['user'] = [
+            'id' => $id, 'kana' => $_POST['kana'],
+            'kanji' => $_POST['kanji'], 'email' => $_POST['email'],
+            'password' => $_POST['password'], 'birthday' => $_POST['birthday'],
+            'post_code' => $_POST['post_code'], 'prefectures' => $_POST['prefectures'],
+            'address1' => $_POST['address1'],
+            'address2' => $_POST['address2'],
+            'manshon' => $_POST['manshon'],
+            'password' => $hashedPassword
+        ];
+
+        echo '<div class="container">';
+echo '<p>お客様情報を更新しました。</p>';
+
+echo '<div class="image-container">';
+        echo '<a href="home.php"><img src="image/home.png" alt=""></a>';
+        echo '<button class="home-btn" onclick="location.href=\'home.php\'">ホームへ</button>';
+        echo '<a href="mypage.php"><img src="image/my.png" alt=""></a>';
+        echo '<button class="mypage-btn" onclick="location.href=\'mypage.php\'">マイページへ</button>';
+        echo '</div>';
+        echo '</div>';
+
+    }
 }
 ?>
- 
-<?php require 'footer.php'; ?>
 
+<?php require 'footer.php'; ?>
