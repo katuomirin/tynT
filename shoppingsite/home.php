@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php require 'headerhome.php'; ?>
 <h1>カテゴリーから探す</h1>
 <div class="image-grid">
