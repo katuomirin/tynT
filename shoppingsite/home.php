@@ -19,7 +19,7 @@
     </div>
     
 </div>
-<h1>ピックアップ商品</h1>
+<h1>お客様のデザイン例</h1>
 
 <div class="slider">
 <img src="image/tyun.png" width="500" height="500" alt="">
