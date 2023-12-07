@@ -57,45 +57,45 @@
 </style>
 
 <?php
-
 if (!empty($_SESSION['product'])) {
     echo '<table>';
-    echo '<tr><th>商品名</th><th>数量</th><th>加工費</th><th>小計</th></tr>';
-$total=0;
-foreach($_SESSION['product'] as $id=>$product){
-    echo '<tr>';
-    echo '<td>',$product['name'], '</td>';
+    echo '<tr><th>商品画像</th><th>商品名</th><th>数量</th><th>加工費</th><th>小計</th></tr>';
+    $total = 0;
 
-    echo '<td>', $product['quantity'], '</td>';// 数量
+    foreach ($_SESSION['product'] as $id => $product) {
+        echo '<tr>';
 
-    echo '<td>', $product['processingFee'],'円</td>';// 加工費
 
-    echo '<td>', $product['subtotal'], '</td>';// 小計
+        echo '<td>', '<a href="T-details.php?id=', $id, '"><img class="img" style="width: 100px" alt="image" src="image/', $product['image'], '.png"></a>', '</td>';
 
-    $total += $product['subtotal'] ;// 合計の計算
-    echo '<td><a href="cart-delete.php?id=',$id,'">削除</a></td>';
-    echo '</tr>';
-}
+        echo '<td>', $product['name'], '</td>';
+        echo '<td>', $product['quantity'], '</td>';
+        echo '<td>', number_format($product['processingFee']), '円</td>';
+        echo '<td>', number_format($product['subtotal']), '円</td>';
 
-    echo '<tr><td>合計</td><td></td><td></td><td>', $total, '円</td><td></td></tr>';
+        $total += $product['subtotal'];
+        echo '<td><a href="cart-delete.php?id=', $id, '">削除</a></td>';
+        echo '</tr>';
+    }
+
+    echo '<tr><td>合計</td><td></td><td></td><td>', number_format($total), '円</td><td></td></tr>';
     echo '</table>';
 } else {
     echo 'カートに追加されていません。';
 }
 ?>
 
-    <div class="input-button">
-        <form action="home.php">
-            <button class="modo">ホームへ戻る</button>
-        </form>
+<div class="input-button">
+    <form action="home.php">
+        <button class="modo">ホームへ戻る</button>
+    </form>
 
-        <form action="reji.php" method="post">
+    <form action="reji.php" method="post">
         <?php
-        if(!empty($_SESSION['product'])) {
+        if (!empty($_SESSION['product']) && $product['subtotal'] ) {
             echo '<button class="susumu">レジに進む</button>';
             $_SESSION['total'] = $total;
         }
         ?>
-        </form>
-    </div>
-
+    </form>
+</div>

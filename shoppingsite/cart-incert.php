@@ -13,6 +13,7 @@ if (isset($_SESSION['product'][$id])){
 
 $_SESSION['product'][$id]=[
     'name' => $_POST['name'], // 商品名
+    'image' => $_POST['image'],
     'processingFee' => $_POST['processingFee'],// 加工費
     'quantity' => $quantity+$_POST['quantity'],// 数量
     'subtotal' => $_POST['subtotal']// 小計

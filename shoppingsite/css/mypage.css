@@ -84,13 +84,13 @@ a{
 }
 
 /*お気に入り*/
-.cart-list2,.favo-list2 {
+.choice-list {
   margin: 0 auto;
   display: block;
   padding: 0;
 }
 
-.checkbox2,.checkbox4 {
+.checkbox {
   text-align: left;
   float: left;
   width: 30px;
@@ -108,15 +108,15 @@ a{
   transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
 }
 
-.checkbox2:hover,.checkbox4:hover {
+.checkbox:hover {
   background-color:rgb(247, 229, 239);
 }
 
-.checkbox2:hover:after,.checkbox4:hover:after {
+.checkbox:hover:after {
   color: red;/*チェック前マウス*/
 }
 
-.checkbox2:after,.checkbox4:after {
+.checkbox:after {
   line-height: 30px;
   font-family: "FontAwesome";
   display: block;
@@ -139,8 +139,7 @@ a{
   transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
 }
 
-.checkbox2.cart-checked2:after,
-.checkbox4.favo-checked2:after {
+.checkbox.is-checked:after {
   -moz-transform: scale(1);
   -ms-transform: scale(1);
   -webkit-transform: scale(1);
@@ -149,21 +148,20 @@ a{
   color: red;
 }
 
-.checkbox2.cart-checked2:hover:after,
-.checkbox4.favo-checked2:hover:after {
+.checkbox.is-checked:hover:after {
   -moz-transform: scale(1.1);
   -ms-transform: scale(1.1);
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
 /* お気に入り(既) */
-.cart-list,.favo-list {
+.choice-list1 {
   margin: 0 auto;
   display: block;
   padding: 0;
 }
 
-.checkbox,.checkbox3 {
+.checkbox1 {
   text-align: left;
   float: left;
   width: 30px;
@@ -181,16 +179,15 @@ a{
   transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
 }
 
-.checkbox:hover,.checkbox3:hover {
+.checkbox1:hover {
   background-color: rgb(247, 229, 239);
 }
 
-.checkbox:hover:after,
-.checkbox3:hover:after {
+.checkbox1:hover:after {
   color: red; /* チェック前マウス */
 }
 
-.checkbox:after,.checkbox3:after {
+.checkbox1:after {
   line-height: 30px;
   font-family: "FontAwesome";
   display: block;
@@ -213,8 +210,7 @@ a{
   transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
 }
 
-.checkbox.cart-checked:after,
-.checkbox3.favo-checked:after{
+.checkbox1.is-checked1:after {
   -moz-transform: scale(0.5);
   -ms-transform: scale(0.5);
   -webkit-transform: scale(0.5);
@@ -223,8 +219,7 @@ a{
   color: white;
 }
 
-.checkbox.cart-checked:hover:after,
-.checkbox3.favo-checked:hover:after {
+.checkbox1.is-checked1:hover:after {
   -moz-transform: scale(0.45);
   -ms-transform: scale(0.45);
   -webkit-transform: scale(0.45);
