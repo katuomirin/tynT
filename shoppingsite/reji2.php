@@ -108,22 +108,24 @@
 }
 
 </style>
+
+
     <body>
     <?php $total = $_SESSION['total'];?>
     <label class="zenbu">
         <form action="reji_end.php" method="post">
+
             <h2>名前(漢字)</h2>
             <div class="input-area">
             <h2><?php echo htmlspecialchars($kanji,ENT_QUOTES,'UTF-8');?><h2>
             </div>
-            <input type="button" onclick="history.back()" value="変更" class="btn-border">
 
             
             <h2>名前(フリガナ)</h2>
             <div class="input-area">
             <h2><?php echo htmlspecialchars($kana,ENT_QUOTES,'UTF-8');?></2>
             </div>
-            <input type="button" onclick="history.back()" value="変更" class="btn-border">
+            
             
             
                 <h2>お届け先住所</h2>
@@ -133,40 +135,40 @@
                 <?php echo htmlspecialchars($zyuusho2,ENT_QUOTES,'UTF-8');?><br>
                 <?php echo htmlspecialchars($manshon,ENT_QUOTES,'UTF-8');?></h2>
             </div>
-            <input type="button" onclick="history.back()" value="変更" class="btn-border">
 
             
                 <h2>電話番号</h2>
             <div class="input-area">
                 <h2><?php echo htmlspecialchars($call,ENT_QUOTES,'UTF-8');?></h2>
             </div>
-            <input type="button" onclick="history.back()" value="変更" class="btn-border">
+           
 
             
                 <h2>メールアドレス</h2>
             <div class="input-area">
                 <h2><?php echo htmlspecialchars($mail,ENT_QUOTES,'UTF-8');?></h2>
             </div>
-            <input type="button" onclick="history.back()" value="変更" class="btn-border">
+            
 
                 <h2>オリジナルTシャツのデザインの送り方</h2>
             <div class="input-area">
                 <h2><?php echo $okuri;?><h2>
             </div>
-            <input type="button" onclick="history.back()" value="変更" class="btn-border">
+            
 
                 <h2>支払い方法</h2>
             <div class="input-area">
                 <h2><?php echo $harai;?></h2>
             </div>
-            <input type="button" onclick="history.back()" value="変更" class="btn-border">
+            
 
                 <h2>合計金額</h2>
             <div class="input-area">
                 <h2><?php echo number_format($total),'円';?></h2>
             </div>
+
+            <p><input type="button" onclick="history.back()" value="戻る" class="modo"></p>
             <p><button class="kaku">商品購入を確定する</button></p>
-                <p><input type="button" onclick="history.back()" value="戻る" class="modo"></p>
                 <?php require 'footer.php'; ?>
             </form>
         </label>
