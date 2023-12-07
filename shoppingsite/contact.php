@@ -55,7 +55,7 @@
 <h3>配送について</h3>
 <details class="accordion-005">
     <summary>商品は注文後何日で届きますか？</summary>
-    <p>通常2週間程度のお届でございます。注文内容やデザイン、時期により変動しますのでご了承ください</p>
+    <p>通常2週間程度のお届でございます。注文内容やデザイン、時期により変動しますのでご了承ください。</p>
 </details>
 <details class="accordion-005">
     <summary>郵送先は自宅ですか？</summary>
@@ -76,7 +76,7 @@
 </details>
 <details class="accordion-005">
 <summary>注文は何枚からできますか？</summary>
-    <p>１枚より可能です</p>
+    <p>１枚より可能です。</p>
 </details>
 <h3>注文内容変更・キャンセル</h3>
 <details class="accordion-005">
