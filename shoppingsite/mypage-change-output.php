@@ -37,14 +37,18 @@ if (isset($_SESSION['user'])){
 if(empty($sql->fetchAll())){
     if(isset($_SESSION['user'])){
         if(!empty($hashedPassword)){
-        $sql=$pdo->prepare('update user set kana=?, kanji=?, birthday=?, post_code=?, prefectures=?, address1=?, address2=?, manshon=?,'.
-                           'email=?, password=? where id=?');
+        $sql=$pdo->prepare('update user set kana=?, kanji=?, email=?,birthday=?, post_code=?, prefectures=?, address1=?, address2=?, manshon=?,'.
+                           ' password=? where id=?');
         $sql->execute([
-            $_POST['kana'], $_POST['kanji'],$_POST['email'],$_POST['password'],$_POST['birthday'],
+            $_POST['kana'], $_POST['kanji'],$_POST['email'],$_POST['birthday'],
             $_POST['post_code'],$_POST['prefectures'],$_POST['address1'],$_POST['address2'],$_POST['manshon'],
             $hashedPassword,$id]);
         }else{
-            $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
+            $sql=$pdo->prepare('update user set kana=?, kanji=?, email=?,birthday=?, post_code=?, prefectures=?, address1=?, address2=?, manshon=?'.
+            ' where id=?');
+            $sql->execute([
+            $_POST['kana'], $_POST['kanji'],$_POST['email'],$_POST['birthday'],
+            $_POST['post_code'],$_POST['prefectures'],$_POST['address1'],$_POST['address2'],$_POST['manshon'],$id]);
         }
         $_SESSION['user']=[
             'id'=>$id, 'kana'=>$_POST['kana'],
