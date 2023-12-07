@@ -29,68 +29,88 @@
         padding: 10px;
         margin-bottom: 20px;
     }
+
     button {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-}
+        display: block; /* 変更：ブロック要素に変更 */
+        width: 100%; /* 変更：横幅を100%に設定 */
+        margin: 10px 0; /* 変更：マージンを設定 */
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+    }
 
-button:hover {
-    background-color: #555;
-    color: #fff;
-}
+    button:hover {
+        background-color: #555;
+        color: #fff;
+    }
 
-button.home-btn {
-    background-color: #3498db;
-    color: #fff;
-}
+    button.home-btn {
+        background-color: #3498db;
+        color: #fff;
+    }
 
-button.mypage-btn {
-    background-color: #2ecc71;
-    color: #fff;
-}
+    button.mypage-btn {
+        background-color: #2ecc71;
+        color: #fff;
+    }
+
+    .image-container {
+        display: flex;
+        flex-direction: column; /* 変更：縦に並べるように設定 */
+        align-items: center;
+    }
+
+    .image-container img {
+        margin-bottom: 10px; /* 変更：画像とボタンの間に隙間を設定 */
+    }
 </style>
 
 <?php require 'header.php'; ?>
 <div class="container">
-<?php
-unset($_SESSION['user']);
-$pdo=new PDO($connect, USER, PASS);
-$sql=$pdo->prepare('select * from user where email=?');
-$sql->execute([$_POST['email']]);
-foreach ($sql as $row) {
-    if(!empty($_POST['password'])&&password_verify($_POST['password'],$row['password'])){
-        echo '<form method="post" action="mypage.php">';//マイページでつかうよ
-        $_SESSION['user']=[
-            'id'=>$row['id'], 'kana'=>$row['kana'],
-            'kanji'=>$row['kanji'], 'email'=>$row['email'],
-            'password'=>$row['password'], 'birthday'=>$row['birthday'],
-            'gender'=>$row['gender'], 'post_code'=>$row['post_code'],
-            'prefectures'=>$row['prefectures'], 'address1'=>$row['address1'],
-            'address2'=>$row['address2'],
-            'manshon'=>$row['manshon']];
-        echo '</form>';
-    }}
-if (isset($_SESSION['user'])) {
-    echo '<div class="login-success">';
-    echo '<p>ログインに成功しました。</p>';
-    echo '<p>ようこそ、', $_SESSION['user']['kana'], '様。</p>';
-    echo '<button class="home-btn" onclick="location.href=\'home.php\'">ホームへ</button>';
-    echo '<button class="mypage-btn" onclick="location.href=\'mypage.php\'">マイページへ</button>';
-    echo '</div>';
-}else{
-    echo '<div class="login-error">';
-    echo '<p>ログイン名またはパスワードが違います。</p>';
-    echo '</div>';
-}
-?>
+    <?php
+    unset($_SESSION['user']);
+    $pdo = new PDO($connect, USER, PASS);
+    $sql = $pdo->prepare('select * from user where email=?');
+    $sql->execute([$_POST['email']]);
+    
+    foreach ($sql as $row) {
+        if (!empty($_POST['password']) && password_verify($_POST['password'], $row['password'])) {
+            echo '<form method="post" action="mypage.php">';//マイページで使う
+            $_SESSION['user'] = [
+                'id' => $row['id'], 'kana' => $row['kana'],
+                'kanji' => $row['kanji'], 'email' => $row['email'],
+                'password' => $row['password'], 'birthday' => $row['birthday'],
+                'gender' => $row['gender'], 'post_code' => $row['post_code'],
+                'prefectures' => $row['prefectures'], 'address1' => $row['address1'],
+                'address2' => $row['address2'],
+                'manshon' => $row['manshon']
+            ];
+            echo '</form>';
+        }
+    }
+
+    if (isset($_SESSION['user'])) {
+        echo '<div class="login-success">';
+        echo '<p>ログインに成功しました。</p>';
+        echo '<p>ようこそ、', $_SESSION['user']['kana'], '様。</p>';
+        echo '<div class="image-container">';
+        echo '<a href="home.php"><img src="image/home.png" alt=""></a>';
+        echo '<button class="home-btn" onclick="location.href=\'home.php\'">ホームへ</button>';
+        echo '<a href="mypage.php"><img src="image/my.png" alt=""></a>';
+        echo '<button class="mypage-btn" onclick="location.href=\'mypage.php\'">マイページへ</button>';
+        echo '</div>';
+        echo '</div>';
+    } else {
+        echo '<div class="login-error">';
+        echo '<p>ログイン名またはパスワードが違います。</p>';
+        echo '</div>';
+    }
+    ?>
 </div>
 <?php require 'footer.php'; ?>
 </html>
 <?php
- $pdo = null;   //DB切断
- ?>
+$pdo = null; // DB切断
+?>
