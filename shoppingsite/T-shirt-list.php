@@ -22,13 +22,11 @@
                 echo '<div class="shohins">';
                 echo '<a href="T-details.php?id=', $id, '"><img class="img" alt="image" src="image/',$row['image'], '.png"></a>';
                 echo '<div class="choice-list" data-postid="', $id, '">';
-                /*        <div class="checkbox heart"></div>
-                    </div>';*/
-                    echo '<div class="checkbox heart ';
-                    if( check_favolite_duplicate($user_id,$row['id']) ){
-                        echo 'is-checked';
-                    }
-                    echo '"></div>';
+                echo '<div class="checkbox heart ';
+                if( check_favolite_duplicate($user_id,$row['id']) ){
+                    echo 'is-checked';
+                }
+                echo '"></div>';
                 echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a>';
                 echo '<p class="price">', $row['price'], '</p></div></div>';
             }
