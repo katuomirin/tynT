@@ -13,11 +13,19 @@ if (isset($_SESSION['product'][$id])){
 
 $_SESSION['product'][$id]=[
     'name' => $_POST['name'], // 商品名
+    'image' => $_POST['image'],
     'processingFee' => $_POST['processingFee'],// 加工費
     'quantity' => $quantity+$_POST['quantity'],// 数量
     'subtotal' => $_POST['subtotal']// 小計
 ];
-
+echo '<form method="post" action="mypage.php">';//マイページでつかうよ
+    $_SESSION['cart_data'][$id] = [
+        'id' => $id,
+        'image' => $id,
+        'name' => $_POST['name'],
+        'price' => $_POST['price']
+    ];
+echo '</form>';
 echo '<p>カートに商品を追加しました。</p>';
 echo '<hr>';
 require 'cart.php';

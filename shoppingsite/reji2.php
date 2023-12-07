@@ -44,8 +44,25 @@
     text-indent: 0.5em;/*letter-spacingと同じサイズのemを書く */
 }
 /* -----------------変更ボタン-------------------- */
-.btn-border{
-    text-align: right;
+.btn-border {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    margin: 0 auto;
+    padding: .9em 2em;
+    border: 1px solid #3f4040;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #3f4040;
+    font-size: 1em;
+}
+
+.btn-border:hover {
+    border: none;
+    background-color: #3f4040;
+    color: #fff;
+    font-weight: 600;
 }
 /* -----------------確定-------------------- */
 .kaku {
@@ -92,7 +109,7 @@
 
 </style>
     <body>
-        
+    <?php $total = $_SESSION['total'];?>
     <label class="zenbu">
         <form action="reji_end.php" method="post">
             <h2>名前(漢字)</h2>
@@ -146,6 +163,7 @@
 
                 <h2>合計金額</h2>
             <div class="input-area">
+                <h2><?php echo number_format($total),'円';?></h2>
             </div>
             <p><button class="kaku">商品購入を確定する</button></p>
                 <p><input type="button" onclick="history.back()" value="戻る" class="modo"></p>
@@ -153,11 +171,3 @@
             </form>
         </label>
     </body>
-<?php require ('db-connect.php');
-$sql = sprintf('INSERT INTO order set user_id="%s", day="%s", send-T-shirt ="%s" pay-way',
-mysqli_real_escape_string($db, $_POST['?????1']),
-mysqli_real_escape_string($db, $_POST['?????2']),
-mysqli_real_escape_string($db, $_POST['?????3']),
-);
-mysqli_query($db, $sql) or die (mysqli_error($db));
-?>
