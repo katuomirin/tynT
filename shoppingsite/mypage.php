@@ -38,7 +38,7 @@
         echo "</div>";
         echo '<div class="favorite">
                 <nobr><p>お気に入り</p></nobr>
-                <a href="favorite-show.php" class="view1">View more＞</a></div>';
+                <a href="favorite.php" class="view1">View more＞</a></div>';
         echo '<div class="favorites">';
         $fav_sql = $pdo->prepare('SELECT * FROM favorite INNER JOIN product ON favorite.product_id = product.id WHERE user_id = ?');
         $fav_sql->execute([$_SESSION['user']['id']]);
