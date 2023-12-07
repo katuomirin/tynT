@@ -169,6 +169,23 @@
 
             <p><input type="button" onclick="history.back()" value="戻る" class="modo"></p>
             <p><button class="kaku">商品購入を確定する</button></p>
+
+            <?php
+            const SERVER = 'mysql218.phy.lolipop.lan';
+            const DBNAME = 'LAA1517465-sistem';
+            const USER = 'LAA1517465';
+            const PASS = 'Pass0124';
+            
+            $connect = 'mysql:host='. SERVER . ';dbname='. DBNAME . ';charset=utf8';
+            $pdo = new PDO($connect, USER, PASS);
+            //idとユーザーidの追加
+            $now = date('Y-m-d H:i:s');//日付
+            $okuri;//送り方
+            $harai;//払い方
+            $sql = "insert into order (id,user_id,day,send-T-shirt,pay_way)
+                    values('??????','?????',$now,'$okuri','$harai')";
+
+            ?>
                 <?php require 'footer.php'; ?>
             </form>
         </label>
