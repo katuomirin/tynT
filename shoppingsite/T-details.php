@@ -299,104 +299,43 @@ window.addEventListener('DOMContentLoaded',function(){
         
         echo '<p class="shohin-shosai">';
         echo '<p class="font1">', $row['name'], '</p>';
-    if(isset($_SESSION['user'])){
         echo '<div class="heart">';
-        $checkSql->execute([$user_id, $product_id]);
-            if ($checkSql->rowCount() > 0) {
-                echo '<div class="choice-list1" data-postid1="', $product_id, '">
-                        <div class="checkbox1 heart"></div>
-                      </div>';
-            } else {
-                echo '<div class="choice-list" data-postid="', $product_id, '">
-                        <div class="checkbox heart"></div>
-                      </div>';
+        if(isset($_SESSION['user'])){
+            echo '<div class="checkbox heart ';
+            if( check_favolite_duplicate($user_id,$row['id']) ){
+                echo 'is-checked';
             }
-    }
+            echo '"></div>';
+        }
         echo '<p class="font2"><nobr>￥', $row['price'], '</nobr></p></div>';
         echo '<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>';
         echo   '<script>
                     $(function() {
-                        var $favorite = $(\'.checkbox1\'), //お気に入りボタンセレクタ
+                        var $favorite = $(\'.checkbox\'), //お気に入りボタンセレクタ
                         productId;
                         $favorite.on(\'click\',function(e){
                             //カスタム属性（postid）に格納された投稿ID取得
-                            productId = $(this).parents(\'.choice-list1\').data(\'postid1\'); 
-                            console.log("クリック前の処理");
+                            productId = $(this).parents(\'.choice-list\').data(\'postid\'); 
                             console.log("ID=" + productId);
-                            if (!$(this).hasClass("is-checked1")) {
-                                console.log("クリック前の処理");
-                                $.ajax({
-                                    type: "POST",
-                                    url: "favorite-insert.php",
-                                    data: {id: productId},
-                                    success: function(response) {
-                                        // レスポンスを処理する（必要に応じて）
-                                        console.log(response);
-                                    },
-                                    error: function(error) {
-                                        console.error(error);
-                                    }
-                                });
-                            }
-                            $(this).toggleClass("is-checked1");
-                            if ($(this).hasClass("is-checked1")) {
-                                console.log("クリック後の処理");
-                                $.ajax({
-                                    type: "POST",
-                                    url: "favorite-delete.php",
-                                    data: {id: productId},
-                                    success: function(response) {
-                                        // レスポンスを処理する（必要に応じて）
-                                        console.log(response);
-                                    },
-                                    error: function(error) {
-                                        console.error(error);
-                                    }
-                                });
-                            }
-                        });
-                    });
-                </script>';
-            echo   '<script>
-                    $(function() {
-                        var $favorite2 = $(\'.checkbox\'), //お気に入りボタンセレクタ
-                        productId2;
-                        $favorite2.on(\'click\',function(e){
-                            //カスタム属性（postid）に格納された投稿ID取得
-                            productId2 = $(this).parents(\'.choice-list\').data(\'postid\'); 
-                            console.log("クリック前の処理");
-                            console.log("ID=" + productId2);
                             if (!$(this).hasClass("is-checked")) {
                                 console.log("クリック前の処理");
-                                $.ajax({
-                                    type: "POST",
-                                    url: "favorite-delete.php",
-                                    data: {id: productId2},
-                                    success: function(response) {
-                                        // レスポンスを処理する（必要に応じて）
-                                        console.log(response);
-                                    },
-                                    error: function(error) {
-                                        console.error(error);
-                                    }
-                                });
                             }
                             $(this).toggleClass("is-checked");
                             if ($(this).hasClass("is-checked")) {
                                 console.log("クリック後の処理");
-                                $.ajax({
-                                    type: "POST",
-                                    url: "favorite-insert.php",
-                                    data: {id: productId2},
-                                    success: function(response) {
-                                        // レスポンスを処理する（必要に応じて）
-                                        console.log(response);
-                                    },
-                                    error: function(error) {
-                                        console.error(error);
-                                    }
-                                });
                             }
+                            $.ajax({
+                                type: "POST",
+                                url: "favorite-insert.php",
+                                data: {id: productId},
+                                success: function(response) {
+                                    // レスポンスを処理する（必要に応じて）
+                                    console.log(response);
+                                },
+                                error: function(error) {
+                                    console.error(error);
+                                }
+                            });
                         });
                     });
                 </script>';
@@ -511,3 +450,17 @@ window.addEventListener('DOMContentLoaded',function(){
 <div class="footer">
     <?php require 'footer.php'; ?>
 </div>
+<?php
+//ユーザーIDと商品IDを元にお気に入り値の重複チェックを行っています
+function check_favolite_duplicate($user_id,$product_id){
+    global $pdo;
+    $sql = "SELECT *
+            FROM favorite
+            WHERE user_id = :user_id AND product_id = :product_id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(array(':user_id' => $user_id ,
+                         ':product_id' => $product_id));
+    $favorite = $stmt->fetch();
+    return $favorite;
+}
+?>
