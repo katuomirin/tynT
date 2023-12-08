@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>管理画面</title>
     
 </head>
 <body>
@@ -48,7 +48,7 @@
     </div>
     <div class="image-grid-row">
         <div>
-        <a href="uncomplete.php" target="_self">
+        <a href="ad-order.php" target="_self">
             <img src="./image/clipboard.png" alt="注文">
         </a>    
             <p>注文</p>

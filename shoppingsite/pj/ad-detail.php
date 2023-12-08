@@ -27,7 +27,7 @@
         
         echo '<div class="image-and-content">';
         echo '<div class="image">';
-        echo '<img src="' . $row['image'] . '" alt="Product Image" width="200" height="150">';
+        echo '<img src="image/' , $row['image'] , '" alt="Product Image" width="200" height="150">';
         echo '</div>'; // Closing the .image div
         echo '<div class="content">';
         echo '<table>';
