@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>商品追加</title>
     <link rel="stylesheet" href="css/add-pro.css">
 </head>
 <body>
@@ -27,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $category = $_POST['category'];
     $sozai = $_POST['sozai'];
     $zaiko = $_POST['zaiko'];
+    $image = $_POST['image'];
 
     // Validation and sanitization of inputs should be done here
 
@@ -36,19 +37,7 @@ $sql = $pdo->prepare('INSERT INTO product (name, ex, price, size, color, categor
 
     // Execute the query with the form data
    
-    if(is_uploaded_file($_FILES['file']['tmp_name'])){
-        if(!file_exists('image')){
-            mkdir('image');
-        }
-        $image='image/'.basename($_FILES['file']['name']);
-        if(move_uploaded_file($_FILES['file']['tmp_name'],$image)){
-            echo '<p><img src="',$image,'" alt="image"></p>';
-        }else{
-            echo 'アップロードに失敗しました。';
-        }
-    }else{
-        echo 'ファイルを選択してください。';
-    }
+
     
     $sql->execute([$name, $ex, $price, $size, $color, $category, $sozai, $zaiko, $image]);
     if ($sql->rowCount() > 0) {

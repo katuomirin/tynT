@@ -1,23 +1,5 @@
 <?php session_start(); ?>
 <?php require 'header.php'; ?>
-
-<?php
-        if($_SERVER["REQUEST_METHOD"] != "POST"){
-            header("Location: reji.php");
-            exit();
-        }
-
-        $kanji = $_POST['kanji'];
-        $kana = $_POST['kana'];
-        $yuubin = $_POST['yuubin'];
-        $zyuusho1 = $_POST['zyuusho1'];
-        $zyuusho2 = $_POST['zyuusho2'];
-        $manshon = $_POST['manshon'];
-        $call = $_POST['call'];
-        $mail = $_POST['mail'];
-        $okuri = $_POST['okuri'];
-        $harai = $_POST['harai'];
-?>
 <style>
 .zenbu {
     display: flex; 
@@ -108,6 +90,24 @@
 }
 
 </style>
+<?php
+        if($_SERVER["REQUEST_METHOD"] != "POST"){
+            header("Location: reji.php");
+            exit();
+        }
+        $id=$_POST['id'];
+        $kanji = $_POST['kanji'];
+        $kana = $_POST['kana'];
+        $yuubin = $_POST['yuubin'];
+        $zyuusho1 = $_POST['zyuusho1'];
+        $zyuusho2 = $_POST['zyuusho2'];
+        $manshon = $_POST['manshon'];
+        $call = $_POST['call'];
+        $mail = $_POST['mail'];
+        $okuri = $_POST['okuri'];
+        $harai = $_POST['harai'];
+?>
+
 
 
     <body>
@@ -169,23 +169,12 @@
 
             <p><input type="button" onclick="history.back()" value="戻る" class="modo"></p>
             <p><button class="kaku">商品購入を確定する</button></p>
-
             <?php
-            const SERVER = 'mysql218.phy.lolipop.lan';
-            const DBNAME = 'LAA1517465-sistem';
-            const USER = 'LAA1517465';
-            const PASS = 'Pass0124';
-            
-            $connect = 'mysql:host='. SERVER . ';dbname='. DBNAME . ';charset=utf8';
-            $pdo = new PDO($connect, USER, PASS);
-            //idとユーザーidの追加
-            $now = date('Y-m-d H:i:s');//日付
-            $okuri;//送り方
-            $harai;//払い方
-            $sql = "insert into order (id,user_id,day,send-T-shirt,pay_way)
-                    values('??????','?????',$now,'$okuri','$harai')";
-
-            ?>
+            echo '<input type="hidden" name="id" value="', $id, '">';
+            echo '<input type="hidden" name="okuri" value="', $okuri, '">';
+            echo '<input type="hidden" name="harai" value="', $harai, '">';
+           
+           ?>
                 <?php require 'footer.php'; ?>
             </form>
         </label>

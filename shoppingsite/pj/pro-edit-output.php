@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>商品情報変更</title>
     <link rel="stylesheet" href="css/detail.css">
 </head>
 <body>
@@ -37,20 +37,10 @@ $pdo=new PDO($connect, USER, PASS);
     if (!preg_match('/[0-9]+/', $_POST['zaiko'])) {
         echo '商品在庫を整数で入力してください。';
     } else
-    if(is_uploaded_file($_FILES['file']['tmp_name'])){
-        if(!file_exists('image')){
-            mkdir('image');
-        }
-        $image='image/'.basename($_FILES['file']['name']);
-        if(move_uploaded_file($_FILES['file']['tmp_name'],$image)){
-            echo '<p><img src="',$image,'" alt="image"></p>';
-        }else{
-            echo 'アップロードに失敗しました。';
-        }
-    }else{
-        echo 'ファイルを選択してください。';
+    if (empty($_POST['image'])) {
+        echo 'パスを入力してください。';
     }
-    if($sql->execute([htmlspecialchars($_POST['name']),$_POST['ex'], $_POST['price'],$_POST['size'],$_POST['color'],$_POST['category'],$_POST['sozai'],$_POST['zaiko'],$image, $_POST['id']])){
+    if($sql->execute([htmlspecialchars($_POST['name']),$_POST['ex'], $_POST['price'],$_POST['size'],$_POST['color'],$_POST['category'],$_POST['sozai'],$_POST['zaiko'],$_POST['image'], $_POST['id']])){
         echo '<font color="red">更新に成功しました。</font>';
     }else{
         echo '<font color="red">更新に失敗しました。</font>';

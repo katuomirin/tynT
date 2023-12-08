@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>商品追加</title>
     <link rel="stylesheet" href="css/add-pro.css">
 </head>
 <body>
@@ -13,7 +13,7 @@
 <?php require 'header.php'; ?>
 <div class="container">
 <?php
-$name = $ex = $price = $size = $color = $category = $sozai = $zaiko = '';
+$name = $ex = $price = $size = $color = $category = $sozai = $zaiko = $image = '';
 
 echo '<form action="product-add-output.php" method="post" enctype="multipart/form-data">';
 echo '<table>';
@@ -41,8 +41,8 @@ echo '</td></tr>';
 echo '<tr><td>在庫</td>';
 echo '<td><input type="text" name="zaiko" value="', $zaiko , '">';
 echo '</td></tr>';
-echo '<tr><td>商品画面</td>';
-echo '<td><input type="file" name="file">';
+echo '<tr><td>商品画像</td>';
+echo '<td><input type="text" name="image" value="', $image , '">';
 echo '</td></tr>';
 echo '</table>';
 echo '<input type="submit" value="確定">';

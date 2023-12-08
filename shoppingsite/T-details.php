@@ -103,7 +103,7 @@ window.addEventListener('DOMContentLoaded',function(){
             echo '    </div>';
             echo '    <ul class="gallery-list">';
             echo '        <li class="gallery-list-item">';
-            echo '            <button class="js-image"><img src="./image/polo.png" style="width: 100px; alt=""></button>';
+            echo '            <button class="js-image"><img src="./image/polo-white.png" style="width: 100px; alt=""></button>';
             echo '        </li>';
             echo '    </ul>';
             echo '    <ul class="gallery-list">';
@@ -144,7 +144,7 @@ window.addEventListener('DOMContentLoaded',function(){
             echo '    </div>';
             echo '    <ul class="gallery-list">';
             echo '        <li class="gallery-list-item">';
-            echo '            <button class="js-image"><img src="./image/polo.png" style="width: 100px; alt=""></button>';
+            echo '            <button class="js-image"><img src="./image/polo-white.png" style="width: 100px; alt=""></button>';
             echo '        </li>';
             echo '    </ul>';
             echo '    <ul class="gallery-list">';
@@ -426,7 +426,14 @@ window.addEventListener('DOMContentLoaded',function(){
         <p class="saize">SIZE</p>
         <img src="./image/size.png" alt="サイズ表" width="100%">
         <p class="print">PRINT</p>
-        <img src="./image/print.png" alt="プリント位置" width="100%">
+        <?php
+        if($product_id==201||$product_id==202){
+            echo '<img src="./image/polo.png" alt="プリント位置" width="100%">';
+        }else{
+        echo '<img src="./image/t.png" alt="プリント位置" width="100%">';
+        }
+        ?>
+       
         <p class="shosai">
             <p class="hasso">発送までの目安</p>
             ご注文翌日より2週間程度でのお届けとなります。<br>

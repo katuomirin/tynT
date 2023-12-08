@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>変更</title>
+    <title>商品情報変更</title>
     <link rel="stylesheet" href="css/detail.css">
 </head>
 <body>
@@ -45,9 +45,10 @@ echo '</td></tr>';
 echo '<tr><td>在庫</td>';
 echo '<td><input type="text" name="zaiko" value="', $row['zaiko'] , '">';
 echo '</td></tr>';
-echo '<tr><td>商品画面</td>';
-echo '<td><input type="file" name="file">';
+echo '<tr><td>商品画像</td>';
+echo '<td><input type="text" name="image" value="', $row['image'] , '">';
 echo '</td></tr>';
+
 echo '</table>';
 echo '<input type="submit" value="変更">';
 echo '</form>';

@@ -35,7 +35,7 @@
             }
             echo '<div class="product-item">';
             echo '<div class="product-image">';
-            echo '<a href="ad-detail.php?id=' . $row['id'] . '"><img src="' . $row['image'] . '" alt="image"></a>';
+            echo '<a href="ad-detail.php?id=' . $row['id'] . '"><img class="img" alt="image" src="image/' , $row['image'],'.png"></a>';
             echo '</div>'; // Close product-image
             echo '<div class="product-info">';
             echo '<p>商品番号：' . $row['id'] . '</p>';
