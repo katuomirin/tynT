@@ -3,7 +3,7 @@
 <?php require 'db-connect.php'; ?>
 
 <link rel="stylesheet" href="./css/shohin-list.css">
-
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="./script/T-detail.js"></script>
 <script>
 window.addEventListener('DOMContentLoaded',function(){
@@ -302,43 +302,12 @@ window.addEventListener('DOMContentLoaded',function(){
         echo '<div class="heart">';
         if(isset($_SESSION['user'])){
             echo '<div class="checkbox heart ';
-            if( check_favolite_duplicate($user_id,$row['id']) ){
-                echo 'is-checked';
-            }
+                if( check_favolite_duplicate($user_id,$row['id']) ){
+                    echo 'is-checked';
+                }
             echo '"></div>';
         }
         echo '<p class="font2"><nobr>￥', $row['price'], '</nobr></p></div>';
-        echo '<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>';
-        echo   '<script>
-                    $(function() {
-                        var $favorite = $(\'.checkbox\'), //お気に入りボタンセレクタ
-                        productId;
-                        $favorite.on(\'click\',function(e){
-                            //カスタム属性（postid）に格納された投稿ID取得
-                            productId = $(this).parents(\'.choice-list\').data(\'postid\'); 
-                            console.log("ID=" + productId);
-                            if (!$(this).hasClass("is-checked")) {
-                                console.log("クリック前の処理");
-                            }
-                            $(this).toggleClass("is-checked");
-                            if ($(this).hasClass("is-checked")) {
-                                console.log("クリック後の処理");
-                            }
-                            $.ajax({
-                                type: "POST",
-                                url: "favorite-insert.php",
-                                data: {id: productId},
-                                success: function(response) {
-                                    // レスポンスを処理する（必要に応じて）
-                                    console.log(response);
-                                },
-                                error: function(error) {
-                                    console.error(error);
-                                }
-                            });
-                        });
-                    });
-                </script>';
         echo '<p>', $row['ex'], '<br>';
         echo '素材:', $row['sozai'], '<br>';
         echo 'カラー:', $row['color'], '</p>';
@@ -400,24 +369,39 @@ window.addEventListener('DOMContentLoaded',function(){
         echo '<input type="hidden" name="quantity" id="quantityOutput" value="0">'; // 各商品の数量を保存するフィールド
         echo '<p class="cart-botton"><input type="submit" value="カートに追加" onclick="addToCart();"></p>'; // カートに追加ボタン
         echo '</form>';
-
-        // お気に入りに追加
-
-        
-        echo '</form>';
-        echo '</p>';
-        echo '</div>';
     }
 
     // お気に入りのチェックボックスに対する jQuery コード
-    echo '<script>';
-    echo '$(document).ready(function() {
-                $(".checkbox").click(function() {
-                    $(this).toggleClass("is-checked");
-                });
-            });';
-    echo '</script>';
-
+    echo   '<script>
+                    $(function() {
+                        var $favorite = $(\'.checkbox\'), //お気に入りボタンセレクタ
+                        productId;
+                        $favorite.on(\'click\',function(e){
+                            //カスタム属性（postid）に格納された投稿ID取得
+                            productId = $(this).parents(\'.choice-list\').data(\'postid\'); 
+                            console.log("ID=" + productId);
+                            if (!$(this).hasClass("is-checked")) {
+                                console.log("クリック前の処理");
+                            }
+                            $(this).toggleClass("is-checked");
+                            if ($(this).hasClass("is-checked")) {
+                                console.log("クリック後の処理");
+                            }
+                            $.ajax({
+                                type: "POST",
+                                url: "favorite-insert.php",
+                                data: {id: productId},
+                                success: function(response) {
+                                    // レスポンスを処理する（必要に応じて）
+                                    console.log(response);
+                                },
+                                error: function(error) {
+                                    console.error(error);
+                                }
+                            });
+                        });
+                    });
+                </script>';
     echo '</div>';
     ?>
     <div class="T-shirt-create">
