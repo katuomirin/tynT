@@ -236,11 +236,11 @@ echo '</td></tr>';
     echo '        <h3>合計金額</h3>';
     echo  number_format($total),'円';
     echo '    </div>';
+    echo '<p><input type="button" onclick="history.back()" value="戻る" class="modo"></p>';
     echo '    <p><button class="kaku">確認</button></p>';
     echo '    </from>';
 ?>
 </label>
     </body>
-    <p><input type="button" onclick="history.back()" value="戻る" class="modo"></p>
 <?php require 'footer.php'; ?>
 
