@@ -103,7 +103,7 @@ window.addEventListener('DOMContentLoaded',function(){
             echo '    </div>';
             echo '    <ul class="gallery-list">';
             echo '        <li class="gallery-list-item">';
-            echo '            <button class="js-image"><img src="./image/polo.png" style="width: 100px; alt=""></button>';
+            echo '            <button class="js-image"><img src="./image/polo-white.png" style="width: 100px; alt=""></button>';
             echo '        </li>';
             echo '    </ul>';
             echo '    <ul class="gallery-list">';
@@ -144,7 +144,7 @@ window.addEventListener('DOMContentLoaded',function(){
             echo '    </div>';
             echo '    <ul class="gallery-list">';
             echo '        <li class="gallery-list-item">';
-            echo '            <button class="js-image"><img src="./image/polo.png" style="width: 100px; alt=""></button>';
+            echo '            <button class="js-image"><img src="./image/polo-white.png" style="width: 100px; alt=""></button>';
             echo '        </li>';
             echo '    </ul>';
             echo '    <ul class="gallery-list">';
