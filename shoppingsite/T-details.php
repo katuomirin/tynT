@@ -429,11 +429,15 @@ window.addEventListener('DOMContentLoaded',function(){
         <?php
         if($product_id==201||$product_id==202){
             echo '<img src="./image/polo.png" alt="プリント位置" width="100%">';
-        }else{
+        }else if($product_id==9||$product_id==301){
+            echo '<img src="./image/swet.png" alt="プリント位置" width="100%">';
+        }else if($product_id==401||$product_id==402){
+            echo '<img src="./image/parkey.png" alt="プリント位置" width="100%">';
+        }
+        else{
         echo '<img src="./image/t.png" alt="プリント位置" width="100%">';
         }
         ?>
-       
         <p class="shosai">
             <p class="hasso">発送までの目安</p>
             ご注文翌日より2週間程度でのお届けとなります。<br>
