@@ -41,12 +41,11 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
     $sql->execute([$_SESSION['user']['id'], $now, $okuri, $harai]);
     
     
-    
 
     ?>
 
     <div class="output">
-        <h2>商品の購入が完了しました<br></h2>
+        <h2>商品の購入が完了しました。<br></h2>
         <h2>購入ありがとうございました。<br></h2>
         <h2><a href="home.php">購入</a>を続ける</h2>
     </div>
