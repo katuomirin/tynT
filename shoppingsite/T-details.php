@@ -299,13 +299,12 @@ window.addEventListener('DOMContentLoaded',function(){
         
         echo '<p class="shohin-shosai">';
         echo '<p class="font1">', $row['name'], '</p>';
-        echo '<div class="heart">';
-        if(isset($_SESSION['user'])){
-            echo '<div class="checkbox heart ';
+        echo '<div class="choice-list" data-postid="', $id, '">';
+                echo '<div class="checkbox heart ';
                 if( check_favolite_duplicate($user_id,$row['id']) ){
                     echo 'is-checked';
                 }
-            echo '"></div>';
+                echo '"></div>';
         }
         echo '<p class="font2"><nobr>￥', $row['price'], '</nobr></p></div>';
         echo '<p>', $row['ex'], '<br>';
