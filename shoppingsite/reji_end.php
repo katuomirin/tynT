@@ -51,6 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
     </div>
     <?php
     unset($_SESSION['product']);
+    unset($_SESSION['cart_data']);
     ?>
 </body>
 
