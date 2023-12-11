@@ -82,6 +82,9 @@ if (!empty($_SESSION['product'])) {
     }
     echo '<tr><td>合計</td><td></td><td></td><td></td><td>', number_format($total), '円</td><td></td></tr>';
     echo '</table>';
+    if(!empty($product['quantity'] === 0)){
+        echo '<h3><font color="red">※数量が「0」の商品があります。削除するか、数量を変更してください。</font></h3>';
+    }
 } else {
     echo 'カートに追加されていません。';
 }
