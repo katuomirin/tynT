@@ -50,148 +50,6 @@ body {
   margin-top: 10px;
   display: flex;
 }
-/*お気に入り*/
-.choice-list {
-  margin: 0;
-  display: block;
-  padding: 0;
-}
-
-.checkbox {
-  text-align: left;
-  float: left;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  -moz-border-radius: 100px;
-  -webkit-border-radius: 100px;
-  border-radius: 100px;
-  display: block;
-  background-color:rgb(247, 229, 239);
-  margin: 0;
-  -moz-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
-  -o-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
-  -webkit-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
-  transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
-}
-
-.checkbox:hover {
-  background-color:rgb(247, 229, 239);
-}
-
-.checkbox:hover:after {
-  color: red;/*チェック前マウス*/
-}
-
-.checkbox:after {
-  line-height: 30px;
-  font-family: "FontAwesome";
-  display: block;
-  content: "\f004"; /* ハートアイコン */
-  color: rgba(255, 255, 255, 0.5);/*チェック前ハートの中*/
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  -moz-transform: scale(0.5);
-  -ms-transform: scale(0.5);
-  -webkit-transform: scale(0.5);
-  transform: scale(0.5);
-  -moz-border-radius: 100%;
-  -webkit-border-radius: 100%;
-  border-radius: 100%;
-  font-size: 10px;
-  -moz-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
-  -o-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
-  -webkit-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
-  transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
-}
-
-.checkbox.is-checked:after {
-  -moz-transform: scale(1);
-  -ms-transform: scale(1);
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  font-size: 50px;
-  color: red;
-}
-
-.checkbox.is-checked:hover:after {
-  -moz-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
-/* お気に入り(既) */
-.choice-list1 {
-  margin: 0;
-  display: block;
-  padding: 0;
-}
-
-.checkbox1 {
-  text-align: left;
-  float: left;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  -moz-border-radius: 100px;
-  -webkit-border-radius: 100px;
-  border-radius: 100px;
-  display: block;
-  background-color: rgb(247, 229, 239);
-  margin: 0;
-  -moz-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
-  -o-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
-  -webkit-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
-  transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
-}
-
-.checkbox1:hover {
-  background-color: rgb(247, 229, 239);
-}
-
-.checkbox1:hover:after {
-  color: red; /* チェック前マウス */
-}
-
-.checkbox1:after {
-  line-height: 30px;
-  font-family: "FontAwesome";
-  display: block;
-  content: "\f004"; /* ハートアイコン */
-  color: red; /* チェック前ハートの中 */
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  -moz-transform: scale(1);
-  -ms-transform: scale(1);
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  -moz-border-radius: 100%;
-  -webkit-border-radius: 100%;
-  border-radius: 100%;
-  font-size: 40px;
-  -moz-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
-  -o-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
-  -webkit-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
-  transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
-}
-
-.checkbox1.is-checked1:after {
-  -moz-transform: scale(0.5);
-  -ms-transform: scale(0.5);
-  -webkit-transform: scale(0.5);
-  transform: scale(0.5);
-  font-size: 20px;
-  color: white;
-}
-
-.checkbox1.is-checked1:hover:after {
-  -moz-transform: scale(0.45);
-  -ms-transform: scale(0.45);
-  -webkit-transform: scale(0.45);
-  transform: scale(0.45);
-}
 
 /*BODY*/
 .breadcrumb-001 a {
@@ -211,16 +69,15 @@ body {
 }
 
 .shohin-shosai{
-  text-align: right;
+  text-align: left;
   float: right; /* 右側に配置 */
-  width: 80%; /* 右半分の幅 */
+  width: 50%; /* 右半分の幅 */
   padding-top: 0%;
   box-sizing: border-box; /* パディングとボーダーを要素の合計幅に含める */
 }
 
 .shohin-gaiyo {
   float: right; /* 右側に配置 */
-  width: 50%; /* 右半分の幅 */
   box-sizing: border-box; /* パディングとボーダーを要素の合計幅に含める */
 }
 
@@ -325,7 +182,6 @@ th {
   margin: 0;
   display: block;
   padding: 0;
-  width: 50px;
 }
 
 .checkbox {
@@ -370,7 +226,7 @@ th {
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
   border-radius: 100%;
-  font-size: 20px;
+  font-size: 15px;
   -moz-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
   -o-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
   -webkit-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
@@ -382,7 +238,7 @@ th {
   -ms-transform: scale(1);
   -webkit-transform: scale(1);
   transform: scale(1);
-  font-size: 30px;
+  font-size: 32px;
   color: red;
 }
 
@@ -391,4 +247,75 @@ th {
   -ms-transform: scale(1.1);
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+}
+/* お気に入り(既) */
+.choice-list1 {
+  margin: 0;
+  display: block;
+  padding: 0;
+}
+
+.checkbox1 {
+  text-align: left;
+  float: left;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  border-radius: 100px;
+  display: block;
+  background-color: rgb(247, 229, 239);
+  margin: 0;
+  -moz-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
+  -o-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
+  -webkit-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
+  transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
+}
+
+.checkbox1:hover {
+  background-color: rgb(247, 229, 239);
+}
+
+.checkbox1:hover:after {
+  color: red; /* チェック前マウス */
+}
+
+.checkbox1:after {
+  line-height: 30px;
+  font-family: "FontAwesome";
+  display: block;
+  content: "\f004"; /* ハートアイコン */
+  color: red; /* チェック前ハートの中 */
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  font-size: 32px;
+  -moz-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
+  -o-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
+  -webkit-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
+  transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
+}
+
+.checkbox1.is-checked1:after {
+  -moz-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  font-size: 15px;
+  color: white;
+}
+
+.checkbox1.is-checked1:hover:after {
+  -moz-transform: scale(0.45);
+  -ms-transform: scale(0.45);
+  -webkit-transform: scale(0.45);
+  transform: scale(0.45);
 }

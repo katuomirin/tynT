@@ -23,7 +23,6 @@ window.addEventListener('DOMContentLoaded',function(){
         float: left; /* 左寄せ */
     }
     .T-shirt-option {
-        width: 50%; /* 画面の半分の幅に制限 */
         float: right; /* 右寄せ */
     }
     .T-shirt-create {
@@ -45,10 +44,6 @@ window.addEventListener('DOMContentLoaded',function(){
     $sql = $pdo->prepare('select * from product where id=?');
     $product_id=$_GET['id'];
     $sql->execute([$_GET['id']]);
-    if(isset($_SESSION['user'])){
-    $user_id = $_SESSION['user']['id'];
-    $checkSql = $pdo->prepare('SELECT * FROM favorite WHERE user_id = ? AND product_id = ?');
-    }
     echo '<div class="total">';
     echo '<script src="./script/T-detail.js"></script>'; // JavaScriptファイルを正しくロード
 
@@ -297,9 +292,11 @@ window.addEventListener('DOMContentLoaded',function(){
             echo '</div>';
         }
         
-        echo '<p class="shohin-shosai">';
+        echo '<div class="shohin-shosai">';
         echo '<p class="font1">', $row['name'], '</p>';
+        echo '<div class="heart">';
         if(isset($_SESSION['user'])){
+            $user_id = $_SESSION['user']['id'];
             echo '<div class="choice-list" data-postid="', $id, '">';
             echo '<div class="checkbox heart ';
             if( check_favolite_duplicate($user_id,$row['id']) ){
