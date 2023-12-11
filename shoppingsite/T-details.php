@@ -297,7 +297,7 @@ window.addEventListener('DOMContentLoaded',function(){
         echo '<div class="heart">';
         if(isset($_SESSION['user'])){
             $user_id = $_SESSION['user']['id'];
-            echo '<div class="choice-list" data-postid="', $id, '">';
+            echo '<div class="choice-list" data-postid="', $product_id, '">';
             echo '<div class="checkbox heart ';
             if( check_favolite_duplicate($user_id,$row['id']) ){
                 echo 'is-checked';
