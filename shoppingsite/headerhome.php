@@ -2,7 +2,9 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<title>ちゅんTオリジナルTシャツ作成サイト</title>
+<link rel="icon" href="https://aso2201236.girlfriend.jp/php2/shoppingsite/image/favicon.ico">
+<title>
+  ちゅんTオリジナルTシャツ作成サイト</title>
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/header.css">
 <link rel="stylesheet" href="css/search.css">
