@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
     $sql->execute([$_SESSION['user']['id'], $now, $okuri, $harai]);
     
     $lastInsertedId = $pdo->lastInsertId();
-
+    
 // Insert data into oder_detail table using the last inserted ID
 foreach ($_SESSION['product'] as $id => $product) {
 
