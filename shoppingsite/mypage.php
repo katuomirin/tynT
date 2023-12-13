@@ -8,7 +8,6 @@
     echo '<form action="mypage-change.php" method="post">';
     $pdo = new PDO($connect, USER, PASS);
     $user_id = $_SESSION['user']['id'];
-    $checkSql = $pdo->prepare('SELECT * FROM favorite WHERE user_id = ? AND product_id = ?');
     
         
     if(isset($_SESSION['user'])){
@@ -44,19 +43,33 @@
         echo '<div class="favorites">';
         $fav_sql = $pdo->prepare('SELECT * FROM favorite INNER JOIN product ON favorite.product_id = product.id WHERE user_id = ?');
         $fav_sql->execute([$_SESSION['user']['id']]);
-        foreach ($fav_sql as $row) {
-            $id = $row['id'];
-            echo '<div class="shohins">';
-            echo '<a href="T-details.php?id=', $id, '"><img class="img" alt="image" src="image/',$row['image'], '.png"></a>';
-            echo '<div class="choice-list" data-postid="', $id, '">';
-                    echo '<div class="checkbox heart ';
-                    if( check_favolite_duplicate($user_id,$row['id']) ){
-                        echo 'is-checked';
-                    }
-                    echo '"></div>';
-            echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a>';
-            echo '<p class="price">', $row['price'], '</p></div></div>';
+        if($fav_sql->rowCount() > 0){
+            foreach ($fav_sql as $row) {
+                $id = $row['id'];
+                echo '<div class="shohins">';
+                echo '<a href="T-details.php?id=', $id, '"><img class="img" alt="image" src="image/',$row['image'], '.png"></a>';
+                echo '<div class="choice-list" data-postid="', $id, '">';
+                        echo '<div class="checkbox heart ';
+                        if( check_favolite_duplicate($user_id,$row['id']) ){
+                            echo 'is-checked';
+                        }
+                        echo '"></div>';
+                echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a>';
+                echo '<p class="price">', $row['price'], '</p></div>';
+            }
+        }else{
+            echo 'お気に入りに商品が入っていません。';
         }
+        echo '</div>';
+        echo '<div class="history">
+                <nobr><p>購入履歴</p></nobr>
+                <a href="rireki-show.php" class="view2">View more＞</a></div>';
+        echo '<div class="historys">';
+        if(){
+        }else{
+            echo 'お気に入りに商品が入っていません。';
+        }
+        echo '</div>';
         echo   '<script>
                     $(function() {
                         var $favorite = $(\'.checkbox\'), //お気に入りボタンセレクタ
