@@ -21,17 +21,9 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
 </head>
 
 <body>
-    <?php
     
-
-    const SERVER = 'mysql218.phy.lolipop.lan';
-    const DBNAME = 'LAA1517465-sistem';
-    const USER = 'LAA1517465';
-    const PASS = 'Pass0124';
-
-    $connect = 'mysql:host=' . SERVER . ';dbname=' . DBNAME . ';charset=utf8';
-    $pdo = new PDO($connect, USER, PASS);
-
+    <?php require 'db-connect.php'; ?>
+<?php
     $user_id = $_POST['id'];
     $now = date('Y-m-d');
     $okuri = $_POST['okuri'];
