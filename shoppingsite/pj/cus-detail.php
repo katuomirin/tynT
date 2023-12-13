@@ -16,6 +16,10 @@
         $sql->execute([$_REQUEST['id']]);
         foreach($sql as $row){
         echo '<div class="container">';
+
+        echo '<div class="edit-delete-buttons">';
+        echo '<a href="cus-delete.php?id='.$row['id'].'" onclick="return confirm(\'この商品を削除しますか？\')"><img src="./image/trash-bin.png" alt="Delete" width="25" height="25"></a>';
+        echo '</div>';
         
         echo '</div>'; // Closing the .image div
         echo '<div class="content">';
