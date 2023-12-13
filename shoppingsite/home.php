@@ -1,5 +1,6 @@
 <?php session_start(); ?>
 <?php require 'headerhome.php'; ?>
+<link rel="stylesheet" href="css/home.css">
 <h1>カテゴリーから探す</h1>
 <div class="image-grid">
     <div>
@@ -29,5 +30,25 @@
 <img src="image/ninja.png" width="300" height="500" alt="">
 </div>
 
-
+<footer id="footer">
+		<div class="inner">
+			<div id="info" class="grid">
+				<div class="logo">
+					<a href="home.php"  rel="home">ちゅんＴオリジナルＴシャツ<span>OriginalT-shirt</span></a>
+				</div>
+				<div class="info">
+					<p class="tel"><span>電話:</span> 0120-000-000</p>
+					<p class="open">受付時間: 平日 AM 10:30 〜 PM 5:30</p>
+				</div>
+			</div>
+			<div class="menu">
+				<ul class="footnav">
+					<a href="home.php">ちゅんTオリジナルTシャツ作成</a>
+					<a href="sample.html">株式会社</a>
+					<a href="sample.html">利用規約</a>
+					<a href="create.php">デザイン作成方法</a>
+					<a href="contact.php">お問い合わせ</a>
+			</div>
+		</div>
+	</footer>
 <?php require 'footer.php'; ?>
