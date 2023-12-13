@@ -113,7 +113,7 @@
             <button class="modo">ホームへ戻る</button>
         </form>
 
-        <form action="reji.php" method="post">
+        <form action="reji2.php" method="post">
             <?php
             if (!empty($_SESSION['product']) && $product['subtotal']) {
                 echo '<button class="susumu">レジに進む</button>';
