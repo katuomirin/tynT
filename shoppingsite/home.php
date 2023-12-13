@@ -7,7 +7,7 @@
         <h2>Tシャツ</h2>
     </div>
     <div>
-    <a href="Polo-shirt-list.php"><img src="./image/polo.png" alt="ポロシャツ" style="height: 300px; width: 300px;"></a>
+    <a href="Polo-shirt-list.php"><img src="./image/polo-white.png" alt="ポロシャツ" style="height: 300px; width: 300px;"></a>
         <h2>ポロシャツ</h2>
     </div>
     <div>
