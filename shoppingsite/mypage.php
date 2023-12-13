@@ -67,7 +67,7 @@
         echo '<div class="historys">';
         if(){
         }else{
-            echo 'お気に入りに商品が入っていません。';
+            echo '購入履歴に商品がありません。';
         }
         echo '</div>';
         echo   '<script>
