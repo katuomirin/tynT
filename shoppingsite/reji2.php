@@ -227,25 +227,25 @@
                 <h2><?php echo htmlspecialchars($email,ENT_QUOTES,'UTF-8');?></h2>
             </div>
             
-
-            <h2>オリジナルTシャツのデザインの送り方</h2>
-                <label class="okuri">
-                <select name="okuri" required>;
-                    <option value="郵送">郵送</option>
-                    <option value="メール">メール</option>
-                    <option value="LINE">LINE</option>
-                </select>
-                </label>
+            <?php
+            echo '<h2>オリジナルTシャツのデザインの送り方</h2>';
+            echo '    <label class="okuri">';
+            echo '    <select name="okuri" required>';
+            echo '        <option value="郵送">郵送</option>';
+            echo '        <option value="メール">メール</option>';
+            echo '        <option value="LINE">LINE</option>';
+            echo '    </select>';
+            echo '    </label>';
             
 
-            <h2>支払い方法</h2>
-                <label class="harai">
-                <select name="harai" required>
-                <option value="振り込み">振り込み</option>
-                <option value="クレジット">クレジット</option>
-                </select>
-                </label>
-            
+            echo '<h2>支払い方法</h2>';
+            echo '    <label class="harai">';
+            echo '    <select name="harai" required>';
+            echo '    <option value="振り込み">振り込み</option>';
+            echo '    <option value="クレジット">クレジット</option>';
+            echo '    </select>';
+            echo '    </label>';
+            ?>
 
             <h2>合計金額</h2>
             <div class="input-area">
