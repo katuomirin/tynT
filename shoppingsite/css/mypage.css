@@ -6,7 +6,7 @@ a{
   line-height: 1.1;
   margin: 0;
 }
-.cart,.favorite {
+.cart,.favorite,.history {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,7 +15,7 @@ a{
   position: relative;
   padding-bottom: 0;
 }
-.view,.view1{
+.view,.view1,.view2{
   text-align: right;
   text-decoration: none;
   color: #a5a4a4;
