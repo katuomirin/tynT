@@ -108,8 +108,8 @@
             
             
             
-                <h2>お届け先住所</h2>
-                <div class="input-area">
+            <h2>お届け先住所</h2>
+            <div class="input-area">
                 <h2><?php echo htmlspecialchars($yuubin,ENT_QUOTES,'UTF-8');?><br>
                 <?php echo htmlspecialchars($zyuusho1,ENT_QUOTES,'UTF-8');?><br>
                 <?php echo htmlspecialchars($zyuusho2,ENT_QUOTES,'UTF-8');?><br>
@@ -117,45 +117,45 @@
             </div>
 
             
-                <h2>電話番号</h2>
+            <h2>電話番号</h2>
             <div class="input-area">
                 <h2><?php echo htmlspecialchars($call,ENT_QUOTES,'UTF-8');?></h2>
             </div>
            
 
             
-                <h2>メールアドレス</h2>
+            <h2>メールアドレス</h2>
             <div class="input-area">
                 <h2><?php echo htmlspecialchars($mail,ENT_QUOTES,'UTF-8');?></h2>
             </div>
             
 
-                <h2>オリジナルTシャツのデザインの送り方</h2>
+            <h2>オリジナルTシャツのデザインの送り方</h2>
             <div class="input-area">
                 <h2><?php echo $okuri;?><h2>
             </div>
             
 
-                <h2>支払い方法</h2>
+            <h2>支払い方法</h2>
             <div class="input-area">
                 <h2><?php echo $harai;?></h2>
             </div>
             
 
-                <h2>合計金額</h2>
+            <h2>合計金額</h2>
             <div class="input-area">
                 <h2><?php echo number_format($total),'円';?></h2>
             </div>
 
-            <p><input type="button" onclick="history.back()" value="戻る" class="modo"></p>
-            <p><button class="kaku">商品購入を確定する</button></p>
             <?php
             echo '<input type="hidden" name="id" value="', $id, '">';
             echo '<input type="hidden" name="okuri" value="', $okuri, '">';
             echo '<input type="hidden" name="harai" value="', $harai, '">';
-           
            ?>
-                <?php require 'footer.php'; ?>
+
+            <p><input type="button" onclick="history.back()" value="戻る" class="modo"></p>
+            <p><button class="kaku">商品購入を確定する</button></p>
             </form>
         </label>
+        <?php require 'footer.php'; ?>
     </body>
