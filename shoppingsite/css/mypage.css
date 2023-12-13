@@ -65,7 +65,7 @@ a{
 
 }
 
-.carts,.favorites{/*商品全体*/
+.carts,.favorites,.historys{/*商品全体*/
     display: flex;
     flex-wrap: wrap;
 }
