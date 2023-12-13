@@ -124,10 +124,11 @@
 .harai select:focus {
     outline: 1px solid #2589d0;
 }
+
 /* -----------------確定-------------------- */
 .kaku {
     display: flex;
-    justify-content: center;
+    justify-content: center;   
     align-items: center;
     width: 250px;
     margin: 0 auto;
@@ -149,7 +150,7 @@
 /* -------戻るボタン--------*/
 .modo {
     display: flex;
-    justify-content: center;
+    justify-content: center;   
     align-items: center;
     width: 250px;
     margin: 0 auto;
@@ -203,12 +204,8 @@ echo '</td></tr>';
     echo '    </div>';
 
     echo '    <div class="input-area">';
-    echo '     <h3>電話番号(ハイフンなし)<h3>';
-    echo '     <input type="text" class="text"  name="call" placeholder="例）11122223333" required/>';
-    echo '    </div>';
-    echo '    <div class="input-area">';
     echo '     <h3>メールアドレス<h3>';
-    echo '     <input type="text" class="text" name="mail" placeholder="例）111111@gmail.com" required/>';
+    echo '     <input type="text" class="text" name="mail" value="', $email, '" placeholder="例）111111@gmail.com" required/>';
     echo '    </div>';
 
     echo '    <div class="input-area">';
@@ -236,8 +233,13 @@ echo '</td></tr>';
     echo '        <h3>合計金額</h3>';
     echo  '<h2>',number_format($total),'円</h2>';
     echo '    </div>';
-    echo '<p><input type="button" onclick="history.back()" value="戻る" class="modo"></p>';
-    echo '    <p><button class="kaku">確認</button></p>';
+
+    echo '    <table>';
+    echo '    <tr>';
+    echo '    <td>',  '<input type="button" onclick="history.back()" value="戻る" class="modo">', '</td>';
+    echo '    <td>',  '<button class="kaku">確認</button>', '</td>';
+    echo '    </tr>';
+    echo '    </table>';
     echo '    </from>';
 ?>
 </label>

@@ -8,7 +8,6 @@
     echo '<form action="mypage-change.php" method="post">';
     $pdo = new PDO($connect, USER, PASS);
     $user_id = $_SESSION['user']['id'];
-    
         
     if(isset($_SESSION['user'])){
         $user = $_SESSION['user'];
@@ -55,7 +54,7 @@
                         }
                         echo '"></div>';
                 echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a>';
-                echo '<p class="price">', $row['price'], '</p></div>';
+                echo '<p class="price">', $row['price'], '</p></div></div>';
             }
         }else{
             echo 'お気に入りに商品が入っていません。';
@@ -65,7 +64,28 @@
                 <nobr><p>購入履歴</p></nobr>
                 <a href="rireki-show.php" class="view2">View more＞</a></div>';
         echo '<div class="historys">';
-        if(){
+        $his_sql=$pdo->prepare('select * from oder where user_id=? ');
+        $his_sql->execute([$_SESSION['user']['id']]);
+        if($his_sql->rowCount() > 0){
+            foreach($his_sql as $row){
+                $his_plo=$pdo->prepare('SELECT * FROM order_detail INNER JOIN product ON order_detail.product_id = product.id WHERE order_id = ?');
+                $his_plo->execute([$row['id']]);
+                if($his_plo->rowCount() > 0){
+                    foreach ($his_plo as $low) {
+                        $h_id = $low['id'];
+                        echo '<div class="shohins">';
+                        echo '<a href="T-details.php?id=', $h_id, '"><img class="img" alt="image" src="image/',$low['image'], '.png"></a>';
+                        echo '<div class="choice-list" data-postid="', $h_id, '">';
+                                echo '<div class="checkbox heart ';
+                                if( check_favolite_duplicate($user_id,$low['id']) ){
+                                    echo 'is-checked';
+                                }
+                                echo '"></div>';
+                        echo '<a href="T-details.php?id=', $h_id, '">', $low['name'], '</a>';
+                        echo '<p class="price">', $low['price'], '</p></div></div>';
+                    }
+                }
+            }
         }else{
             echo '購入履歴に商品がありません。';
         }

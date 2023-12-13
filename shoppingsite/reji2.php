@@ -25,10 +25,9 @@
     letter-spacing: 0.5em;
     text-indent: 0.5em;/*letter-spacingと同じサイズのemを書く */
 }
+
 /* -----------------確定-------------------- */
 .kaku {
-    display: flex;
-    justify-content: center;
     align-items: center;
     width: 250px;
     margin: 0 auto;
@@ -49,8 +48,6 @@
 
 /* -------戻るボタン--------*/
 .modo {
-    display: flex;
-    justify-content: center;
     align-items: center;
     width: 250px;
     margin: 0 auto;
@@ -82,7 +79,6 @@
         $zyuusho1 = $_POST['zyuusho1'];
         $zyuusho2 = $_POST['zyuusho2'];
         $manshon = $_POST['manshon'];
-        $call = $_POST['call'];
         $mail = $_POST['mail'];
         $okuri = $_POST['okuri'];
         $harai = $_POST['harai'];
@@ -117,11 +113,6 @@
             </div>
 
             
-            <h2>電話番号</h2>
-            <div class="input-area">
-                <h2><?php echo htmlspecialchars($call,ENT_QUOTES,'UTF-8');?></h2>
-            </div>
-           
 
             
             <h2>メールアドレス</h2>
@@ -153,8 +144,12 @@
             echo '<input type="hidden" name="harai" value="', $harai, '">';
            ?>
 
-            <p><input type="button" onclick="history.back()" value="戻る" class="modo"></p>
-            <p><button class="kaku">商品購入を確定する</button></p>
+            <table>
+            <tr>
+            <td><input type="button" onclick="history.back()" value="戻る" class="modo"></td>
+            <td><button class="kaku">商品の購入を確定</button></td>
+            </tr>
+            </table>
             </form>
         </label>
         <?php require 'footer.php'; ?>
