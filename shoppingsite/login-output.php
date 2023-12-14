@@ -32,7 +32,7 @@
 
     button {
         display: block; /* 変更：ブロック要素に変更 */
-        width: 100%; /* 変更：横幅を100%に設定 */
+        width: 150px; /* 変更：横幅を100%に設定 */
         margin: 10px 0; /* 変更：マージンを設定 */
         padding: 10px 20px;
         font-size: 16px;
@@ -58,7 +58,8 @@
 
     .image-container {
         display: flex;
-        flex-direction: column; /* 変更：縦に並べるように設定 */
+        flex-wrap: nowrap;
+    justify-content: space-around;
         align-items: center;
     }
 
@@ -96,10 +97,12 @@
         echo '<p>ログインに成功しました。</p>';
         echo '<p>ようこそ、', $_SESSION['user']['kana'], '様。</p>';
         echo '<div class="image-container">';
-        echo '<a href="home.php"><img src="image/home.png" alt=""></a>';
-        echo '<button class="home-btn" onclick="location.href=\'home.php\'">ホームへ</button>';
-        echo '<a href="mypage.php"><img src="image/my.png" alt=""></a>';
-        echo '<button class="mypage-btn" onclick="location.href=\'mypage.php\'">マイページへ</button>';
+        echo '<div class="home">';
+        echo '<a href="home.php"><img src="image/home.png" alt="" style="width: 150px;"></a>';
+        echo '<button class="home-btn" onclick="location.href=\'home.php\'">ホームへ</button></div>';
+        echo '<div class="mypage">';
+        echo '<a href="mypage.php"><img src="image/my.png" alt="" style="width: 150px;"></a>';
+        echo '<button class="mypage-btn" onclick="location.href=\'mypage.php\'">マイページへ</button></div>';
         echo '</div>';
         echo '</div>';
     } else {
