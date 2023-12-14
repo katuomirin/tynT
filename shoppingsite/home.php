@@ -34,7 +34,7 @@
 		<div class="inner">
 			<div id="info" class="grid">
 				<div class="logo">
-					<a href="home.php"  rel="home">ちゅんＴオリジナルＴシャツ<span>OriginalT-shirt</span></a>
+					<a href="home.php" rel="home">ちゅんＴオリジナルＴシャツ<span>OriginalT-shirt</span></a>
 				</div>
 				<div class="info">
 					<p class="tel"><span>電話:</span> 0120-000-000</p>
