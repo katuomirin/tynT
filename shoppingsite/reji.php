@@ -198,6 +198,7 @@ echo '</td></tr>';
     echo '    <div class="input-area">';
     echo '     <h3>お届け先住所<h3>';
     echo '     <input type="text" class="text" name="yuubin" placeholder="郵便番号" value="', $post_code, '" required/><br>';
+    echo '     <input type="text" class="text" name="yuubin" placeholder="都道府県" value="', $prefectures, '" required/><br>';
     echo '     <input type="text" class="text" name="zyuusho1" placeholder="住所1" value="', $address1, '" required/><br>';
     echo '     <input type="text" class="text" name="zyuusho2" placeholder="住所2" value="', $address2, '" required/><br>';
     echo '     <input type="text" class="text" name="manshon" value="', $manshon, '" placeholder="例）マンション　101"/>';
