@@ -44,7 +44,6 @@
 			<div class="menu">
 				<ul class="footnav">
 					<a href="home.php">ちゅんTオリジナルTシャツ作成</a>
-					<a href="sample.html">株式会社</a>
 					<a href="kiyaku.php">利用規約</a>
 					<a href="create.php">デザイン作成方法</a>
 					<a href="contact.php">お問い合わせ</a>
