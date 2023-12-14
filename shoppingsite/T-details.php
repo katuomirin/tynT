@@ -443,19 +443,19 @@ window.addEventListener('DOMContentLoaded',function(){
         }
         ?>
         <div class="shosai">
-            <p class="hasso">発送までの目安</p>
+            <div class="hasso">発送までの目安</div><br>
             ご注文翌日より2週間程度でのお届けとなります。<br>
             <br>
-            <p class="soryo">送料</p>
+            <div class="soryo">送料</div><br>
             一律５００円とさせていただきます。<br>
             <br>
-            <p class="siharai">お支払方法</p>
+            <div class="siharai">お支払方法</div><br>
             クレジットカード<br>
             コンビニ<br>
             銀行振込<br>
             着払い<br>
             <br>
-            <p class="mitumori">見積書</p>
+            <div class="mitumori">見積書</div><br>
             お見積書の対応はできません。ご注文を進めていただくと、カート内画面に、ご注文金額の記載がありますので、ご注文画面でご確認ください。<br>
         </div>
     </div>
