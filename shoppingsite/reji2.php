@@ -107,12 +107,11 @@
             <h2>お届け先住所</h2>
             <div class="input-area">
                 <h2><?php echo htmlspecialchars($yuubin,ENT_QUOTES,'UTF-8');?><br>
+                <?php echo htmlspecialchars($prefectures,ENT_QUOTES,'UTF-8');?><br>
                 <?php echo htmlspecialchars($zyuusho1,ENT_QUOTES,'UTF-8');?><br>
                 <?php echo htmlspecialchars($zyuusho2,ENT_QUOTES,'UTF-8');?><br>
                 <?php echo htmlspecialchars($manshon,ENT_QUOTES,'UTF-8');?></h2>
             </div>
-
-            
 
             
             <h2>メールアドレス</h2>
