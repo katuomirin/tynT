@@ -6,7 +6,7 @@
 <body>
     <ol class="breadcrumb-001">
         <li><a href="./home.php">ホーム</a></li>
-        <li><a href="./T-shirt-list.php">Ｔシャツ</a></li>
+        <li><a href="./Polo-shirt-list.php">ポロシャツ</a></li>
     </ol>
         <?php
         $T="ポロシャツ";
@@ -38,7 +38,7 @@
                 $id = $row['id'];
                 echo '<div class="shohins">';
                 echo '<a href="T-details.php?id=', $id, '"><img class="img" alt="image" src="image/',$row['image'], '.png"></a><br>';
-                echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a>';
+                echo '<a class="nametag" href="T-details.php?id=', $id, '">', $row['name'], '</a>';
                 echo '<p class="price">', $row['price'], '</p></div>';
             }
         }

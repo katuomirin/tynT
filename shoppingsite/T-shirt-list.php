@@ -27,7 +27,7 @@
                     echo 'is-checked';
                 }
                 echo '"></div>';
-                echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a>';
+                echo '<a class="nametag" href="T-details.php?id=', $id, '">', $row['name'], '</a>';
                 echo '<p class="price">', $row['price'], '</p></div></div>';
             }
         }else{
