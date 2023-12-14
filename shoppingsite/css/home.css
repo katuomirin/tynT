@@ -1,7 +1,7 @@
 /* Footer Styles */
 #footer {
     clear: both;
-    background-color: #f0fcff; /* グレーに変更 */
+    background-color: #f5f9ff; /* グレーに変更 */
     text-align: center; /* 中央に配置 */
 }
 
@@ -37,13 +37,14 @@
     font-size: 18px;
     display: inline-block; /* ブロック要素に変更 */
     padding: 10px; /* 必要に応じて適切なパディングを設定 */
-    background-color: #f0fcff; /* 水色の背景色に設定 */
+    background-color: #f5f9ff; /* 水色の背景色に設定 */
     text-decoration: none; /* リンクの下線を削除 */
     max-width: 100%; /* ページ幅いっぱいに広げる */
     box-sizing: border-box; /* ボックスモデルの影響を受けないようにする */
 }
 
 #footer .logo a {
+    font-weight: bold;
     display: block; /* ブロック要素に変更 */
     margin: 0 auto; /* 左右の余白を自動で均等にする */
 }
