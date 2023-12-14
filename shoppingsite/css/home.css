@@ -1,6 +1,8 @@
 /* Footer Styles */
 #footer {
     clear: both;
+    background-color: #f0fcff; /* グレーに変更 */
+    text-align: center; /* 中央に配置 */
 }
 
 #footer a {
@@ -14,14 +16,17 @@
 #footer .inner {
     padding: 40px 0;
     overflow: hidden;
+    display: inline-block; /* ブロック要素に変更 */
 }
 
 #footer .grid {
-    margin: 0;
+    margin: 0 auto; /* 左右の余白を自動で均等にする */
+    text-align: left; /* テキストは左寄せに */
 }
 
 #footer #info {
-    float: left;
+    float: none; /* float解除 */
+    display: inline-block; /* ブロック要素に変更 */
 }
 
 #footer #info .info {
@@ -30,18 +35,33 @@
 
 #footer .logo {
     font-size: 18px;
+    display: inline-block; /* ブロック要素に変更 */
+    padding: 10px; /* 必要に応じて適切なパディングを設定 */
+    background-color: #f0fcff; /* 水色の背景色に設定 */
+    text-decoration: none; /* リンクの下線を削除 */
+    max-width: 100%; /* ページ幅いっぱいに広げる */
+    box-sizing: border-box; /* ボックスモデルの影響を受けないようにする */
+}
+
+#footer .logo a {
+    display: block; /* ブロック要素に変更 */
+    margin: 0 auto; /* 左右の余白を自動で均等にする */
+}
+
+#footer .logo span {
+    display: block; /* span要素をブロック要素に変更して改行させる */
 }
 
 #footer .info .tel,
 #footer .info .tel span,
 #footer #info .open {
-    font-size: 12px;
+    font-size: 14px;
 }
 
 ul.footnav {
-    float: right;
-    width: 620px;
+    width: 100%; /* ページ幅いっぱいに広げる */
     padding: 10px 0;
+    text-align: center; /* 中央に配置 */
 }
 
 ul.footnav ul {
@@ -49,10 +69,9 @@ ul.footnav ul {
 }
 
 ul.footnav li {
-    float: left;
-    margin: 10px 0 10px 0;
-    padding: 0 7px 0 8px;
-    border-right: 1px solid #ebebeb;
+    display: inline-block; /* インラインブロックに変更 */
+    margin: 10px 8px; /* 適切な余白 */
+    border-right: 1px solid #434343;
 }
 
 #copyright {
@@ -61,5 +80,5 @@ ul.footnav li {
     text-align: center;
     font-style: normal;
     font-size: 10px;
-    color: #555555;
+    color: #c7c7c7;
 }

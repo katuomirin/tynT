@@ -108,6 +108,9 @@
     } else {
         echo '<div class="login-error">';
         echo '<p>ログイン名またはパスワードが違います。</p>';
+        echo '<div class="image-container">';
+        echo '<a href="login.php"><img src="image/onegai.png" style="height: 300px; width:300px;" alt=""></a>';
+        echo '<button class="home-btn" onclick="location.href=\'login.php\'">再度ログイン</button>';
         echo '</div>';
     }
     ?>

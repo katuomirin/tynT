@@ -268,7 +268,7 @@ nav .inner ul li a:hover {
 <body>
 <div class="Header">
 <a href="home.php" target="_self">
-  <img src="./image/nin.jpg" alt="ホーム" width="50" height="50" border="0">
+  <img src="./image/logo.png" alt="ホーム" width="50" height="50" border="0">
 </a>
     <!-- 検索ボックスを追加 -->
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
