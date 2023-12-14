@@ -337,8 +337,7 @@ nav .inner ul li a:hover {
         </li>
         <li><a href="create.php">オリジナルTシャツ</a></li>
         <li><a href="contact.php">お問い合わせ</a></li>
-        <li><a href="#">ほーむ</a></li>
-        <li><a href="#"></a></li>
+        <li><a href="kiyaku.php">利用規約</a></li>
       </ul>
     </div>
   </nav>
