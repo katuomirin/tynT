@@ -315,7 +315,6 @@ nav .inner ul li a:hover {
 </a>
 
 </div>
-
 <main>
   <!-- ここにコンテンツを追加 -->
 </main>

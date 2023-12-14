@@ -5,6 +5,9 @@
             margin: 0;
             padding: 0;
         }
+        a{
+            color: #447ac5;
+        }
 
         .container {
             max-width: 800px;
@@ -24,7 +27,7 @@
         th, td {
             border: 1px solid #ddd;
             padding: 8px;
-            text-align: left;
+            text-align: center;
         }
 
         th {

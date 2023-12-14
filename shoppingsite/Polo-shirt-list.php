@@ -6,7 +6,7 @@
 <body>
     <ol class="breadcrumb-001">
         <li><a href="./home.php">ホーム</a></li>
-        <li><a href="./T-shirt-list.php">Ｔシャツ</a></li>
+        <li><a href="./Polo-shirt-list.php">ポロシャツ</a></li>
     </ol>
         <?php
         $T="ポロシャツ";

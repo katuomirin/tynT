@@ -6,6 +6,7 @@ body {
   overflow-x: hidden; /* 横スクロールを防ぐ */
   text-align: left;
   margin: 0;
+  padding: 0;
 }
 .total{
   margin: 0;
@@ -56,8 +57,9 @@ body {
   color: #333333;
   text-decoration: none;
 }
-.a{
+a{
   color: #447ac5;
+  text-decoration: none;
 }
 .ex{
   margin: 0;
@@ -120,7 +122,7 @@ body {
 .font4,.font44{
   line-height: 1px;
   color: red;
-  font-size: 0.7em;
+  font-size: 0.9em;
 }
 .position{
   line-height: 3px;
@@ -154,6 +156,7 @@ body {
 
 .hasso, .soryo, .siharai,.mitumori {
   line-height: 0.2px;
+  font-weight: bold;
   font-size: 1.2em;
 }
 /*テーブル*/
