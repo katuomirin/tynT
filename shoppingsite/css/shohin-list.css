@@ -56,6 +56,12 @@ body {
   color: #333333;
   text-decoration: none;
 }
+.a{
+  color: #447ac5;
+}
+.ex{
+  margin: 0;
+}
 
 .shohin-item {
   padding: 100px;
@@ -91,7 +97,7 @@ body {
 /*フォント*/
 .font1{
   font-size: 3em;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family:Comic Sans MS;
   line-height: 0.5;
   margin: 0 auto;
 }
@@ -111,9 +117,10 @@ body {
   padding-top: 1em;
   line-height: 1px;
 }
-.font4{
+.font4,.font44{
   line-height: 1px;
   color: red;
+  font-size: 0.7em;
 }
 .position{
   line-height: 3px;
@@ -144,11 +151,8 @@ body {
   right: 0;
 }
 
-.shosai{
-  line-height: 0.02px;
-}
 
-.hasso, .soryo, .siharai{
+.hasso, .soryo, .siharai,.mitumori {
   line-height: 0.2px;
   font-size: 1.2em;
 }

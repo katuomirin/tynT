@@ -24,10 +24,10 @@
 <h1>お客様のデザイン例</h1>
 
 <div class="slider">
-<img src="image/tyun.png" width="500" height="500" alt="">
-<img src="image/kikuya.png" width="300" height="500" alt="">
-<img src="image/tyun.png" width="500" height="500" alt="">
-<img src="image/ninja.png" width="300" height="500" alt="">
+<img src="image/tyun2.png" width="500" height="500" alt="">
+<img src="image/kikuya2.png" width="300" height="500" alt="">
+<img src="image/tyun2.png" width="500" height="500" alt="">
+<img src="image/ninja2.png" width="300" height="500" alt="">
 </div>
 
 <footer id="footer">

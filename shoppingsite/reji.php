@@ -180,7 +180,7 @@ if(isset($_SESSION['user'])){
     $kanji=$_SESSION['user']['kanji'];
     $email=$_SESSION['user']['email'];
     $post_code=$_SESSION['user']['post_code'];
-    $prefectures=$_SESSION['user']['prefectures'];
+    $address=$_SESSION['user']['prefectures'];
     $address1=$_SESSION['user']['address1'];
     $address2=$_SESSION['user']['address2'];
     $manshon=$_SESSION['user']['manshon'];
@@ -198,7 +198,7 @@ echo '</td></tr>';
     echo '    <div class="input-area">';
     echo '     <h3>お届け先住所<h3>';
     echo '     <input type="text" class="text" name="yuubin" placeholder="郵便番号" value="', $post_code, '" required/><br>';
-    echo '     <input type="text" class="text" name="yuubin" placeholder="都道府県" value="', $prefectures, '" required/><br>';
+    echo '     <input type="text" class="text" name="address" placeholder="都道府県" value="', $address, '" required/><br>';
     echo '     <input type="text" class="text" name="zyuusho1" placeholder="住所1" value="', $address1, '" required/><br>';
     echo '     <input type="text" class="text" name="zyuusho2" placeholder="住所2" value="', $address2, '" required/><br>';
     echo '     <input type="text" class="text" name="manshon" value="', $manshon, '" placeholder="例）マンション　101"/>';
@@ -237,7 +237,7 @@ echo '</td></tr>';
 
     echo '    <table>';
     echo '    <tr>';
-    echo '    <td>',  '<input type="button" onclick="history.back()" value="戻る" class="modo">', '</td>';
+    echo '    <td>',  '<input type="button" onclick="history.back()" value="カートへ戻る" class="modo">', '</td>';
     echo '    <td>',  '<button class="kaku">確認</button>', '</td>';
     echo '    </tr>';
     echo '    </table>';

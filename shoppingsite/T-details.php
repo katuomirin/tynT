@@ -327,9 +327,10 @@ window.addEventListener('DOMContentLoaded',function(){
             echo '"></div></div>';
         }
         echo '<p class="font2"><nobr>￥', $row['price'], '</nobr></p></div>';
-        echo '<p>', $row['ex'], '<br>';
+        echo '<p class="ex">', $row['ex'], '<br>';
         echo '素材:', $row['sozai'], '<br>';
         echo 'カラー:', $row['color'], '</p>';
+        echo '<p class="font44">※カラーはデザイン提出時に記入してください。</p>';
         echo '<div class="T-shirt-option">';
         echo '<p class="font3">加工位置を選択してください</p>';
         echo '<p class="font4">※加工費は一律５００円です。また、１枚ずつ掛かりますのでご了承ください</p>';
@@ -441,7 +442,7 @@ window.addEventListener('DOMContentLoaded',function(){
         echo '<img src="./image/t.png" alt="プリント位置" width="100%">';
         }
         ?>
-        <p class="shosai">
+        <div class="shosai">
             <p class="hasso">発送までの目安</p>
             ご注文翌日より2週間程度でのお届けとなります。<br>
             <br>
@@ -454,9 +455,9 @@ window.addEventListener('DOMContentLoaded',function(){
             銀行振込<br>
             着払い<br>
             <br>
-            <p>見積書</p>
+            <p class="mitumori">見積書</p>
             お見積書の対応はできません。ご注文を進めていただくと、カート内画面に、ご注文金額の記載がありますので、ご注文画面でご確認ください。<br>
-        </p>
+        </div>
     </div>
     </div>
 </body>
