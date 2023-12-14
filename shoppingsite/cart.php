@@ -112,16 +112,25 @@
         <form action="home.php">
             <button class="modo">ホームへ戻る</button>
         </form>
-
-        <form action="reji.php" method="post">
-            <?php
+    <?php
+        if(isset($_SESSION['user'])){
+            echo '<form action="reji.php" method="post">';
             if (!empty($_SESSION['product']) && $product['subtotal']) {
                 echo '<button class="susumu">レジに進む</button>';
                 $_SESSION['total'] = $total;
             } else {
                 echo '<button class="susumu" disabled>レジに進む</button>';
             }
-            ?>
+        }else{
+            echo '<form action="reji-guest.php" method="post">';
+            if (!empty($_SESSION['product']) && $product['subtotal']) {
+                echo '<button class="susumu">レジに進む</button>';
+                $_SESSION['total'] = $total;
+            } else {
+                echo '<button class="susumu" disabled>レジに進む</button>';
+            }
+        }
+        ?>
         </form>
     </div>
 </div>

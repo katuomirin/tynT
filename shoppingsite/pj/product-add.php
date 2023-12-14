@@ -13,10 +13,13 @@
 <?php require 'header.php'; ?>
 <div class="container">
 <?php
-$name = $ex = $price = $size = $color = $category = $sozai = $zaiko = $image = '';
+$id = $name = $ex = $price = $size = $color = $category = $sozai = $zaiko = $image = '';
 
 echo '<form action="product-add-output.php" method="post" enctype="multipart/form-data">';
 echo '<table>';
+echo '<tr><td>商品番号</td>';
+echo '<td><input type="text" name="id" value="', $id , '">';
+echo '</td></tr>';
 echo '<tr><td>商品名</td>';
 echo '<td><input type="text" name="name" value="', $name , '">';
 echo '</td></tr>';
