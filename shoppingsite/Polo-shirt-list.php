@@ -38,7 +38,7 @@
                 $id = $row['id'];
                 echo '<div class="shohins">';
                 echo '<a href="T-details.php?id=', $id, '"><img class="img" alt="image" src="image/',$row['image'], '.png"></a><br>';
-                echo '<a class="nametag" href="T-details.php?id=', $id, '">', $row['name'], '</a>';
+                echo '<a href="T-details.php?id=', $id, '">', $row['name'], '</a>';
                 echo '<p class="price">', $row['price'], '</p></div>';
             }
         }
