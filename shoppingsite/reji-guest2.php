@@ -7,6 +7,11 @@
     align-items: center; 
 }
 
+.modokaku{
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
 /* ---------------------テキストの表示---------------------------------- */
 .input-area{
     text-align: center;
@@ -26,10 +31,8 @@
     text-indent: 0.5em;/*letter-spacingと同じサイズのemを書く */
 }
 /* -----------------確定-------------------- */
-.kaku {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.kaku, .modo {
+    text-align: center;
     width: 250px;
     margin: 0 auto;
     padding: .9em 2em;
@@ -46,22 +49,6 @@
     color: #fff;
     font-weight: 600;
 }
-
-/* -------戻るボタン--------*/
-.modo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 250px;
-    margin: 0 auto;
-    padding: .9em 2em;
-    border: 1px solid #2589d0;
-    border-radius: 5px;
-    background-color: #fff;
-    color: #2589d0;
-    font-size: 1em;
-}
-
 .modo:hover {
     border: none;
     background-color: #2589d0;
@@ -111,7 +98,6 @@
             <h2>お届け先住所</h2>
             <div class="input-area">
                 <h2><?php echo htmlspecialchars($yuubin,ENT_QUOTES,'UTF-8');?><br>
-                <?php echo htmlspecialchars($email,ENT_QUOTES,'UTF-8');?><br>
                 <?php echo htmlspecialchars($prefecture,ENT_QUOTES,'UTF-8');?><br>
                 <?php echo htmlspecialchars($zyuusho1,ENT_QUOTES,'UTF-8');?><br>
                 <?php echo htmlspecialchars($zyuusho2,ENT_QUOTES,'UTF-8');?><br>
@@ -156,9 +142,16 @@
             echo '<input type="hidden" name="harai" value="', $harai, '">';
            ?>
 
-            <p><input type="button" onclick="history.back()" value="戻る" class="modo"></p>
-            <p><button class="kaku">商品購入を確定する</button></p>
+            <div class="modokaku">
+            <table>
+            <tr>
+            <td><button type="button" onclick="history.back()" value="戻る" class="modo">カートへ戻る</button></td>
+            <td><button class="kaku">商品の購入を確定</button></td>
+            </tr>
+            </table>
+            </div>
             </form>
-        </label>
+            </label>
+           
         <?php require 'footer.php'; ?>
     </body>
