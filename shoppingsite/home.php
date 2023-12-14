@@ -34,7 +34,7 @@
 		<div class="inner">
 			<div id="info" class="grid">
 				<div class="logo">
-					<a href="home.php" rel="home">ちゅんＴオリジナルＴシャツ<span>OriginalT-shirt</span></a>
+					<a href="home.php" rel="home">ちゅんＴオリジナル<span>Ｔシャツ</span><span>OriginalT-shirt</span></a>
 				</div>
 				<div class="info">
 					<p class="tel"><span>電話:</span> 0120-000-000</p>
@@ -45,7 +45,7 @@
 				<ul class="footnav">
 					<a href="home.php">ちゅんTオリジナルTシャツ作成</a>
 					<a href="sample.html">株式会社</a>
-					<a href="sample.html">利用規約</a>
+					<a href="kiyaku.php">利用規約</a>
 					<a href="create.php">デザイン作成方法</a>
 					<a href="contact.php">お問い合わせ</a>
 			</div>
