@@ -326,7 +326,7 @@ window.addEventListener('DOMContentLoaded',function(){
             }
             echo '"></div></div>';
         }
-        echo '<p class="font2"><nobr>￥', $row['price'], '</nobr></p></div>';
+        echo '<p class="font2"><nobr>￥', number_format($row['price']), '</nobr></p></div>';
         echo '<p class="ex">', $row['ex'], '<br>';
         echo '素材:', $row['sozai'], '<br>';
         echo 'カラー:', $row['color'], '</p>';
@@ -462,9 +462,7 @@ window.addEventListener('DOMContentLoaded',function(){
     </div>
 </body>
 
-<div class="footer">
-    <?php require 'footer.php'; ?>
-</div>
+
 <?php
 //ユーザーIDと商品IDを元にお気に入り値の重複チェックを行っています
 function check_favolite_duplicate($user_id,$product_id){
@@ -479,3 +477,7 @@ function check_favolite_duplicate($user_id,$product_id){
     return $favorite;
 }
 ?>
+
+<div class="footer">
+    <?php require 'footer.php'; ?>
+</div>
