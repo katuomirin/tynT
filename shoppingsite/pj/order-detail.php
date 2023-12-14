@@ -13,15 +13,15 @@
 <?php
         $pdo = new PDO($connect, USER, PASS);
         $sql=$pdo->prepare('select * from oder where id=?');
-        $sql->execute([$_REQUEST['id']]);
+        $sql->execute([$_GET['id']]);
         foreach($sql as $row){
         echo '<div class="container">';
         
         echo '</div>'; // Closing the .image div
         echo '<div class="content">';
         echo '<table>';
-        echo '<tr><td>注文番号：</td><td>' . $row['id'] . '</td></tr>';
-        echo '<tr><td>顧客番号：</td><td>' . $row['user_id'] . '</td></tr>';
+        echo '<tr><td>注文番号：</td><td><a href="order-detail2.php?id=' . htmlspecialchars($row['id']) . '">', htmlspecialchars($row['id']), '</a></td><tr>';
+        echo '<tr><td>顧客番号：</td><td><a href="cus-detail.php?id=' . htmlspecialchars($row['user_id']) . '">', htmlspecialchars($row['user_id']), '</a></td><tr>';
         //echo '<tr><td>名前（フリガナ）：</td><td>' . $row['kana'] . '</td></tr>';
         echo '<tr><td>注文日：</td><td>' . $row['day'] . '</td></tr>';
         echo '<tr><td>オリジナルTシャツの送り方：</td><td>' . $row['send-T-shirt'] . '</td></tr>';

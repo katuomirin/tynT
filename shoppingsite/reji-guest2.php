@@ -12,7 +12,6 @@
     justify-content: center; 
     align-items: center; 
 }
-
 /* ---------------------テキストの表示---------------------------------- */
 .input-area{
     text-align: center;
@@ -31,7 +30,6 @@
     letter-spacing: 0.5em;
     text-indent: 0.5em;/*letter-spacingと同じサイズのemを書く */
 }
-
 /* -----------------確定-------------------- */
 .kaku, .modo {
     text-align: center;
@@ -57,6 +55,7 @@
     color: #fff;
     font-weight: 600;
 }
+
 </style>
 <?php
         if($_SERVER["REQUEST_METHOD"] != "POST"){
@@ -67,11 +66,11 @@
         $kanji = $_POST['kanji'];
         $kana = $_POST['kana'];
         $yuubin = $_POST['yuubin'];
-        $address = $_POST['address'];
+        $prefecture = $_POST['prefecture'];
         $zyuusho1 = $_POST['zyuusho1'];
         $zyuusho2 = $_POST['zyuusho2'];
         $manshon = $_POST['manshon'];
-        $mail = $_POST['mail'];
+        $email = $_POST['email'];
         $okuri = $_POST['okuri'];
         $harai = $_POST['harai'];
 ?>
@@ -81,7 +80,7 @@
     <body>
     <?php $total = $_SESSION['total'];?>
     <label class="zenbu">
-        <form action="reji_end.php" method="post">
+        <form action="reji-guest-end.php" method="post">
 
             <h2>名前(漢字)</h2>
             <div class="input-area">
@@ -99,16 +98,17 @@
             <h2>お届け先住所</h2>
             <div class="input-area">
                 <h2><?php echo htmlspecialchars($yuubin,ENT_QUOTES,'UTF-8');?><br>
-                <?php echo htmlspecialchars($address,ENT_QUOTES,'UTF-8');?><br>
+                <?php echo htmlspecialchars($prefecture,ENT_QUOTES,'UTF-8');?><br>
                 <?php echo htmlspecialchars($zyuusho1,ENT_QUOTES,'UTF-8');?><br>
                 <?php echo htmlspecialchars($zyuusho2,ENT_QUOTES,'UTF-8');?><br>
                 <?php echo htmlspecialchars($manshon,ENT_QUOTES,'UTF-8');?></h2>
             </div>
+           
 
             
             <h2>メールアドレス</h2>
             <div class="input-area">
-                <h2><?php echo htmlspecialchars($mail,ENT_QUOTES,'UTF-8');?></h2>
+                <h2><?php echo htmlspecialchars($email,ENT_QUOTES,'UTF-8');?></h2>
             </div>
             
 
@@ -130,22 +130,28 @@
             </div>
 
             <?php
-            echo '<input type="hidden" name="id" value="', $id, '">';
+            echo '<input type="hidden" name="kanji" value="', $kanji, '">';
+            echo '<input type="hidden" name="kana" value="', $kana, '">';
+            echo '<input type="hidden" name="yuubin" value="', $yuubin, '">';
+            echo '<input type="hidden" name="prefecture" value="', $prefecture, '">';
+            echo '<input type="hidden" name="zyuusho1" value="', $zyuusho1, '">';
+            echo '<input type="hidden" name="zyuusho2" value="', $zyuusho2, '">';
+            echo '<input type="hidden" name="manshon" value="', $manshon, '">';
+            echo '<input type="hidden" name="email" value="', $email, '">';
             echo '<input type="hidden" name="okuri" value="', $okuri, '">';
             echo '<input type="hidden" name="harai" value="', $harai, '">';
            ?>
-          
-        
-        <div class="modokaku">
+
+            <div class="modokaku">
             <table>
             <tr>
-            <td><button type="button" onclick="history.back()" value="戻る" class="modo">戻る</button></td>
+            <td><button type="button" onclick="history.back()" value="戻る" class="modo">カートへ戻る</button></td>
             <td><button class="kaku">商品の購入を確定</button></td>
             </tr>
             </table>
             </div>
             </form>
-        </label>
-
+            </label>
+           
         <?php require 'footer.php'; ?>
     </body>

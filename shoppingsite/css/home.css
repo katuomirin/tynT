@@ -1,0 +1,65 @@
+/* Footer Styles */
+#footer {
+    clear: both;
+}
+
+#footer a {
+    color: #555;
+}
+
+#footer a:hover {
+    color: #999;
+}
+
+#footer .inner {
+    padding: 40px 0;
+    overflow: hidden;
+}
+
+#footer .grid {
+    margin: 0;
+}
+
+#footer #info {
+    float: left;
+}
+
+#footer #info .info {
+    float: none;
+}
+
+#footer .logo {
+    font-size: 18px;
+}
+
+#footer .info .tel,
+#footer .info .tel span,
+#footer #info .open {
+    font-size: 12px;
+}
+
+ul.footnav {
+    float: right;
+    width: 620px;
+    padding: 10px 0;
+}
+
+ul.footnav ul {
+    display: none;
+}
+
+ul.footnav li {
+    float: left;
+    margin: 10px 0 10px 0;
+    padding: 0 7px 0 8px;
+    border-right: 1px solid #ebebeb;
+}
+
+#copyright {
+    clear: both;
+    padding: 20px 0 10px 0;
+    text-align: center;
+    font-style: normal;
+    font-size: 10px;
+    color: #555555;
+}

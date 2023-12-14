@@ -19,6 +19,7 @@
 $pdo=new PDO($connect,USER,PASS);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $id = $_POST['id'];
     $name = $_POST['name'];
     $ex = $_POST['ex'];
     $price = $_POST['price'];
@@ -32,14 +33,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Validation and sanitization of inputs should be done here
 
     // Prepare the SQL statement to insert the new product
-$sql = $pdo->prepare('INSERT INTO product (name, ex, price, size, color, category, sozai, zaiko, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
+$sql = $pdo->prepare('INSERT INTO product (id,name, ex, price, size, color, category, sozai, zaiko, image) VALUES (?,?, ?, ?, ?, ?, ?, ?, ?, ?)');
 
 
     // Execute the query with the form data
    
 
     
-    $sql->execute([$name, $ex, $price, $size, $color, $category, $sozai, $zaiko, $image]);
+    $sql->execute([$id,$name, $ex, $price, $size, $color, $category, $sozai, $zaiko, $image]);
     if ($sql->rowCount() > 0) {
         echo '新しい製品情報を登録しました。'; // "New product information has been registered."
     } else {

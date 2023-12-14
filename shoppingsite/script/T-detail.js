@@ -9,6 +9,7 @@ $(document).ready(function () {
 
 function calculateSubtotal(subtotalId, quantityInputId, price) {
     var quantity = parseInt(document.getElementById(quantityInputId).value) || 0;
+    
     var subtotal = quantity * price;
 
     // 数量が数字であることを確認
