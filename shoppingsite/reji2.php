@@ -33,7 +33,7 @@
 }
 
 /* -----------------確定-------------------- */
-.kaku, .modo {
+.kaku{
     text-align: center;
     width: 250px;
     margin: 0 auto;
@@ -46,13 +46,23 @@
 }
 
 .kaku:hover {
-    border: none;
     background-color: #2589d0;
     color: #fff;
     font-weight: 600;
 }
+
+.modo{
+    text-align: center;
+    width: 250px;
+    margin: 0 auto;
+    padding: .9em 2em;
+    border: 1px solid #2589d0;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #2589d0;
+    font-size: 1em;
+}
 .modo:hover {
-    border: none;
     background-color: #2589d0;
     color: #fff;
     font-weight: 600;
