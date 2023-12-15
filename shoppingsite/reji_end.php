@@ -36,7 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
     
 // Insert data into oder_detail table using the last inserted ID
 foreach ($_SESSION['product'] as $id => $product) {
-
     $product_id = $id;
     $color = '';
     $count=$product['quantity'];
