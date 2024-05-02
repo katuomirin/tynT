@@ -1,3 +1,2 @@
 # tynT
-##なんも分からん
-ごめんガチ分からん
+https://aso2201236.girlfriend.jp/php2/shoppingsite/home.php
